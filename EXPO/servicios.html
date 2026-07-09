@@ -3,161 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENYA | Services</title>
+    <title>SENYA | Technical Support</title>
 
-    <link rel="stylesheet" href="servicios.css">
+    <link rel="stylesheet" href="css/soporte.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-
     <header>
-
-        <div class="logo">
+        <div class="logo" role="img" aria-label="SENYA Logo">
             SEN<span class="logo-y">Y</span>A
         </div>
-
-        <nav>
+        <nav aria-label="Menú principal">
             <a href="index.html">Home</a>
             <a href="servicios1.html">Services</a>
             <a href="profile.html">Profile</a>
             <a href="about.html">About Us</a>
             <a href="soporte.html">Contact</a>
         </nav>
-
-        <button class="btn-help">
-            Get Help
-        </button>
-
+        <button class="btn-help" aria-label="Obtener ayuda y soporte técnico">Get Help</button>
     </header>
 
-    <!-- MAIN CONTENT -->
 
-    <main class="services-container">
+    <!-- CONTENIDO -->
 
-        <h1>Inclusive Communication Services</h1>
+    <main class="support-container">
 
-        <p class="intro-text">
-            SENYA is an innovative communication center designed to connect hearing,
-            deaf, and speech-impaired individuals. Through professional sign language
-            interpreters and accessible technology, we ensure that everyone can
-            communicate without barriers.
-        </p>
+        <h1>Technical Support</h1>
 
-        <!-- SERVICES -->
+        <div class="cards-container">
 
-        <section class="services-grid">
+            <!-- CONNECTION ISSUES -->
 
-            <article class="service-card">
+            <div class="card">
+                <div class="icon">📶</div>
 
-                <div class="service-icon">📞</div>
-
-                <h2>Customer Support</h2>
+                <h2>Connection Issues</h2>
 
                 <p>
-                    Traditional call center services for hearing users who need
-                    assistance, information, or customer support.
+                    Having trouble connecting to SENYA?
+                    Let us know what happened.
                 </p>
 
-                <ul>
-                    <li>Quick response times</li>
-                    <li>Professional assistance</li>
-                    <li>Reliable communication</li>
-                </ul>
+                <textarea placeholder="Describe your issue..."></textarea>
 
-            </article>
+                <button class="card-btn">
+                    Send Report
+                </button>
+            </div>
 
-            <article class="service-card">
+            <!-- TEXT CHAT -->
 
-                <div class="service-icon">🤟</div>
+            <div class="card">
+                <div class="icon">💬</div>
 
-                <h2>Sign Language Interpretation</h2>
+                <h2>Text Chat</h2>
 
                 <p>
-                    Connect with certified sign language interpreters through
-                    live video calls for smooth and effective communication.
+                    Contact our support team directly.
                 </p>
 
-                <ul>
-                    <li>Real-time interpretation</li>
-                    <li>Accessible video support</li>
-                    <li>Certified professionals</li>
-                </ul>
+                <textarea placeholder="Type your message..."></textarea>
 
-            </article>
+                <button class="card-btn">
+                    Send Message
+                </button>
+            </div>
 
-            <article class="service-card">
+            <!-- COMPLAINTS -->
 
-                <div class="service-icon">🌍</div>
+            <div class="card">
+                <div class="icon">🎧</div>
 
-                <h2>Inclusive Communication</h2>
+                <h2>Complaints & Call Issues</h2>
 
                 <p>
-                    We bridge communication gaps between hearing and deaf users,
-                    creating a more inclusive experience for everyone.
+                    Report interpreter or call quality issues.
                 </p>
 
-                <ul>
-                    <li>Barrier-free interaction</li>
-                    <li>Accessible technology</li>
-                    <li>24/7 availability</li>
-                </ul>
+                <textarea placeholder="Describe the problem..."></textarea>
 
-            </article>
+                <button class="card-btn">
+                    Submit
+                </button>
+            </div>
 
-        </section>
+            <!-- BILLING -->
 
-        <!-- ABOUT -->
+            <div class="card">
+                <div class="icon">💳</div>
 
-        <section class="about-card">
+                <h2>Bills & Discrepancies</h2>
 
-            <h2>About SENYA</h2>
+                <p>
+                    Problems with charges or payments.
+                </p>
 
-            <p>
-                SENYA was created to eliminate communication barriers and promote
-                equal access to information and services. Our platform empowers
-                deaf and speech-impaired individuals by providing professional
-                interpretation services and inclusive communication solutions.
-            </p>
+                <input
+                    type="text"
+                    placeholder="Reference Number"
+                >
 
-        </section>
+                <button class="card-btn">
+                    Submit
+                </button>
+            </div>
 
-        <!-- BENEFITS -->
+            <!-- PRIVACY -->
 
-        <section class="benefits-card">
+            <div class="card">
+                <div class="icon">🔒</div>
 
-            <h2>Why Choose SENYA?</h2>
+                <h2>Privacy</h2>
 
-            <div class="benefits-grid">
+                <p>
+                    Manage your account security.
+                </p>
 
-                <div class="benefit-item">
-                    <span>✅</span>
-                    <p>Accessible for everyone</p>
-                </div>
+                <button class="card-btn">
+                    Change Password
+                </button>
 
-                <div class="benefit-item">
-                    <span>⚡</span>
-                    <p>Fast connection times</p>
-                </div>
+                <button class="secondary-btn">
+                    Manage Account
+                </button>
+            </div>
 
-                <div class="benefit-item">
-                    <span>🔒</span>
-                    <p>Secure and private communication</p>
-                </div>
+            <!-- FAQ -->
 
-                <div class="benefit-item">
-                    <span>🌎</span>
-                    <p>Promoting inclusion worldwide</p>
-                </div>
+            <div class="card faq-card">
+
+                <div class="icon">❓</div>
+
+                <h2>FAQ</h2>
+
+                <details>
+                    <summary>
+                        How do I contact an interpreter?
+                    </summary>
+
+                    <p>
+                        Go to Services and select
+                        "Request Interpreter".
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        How do I cancel a session?
+                    </summary>
+
+                    <p>
+                        Open your active session and click
+                        "Cancel Session".
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        How do I reset my password?
+                    </summary>
+
+                    <p>
+                        Go to Privacy and select
+                        "Change Password".
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        How long does matching take?
+                    </summary>
+
+                    <p>
+                        Matching time depends on
+                        interpreter availability.
+                    </p>
+                </details>
 
             </div>
 
-        </section>
+        </div>
+
+        <!-- EMERGENCY -->
+
+        <button class="emergency-btn">
+            Emergency Support
+        </button>
 
     </main>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="logo" role="img" aria-label="SENYA Logo">
+                SEN<span class="logo-y">Y</span>A
+        </div>
+            <p>"Communication is not a privilege, it's a right."</p>
+        </div>
+        <div class="footer-column">
+            <h3>Information</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Join to us</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">How to use Senya?</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Useful Links</h3>
+            <ul>
+                <li><a href="#">Technical Support</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Join to us</a></li>
+                <li><a href="#">How to use Senya?</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Our Services</h3>
+            <ul>
+                <li><a href="#">Banks</a></li>
+                <li><a href="#">Call Centers</a></li>
+                <li><a href="#">Internet</a></li>
+                <li><a href="#">Shops</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p>📞 +503 9842-5783</p>
+            <p>✉ senya.sv@gmail.com</p>
+            <div class="socials">
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+        <p>© 2025 Senya. All Rights Reserved.</p>
+    </div>
+</footer>
 
 </body>
 </html>
