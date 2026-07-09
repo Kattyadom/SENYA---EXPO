@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SENYA - Accessibility In Technology</title>
+<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SENYA</div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="servicios1.html">Services</a>
+        <a href="profile.html">Profile</a>
+        <a href="about.html">About Us</a>
+        <a href="soporte.html">Contact</a>
+        
+    </div>
+
+    <a href="#" class="login-btn" onclick="openLogin()">Login</a>
+</nav>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Communication Without Barriers</h1>
+
+<p>
+We help people communicate with banks, customer service and online platforms through accessible support and interpreters.
+</p>
+
+<div class="hero-buttons">
+<a href="#services" class="primary">Get Help</a>
+<a href="#how" class="secondary">Learn More</a>
+</div>
+
+</div>
+
+<div class="hero-image">
+    <img src="img/expo Image Jun 10, 2026, 09_31_40 PM.png" alt="Soporte al cliente">
+</div>
+
+</section>
+
+<section class="services" id="services">
+
+<h2 class="title">Our Services</h2>
+
+<p class="subtitle">
+Choose the service you need and we will help you communicate easily.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🏦</div>
+<h3>Banking Services</h3>
+<p>Accessible communication with banks and financial institutions.</p>
+</div>
+
+<div class="card">
+<div class="icon">📞</div>
+<h3>Customer Service</h3>
+<p>Contact companies and organizations with interpreter support.</p>
+</div>
+
+<div class="card">
+<div class="icon">🚨</div>
+<h3>Emergency Support</h3>
+<p>Quick assistance for urgent situations.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="how" id="how">
+
+<h2 class="title">How It Works</h2>
+
+<div class="steps">
+
+<div class="step">
+<div class="number">1</div>
+<h3>Select Service</h3>
+<p>Choose the service you need.</p>
+</div>
+
+<div class="step">
+<div class="number">2</div>
+<h3>Get Support</h3>
+<p>We connect you with assistance.</p>
+</div>
+
+<div class="step">
+<div class="number">3</div>
+<h3>Communicate</h3>
+<p>Access services without barriers.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<div class="footer-grid">
+
+<div>
+<h3>SENYA</h3>
+<p>Accessibility in Technology</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<a href="#">Home</a>
+<a href="#">Services</a>
+</div>
+
+<div>
+<h3>Contact</h3>
+<a href="#">support@senya.com</a>
+</div>
+
+</div>
+
+</footer>
+
+<div class="modal" id="loginModal">
+
+<div class="modal-content">
+
+<h2>Welcome Back</h2>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<div id="message"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function openLogin(){
+    document.getElementById("loginModal").style.display="flex";
+}
+
+window.onclick = function(event){
+
+    if(event.target == document.getElementById("loginModal")){
+        document.getElementById("loginModal").style.display="none";
+    }
+
+}
+
+function login(){
+
+    let email =
+    document.getElementById("email").value;
+
+    let password =
+    document.getElementById("password").value;
+
+    if(email !== "" && password !== ""){
+
+        document.querySelector(".login-btn").innerHTML =
+        "👤 My Account";
+
+        document.getElementById("loginModal").style.display =
+        "none";
+
+        document.getElementById("welcomeMessage")
+        .classList.add("show");
+
+        setTimeout(function(){
+
+            document.getElementById("welcomeMessage")
+            .classList.remove("show");
+
+        },3000);
+
+    }else{
+
+        document.getElementById("message").innerHTML =
+        "Please complete all fields.";
+
+    }
+
+}
+
+</script>
+
+<div id="welcomeMessage">
+    ✓ Login Successful
+</div>
+
+</body>
+</html>
