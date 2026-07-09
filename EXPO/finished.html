@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Senya - Video Call</title>
-<link rel="stylesheet" href="css/videollamada.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - SENYA</title>
+    <link rel="stylesheet" href="css/finished.css">
+    <!--Importación de fuentes e iconos-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-
-<header>
+    <header>
         <div class="logo" role="img" aria-label="SENYA Logo">
             SEN<span class="logo-y">Y</span>A
         </div>
@@ -23,50 +24,39 @@
         <button class="btn-help" aria-label="Obtener ayuda y soporte técnico">Get Help</button>
     </header>
 
+    <!-- RATING -->
+<section class="rating">
 
-<!-- VIDEOCALL -->
-<section class="videocall">
+<h2>Rate the Interpreter</h2>
 
-    <div class="videos">
+<p>How was your experience?</p>
 
-        <div class="video-box">
-            <h3>User Camera</h3>
-            <div class="camera">
-                📹 Camera Preview
-            </div>
-        </div>
+<div class="stars">
+★★★★★
+</div>
 
-        <div class="video-box">
-            <h3>Interpreter Camera</h3>
-            <div class="camera">
-                📹 Interpreter Preview
-            </div>
-        </div>
+<textarea placeholder="Leave a comment..."></textarea>
 
-    </div>
-
-    <div class="controls">
-        <button class="mic">🎤 Microphone</button>
-        <button class="camera-btn">📷 Camera</button>
-        <a href="finished.html"class="hangup">📞 End Call </a>
-    </div>
+<button>Submit Evaluation</button>
 
 </section>
 
-<!-- CHAT -->
-<section class="chat">
+<!-- SUPPORT -->
+<section class="support">
 
-<h2>Backup Chat</h2>
+<h2>Technical Support</h2>
 
-<div class="messages">
-<p><strong>User:</strong> Hello.</p>
-<p><strong>Interpreter:</strong> Hi! How can I help you?</p>
-</div>
+<form>
 
-<div class="chat-input">
-<input type="text" placeholder="Write your message...">
-<button>Send</button>
-</div>
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Describe your problem"></textarea>
+
+<button type="submit">Send Request</button>
+
+</form>
 
 </section>
 

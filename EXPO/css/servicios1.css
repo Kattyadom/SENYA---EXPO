@@ -1,0 +1,388 @@
+/* --- ENLACE A FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@700&display=swap');
+
+/* --- CONFIGURACIÓN GENERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #1a1a1a; 
+    padding: 10px 20px;
+}
+
+/*Navbar*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px; 
+    max-width: 95%;
+    margin: 0 auto;
+}
+.logo {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #126ad6;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.logo-y {
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
+    display: inline-block;
+}
+
+.logo-y::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #f0a5b5;
+    border-radius: 50%;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #126ad6; 
+    border-bottom: 2px solid #126ad6;
+    padding-bottom: 4px;
+}
+
+/*botón get help*/
+.btn-help {
+    background-color: #f0a4b5;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(219, 104, 127, 0.4);
+    transition: all 0.2s ease;
+}
+
+.btn-help:hover {
+    background-color: #db8f9f;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(245, 165, 181, 0.5);
+}
+
+/* --- CONTENEDOR PRINCIPAL AZUL --- */
+.main-container {
+    background-color: #9cd3ff;
+    border-radius: 24px;
+    width: 95%;        
+    max-width: 1600px; 
+    margin: 15px auto; 
+    padding: 40px 40px; 
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+.main-title {
+    color: #000000; 
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 45px;
+}
+
+/* --- PROCESO DE PASOS (TARJETAS) --- */
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 25px; 
+    margin-bottom: 45px; 
+    position: relative;
+}
+
+.process-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    background-color: #7abce8;
+    z-index: 1;
+}
+
+.step-card {
+    background: white;
+    border-radius: 16px;
+    padding: 35px 20px 25px 20px;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    transition: all 0.2s ease;
+    outline: none; 
+}
+
+.step-card:focus, .step-card:focus-visible {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 4px #1d6ed3, 0 10px 20px rgba(0,0,0,0.15); 
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1d6ed3;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.step-card h3 {
+    color: #000000;
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.step-card p {
+    color: #333333;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.step-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.step-icon-container i {
+    font-size: 28px;
+    color: #000000;
+}
+
+.icon-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* --- BOTÓN NUESTROS SERVICIOS --- */
+.btn-services {
+    background-color: #f497a9; /* Tono rosa original */
+    color: white;
+    border: none;
+    padding: 14px 50px;
+    font-size: 19px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+    margin-bottom: 45px; 
+    transition: all 0.2s ease;
+}
+#link{
+    color: white;
+    text-decoration: none;
+}
+
+.btn-services:hover {
+    background-color: #e08597;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-services:focus-visible, .btn-help:focus-visible {
+    outline: 3px solid #000000;
+    outline-offset: 3px;
+}
+
+/* --- SECCIÓN INFERIOR (MISMO ROSA DEL BOTÓN SERVICES) --- */
+.includes-box {
+    background-color: #f497a9; /* Tono idéntico al botón de servicios */
+    border-radius: 16px;
+    padding: 35px; 
+    border: 1px solid #e08597; /* Borde un poco más oscuro para dar profundidad */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.includes-title {
+    color: #4a2830; /* Tono oscuro para máxima legibilidad sobre el rosa */
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 35px; 
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.feature-item i {
+    font-size: 40px;
+    color: #4a2830; 
+    margin-bottom: 15px;
+}
+
+.feature-item span {
+    color: #4a2830; 
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* FOOTER */ 
+
+.footer{
+    background:#f5f5f5;
+    padding:50px 8%;
+    padding-bottom: 9%;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:40px;
+    margin-top: 4%;
+}
+
+.footer-column{
+    flex:1;
+    min-width:180px;
+}
+
+.footer-column h2{
+    margin-bottom:10px;
+    color:#126ad6;
+}
+
+.footer-column h3{
+    margin-bottom:20px;
+    color:#126ad6;
+}
+
+.footer-column p{
+    color:#252525;
+    margin-bottom:10px;
+    line-height:1.5;
+}
+
+.footer-column ul{
+    list-style:none;
+}
+
+.footer-column ul li{
+    margin-bottom:12px;
+}
+
+.footer-column a{
+    text-decoration:none;
+    color:#0e0e0e;
+    transition:.3s;
+}
+
+.footer-column a:hover{
+    color:#090e55;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.footer-column input{
+    width:100%;
+    padding:10px;
+    margin:15px 0;
+    border:none;
+    border-bottom:2px solid #999;
+    background:transparent;
+    outline:none;
+}
+
+.footer-column button{
+    padding:10px 25px;
+    border:none;
+    background:black;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.footer-column button:hover{
+    background:#333;
+}
+
+.socials{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.socials a{
+    background:#126ad6;
+    color:white;
+    padding:10px;
+    border-radius:50px;
+    font-size:14px;
+}
+
+hr{
+    margin:40px 0 20px;
+    border:1px solid #a2d7fa;
+    margin-top: 8%;
+}
+
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-top: 4%;
+}

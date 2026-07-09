@@ -4,43 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SENYA - Accessibility In Technology</title>
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-
-<header>
+    <header>
         <div class="logo" role="img" aria-label="SENYA Logo">
             SEN<span class="logo-y">Y</span>A
         </div>
         <nav aria-label="Menú principal">
             <a href="index.html">Home</a>
-            <a href="servicios1.html">Services</a>
+            <a href="opciones.html"> Partner Network </a>
             <a href="profile.html">Profile</a>
             <a href="about.html">About Us</a>
             <a href="soporte.html">Contact</a>
         </nav>
-        <button class="btn-help" aria-label="Obtener ayuda y soporte técnico">Get Help</button>
+        <button class="btn-help" aria-label="Obtener ayuda y soporte técnico" href="soporte.html">Get Help</button>
     </header>
-
 <section class="hero">
 
 <div class="hero-text">
-
-<h1>Communication Without Barriers</h1>
-
-<p>
-We help people communicate with banks, customer service and online platforms through accessible support and interpreters.
-</p>
-
+    <h1>Communication Without Barriers</h1>
+    <p> We help people communicate with banks, customer service and online platforms through <br> accessible support and interpreters. </p>
 <div class="hero-buttons">
 
 <a href="#services" class="primary">
-Get Help
+    Go to Directory
 </a>
 
 <a href="#how" class="secondary">
-Learn More
+    Join to SENYA
 </a>
 
 </div>
@@ -49,7 +42,6 @@ Learn More
 
 <div class="hero-image">
 
-<img src="img/expo Image Jun 10, 2026, 09_31_40 PM.png" alt="Support">
 
 </div>
 
@@ -60,7 +52,7 @@ Learn More
 <h2 class="title">Our Services</h2>
 
 <p class="subtitle">
-Choose the service you need and we will help you communicate easily.
+    These are the services you need and we offer to you.
 </p>
 
 <div class="cards">
@@ -164,6 +156,8 @@ Access services without barriers.
 
 <section class="account-section" id="account">
 
+    <div class="loginn">
+
     <h2>Join SENYA Today</h2>
 
     <p>
@@ -173,6 +167,8 @@ Access services without barriers.
     <button class="account-btn" onclick="openLogin()">
         Login / Sign Up
     </button>
+
+    </div>
 
 </section>
 
@@ -200,11 +196,11 @@ Access services without barriers.
 
             <ul>
 
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Join to us</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">How to use SENYA?</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="servicios.html">Partnership Network</a></li>
+                <li><a href="index.html">Join to us</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="">How to use SENYA?</a></li>
 
             </ul>
 
@@ -332,70 +328,6 @@ Access services without barriers.
     ✓ Login Successful
 </div>
 
-<script>
-
-
-function openLogin(){
-    document.getElementById("loginModal").style.display="flex";
-}
-
-window.onclick = function(event){
-
-    if(event.target==document.getElementById("loginModal")){
-        document.getElementById("loginModal").style.display="none";
-    }
-
-}
-
-function showLogin(){
-
-    document.getElementById("loginForm").style.display="block";
-    document.getElementById("registerForm").style.display="none";
-
-    document.querySelectorAll(".tab")[0].classList.add("active");
-    document.querySelectorAll(".tab")[1].classList.remove("active");
-
-}
-
-function showRegister(){
-
-    document.getElementById("loginForm").style.display="none";
-    document.getElementById("registerForm").style.display="block";
-
-    document.querySelectorAll(".tab")[1].classList.add("active");
-    document.querySelectorAll(".tab")[0].classList.remove("active");
-
-}
-
-function login(){
-
-    let email=document.getElementById("email").value;
-    let password=document.getElementById("password").value;
-
-    if(email!="" && password!=""){
-
-        document.getElementById("loginModal").style.display="none";
-
-        document.getElementById("welcomeMessage")
-        .classList.add("show");
-
-        setTimeout(function(){
-
-            document.getElementById("welcomeMessage")
-            .classList.remove("show");
-
-        },3000);
-
-    }else{
-
-        document.getElementById("message").innerHTML=
-        "Please complete all fields.";
-
-    }
-
-}
-
-</script>
-
+<script src="js/index.js"></script>
 </body>
 </html>

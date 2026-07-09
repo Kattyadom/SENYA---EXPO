@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - SENYA</title>
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="css/profile.css">
     <!--Importación de fuentes e iconos-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,7 +16,7 @@
         </div>
         <nav aria-label="Menú principal">
             <a href="index.html">Home</a>
-            <a href="servicios1.html">Services</a>
+            <a href="opciones.html"> Partner Network </a>
             <a href="profile.html">Profile</a>
             <a href="about.html">About Us</a>
             <a href="soporte.html">Contact</a>
@@ -146,124 +146,8 @@
     <div class="footer-bottom">
         <p>© 2025 Senya. All Rights Reserved.</p>
     </div>
+
+    <script src="js/profile.js"></script>
 </footer>
-
-<script>
-
-/* DATOS INICIALES */
-
-const defaultData = {
-
-firstName:"Ariana",
-lastName:"Fernández",
-email:"arianaabfdz@gmail.com",
-address:"San Salvador, San Martín",
-phone:"+503 7495 2947",
-birth:"2000-11-21"
-
-};
-
-/* CARGAR */
-
-function loadData(){
-
-const user =
-JSON.parse(localStorage.getItem("userProfile"))
-|| defaultData;
-
-firstName.value=user.firstName;
-lastName.value=user.lastName;
-email.value=user.email;
-address.value=user.address;
-phone.value=user.phone;
-birth.value=user.birth;
-
-displayName.textContent=
-user.firstName + " " + user.lastName;
-
-}
-
-/* GUARDAR */
-
-function saveData(){
-
-const user={
-
-firstName:firstName.value,
-lastName:lastName.value,
-email:email.value,
-address:address.value,
-phone:phone.value,
-birth:birth.value
-
-};
-
-localStorage.setItem(
-"userProfile",
-JSON.stringify(user)
-);
-
-displayName.textContent =
-user.firstName + " " + user.lastName;
-
-alert("Cambios guardados correctamente");
-
-}
-
-/* RESETEAR */
-
-function resetData(){
-
-localStorage.removeItem("userProfile");
-loadData();
-
-alert("Datos restaurados");
-
-}
-
-/* FOTO */
-
-imageUpload.addEventListener("change",function(){
-
-const file=this.files[0];
-
-if(file){
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-previewImage.src=e.target.result;
-
-localStorage.setItem(
-"profileImage",
-e.target.result
-);
-
-}
-
-reader.readAsDataURL(file);
-
-}
-
-});
-
-window.onload=()=>{
-
-loadData();
-
-const savedImage=
-localStorage.getItem("profileImage");
-
-if(savedImage){
-
-previewImage.src=savedImage;
-
-}
-
-};
-
-</script>
-
 </body>
 </html>
