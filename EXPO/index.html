@@ -4,25 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SENYA - Accessibility In Technology</title>
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">SENYA</div>
-
-    <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="servicios1.html">Services</a>
-        <a href="profile.html">Profile</a>
-        <a href="about.html">About Us</a>
-        <a href="soporte.html">Contact</a>
-        
-    </div>
-
-    <a href="#" class="login-btn" onclick="openLogin()">Login</a>
-</nav>
+<header>
+        <div class="logo" role="img" aria-label="SENYA Logo">
+            SEN<span class="logo-y">Y</span>A
+        </div>
+        <nav aria-label="Menú principal">
+            <a href="index.html">Home</a>
+            <a href="servicios1.html">Services</a>
+            <a href="profile.html">Profile</a>
+            <a href="about.html">About Us</a>
+            <a href="soporte.html">Contact</a>
+        </nav>
+        <button class="btn-help" aria-label="Obtener ayuda y soporte técnico">Get Help</button>
+    </header>
 
 <section class="hero">
 
@@ -35,14 +34,23 @@ We help people communicate with banks, customer service and online platforms thr
 </p>
 
 <div class="hero-buttons">
-<a href="#services" class="primary">Get Help</a>
-<a href="#how" class="secondary">Learn More</a>
+
+<a href="#services" class="primary">
+Get Help
+</a>
+
+<a href="#how" class="secondary">
+Learn More
+</a>
+
 </div>
 
 </div>
 
 <div class="hero-image">
-    <img src="img/expo Image Jun 10, 2026, 09_31_40 PM.png" alt="Soporte al cliente">
+
+<img src="img/expo Image Jun 10, 2026, 09_31_40 PM.png" alt="Support">
+
 </div>
 
 </section>
@@ -58,21 +66,39 @@ Choose the service you need and we will help you communicate easily.
 <div class="cards">
 
 <div class="card">
+
 <div class="icon">🏦</div>
+
 <h3>Banking Services</h3>
-<p>Accessible communication with banks and financial institutions.</p>
+
+<p>
+Accessible communication with banks and financial institutions.
+</p>
+
 </div>
 
 <div class="card">
+
 <div class="icon">📞</div>
+
 <h3>Customer Service</h3>
-<p>Contact companies and organizations with interpreter support.</p>
+
+<p>
+Contact companies and organizations with interpreter support.
+</p>
+
 </div>
 
 <div class="card">
+
 <div class="icon">🚨</div>
+
 <h3>Emergency Support</h3>
-<p>Quick assistance for urgent situations.</p>
+
+<p>
+Quick assistance for urgent situations.
+</p>
+
 </div>
 
 </div>
@@ -81,72 +107,227 @@ Choose the service you need and we will help you communicate easily.
 
 <section class="how" id="how">
 
-<h2 class="title">How It Works</h2>
+<h2 class="title">
+How It Works
+</h2>
 
 <div class="steps">
 
 <div class="step">
-<div class="number">1</div>
+
+<div class="number">
+1
+</div>
+
 <h3>Select Service</h3>
-<p>Choose the service you need.</p>
+
+<p>
+Choose the service you need.
+</p>
+
 </div>
 
 <div class="step">
-<div class="number">2</div>
+
+<div class="number">
+2
+</div>
+
 <h3>Get Support</h3>
-<p>We connect you with assistance.</p>
+
+<p>
+We connect you with assistance.
+</p>
+
 </div>
 
 <div class="step">
-<div class="number">3</div>
+
+<div class="number">
+3
+</div>
+
 <h3>Communicate</h3>
-<p>Access services without barriers.</p>
+
+<p>
+Access services without barriers.
+</p>
+
 </div>
 
 </div>
 
 </section>
+<!-- ACCOUNT SECTION -->
 
-<footer id="contact">
+<section class="account-section" id="account">
 
-<div class="footer-grid">
+    <h2>Join SENYA Today</h2>
 
-<div>
-<h3>SENYA</h3>
-<p>Accessibility in Technology</p>
-</div>
+    <p>
+        Create your account or sign in to access all our accessible services.
+    </p>
 
-<div>
-<h3>Quick Links</h3>
-<a href="#">Home</a>
-<a href="#">Services</a>
-</div>
+    <button class="account-btn" onclick="openLogin()">
+        Login / Sign Up
+    </button>
 
-<div>
-<h3>Contact</h3>
-<a href="#">support@senya.com</a>
-</div>
+</section>
 
-</div>
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <div class="logo">
+                SEN<span class="logo-y">Y</span>A
+            </div>
+
+            <p>
+                "Communication is not a privilege, it's a right."
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Information</h3>
+
+            <ul>
+
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Join to us</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">How to use SENYA?</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Useful Links</h3>
+
+            <ul>
+
+                <li><a href="#">Technical Support</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Join to us</a></li>
+                <li><a href="#">How to use SENYA?</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Our Services</h3>
+
+            <ul>
+
+                <li><a href="#">Banks</a></li>
+                <li><a href="#">Call Centers</a></li>
+                <li><a href="#">Internet</a></li>
+                <li><a href="#">Shops</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Contact Us</h3>
+
+            <p>📞 +503 9842-5783</p>
+
+            <p>✉ senya.sv@gmail.com</p>
+
+            <div class="socials">
+
+                <a href="#">Instagram</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+
+        <p>© 2025 SENYA. All Rights Reserved.</p>
+
+    </div>
 
 </footer>
 
+<!-- LOGIN MODAL -->
+
 <div class="modal" id="loginModal">
 
-<div class="modal-content">
+    <div class="modal-content">
 
-<h2>Welcome Back</h2>
+        <div class="tabs">
 
-<input type="email" id="email" placeholder="Email">
+            <button class="tab active" onclick="showLogin()">
+                Sign In
+            </button>
 
-<input type="password" id="password" placeholder="Password">
+            <button class="tab" onclick="showRegister()">
+                Sign Up
+            </button>
 
-<button onclick="login()">Login</button>
+        </div>
 
-<div id="message"></div>
+        <!-- LOGIN -->
+
+        <div id="loginForm">
+
+            <h2>Welcome Back</h2>
+
+            <input type="email" id="email" placeholder="Email">
+
+            <input type="password" id="password" placeholder="Password">
+
+            <button onclick="login()">
+                Sign In
+            </button>
+
+            <div id="message"></div>
+
+        </div>
+
+        <!-- REGISTER -->
+
+        <div id="registerForm" style="display:none;">
+
+            <h2>Create Account</h2>
+
+            <input type="text" placeholder="Full Name">
+
+            <input type="email" placeholder="Email">
+
+            <input type="password" placeholder="Password">
+
+            <input type="password" placeholder="Confirm Password">
+
+            <button>
+                Create Account
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
+<div id="welcomeMessage">
+    ✓ Login Successful
 </div>
 
 <script>
@@ -157,27 +338,40 @@ function openLogin(){
 
 window.onclick = function(event){
 
-    if(event.target == document.getElementById("loginModal")){
+    if(event.target==document.getElementById("loginModal")){
         document.getElementById("loginModal").style.display="none";
     }
 
 }
 
+function showLogin(){
+
+    document.getElementById("loginForm").style.display="block";
+    document.getElementById("registerForm").style.display="none";
+
+    document.querySelectorAll(".tab")[0].classList.add("active");
+    document.querySelectorAll(".tab")[1].classList.remove("active");
+
+}
+
+function showRegister(){
+
+    document.getElementById("loginForm").style.display="none";
+    document.getElementById("registerForm").style.display="block";
+
+    document.querySelectorAll(".tab")[1].classList.add("active");
+    document.querySelectorAll(".tab")[0].classList.remove("active");
+
+}
+
 function login(){
 
-    let email =
-    document.getElementById("email").value;
+    let email=document.getElementById("email").value;
+    let password=document.getElementById("password").value;
 
-    let password =
-    document.getElementById("password").value;
+    if(email!="" && password!=""){
 
-    if(email !== "" && password !== ""){
-
-        document.querySelector(".login-btn").innerHTML =
-        "👤 My Account";
-
-        document.getElementById("loginModal").style.display =
-        "none";
+        document.getElementById("loginModal").style.display="none";
 
         document.getElementById("welcomeMessage")
         .classList.add("show");
@@ -191,7 +385,7 @@ function login(){
 
     }else{
 
-        document.getElementById("message").innerHTML =
+        document.getElementById("message").innerHTML=
         "Please complete all fields.";
 
     }
@@ -199,10 +393,6 @@ function login(){
 }
 
 </script>
-
-<div id="welcomeMessage">
-    ✓ Login Successful
-</div>
 
 </body>
 </html>
