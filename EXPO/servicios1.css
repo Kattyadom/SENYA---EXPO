@@ -13,6 +13,8 @@ body {
     background-color: #ffffff;
     color: #1a1a1a; 
     padding: 10px 20px;
+    /* FUENTE DE LA LETRA */
+    font-family: 'Poppins', sans-serif;
 }
 
 /* --- MENÚ DE NAVEGACIÓN --- */
