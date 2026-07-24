@@ -134,19 +134,12 @@ nav a:hover {
 
 /*====================*/
 
-.service-card{
-
-    background:white;
-    border-radius:18px;
-    padding:35px 25px;
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.35s;
-
-    cursor:pointer;
-
+.service-card img{
+    width: 180px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 20px;
 }
 
 .service-card:hover{
