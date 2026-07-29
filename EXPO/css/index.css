@@ -51,44 +51,6 @@ header {
     background-color: #f497a9;
     border-radius: 50%;
 }
-
-nav {
-    display: flex;
-    gap: 35px;
-    align-items: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-nav a.active {
-    color: #1d4ed8; 
-    border-bottom: 2px solid #1d4ed8;
-    padding-bottom: 4px;
-}
-
-.btn-help {
-    background-color: #f497a9;
-    color: white;
-    padding: 10px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(244, 151, 169, 0.4);
-    transition: all 0.2s ease;
-}
-
-.btn-help:hover {
-    background-color: #e08597;
-    transform: translateY(-1px);
-}
 /* COVER PAGE */
 
 .hero {
