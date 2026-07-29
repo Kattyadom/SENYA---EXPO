@@ -5,97 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - SENYA</title>
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/general.css">
     <!--Importación de fuentes e iconos-->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo" role="img" aria-label="SENYA Logo">
-            SEN<span class="logo-y">Y</span>A
-        </div>
-        <nav aria-label="Menú principal">
-            <a href="index.html">Home</a>
-            <a href="opciones.html"> Partner Network </a>
-            <a href="profile.html">Profile</a>
-            <a href="about.html">About Us</a>
-            <a href="soporte.html">Contact</a>
+    <header class="navbar">
+    <div class="navbar-container">
+        <a href="#" class="logo">
+            <img src="img/Senyalogo.png" alt="SENYA Logo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="opciones.html">Partner Network</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="soporte.html">Contact</a></li>
+            </ul>
         </nav>
-        <button class="btn-help" aria-label="Obtener ayuda y soporte técnico">Get Help</button>
-    </header>
-<!--prueba-->
-    <!--Main container-->
-<div class="container">
-    <div class="profile-container">
-        <div class="sidebar">
-            <div class="profile-pic">
-                <img id="previewImage" src="img/random.jpg"alt="Foto">
-                <h3 id="displayName"> Ariana Fernández </h3>
-                <p>Customer</p>
-
-                <div class="upload-btn">
-                    <input type="file" id="imageUpload" accept="image/*">
-                    <label for="imageUpload"> Cambiar foto </label>
-                </div>
-            </div>
-
-            <div class="menu">
-                <a href="#" class="active">👤 Personal information</a>
-                <a href="#">🔒 Login & Password</a>
-                <a href="#">🚪 Log Out</a>
-            </div>
+        <a href="#" class="help-btn">
+            Accesibility
+        </a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
         </div>
-
-    <!--Formulario-->
-        <div class="profile-card">
-            <h2>Personal information</h2>
-                <div class="gender">
-                    <input type="radio" name="gender" checked> Female
-                    <input type="radio" name="gender"> Male
-                </div>
-
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" id="firstName">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" id="lastName">
-                    </div>
-
-                    <div class="form-group full">
-                        <label>Email</label>
-                        <input type="email" id="email">
-                    </div>
-
-                    <div class="form-group full">
-                        <label>Address</label>
-                        <input type="text" id="address">
-                    </div>                
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" id="phone">
-                    </div>
-                    <div class="form-group">
-                        <label>Date of Birth</label>
-                        <input type="date" id="birth">
-                    </div>
-                    <div class="buttons">
-                        <button class="discard" onclick="resetData()">
-                        Discard Changes
-                    </button>
-
-<button class="save" onclick="saveData()">
-    Save Changes
-</button>
-</div>
     </div>
-        </div>
+</header>
+<div class="profile-page">
+    <aside class="sidebar">
+        <div class="profile-header">
+            <div class="image-container">
+                <img src="img/random.jpg" id="previewImage">
+                <label for="imageUpload" class="camera-btn">
+                    <i class="fa-solid fa-camera"></i>
+                </label>
+                <input type="file" id="imageUpload" accept="image/*">
             </div>
+            <h2 id="displayName">Ariana Fernández</h2>
+            <span class="badge">Customer</span>
+            <p class="sign-language">
+                LESSA
+            </p>
+        </div>
+        <nav>
+            <a href="#personal" class="active">
+                <i class="fa-solid fa-user"></i>
+                Personal information
+            </a>
+            <a href="#contact">
+                <i class="fa-solid fa-phone"></i>
+                Contact methods
+            </a>
+            <a href="#settings">
+                <i class="fa-solid fa-gear"></i>
+                Configuration
+            </a>
+        </nav>
+    </aside>
+    <main class="content">
+        <section class="card" id="personal">
+            <div class="card-title">
+                <h2>Personal information</h2>
+                <button class="edit-btn" onclick="toggleEdit(this)">
+                    Edit
+                </button>
+            </div>
+            <div class="card-grid">
+                <div class="field">
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        id="firstName"
+                        value="Ariana">
                 </div>
-
+                <div class="field">
+                    <label>Last name</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        value="Fernández">
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        value="ariana@email.com">
+                </div>
+                <div class="field">
+                    <label>Birthday</label>
+                    <input
+                        type="date"
+                        id="birth">
+                </div>
+            </div>
+        </section>
+        <section class="card" id="contact">
+            <div class="card-title">
+                <h2>Contact methods</h2>
+                <button class="edit-btn">
+                    Edit
+                </button>
+            </div>
+            <div class="card-grid">
+                <div class="field">
+                    <label>Phone number</label>
+                    <input
+                        type="text"
+                        id="phone"
+                        value="+503 7495 2947">
+                </div>
+                <div class="field">
+                    <label>WhatsApp</label>
+                    <input
+                        type="text"
+                        value="+503 7495 2947">
+                </div>
+                <div class="field full">
+                    <label>Address</label>
+                    <input
+                        type="text"
+                        id="address">
+                </div>
+            </div>
+        </section>
+        <section class="card" id="settings">
+            <div class="card-title">
+                <h2>Configuration</h2>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h4>Theme</h4>
+                    <p>Light theme</p>
+                </div>
+                <button>Change</button>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h4>Log out</h4>
+                    <p>Log out from your account</p>
+                </div>
+                <button>Log out</button>
+            </div>
+            </div>
+        </section>
+    </main>
+</div>
 <!--Footer-->
 <footer class="footer">
     <div class="footer-container">
@@ -144,7 +200,7 @@
     </div>
     <hr>
     <div class="footer-bottom">
-        <p>© 2025 Senya. All Rights Reserved.</p>
+        <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
 
     <script src="js/profile.js"></script>
