@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opciones - SENYA </title>
-    <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="css/opciones.css">
     <link rel="stylesheet" href="css/general.css">
+    <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+</section>
     <header class="navbar">
     <div class="navbar-container">
         <a href="#" class="logo">
@@ -32,136 +33,619 @@
         </div>
     </div>
 </header>
-<main class="services-page">
-    <section class="hero-services">
-        <h1>Who do you want to contact with?</h1>
+<section class="services">
+    <div class="header">
+        <span class="tag">
+            <i class="fa-solid fa-language"></i>
+            Services
+        </span>
+        <h1>Who would you like to contact?</h1>
         <p>
-            Click on any service below to start an interpreted call with one
-            of our certified interpreters.
+            Choose a service below and we'll connect you with it in seconds.
         </p>
-    </section>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+                type="text"
+                placeholder="Search banks, hospitals, utilities..."
+            >
+        </div>
+    </div>
+    <div class="categories">
+        <button class="active">All</button>
+        <button>🏦 Banking</button>
+        <button>📱 Telecom</button>
+        <button>🏥 Healthcare</button>
+        <button>💡 Utilities</button>
+        <button>🏛 Government</button>
+    </div>
+    <section class="services-container">
+    <div class="service-card">
+        <div class="service-header">
+            <div class="service-info">
+                <img src="images/agricola.png" alt="Banco Agricola">
+                <div>
+                    <h2>Banco Agrícola</h2>
+                    <span class="category">
+                        <i class="fa-solid fa-building-columns"></i>
+                        Banking
+                    </span>
+                    <p>
+                        Banking services with certified interpreter assistance.
+                    </p>
+                </div>
+            </div>
+            <div class="status">
+                <span class="available">
+                    <span class="circle"></span>
+                    Available
+                </span>
+                <span class="popular">
+                    ⭐ Most Used
+                </span>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="service-content">
+            <div class="column">
+                <h4>Available Services</h4>
+                <ul>
+                    <li>Account information</li>
+                    <li>Money transfers</li>
+                    <li>Credit cards</li>
+                    <li>Customer support</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Languages</h4>
+                <div class="badges">
+                    <span>🇺🇸 English</span>
+                    <span>🇪🇸 Español</span>
+                    <span>🤟 ASL</span>
+                </div>
+                <div class="wait">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Estimated wait: <strong>Less than 2 min</strong></span>
+                </div>
+            </div>
+        </div>
+        <div class="service-footer">
+            <button>
+                <i class="fa-solid fa-phone"></i>
+                Call now
+            </button>
+        </div>
+    </div>
+    <div class="service-card">
+    <div class="service-header">
+        <div class="service-info">
+            <img src="images/isss.png" alt="ISSS">
+            <div>
+                <h2>ISSS</h2>
+                <span class="category">
+                    <i class="fa-solid fa-hospital"></i>
+                    Healthcare
+                </span>
+                <p>
+                    Interpreter assistance for appointments, medical services and administrative procedures.
+                </p>
+            </div>
+        </div>
+        <div class="status">
+            <span class="available">
+                <span class="circle"></span>
+                Available
+            </span>
+             <span class="popular">
+                    ⭐ Most Used
+                </span>
+        </div>
 
-    <section class="services-grid">
-        <!-- Banco Agricola -->
-        <div class="service-card">
-            <img src="img/bancoagricola.png" alt="Banco Agrícola">
-            <h2>Banco Agrícola</h2>
-            <p>
-                Banking assistance, balances, transfers,
-                cards and customer support.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- BAC -->
-        <div class="service-card">
-            <img src="img/bac.png" alt="BAC">
-            <h2>BAC Credomatic</h2>
-            <p>
-                Banking services, credit cards,
-                loans and customer assistance.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- Cuscatlan -->
-        <div class="service-card">
-            <img src="img/cuscatlan.png" alt="Banco Cuscatlán">
-            <h2>Banco Cuscatlán</h2>
-            <p>
-                Contact your bank through an interpreter.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- Davivienda -->
-        <div class="service-card">
-            <img src="img/davivienda.png" alt="Davivienda">
-            <h2>Davivienda</h2>
-            <p>
-                Financial services, loans,
-                transfers and more.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- Claro -->
-        <div class="service-card">
-            <img src="img/claro.png" alt="Claro">
-            <h2>Claro</h2>
-            <p>
-                Mobile plans, internet,
-                TV and customer support.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- Tigo -->
-        <div class="service-card">
-            <img src="img/tigo.png" alt="Tigo">
-            <h2>Tigo</h2>
-            <p>
-                Mobile, internet and cable TV services.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- Movistar -->
-        <div class="service-card">
-            <img src="img/movistar.png" alt="Movistar">
-            <h2>Movistar</h2>
-            <p>
-                Telecommunications and mobile support.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- CAESS -->
-        <div class="service-card">
-            <img src="img/caess.png" alt="CAESS">
-            <h2>CAESS</h2>
-            <p>
-                Electricity bills, payments
-                and technical support.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- ANDA -->
-        <div class="service-card">
-            <img src="img/anda.png" alt="ANDA">
-            <h2>ANDA</h2>
-            <p>
-                Water service assistance,
-                reports and payments.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- ISSS -->
-        <div class="service-card">
-            <img src="img/isss.png" alt="ISSS">
-            <h2>ISSS</h2>
-            <p>
-                Medical appointments,
-                information and assistance.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- Ministerio -->
-        <div class="service-card">
-            <img src="img/salud.png" alt="Ministerio de Salud">
-            <h2>Ministry of Health</h2>
-            <p>
-                Public health information
-                and medical services.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-        <!-- Alcaldia -->
-        <div class="service-card">
-            <img src="img/alcaldia.png" alt="Alcaldía">
-            <h2>Municipality</h2>
-            <p>
-                Municipal procedures
-                and citizen services.
-            </p>
-            <a href="videollamada.html" class="buttoncall">Call Now</a>
-        </div>
-    </section>
-</main>
+    </div>
 
+    <div class="divider"></div>
+
+    <div class="service-content">
+
+        <div class="column">
+
+            <h4>Available Services</h4>
+
+            <ul>
+                <li>Medical appointments</li>
+                <li>Laboratory information</li>
+                <li>Prescriptions</li>
+                <li>Patient services</li>
+            </ul>
+
+        </div>
+
+        <div class="column">
+
+            <h4>Languages</h4>
+
+            <div class="badges">
+                <span>🇺🇸 English</span>
+                <span>🇪🇸 Español</span>
+                <span>🤟 ASL</span>
+            </div>
+
+            <div class="wait">
+                <i class="fa-regular fa-clock"></i>
+                <span>Estimated wait: <strong>3 min</strong></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="service-footer">
+        <button><i class="fa-solid fa-phone"></i> Connect to Interpreter</button>
+    </div>
+
+</div>
+<div class="service-card">
+
+    <div class="service-header">
+
+        <div class="service-info">
+
+            <img src="images/bac.png" alt="BAC">
+
+            <div>
+
+                <h2>BAC Credomatic</h2>
+
+                <span class="category">
+                    <i class="fa-solid fa-building-columns"></i>
+                    Banking
+                </span>
+
+                <p>
+                    Receive interpreter support for banking transactions, loans and customer assistance.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="status">
+
+            <span class="available">
+                <span class="circle"></span>
+                Available
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="service-content">
+
+        <div class="column">
+
+            <h4>Available Services</h4>
+
+            <ul>
+                <li>Account inquiries</li>
+                <li>Credit cards</li>
+                <li>Loans</li>
+                <li>Wire transfers</li>
+            </ul>
+
+        </div>
+
+        <div class="column">
+
+            <h4>Languages</h4>
+
+            <div class="badges">
+                <span>🇺🇸 English</span>
+                <span>🇪🇸 Español</span>
+                <span>🤟 ASL</span>
+            </div>
+
+            <div class="wait">
+                <i class="fa-regular fa-clock"></i>
+                <span>Estimated wait: <strong>2 min</strong></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="service-footer">
+        <button><i class="fa-solid fa-phone"></i> Connect to Interpreter</button>
+    </div>
+
+</div>
+<div class="service-card">
+
+    <div class="service-header">
+
+        <div class="service-info">
+
+            <img src="images/claro.png" alt="Claro">
+
+            <div>
+
+                <h2>Claro El Salvador</h2>
+
+                <span class="category">
+                    <i class="fa-solid fa-tower-cell"></i>
+                    Telecommunications
+                </span>
+
+                <p>
+                    Connect with an interpreter for mobile, internet and billing support.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="status">
+
+            <span class="available">
+                <span class="circle"></span>
+                Available
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="service-content">
+
+        <div class="column">
+
+            <h4>Available Services</h4>
+
+            <ul>
+                <li>Mobile plans</li>
+                <li>Internet support</li>
+                <li>Billing inquiries</li>
+                <li>Technical assistance</li>
+            </ul>
+
+        </div>
+
+        <div class="column">
+
+            <h4>Languages</h4>
+
+            <div class="badges">
+                <span>🇺🇸 English</span>
+                <span>🇪🇸 Español</span>
+                <span>🤟 ASL</span>
+            </div>
+
+            <div class="wait">
+                <i class="fa-regular fa-clock"></i>
+                <span>Estimated wait: <strong>1 min</strong></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="service-footer">
+        <button><i class="fa-solid fa-phone"></i> Connect to Interpreter</button>
+    </div>
+
+</div>
+<div class="service-card">
+
+    <div class="service-header">
+
+        <div class="service-info">
+
+            <img src="images/caess.png" alt="CAESS">
+
+            <div>
+
+                <h2>CAESS</h2>
+
+                <span class="category">
+                    <i class="fa-solid fa-bolt"></i>
+                    Utilities
+                </span>
+
+                <p>
+                    Interpreter support for electricity services, billing and outage reports.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="status">
+
+            <span class="available">
+                <span class="circle"></span>
+                Available
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="service-content">
+
+        <div class="column">
+
+            <h4>Available Services</h4>
+
+            <ul>
+                <li>Power outages</li>
+                <li>Bill payments</li>
+                <li>New service requests</li>
+                <li>Customer support</li>
+            </ul>
+
+        </div>
+
+        <div class="column">
+
+            <h4>Languages</h4>
+
+            <div class="badges">
+                <span>🇺🇸 English</span>
+                <span>🇪🇸 Español</span>
+                <span>🤟 ASL</span>
+            </div>
+
+            <div class="wait">
+                <i class="fa-regular fa-clock"></i>
+                <span>Estimated wait: <strong>4 min</strong></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="service-footer">
+        <button><i class="fa-solid fa-phone"></i> Connect to Interpreter</button>
+    </div>
+
+</div>
+<div class="service-card">
+
+    <div class="service-header">
+
+        <div class="service-info">
+
+            <img src="images/anda.png" alt="ANDA">
+
+            <div>
+
+                <h2>ANDA</h2>
+
+                <span class="category">
+                    <i class="fa-solid fa-faucet-drip"></i>
+                    Utilities
+                </span>
+
+                <p>
+                    Interpreter assistance for water services, billing and maintenance requests.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="status">
+
+            <span class="available">
+                <span class="circle"></span>
+                Available
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="service-content">
+
+        <div class="column">
+
+            <h4>Available Services</h4>
+
+            <ul>
+                <li>Water supply issues</li>
+                <li>Billing questions</li>
+                <li>Service requests</li>
+                <li>Customer assistance</li>
+            </ul>
+
+        </div>
+
+        <div class="column">
+
+            <h4>Languages</h4>
+
+            <div class="badges">
+                <span>🇺🇸 English</span>
+                <span>🇪🇸 Español</span>
+                <span>🤟 ASL</span>
+            </div>
+
+            <div class="wait">
+                <i class="fa-regular fa-clock"></i>
+                <span>Estimated wait: <strong>5 min</strong></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="service-footer">
+        <button><i class="fa-solid fa-phone"></i> Connect to Interpreter</button>
+    </div>
+
+</div>
+<div class="service-card">
+
+    <div class="service-header">
+
+        <div class="service-info">
+
+            <img src="images/anda.png" alt="ANDA">
+
+            <div>
+
+                <h2>ANDA</h2>
+
+                <span class="category">
+                    <i class="fa-solid fa-faucet-drip"></i>
+                    Utilities
+                </span>
+
+                <p>
+                    Interpreter assistance for water services, billing and maintenance requests.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="status">
+
+            <span class="available">
+                <span class="circle"></span>
+                Available
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="service-content">
+
+        <div class="column">
+
+            <h4>Available Services</h4>
+
+            <ul>
+                <li>Water supply issues</li>
+                <li>Billing questions</li>
+                <li>Service requests</li>
+                <li>Customer assistance</li>
+            </ul>
+
+        </div>
+
+        <div class="column">
+
+            <h4>Languages</h4>
+
+            <div class="badges">
+                <span>🇺🇸 English</span>
+                <span>🇪🇸 Español</span>
+                <span>🤟 ASL</span>
+            </div>
+
+            <div class="wait">
+                <i class="fa-regular fa-clock"></i>
+                <span>Estimated wait: <strong>5 min</strong></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="service-footer">
+        <button><i class="fa-solid fa-phone"></i> Connect to Interpreter</button>
+    </div>
+
+</div>
+<div class="service-card">
+
+    <div class="service-header">
+
+        <div class="service-info">
+
+            <img src="images/tigo.png" alt="Tigo">
+
+            <div>
+
+                <h2>Tigo</h2>
+
+                <span class="category">
+                    <i class="fa-solid fa-tower-cell"></i>
+                    Telecommunications
+                </span>
+
+                <p>
+                    Interpreter support for internet, television and mobile services.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="status">
+
+            <span class="available">
+                <span class="circle"></span>
+                Available
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="service-content">
+
+        <div class="column">
+
+            <h4>Available Services</h4>
+
+            <ul>
+                <li>Mobile services</li>
+                <li>Home internet</li>
+                <li>TV packages</li>
+                <li>Technical support</li>
+            </ul>
+
+        </div>
+
+        <div class="column">
+
+            <h4>Languages</h4>
+
+            <div class="badges">
+                <span>🇺🇸 English</span>
+                <span>🇪🇸 Español</span>
+                <span>🤟 ASL</span>
+            </div>
+
+            <div class="wait">
+                <i class="fa-regular fa-clock"></i>
+                <span>Estimated wait: <strong>1 min</strong></span>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="service-footer">
+        <button><i class="fa-solid fa-phone"></i> Connect to Interpreter</button>
+    </div>
+</div>
+</section>
+</section>
 <!--Footer-->
 <footer class="footer">
     <div class="footer-container">
@@ -210,8 +694,14 @@
     </div>
     <hr>
     <div class="footer-bottom">
-        <p>© 2025 Senya. All Rights Reserved.</p>
+        <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
 </footer>
+<script src="js/profile.js"></script>
+</footer>
+<a href="videollamada.html" class="emergency-btn" title="Emergency">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <span>Emergency</span>
+</a>
 </body>
 </html>
