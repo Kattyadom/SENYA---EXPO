@@ -9,6 +9,7 @@
 }
 body{
     background:#ffffff;
+    position:relative;
 }
 .services{
     width:min(1200px,90%);
@@ -94,59 +95,6 @@ body{
     flex-direction:column;
     gap:30px;
 }
-.service-footer{
-
-    margin-top:35px;
-    display:flex;
-    justify-content:flex-end;
-
-}
-.service-footer{
-    margin-top:35px;
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:15px;
-}
-
-.service-footer button{
-    border:none;
-    border-radius:14px;
-    padding:14px 24px;
-    cursor:pointer;
-    font-size:1rem;
-    font-weight:600;
-    transition:.3s;
-}
-
-.service-footer .see-more{
-    background:#ff4f8b;
-    color:white;
-}
-
-.service-footer .see-more:hover{
-    background:#e83d79;
-}
-
-.service-footer .call-now{
-    background:#2563eb;
-    color:white;
-}
-
-.service-footer .call-now:hover{
-    background:#1d4ed8;
-}
-
-.service-footer .call-now i{
-    color:white;
-    margin-right:8px;
-}
-
-.service-footer button:hover{
-
-    background:#1d4ed8;
-
-}
 .service-card{
 
     background:white;
@@ -159,28 +107,19 @@ body{
 
     transform:translateY(-6px);
     box-shadow:0 20px 45px rgba(37,99,235,.15);
-
 }
-
 .service-header{
-
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
     gap:40px;
-
 }
-
 .service-info{
-
     display:flex;
     gap:25px;
     align-items:center;
-
 }
-
 .service-info img{
-
     width:95px;
     height:95px;
     object-fit:contain;
@@ -188,18 +127,12 @@ body{
     border-radius:18px;
     padding:10px;
     box-shadow:0 5px 15px rgba(0,0,0,.08);
-
 }
-
 .service-info h2{
-
     color:#2563eb;
     margin-bottom:10px;
-
 }
-
 .category{
-
     display:inline-flex;
     align-items:center;
     gap:8px;
@@ -209,26 +142,18 @@ body{
     border-radius:30px;
     font-size:.9rem;
     margin-bottom:12px;
-
 }
-
 .service-info p{
-
     color:#64748b;
     max-width:520px;
     line-height:1.6;
-
 }
-
 .status{
-
     display:flex;
     flex-direction:column;
     gap:12px;
     align-items:flex-end;
-
 }
-
 .available{
 
     display:flex;
@@ -344,19 +269,45 @@ body{
     justify-content:flex-end;
 
 }
+.service-footer{
+    margin-top:35px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:15px;
+}
 
 .service-footer button{
-
-    background:#2563eb;
-    color:white;
     border:none;
     border-radius:14px;
-    padding:16px 28px;
+    padding:14px 24px;
     cursor:pointer;
     font-size:1rem;
     font-weight:600;
     transition:.3s;
+}
 
+.service-footer .see-more{
+    background:#ff4f8b;
+    color:white;
+}
+
+.service-footer .see-more:hover{
+    background:#e83d79;
+}
+
+.service-footer .call-now{
+    background:#2563eb;
+    color:white;
+}
+
+.service-footer .call-now:hover{
+    background:#1d4ed8;
+}
+
+.service-footer .call-now i{
+    color:white;
+    margin-right:8px;
 }
 
 .service-footer button:hover{
