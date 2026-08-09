@@ -533,13 +533,6 @@
     font-size:.82rem;
     line-height:1.65;
 }
-
-/* ===NAV ACTIVE=== */
-
-.nav-links a.active{color:#2563EB;}
-
-.nav-links a.active::after{width:100%;}
-
 /* ===ANIMATIONS==== */
 
 @keyframes fadeUp{
