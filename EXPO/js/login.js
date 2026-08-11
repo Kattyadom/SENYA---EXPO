@@ -1,77 +1,45 @@
-document.addEventListener("DOMContentLoaded", () => {
+const passwordInput = document.getElementById("password");
+const togglePassword = document.querySelector(".toggle-password");
+const loginForm = document.querySelector("form");
+const loginButton = document.querySelector(".login-btn");
 
-    const registerForm = document.getElementById("registerForm");
-    const togglePassword = document.getElementById("togglePassword");
-    const passwordInput = document.getElementById("registerPassword");
+togglePassword.addEventListener("click", () => {
 
-    if (togglePassword && passwordInput) {
-        togglePassword.addEventListener("click", () => {
+    const icon = togglePassword.querySelector("i");
 
-            const type = passwordInput.type === "password"
-                ? "text"
-                : "password";
+    if(passwordInput.type === "password"){
 
-            passwordInput.type = type;
+        passwordInput.type = "text";
 
-            const icon = togglePassword.querySelector("i");
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
 
-            if (icon) {
-                icon.classList.toggle("fa-eye");
-                icon.classList.toggle("fa-eye-slash");
-            }
-        });
+    }else{
+
+        passwordInput.type = "password";
+
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+
     }
 
-    if (registerForm) {
+});
 
-        registerForm.addEventListener("submit", (event) => {
+loginForm.addEventListener("submit",(e)=>{
 
-            event.preventDefault();
+    e.preventDefault();
 
-            const nombre = document.getElementById("registerFirstName").value.trim();
-            const apellido = document.getElementById("registerLastName").value.trim();
-            const nacimiento = document.getElementById("registerBirth").value;
-            const telefono = document.getElementById("registerPhone").value.trim();
-            const whatsapp = document.getElementById("registerWhatsapp").value.trim();
-            const direccion = document.getElementById("registerAddress").value.trim();
-            const correo = document.getElementById("registerEmail").value.trim().toLowerCase();
-            const password = document.getElementById("registerPassword").value;
+    loginButton.innerHTML = `
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        Signing In...
+    `;
 
-            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    loginButton.disabled = true;
 
-            const usuarioExiste = usuarios.some(
-                usuario => usuario.correo === correo
-            );
+    setTimeout(()=>{
 
-            if (usuarioExiste) {
-                alert("This email is already registered.");
-                return;
-            }
+        window.location.href="dashboard.html";
 
-            const nuevoUsuario = {
-                id: Date.now(),
-                nombre,
-                apellido,
-                nacimiento,
-                telefono,
-                whatsapp,
-                direccion,
-                correo,
-                password
-            };
+    },1800);
 
-            usuarios.push(nuevoUsuario);
-
-            localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-            localStorage.setItem(
-                "usuarioActivo",
-                JSON.stringify(nuevoUsuario)
-            );
-
-            alert("Account created successfully.");
-
-            window.location.href = "index.html";;
-        });
-    }
 });

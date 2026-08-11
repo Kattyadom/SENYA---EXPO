@@ -1,242 +1,127 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. VERIFICAR SI HAY UNA SESIÓN ACTIVA PRIMERO
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-    const usuarioActivo = JSON.parse(
-        localStorage.getItem("usuarioActivo")
-    );
-
-    if (!usuarioActivo) {
+    if (isLoggedIn !== "true") {
+        // Si no ha iniciado sesión, expulsarlo inmediatamente al sign in
         window.location.href = "signin.html";
-        return;
+        return; // Detener la ejecución del script aquí
     }
 
-    cargarDatos(usuarioActivo);
+    // 2. Si sí está logueado, recuperar y rellenar los datos del usuario
+    const userData = JSON.parse(localStorage.getItem("userProfile"));
 
-    const imageUpload = document.getElementById("imageUpload");
+    if (userData) {
+        document.getElementById("firstName").value = userData.firstName || "";
+        document.getElementById("lastName").value = userData.lastName || "";
+        document.getElementById("email").value = userData.email || "";
+        document.getElementById("birth").value = userData.birth || "";
+        document.getElementById("phone").value = userData.phone || "";
+        document.getElementById("whatsapp").value = userData.whatsapp || "";
+        document.getElementById("address").value = userData.address || "";
+        
+        const displayName = document.getElementById("displayName");
+        if (displayName) {
+            displayName.textContent = `${userData.firstName || ""} ${userData.lastName || ""}`;
+        }
+    }
+
+    // 3. Cargar la foto de perfil guardada previamente si existe
     const previewImage = document.getElementById("previewImage");
+    const imageUpload = document.getElementById("imageUpload");
+    const savedImage = localStorage.getItem("userProfileImage");
+    
+    if (savedImage && previewImage) {
+        previewImage.src = savedImage;
+    }
 
     if (imageUpload && previewImage) {
-
-        const imagenGuardada = localStorage.getItem(
-            `profileImage_${usuarioActivo.id}`
-        );
-
-        if (imagenGuardada) {
-            previewImage.src = imagenGuardada;
-        }
-
-        imageUpload.addEventListener("change", function () {
-
-            const file = this.files[0];
-
-            if (!file) return;
-
-            const reader = new FileReader();
-
-            reader.onload = function (event) {
-
-                previewImage.src = event.target.result;
-
-                localStorage.setItem(
-                    `profileImage_${usuarioActivo.id}`,
-                    event.target.result
-                );
-            };
-
-            reader.readAsDataURL(file);
+        imageUpload.addEventListener("change", function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const base64Image = event.target.result;
+                    previewImage.src = base64Image;
+                    localStorage.setItem("userProfileImage", base64Image);
+                };
+                reader.readAsDataURL(file);
+            }
         });
     }
 
-    const editButtons = document.querySelectorAll(".edit-btn");
+    // 4. Funcionalidad del Modal de Cerrar Sesión
+    const logoutBtn = document.getElementById("logoutBtn");
+    const logoutModal = document.getElementById("logoutModal");
+    const cancelLogoutBtn = document.getElementById("cancelLogoutBtn");
+    const confirmLogoutBtn = document.getElementById("confirmLogoutBtn");
 
-    editButtons.forEach((btn) => {
-
-        btn.addEventListener("click", () => {
-
-            const card = btn.closest(".card");
-            const inputs = card.querySelectorAll("input");
-
-            const editando = btn.dataset.editando === "true";
-
-            inputs.forEach(input => {
-                input.disabled = editando;
-            });
-
-            if (editando) {
-
-                guardarDatos();
-
-                btn.textContent = "Edit";
-                btn.dataset.editando = "false";
-
-            } else {
-
-                btn.textContent = "Save";
-                btn.dataset.editando = "true";
-            }
+    if (logoutBtn && logoutModal) {
+        logoutBtn.addEventListener("click", function() {
+            logoutModal.style.display = "flex";
         });
-    });
-
-    document.querySelectorAll(".card input").forEach(input => {
-        input.disabled = true;
-    });
-
-    const sections = document.querySelectorAll("main section");
-    const navLinks = document.querySelectorAll(".sidebar nav a");
-
-    window.addEventListener("scroll", () => {
-
-        let currentSection = "";
-
-        sections.forEach(section => {
-
-            const sectionTop = section.offsetTop - 180;
-            const sectionHeight = section.offsetHeight;
-
-            if (
-                window.scrollY >= sectionTop &&
-                window.scrollY < sectionTop + sectionHeight
-            ) {
-                currentSection = section.getAttribute("id");
-            }
-        });
-
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            if (
-                link.getAttribute("href") === "#" + currentSection
-            ) {
-                link.classList.add("active");
-            }
-        });
-    });
-function cargarDatos(usuario) {
-
-    document.getElementById("firstName").value =
-        usuario.nombre || "";
-
-    document.getElementById("lastName").value =
-        usuario.apellido || "";
-
-    document.getElementById("email").value =
-        usuario.correo || "";
-
-    document.getElementById("birth").value =
-        usuario.nacimiento || "";
-
-    document.getElementById("phone").value =
-        usuario.telefono || "";
-
-    const whatsappInput =
-        document.querySelector("#contact input:not(#phone)");
-
-    if (whatsappInput) {
-        whatsappInput.value =
-            usuario.whatsapp || "";
     }
 
-    document.getElementById("address").value =
-        usuario.direccion || "";
+    if (cancelLogoutBtn && logoutModal) {
+        cancelLogoutBtn.addEventListener("click", function() {
+            logoutModal.style.display = "none";
+        });
+    }
 
-    document.getElementById("displayName").textContent =
-        `${usuario.nombre || ""} ${usuario.apellido || ""}`.trim();
+    if (confirmLogoutBtn) {
+        confirmLogoutBtn.addEventListener("click", function() {
+            // Removemos el estado de sesión activa
+            localStorage.removeItem("isLoggedIn");
+
+            // Redirigir al home público
+            window.location.href = "index.html";
+        });
+    }
+
+    if (logoutModal) {
+        logoutModal.addEventListener("click", function(e) {
+            if (e.target === logoutModal) {
+                logoutModal.style.display = "none";
+            }
+        });
+    }
+});
+
+// 5. Función para habilitar/deshabilitar la edición de las tarjetas con tu azul oscuro
+function toggleEdit(button) {
+    const card = button.closest(".card");
+    const inputs = card.querySelectorAll("input");
+    const isDisabled = inputs[0].disabled;
+
+    if (isDisabled) {
+        inputs.forEach(input => input.disabled = false);
+        button.textContent = "Save";
+        button.style.backgroundColor = "#1a365d"; // Tu azul oscuro preferido
+        button.style.color = "#fff";
+    } else {
+        inputs.forEach(input => {
+            const id = input.id;
+            const value = input.value;
+            updateUserData(id, value);
+            input.disabled = true;
+        });
+
+        button.textContent = "Edit";
+        button.style.backgroundColor = "";
+        button.style.color = "";
+        alert("¡Cambios guardados correctamente!");
+    }
 }
 
+// Función auxiliar para actualizar propiedades en el localStorage
+function updateUserData(key, value) {
+    let userData = JSON.parse(localStorage.getItem("userProfile")) || {};
+    userData[key] = value;
+    localStorage.setItem("userProfile", JSON.stringify(userData));
 
-function guardarDatos() {
-
-    const usuarioActivo = JSON.parse(
-        localStorage.getItem("usuarioActivo")
-    );
-
-    if (!usuarioActivo) return;
-
-    const nombre =
-        document.getElementById("firstName").value.trim();
-
-    const apellido =
-        document.getElementById("lastName").value.trim();
-
-    const correo =
-        document.getElementById("email").value.trim().toLowerCase();
-
-    const nacimiento =
-        document.getElementById("birth").value;
-
-    const telefono =
-        document.getElementById("phone").value.trim();
-
-    const whatsappInput =
-        document.querySelector("#contact input:not(#phone)");
-
-    const whatsapp =
-        whatsappInput ? whatsappInput.value.trim() : "";
-
-    const direccion =
-        document.getElementById("address").value.trim();
-
-    let usuarios =
-        JSON.parse(localStorage.getItem("usuarios")) || [];
-
-    const index = usuarios.findIndex(
-        usuario => usuario.id === usuarioActivo.id
-    );
-
-    if (index === -1) return;
-
-    usuarios[index] = {
-        ...usuarios[index],
-        nombre,
-        apellido,
-        correo,
-        nacimiento,
-        telefono,
-        whatsapp,
-        direccion
-    };
-
-    localStorage.setItem(
-        "usuarios",
-        JSON.stringify(usuarios)
-    );
-
-    localStorage.setItem(
-        "usuarioActivo",
-        JSON.stringify(usuarios[index])
-    );
-
-    document.getElementById("displayName").textContent =
-        `${nombre} ${apellido}`.trim();
-
-    alert("Information saved successfully.");
-}})
-const logoutBtn = document.getElementById("logoutBtn");
-const logoutModal = document.getElementById("logoutModal");
-const cancelLogout = document.getElementById("cancelLogout");
-const confirmLogout = document.getElementById("confirmLogout");
-const logoutOverlay = document.querySelector(".logout-modal-overlay");
-
-if (logoutBtn && logoutModal) {
-
-    logoutBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        logoutModal.classList.add("active");
-        document.body.style.overflow = "hidden";
-    });
-
-    function closeLogoutModal() {
-        logoutModal.classList.remove("active");
-        document.body.style.overflow = "";
+    if (key === "firstName" || key === "lastName") {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        document.getElementById("displayName").textContent = `${firstName} ${lastName}`;
     }
-
-    cancelLogout.addEventListener("click", closeLogoutModal);
-
-    logoutOverlay.addEventListener("click", closeLogoutModal);
-
-    confirmLogout.addEventListener("click", () => {
-        localStorage.removeItem("usuarioActivo");
-        window.location.href = "index.html";
-    });
 }
