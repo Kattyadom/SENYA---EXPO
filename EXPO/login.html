@@ -42,13 +42,20 @@
             </a>
             <h2>Join us</h2>
             <p class="subtitle">Continue your SENYA experience.</p>
-            <form>
+            <form id="registerForm">
+
     <div class="form-row">
+
         <div class="input-group">
             <label>First Name</label>
             <div class="input-box">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" placeholder="Your first name" required>
+                <input
+                    type="text"
+                    id="registerFirstName"
+                    placeholder="Your first name"
+                    required
+                >
             </div>
         </div>
 
@@ -56,17 +63,28 @@
             <label>Last Name</label>
             <div class="input-box">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" placeholder="Your last name" required>
+                <input
+                    type="text"
+                    id="registerLastName"
+                    placeholder="Your last name"
+                    required
+                >
             </div>
         </div>
+
     </div>
 
     <div class="form-row">
+
         <div class="input-group">
             <label>Birthday</label>
             <div class="input-box">
                 <i class="fa-solid fa-calendar"></i>
-                <input type="date" required>
+                <input
+                    type="date"
+                    id="registerBirth"
+                    required
+                >
             </div>
         </div>
 
@@ -74,16 +92,27 @@
             <label>Phone Number</label>
             <div class="input-box">
                 <i class="fa-solid fa-phone"></i>
-                <input type="tel" placeholder="Your phone number" required>
+                <input
+                    type="tel"
+                    id="registerPhone"
+                    placeholder="Your phone number"
+                    required
+                >
             </div>
         </div>
+
     </div>
 
     <div class="input-group">
         <label>WhatsApp</label>
         <div class="input-box">
             <i class="fa-brands fa-whatsapp"></i>
-            <input type="tel" placeholder="Your WhatsApp number" required>
+            <input
+                type="tel"
+                id="registerWhatsapp"
+                placeholder="Your WhatsApp number"
+                required
+            >
         </div>
     </div>
 
@@ -91,7 +120,12 @@
         <label>Address</label>
         <div class="input-box">
             <i class="fa-solid fa-location-dot"></i>
-            <input type="text" placeholder="Your address" required>
+            <input
+                type="text"
+                id="registerAddress"
+                placeholder="Your address"
+                required
+            >
         </div>
     </div>
 
@@ -99,7 +133,12 @@
         <label>Email</label>
         <div class="input-box">
             <i class="fa-solid fa-envelope"></i>
-            <input type="email" placeholder="example@email.com" required>
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="example@email.com"
+                required
+            >
         </div>
     </div>
 
@@ -107,22 +146,30 @@
         <label>Password</label>
         <div class="input-box">
             <i class="fa-solid fa-lock"></i>
-            <input type="password" id="password" placeholder="Enter your password" required>
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Enter your password"
+                required
+            >
             <button type="button" id="togglePassword">
                 <i class="fa-solid fa-eye"></i>
             </button>
         </div>
     </div>
+
     <div class="remember">
         <label>
             <input type="checkbox">
             Remember me
         </label>
     </div>
-    <button class="login-btn" type="submit">
-        Sign up
+
+    <button type="submit" class="login-btn">
+        <span>Sign up</span>
         <i class="fa-solid fa-arrow-right"></i>
     </button>
+
 </form>
             <div class="divider">
                 <span>Or</span>

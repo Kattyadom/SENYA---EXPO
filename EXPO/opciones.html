@@ -6,6 +6,7 @@
     <title>Opciones - SENYA </title>
     <link rel="stylesheet" href="css/opciones.css">
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/modal.css">
     <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -488,8 +489,12 @@
             </div>
         </div>
     </div>
+    
     <div class="service-footer">
-        <button onclick="window.location.href='videollamada.html'">
+        <button class="see-more" onclick="window.location.href='#'">
+        See more
+    </button>
+        <button class="call-now" onclick="window.location.href='videollamada.html'">
     <i class="fa-solid fa-phone"></i>
     Call now
 </button>
@@ -548,11 +553,77 @@
         <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
 </footer>
-<script src="js/profile.js"></script>
 <a href="videollamada.html" class="emergency-btn" title="Emergency">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <span>Emergency</span>
 </a>
+<div class="login-modal" id="loginModal">
+    <div class="login-modal-overlay"></div>
+
+    <div class="login-modal-card">
+        <button class="modal-close" id="modalClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <h2>Create your profile</h2>
+
+        <p>
+            To create and manage your profile, you need to
+            sign in or create a SENYA account first.
+        </p>
+
+        <div class="modal-buttons">
+            <a href="login.html" class="modal-join">
+                Join us
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <button class="modal-later" id="modalLater">
+                Maybe later
+            </button>
+        </div>
+    </div>
+</div>
+<div class="call-modal" id="callModal">
+    <div class="call-modal-overlay"></div>
+
+    <div class="call-modal-card">
+
+        <button class="modal-close" id="callModalClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-phone"></i>
+        </div>
+
+        <h2>Sign in to make a call</h2>
+
+        <p>
+            To contact a service provider and make calls through SENYA,
+            you need to sign in or create an account first.
+        </p>
+
+        <div class="modal-buttons">
+
+            <a href="login.html" class="modal-join">
+                Join us
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <button class="modal-later" id="callModalLater">
+                Maybe later
+            </button>
+
+        </div>
+
+    </div>
+</div>
+<script src="js/modal.js"></script>
 <script src="js/opciones.js"></script>
 </body>
 </html>

@@ -1,45 +1,77 @@
-const passwordInput = document.getElementById("password");
-const togglePassword = document.querySelector(".toggle-password");
-const loginForm = document.querySelector("form");
-const loginButton = document.querySelector(".login-btn");
+document.addEventListener("DOMContentLoaded", () => {
 
-togglePassword.addEventListener("click", () => {
+    const registerForm = document.getElementById("registerForm");
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("registerPassword");
 
-    const icon = togglePassword.querySelector("i");
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener("click", () => {
 
-    if(passwordInput.type === "password"){
+            const type = passwordInput.type === "password"
+                ? "text"
+                : "password";
 
-        passwordInput.type = "text";
+            passwordInput.type = type;
 
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
+            const icon = togglePassword.querySelector("i");
 
-    }else{
-
-        passwordInput.type = "password";
-
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
-
+            if (icon) {
+                icon.classList.toggle("fa-eye");
+                icon.classList.toggle("fa-eye-slash");
+            }
+        });
     }
 
-});
+    if (registerForm) {
 
-loginForm.addEventListener("submit",(e)=>{
+        registerForm.addEventListener("submit", (event) => {
 
-    e.preventDefault();
+            event.preventDefault();
 
-    loginButton.innerHTML = `
-        <i class="fa-solid fa-spinner fa-spin"></i>
-        Signing In...
-    `;
+            const nombre = document.getElementById("registerFirstName").value.trim();
+            const apellido = document.getElementById("registerLastName").value.trim();
+            const nacimiento = document.getElementById("registerBirth").value;
+            const telefono = document.getElementById("registerPhone").value.trim();
+            const whatsapp = document.getElementById("registerWhatsapp").value.trim();
+            const direccion = document.getElementById("registerAddress").value.trim();
+            const correo = document.getElementById("registerEmail").value.trim().toLowerCase();
+            const password = document.getElementById("registerPassword").value;
 
-    loginButton.disabled = true;
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    setTimeout(()=>{
+            const usuarioExiste = usuarios.some(
+                usuario => usuario.correo === correo
+            );
 
-        window.location.href="dashboard.html";
+            if (usuarioExiste) {
+                alert("This email is already registered.");
+                return;
+            }
 
-    },1800);
+            const nuevoUsuario = {
+                id: Date.now(),
+                nombre,
+                apellido,
+                nacimiento,
+                telefono,
+                whatsapp,
+                direccion,
+                correo,
+                password
+            };
 
+            usuarios.push(nuevoUsuario);
+
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+            localStorage.setItem(
+                "usuarioActivo",
+                JSON.stringify(nuevoUsuario)
+            );
+
+            alert("Account created successfully.");
+
+            window.location.href = "index.html";;
+        });
+    }
 });

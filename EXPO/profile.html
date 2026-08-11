@@ -36,7 +36,7 @@
     <aside class="sidebar">
         <div class="profile-header">
             <div class="image-container">
-                <img src="img/random.jpg" id="previewImage">
+                <img src="https://th.bing.com/th/id/R.73cca7706f5b45af3d0507a6d971358f?rik=DzBosi9adsdChw&pid=ImgRaw&r=0" id="previewImage">
                 <label for="imageUpload" class="camera-btn">
                     <i class="fa-solid fa-camera"></i>
                 </label>
@@ -117,10 +117,11 @@
                         value="+503 7495 2947">
                 </div>
                 <div class="field">
-                    <label>WhatsApp</label>
+                     <label>WhatsApp</label>
                     <input
-                        type="text"
-                        value="+503 7495 2947">
+                    type="text"
+                    id="whatsapp">
+                </div>
                 </div>
                 <div class="field full">
                     <label>Address</label>
@@ -146,7 +147,7 @@
                     <h4>Log out</h4>
                     <p>Log out from your account</p>
                 </div>
-                <button>Log out</button>
+                <button id="logoutBtn">Log out</button>
             </div>
             </div>
         </section>
@@ -202,12 +203,36 @@
     <div class="footer-bottom">
         <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
-
-    <script src="js/profile.js"></script>
 </footer>
 <a href="videollamada.html" class="emergency-btn" title="Emergency">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <span>Emergency</span>
 </a>
+<div class="logout-modal" id="logoutModal">
+    <div class="logout-modal-overlay"></div>
+
+    <div class="logout-modal-card">
+        <div class="logout-icon">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+
+        <h2>Log out?</h2>
+
+        <p>
+            Are you sure you want to log out of your SENYA account?
+        </p>
+
+        <div class="logout-actions">
+            <button id="cancelLogout" class="cancel-logout">
+                Maybe later
+            </button>
+
+            <button id="confirmLogout" class="confirm-logout">
+                Log out
+            </button>
+        </div>
+    </div>
+</div>
+<script src="js/profile.js"></script>
 </body>
 </html>
