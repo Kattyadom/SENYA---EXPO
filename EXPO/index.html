@@ -6,6 +6,7 @@
     <title>Home - SENYA </title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/modal.css">
     <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -73,7 +74,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="opciones.html">Partner Network</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="profile.html" id="profileLink">Profile</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="soporte.html">Contact</a></li>
             </ul>
@@ -102,6 +103,7 @@
             video calls in real time.
         </p>
         <div class="hero-buttons">
+            <!-- AQUÍ ESTABA EL ERROR: Apuntaba a signin en lugar de login -->
             <a href="login.html" class="primary">
                 Join SENYA
             </a>
@@ -353,7 +355,7 @@
             Join SENYA and connect instantly with certified interpreters,
             companies and essential services.
         </p>
-        <a href="#account" class="cta-btn">
+        <a href="login.html" class="cta-btn">
             Join SENYA
             <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -409,13 +411,36 @@
     <div class="footer-bottom">
         <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
-
-    <script src="js/profile.js"></script>
 </footer>
 <a href="videollamada.html" class="emergency-btn" title="Emergency">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <span>Emergency</span>
 </a>
-<script src="js/accessibility.js"></script>
+<div class="login-modal" id="loginModal">
+    <div class="login-modal-overlay"></div>
+    <div class="login-modal-card">
+        <button class="modal-close" id="modalClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <h2>Create your profile</h2>
+        <p>
+            To create and manage your profile, you need to
+            sign in or create a SENYA account first.
+        </p>
+        <div class="modal-buttons">
+            <a href="login.html" class="modal-join">
+                Join us
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <button class="modal-later" id="modalLater">
+                Maybe later
+            </button>
+        </div>
+    </div>
+</div>
+<script src="js/modal.js"></script>
 </body>
 </html>

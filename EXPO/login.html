@@ -15,26 +15,26 @@
             <img src="https://deliveredcold.com/assets/LadyWorking-DOZ3s7BZ.png" alt="Background">
             <div class="overlay"></div>
             <div class="image-info">
-    <div class="text-content">
-        <div class="badge-pill">Join Us to Build </div>
-        <h1>Start your Journey</h1>
-        <p>Follow these simple steps to set up your account.</p>
-    </div>
-    <div class="steps-cards">
-        <div class="step-card active">
-            <span class="step-number">1</span>
-            <p>Register your account</p>
-        </div>
-        <div class="step-card">
-            <span class="step-number">2</span>
-            <p>Set up your profile information</p>
-        </div>
-        <div class="step-card">
-            <span class="step-number">3</span>
-            <p>Enjoy calling any service you need</p>
-        </div>
-    </div>
-</div>
+                <div class="text-content">
+                    <div class="badge-pill">Join Us to Build </div>
+                    <h1>Start your Journey</h1>
+                    <p>Follow these simple steps to set up your account.</p>
+                </div>
+                <div class="steps-cards">
+                    <div class="step-card active">
+                        <span class="step-number">1</span>
+                        <p>Register your account</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <p>Set up your profile information</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <p>Enjoy calling any service you need</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="login-card">
             <a href="index.html" class="back">
@@ -42,99 +42,103 @@
             </a>
             <h2>Join us</h2>
             <p class="subtitle">Continue your SENYA experience.</p>
-            <form>
-    <div class="form-row">
-        <div class="input-group">
-            <label>First Name</label>
-            <div class="input-box">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" placeholder="Your first name" required>
-            </div>
-        </div>
+            
+            <form id="registerForm">
+                <div class="input-group">
+                    <label>Name</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="registerFirstName" placeholder="Your name" required>
+                    </div>
+                </div>
 
-        <div class="input-group">
-            <label>Last Name</label>
-            <div class="input-box">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" placeholder="Your last name" required>
-            </div>
-        </div>
-    </div>
+                <div class="input-group">
+                    <label>Last Name</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="registerLastName" placeholder="Your last name" required>
+                    </div>
+                </div>
 
-    <div class="form-row">
-        <div class="input-group">
-            <label>Birthday</label>
-            <div class="input-box">
-                <i class="fa-solid fa-calendar"></i>
-                <input type="date" required>
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Birthday</label>
+                        <div class="input-box">
+                            <!-- Se agregó id="calendarIcon" para controlar el calendario -->
+                            <i class="fa-solid fa-calendar" id="calendarIcon" style="cursor: pointer;"></i>
+                            <input type="date" id="registerBirthday" required>
+                        </div>
+                    </div>
 
-        <div class="input-group">
-            <label>Phone Number</label>
-            <div class="input-box">
-                <i class="fa-solid fa-phone"></i>
-                <input type="tel" placeholder="Your phone number" required>
-            </div>
-        </div>
-    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <div class="input-box">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="tel" id="registerPhone" placeholder="Your phone number" required>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="input-group">
-        <label>WhatsApp</label>
-        <div class="input-box">
-            <i class="fa-brands fa-whatsapp"></i>
-            <input type="tel" placeholder="Your WhatsApp number" required>
-        </div>
-    </div>
+                <div class="input-group">
+                    <label>WhatsApp</label>
+                    <div class="input-box">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <input type="tel" id="registerWhatsapp" placeholder="Your WhatsApp number" required>
+                    </div>
+                </div>
 
-    <div class="input-group">
-        <label>Address</label>
-        <div class="input-box">
-            <i class="fa-solid fa-location-dot"></i>
-            <input type="text" placeholder="Your address" required>
-        </div>
-    </div>
+                <div class="input-group">
+                    <label>Address</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" id="registerAddress" placeholder="Your address" required>
+                    </div>
+                </div>
 
-    <div class="input-group">
-        <label>Email</label>
-        <div class="input-box">
-            <i class="fa-solid fa-envelope"></i>
-            <input type="email" placeholder="example@email.com" required>
-        </div>
-    </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="example@email.com" required>
+                    </div>
+                </div>
 
-    <div class="input-group">
-        <label>Password</label>
-        <div class="input-box">
-            <i class="fa-solid fa-lock"></i>
-            <input type="password" id="password" placeholder="Enter your password" required>
-            <button type="button" id="togglePassword">
-                <i class="fa-solid fa-eye"></i>
-            </button>
-        </div>
-    </div>
-    <div class="remember">
-        <label>
-            <input type="checkbox">
-            Remember me
-        </label>
-    </div>
-    <button class="login-btn" type="submit">
-        Sign up
-        <i class="fa-solid fa-arrow-right"></i>
-    </button>
-</form>
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                        <button type="button" id="togglePassword">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="remember">
+                    <label>
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <span>Sign up</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
             <div class="divider">
                 <span>Or</span>
             </div>
             <a href="signin.html" class="google-btn">
                 <span>Sign in</span>
                 <i class="fa-solid fa-arrow-right"></i>
-                </a>
+            </a>
         </div>
     </section>
 </div>
-</section>
+
+<!-- Archivo JavaScript separado -->
 <script src="js/login.js"></script>
 </body>
 </html>

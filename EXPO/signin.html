@@ -22,6 +22,7 @@
                     <p class="subtitle">
                         Welcome back! Please enter your details.
                     </p>
+
                     <form id="loginForm">
                         <div class="input-group">
                             <label for="email">Email</label>
@@ -60,28 +61,30 @@
                                 <span>Remember me</span>
                             </label>
                         </div>
+                        
                         <button type="submit" class="login-btn">
                             <span>Sign in</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </form>
+
                     <div class="divider">
                         <span>or</span>
                     </div>
-                        <a href="login.html" class="create-account-btn">
-                            <span>Create an account</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+                    <a href="login.html" class="create-account-btn">
+                        <span>Create an account</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
+            
             <div class="login-image">
                 <img
                     src="https://cdn.getmidnight.com/a4bab3ce420ea5342f99b468206738eb/2025/02/recepcionista-enviando-mensagem-de-confirmacao-de-consulta-1.webp"
                     alt="SENYA Accessibility">
                 <div class="overlay"></div>
                 <div class="image-info">
-                    <div class="image-top">
-                    </div>
+                    <div class="image-top"></div>
                     <div class="image-bottom">
                         <h2>
                             Communication
@@ -107,9 +110,7 @@
                             <div class="testimonial-footer">
                                 <div class="author-info">
                                     <h4>Ariana B.</h4>
-                                    <span>
-                                        SENYA User
-                                    </span>
+                                    <span>SENYA User</span>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +119,26 @@
             </div>
         </section>
     </main>
+
+    <!-- Modal Flotante de Error -->
+    <div id="errorModal" class="modal-overlay">
+        <div class="modal-card">
+            <button type="button" id="closeModalBtn" class="modal-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-icon">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+            <h3>Account not found</h3>
+            <p>The email or password you entered doesn't match our records, or the account doesn't exist.</p>
+            <div class="modal-actions">
+                <button type="button" id="tryAgainBtn" class="btn-retry">Try again</button>
+                <a href="login.html" class="btn-create">Create an account</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Archivo JavaScript externo -->
     <script src="js/signin.js"></script>
 </body>
 </html>

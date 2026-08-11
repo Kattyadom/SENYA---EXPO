@@ -1,92 +1,127 @@
-const imageUpload = document.getElementById("imageUpload");
-const previewImage = document.getElementById("previewImage");
-imageUpload.addEventListener("change", function(){
-    const file = this.files[0];
-    if(file){
-        const reader = new FileReader();
-        reader.onload = function(e){
-            previewImage.src = e.target.result;
-            localStorage.setItem("profileImage", e.target.result);
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. VERIFICAR SI HAY UNA SESIÓN ACTIVA PRIMERO
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn !== "true") {
+        // Si no ha iniciado sesión, expulsarlo inmediatamente al sign in
+        window.location.href = "signin.html";
+        return; // Detener la ejecución del script aquí
+    }
+
+    // 2. Si sí está logueado, recuperar y rellenar los datos del usuario
+    const userData = JSON.parse(localStorage.getItem("userProfile"));
+
+    if (userData) {
+        document.getElementById("firstName").value = userData.firstName || "";
+        document.getElementById("lastName").value = userData.lastName || "";
+        document.getElementById("email").value = userData.email || "";
+        document.getElementById("birth").value = userData.birth || "";
+        document.getElementById("phone").value = userData.phone || "";
+        document.getElementById("whatsapp").value = userData.whatsapp || "";
+        document.getElementById("address").value = userData.address || "";
+        
+        const displayName = document.getElementById("displayName");
+        if (displayName) {
+            displayName.textContent = `${userData.firstName || ""} ${userData.lastName || ""}`;
         }
-        reader.readAsDataURL(file);
     }
-});
-window.addEventListener("load", ()=>{
-    if(localStorage.getItem("profileImage")){
-        previewImage.src = localStorage.getItem("profileImage");
+
+    // 3. Cargar la foto de perfil guardada previamente si existe
+    const previewImage = document.getElementById("previewImage");
+    const imageUpload = document.getElementById("imageUpload");
+    const savedImage = localStorage.getItem("userProfileImage");
+    
+    if (savedImage && previewImage) {
+        previewImage.src = savedImage;
     }
-    cargarDatos();
-});
-function guardarDatos(){
-    const datos = {
-        nombre: document.getElementById("firstName").value,
-        apellido: document.getElementById("lastName").value,
-        correo: document.getElementById("email").value,
-        telefono: document.getElementById("phone").value,
-        direccion: document.getElementById("address").value,
-        nacimiento: document.getElementById("birth").value
-    };
-    localStorage.setItem("perfilUsuario", JSON.stringify(datos));
-    document.getElementById("displayName").textContent =
-        datos.nombre + " " + datos.apellido;
-    alert("Información guardada correctamente.");
-}
-function cargarDatos(){
-    const datos = JSON.parse(localStorage.getItem("perfilUsuario"));
-    if(datos){
-        document.getElementById("firstName").value = datos.nombre;
-        document.getElementById("lastName").value = datos.apellido;
-        document.getElementById("email").value = datos.correo;
-        document.getElementById("phone").value = datos.telefono;
-        document.getElementById("address").value = datos.direccion;
-        document.getElementById("birth").value = datos.nacimiento;
-        document.getElementById("displayName").textContent =
-            datos.nombre + " " + datos.apellido;
-    }
-}
-function descartarCambios(){
-    cargarDatos();
-}
-const editButtons = document.querySelectorAll(".edit-btn");
-editButtons.forEach((btn)=>{
-    btn.addEventListener("click", ()=>{
-        const card = btn.closest(".card");
-        const inputs = card.querySelectorAll("input");
-        const editando = btn.dataset.editando === "true";
-        inputs.forEach(input=>{
-            input.disabled = editando;
+
+    if (imageUpload && previewImage) {
+        imageUpload.addEventListener("change", function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const base64Image = event.target.result;
+                    previewImage.src = base64Image;
+                    localStorage.setItem("userProfileImage", base64Image);
+                };
+                reader.readAsDataURL(file);
+            }
         });
-        if(editando){
-            guardarDatos();
-            btn.textContent = "Editar";
-            btn.dataset.editando = "false";
-        }else{
-            btn.textContent = "Guardar";
-            btn.dataset.editando = "true";
-        }
-    });
+    }
+
+    // 4. Funcionalidad del Modal de Cerrar Sesión
+    const logoutBtn = document.getElementById("logoutBtn");
+    const logoutModal = document.getElementById("logoutModal");
+    const cancelLogoutBtn = document.getElementById("cancelLogoutBtn");
+    const confirmLogoutBtn = document.getElementById("confirmLogoutBtn");
+
+    if (logoutBtn && logoutModal) {
+        logoutBtn.addEventListener("click", function() {
+            logoutModal.style.display = "flex";
+        });
+    }
+
+    if (cancelLogoutBtn && logoutModal) {
+        cancelLogoutBtn.addEventListener("click", function() {
+            logoutModal.style.display = "none";
+        });
+    }
+
+    if (confirmLogoutBtn) {
+        confirmLogoutBtn.addEventListener("click", function() {
+            // Removemos el estado de sesión activa
+            localStorage.removeItem("isLoggedIn");
+
+            // Redirigir al home público
+            window.location.href = "index.html";
+        });
+    }
+
+    if (logoutModal) {
+        logoutModal.addEventListener("click", function(e) {
+            if (e.target === logoutModal) {
+                logoutModal.style.display = "none";
+            }
+        });
+    }
 });
-document.querySelectorAll(".card input").forEach(input=>{
-    input.disabled = true;
-});
-const sections = document.querySelectorAll("main section");
-const navLinks = document.querySelectorAll(".sidebar nav a");
-window.addEventListener("scroll", () => {
-    let currentSection = "";
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 180;
-        const sectionHeight = section.offsetHeight;
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-        ) {
-            currentSection = section.getAttribute("id");
-        }
-    });
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if(link.getAttribute("href") === "#" + currentSection){
-            link.classList.add("active");
-        }
-    });
-});
+
+// 5. Función para habilitar/deshabilitar la edición de las tarjetas con tu azul oscuro
+function toggleEdit(button) {
+    const card = button.closest(".card");
+    const inputs = card.querySelectorAll("input");
+    const isDisabled = inputs[0].disabled;
+
+    if (isDisabled) {
+        inputs.forEach(input => input.disabled = false);
+        button.textContent = "Save";
+        button.style.backgroundColor = "#1a365d"; // Tu azul oscuro preferido
+        button.style.color = "#fff";
+    } else {
+        inputs.forEach(input => {
+            const id = input.id;
+            const value = input.value;
+            updateUserData(id, value);
+            input.disabled = true;
+        });
+
+        button.textContent = "Edit";
+        button.style.backgroundColor = "";
+        button.style.color = "";
+        alert("¡Cambios guardados correctamente!");
+    }
+}
+
+// Función auxiliar para actualizar propiedades en el localStorage
+function updateUserData(key, value) {
+    let userData = JSON.parse(localStorage.getItem("userProfile")) || {};
+    userData[key] = value;
+    localStorage.setItem("userProfile", JSON.stringify(userData));
+
+    if (key === "firstName" || key === "lastName") {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        document.getElementById("displayName").textContent = `${firstName} ${lastName}`;
+    }
+}
