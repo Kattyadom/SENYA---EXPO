@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - SENYA</title>
+    <link rel="stylesheet" href="css/singin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <main class="main-wrapper">
+        <section class="login-container">
+            <div class="login-card">
+                <div class="login-card">
+                    <a href="index.html" class="back-home">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Home
+                    </a>
+                </div>
+                <div class="login-content">
+                    <span class="welcome">WELCOME BACK</span>
+                    <h1>Sign in to your account</h1>
+                    <p class="subtitle">
+                        Welcome back! Please enter your details.
+                    </p>
+
+                    <form id="loginForm">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <div class="input-box">
+                                <i class="fa-regular fa-envelope"></i>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Enter your email"
+                                    required
+                                >
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <div class="input-box">
+                                <i class="fa-solid fa-lock"></i>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    placeholder="Enter your password"
+                                    required
+                                >
+                                <button
+                                    type="button"
+                                    class="show-password"
+                                    id="showPassword"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="remember">
+                            <label>
+                                <input type="checkbox">
+                                <span>Remember me</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="login-btn">
+                            <span>Sign in</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+                    <a href="login.html" class="create-account-btn">
+                        <span>Create an account</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="login-image">
+                <img
+                    src="https://cdn.getmidnight.com/a4bab3ce420ea5342f99b468206738eb/2025/02/recepcionista-enviando-mensagem-de-confirmacao-de-consulta-1.webp"
+                    alt="SENYA Accessibility">
+                <div class="overlay"></div>
+                <div class="image-info">
+                    <div class="image-top"></div>
+                    <div class="image-bottom">
+                        <h2>
+                            Communication
+                            <br>
+                            without barriers.
+                        </h2>
+                        <p>
+                            SENYA connects people with accessible
+                            communication whenever they need it.
+                        </p>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p>
+                                "SENYA helped me communicate with
+                                confidence and without barriers."
+                            </p>
+                            <div class="testimonial-footer">
+                                <div class="author-info">
+                                    <h4>Ariana B.</h4>
+                                    <span>SENYA User</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Flotante de Error -->
+    <div id="errorModal" class="modal-overlay">
+        <div class="modal-card">
+            <button type="button" id="closeModalBtn" class="modal-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-icon">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+            <h3>Account not found</h3>
+            <p>The email or password you entered doesn't match our records, or the account doesn't exist.</p>
+            <div class="modal-actions">
+                <button type="button" id="tryAgainBtn" class="btn-retry">Try again</button>
+                <a href="login.html" class="btn-create">Create an account</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Archivo JavaScript externo -->
+    <script src="js/signin.js"></script>
+</body>
+</html>

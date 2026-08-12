@@ -6,10 +6,65 @@
     <title>Home - SENYA </title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/modal.css">
     <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
+
 <body>
+
+<!-- Accessibility Panel -->
+ <div class="accessibility-panel" id="accessibilityPanel"> 
+
+<div class="panel-header"> 
+<h3>Accessibility</h3> 
+<button id="closePanel">&times;</button> 
+</div> 
+
+<div class="panel-content">
+
+<button class="acc-card low-vision" id="lowVisionBtn"> 
+<div class="acc-icon">👁️</div> 
+<div class="acc-info"> 
+<h4>Low Vision</h4> 
+<p>High contrast, larger text and stronger buttons</p> 
+</div> 
+</button> 
+
+<button class="acc-card dyslexia-mode" id="dyslexiaBtn"> 
+<div class="acc-icon">📖</div> 
+<div class="acc-info"> 
+<h4>Dyslexia</h4> 
+<p>Friendly font, soft colors and more spacing</p> 
+</div> 
+</button> 
+
+<button class="acc-card deaf-mode" id="deafBtn"> 
+<div class="acc-icon">🤟</div> 
+<div class="acc-info"> 
+<h4>Deaf Support</h4> 
+<p>Visual communication and larger icons</p> 
+</div> 
+</button> 
+
+<div class="text-size-box"> 
+<label>Text Size</label> 
+<div class="size-buttons"> 
+<button id="smallText">A-</button> 
+<button id="normalText" class="active">A</button> 
+<button id="largeText">A+</button> 
+</div>
+</div> 
+
+ <button class="reset-btn" id="resetAccessibility">
+      Reset Accessibility
+    </button>
+
+  </div>
+</div>
+
+
   <header class="navbar">
     <div class="navbar-container">
         <a href="#" class="logo">
@@ -19,14 +74,14 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="opciones.html">Partner Network</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="profile.html" id="profileLink">Profile</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="soporte.html">Contact</a></li>
             </ul>
         </nav>
-        <a href="#" class="help-btn">
-            Accesibility
-        </a>
+       <a href="#" class="help-btn" id="accessibilityBtn">
+         Accessibility
+         </a>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
@@ -48,10 +103,11 @@
             video calls in real time.
         </p>
         <div class="hero-buttons">
-            <a href="#services" class="primary">
+            <!-- AQUÍ ESTABA EL ERROR: Apuntaba a signin en lugar de login -->
+            <a href="login.html" class="primary">
                 Join SENYA
             </a>
-            <a href="#account" class="secondary">
+            <a href="opciones.html" class="secondary">
                 Explore services
             </a>
         </div>
@@ -145,34 +201,52 @@
 <!--Servicios-->
 <section class="services" id="services">
     <div class="section-title">
+        <span>KNOW OUR SERVICES</span>
         <h2>Our Services</h2>
         <p>Everything you need in one place.</p>
     </div>
-    <div class="cards">
-        <div class="card">
-            <div class="icon">
-                <i class="fa-solid fa-building-columns"></i>
+    <div class="services-container">
+        <div class="services-list">
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Banking Services</h3>
+                    <p>
+                        Communicate with accesible banks quick and effectly.
+                    </p>
+                    <a href="bankop.html">Explore →</a>
+                </div>
             </div>
-                <h3>Banking Services</h3>
-                <p>Communicate with banks easily through professional interpreters.</p>
-                <a href="bankop.html">Explore →</a>
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Customer Support</h3>
+                    <p>
+                        Receive assistance from companies and organizations without barriers.
+                    </p>
+                    <a href="opciones.html">Explore →</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Emergency Services</h3>
+                    <p>
+                        Access emergency communication whenever you need it.
+                    </p>
+                    <a href="videollamada.html">Call Now →</a>
+                </div>
+            </div>
         </div>
-    <div class="card">
-        <div class="icon">
-            <i class="fa-solid fa-phone-volume"></i>
+        <div class="services-image">
+            <img src="img/call.jpg" alt="SENYA Services">
         </div>
-            <h3>Customer Support</h3>
-            <p> Receive assistance from companies and organizations without barriers.</p>
-            <a href="opciones.html"> Explore →</a>
-    </div>
-    <div class="card">
-        <div class="icon">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-        </div>
-            <h3>Emergency Services</h3>
-            <p> Access emergency communication whenever you need it. </p>
-            <a href="videollamada.html"> Call Now → </a>
-    </div>
     </div>
 </section>
 <!--How it works-->
@@ -180,60 +254,112 @@
     <div class="section-title">
         <span>HOW IT WORKS</span>
         <h2>Three Easy Steps</h2>
+        <p>Communicating has never been this easy.</p>
     </div>
-<div class="timeline">
-    <div class="timeline-item">
-        <div class="circle">1</div>
-            <h3>Select a Service</h3>
-            <p> Choose the company or institution you want to contact.</p>
-    </div>
-    <div class="line"></div>
-        <div class="timeline-item">
-            <div class="circle">2</div>
-                <h3>Connect</h3>
-                <p> One of our interpreters joins the video call. </p>
-        </div>
-    <div class="line"></div>
-        <div class="timeline-item">
-            <div class="circle">3</div>
-                <h3>Communicate</h3>
-                    <p> Speak naturally without communication barriers. </p>
+    <div class="steps">
+        <div class="step left">
+            <div class="step-image">
+                <img src="https://img.freepik.com/fotos-premium/concepto-banca-movil-linea-empresarios-estan-usando-computadoras-hacer-depositos-retiros-traves-internet-linea_10541-10358.jpg" alt="">
+            </div>
+            <div class="step-info">
+                <span>STEP 01</span>
+                <h3>Select a Service</h3>
+                <p>
+                    Choose the bank, company or institution you want to contact.
+                </p>
             </div>
         </div>
+        <div class="step right">
+            <div class="step-info">
+                <span>STEP 02</span>
+                <h3>Connect</h3>
+                <p>
+                    Choose wether you need an interpreter or not.
+                </p>
+            </div>
+            <div class="step-image">
+                <img src="https://img.freepik.com/fotos-premium/persona-que-busca-informacion-sobre-tarjetas-credito-comerciales-prestamos-hipotecarios-computadora-portatil-su-escritorio_665346-25961.jpg" alt="">
+            </div>
+        </div>
+        <div class="step left">
+            <div class="step-image">
+                <img src="https://www.perldevgeek.com/wp-content/uploads/2023/01/Online-Psychologist-Consultation-Navigating-The-Benefits-Of-Counseling.jpg" alt="">
+            </div>
+            <div class="step-info">
+                <span>STEP 03</span>
+                <h3>Communicate</h3>
+                <p>
+                    Have a natural conversation without communication barriers.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 <!--Testimonios-->
 <section class="testimonials">
     <div class="section-title">
         <span>TESTIMONIALS</span>
         <h2>What Our Users Say</h2>
+        <p>Real experiences from people who communicate every day with SENYA.</p>
     </div>
-<div class="testimonial-grid">
-    <div class="testimonial">
-        ⭐⭐⭐⭐⭐
-        <p> "I contacted my bank without needing someone else to interpret." </p>
-        <h4>María G.</h4>
-</div>
-<div class="testimonial">
-    ⭐⭐⭐⭐⭐
-    <p> "The process was quick, easy and very accessible." </p>
-    <h4>Carlos R.</h4>
-</div>
-<div class="testimonial">
-    ⭐⭐⭐⭐⭐
-    <p> "SENYA helped me communicate with confidence." </p>
-    <h4>Ana L.</h4>
-</div>
-</div>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="quote">
+                <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <p>
+                I contacted my bank without needing another person to interpret.
+                The process was fast, secure and completely accessible.
+            </p>
+            <div class="stars">
+                ★★★★★
+            </div>
+            <div class="user">
+                <img src="https://telemundoneworleans.com/wp-content/uploads/2025/09/12fe1671b6de-fatimaboschfdz542583159184196938871283485994240251357436035n.jpg-1024x576.jpg" alt="">
+                <div>
+                    <h4>Fátima Fernández</h4>
+                    <span>Banking Services</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="quote">
+                <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <p>
+                SENYA allowed me to speak with customer support in minutes.
+                I finally felt independent during the entire process.
+            </p>
+            <div class="stars">
+                ★★★★★
+            </div>
+            <div class="user">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.g_hlIGhyRIx9DwhvK4wmfAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+                <div>
+                    <h4>Adriana Ramírez</h4>
+                    <span>Customer Support</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <!--Call to action-->
 <section class="cta">
-    <h2> Ready to Communicate
-        Without Barriers?
-    </h2>
-    <p> Join hundreds of users who already use SENYA every day. </p>
-    <a href="#account">
-        Get Started
-    </a>
+    <div class="cta-content">
+        <span>JOIN OUR COMMUNITY</span>
+        <h2>
+            Communication Should
+            Be Accessible to Everyone
+        </h2>
+        <p>
+            Join SENYA and connect instantly with certified interpreters,
+            companies and essential services.
+        </p>
+        <a href="login.html" class="cta-btn">
+            Join SENYA
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
 </section>
     <!--Footer-->
 <footer class="footer">
@@ -285,12 +411,36 @@
     <div class="footer-bottom">
         <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
-
-    <script src="js/profile.js"></script>
 </footer>
 <a href="videollamada.html" class="emergency-btn" title="Emergency">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <span>Emergency</span>
 </a>
+<div class="login-modal" id="loginModal">
+    <div class="login-modal-overlay"></div>
+    <div class="login-modal-card">
+        <button class="modal-close" id="modalClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <h2>Create your profile</h2>
+        <p>
+            To create and manage your profile, you need to
+            sign in or create a SENYA account first.
+        </p>
+        <div class="modal-buttons">
+            <a href="login.html" class="modal-join">
+                Join us
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <button class="modal-later" id="modalLater">
+                Maybe later
+            </button>
+        </div>
+    </div>
+</div>
+<script src="js/modal.js"></script>
 </body>
 </html>
