@@ -91,37 +91,42 @@
             </div>
         </div>
         <section class="call-area">
-            <div class="main-video">
-                <div class="video-placeholder">
-                    <div class="person-avatar">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <h2>Interpreter</h2>
-                    <p>Waiting for video...</p>
-                </div>
-                <div class="video-info">
-                    <div>
-                        <strong>Interpreter</strong>
-                        <span>Sign Language Interpreter</span>
-                    </div>
-                    <div class="connection">
-                        <i class="fa-solid fa-wifi"></i>
-                        Excellent connection
-                    </div>
-                </div>
+    <div class="main-video">
+        <!-- Etiqueta de video real para el usuario remoto -->
+        <video id="remoteVideo" autoplay playsinline style="width:100%; height:100%; object-fit:cover;"></video>
+        
+        <div class="video-placeholder" id="remotePlaceholder">
+            <div class="person-avatar">
+                <i class="fa-solid fa-user"></i>
             </div>
-            <div class="self-video">
-                <div class="self-placeholder">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="self-label">
-                    <span>You</span>
-                </div>
+            <h2>Interpreter</h2>
+            <p>Waiting for video...</p>
+        </div>
+        
+        <div class="video-info">
+            <div>
+                <strong>Interpreter</strong>
+                <span>Sign Language Interpreter</span>
             </div>
-            <button class="expand-video" aria-label="Expand video">
-                <i class="fa-solid fa-expand"></i>
-            </button>
-        </section>
+            <div class="connection">
+                <i class="fa-solid fa-wifi"></i>
+                Excellent connection
+            </div>
+        </div>
+    </div>
+
+    <div class="self-video">
+        <!-- Etiqueta de video real para ti (cámara propia) -->
+        <video id="localVideo" autoplay muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>
+        <div class="self-label">
+            <span>You</span>
+        </div>
+    </div>
+    
+    <button class="expand-video" aria-label="Expand video">
+        <i class="fa-solid fa-expand"></i>
+    </button>
+</section>
         <aside class="chat-panel" id="chatPanel">
             <div class="chat-header">
                 <div>
@@ -172,8 +177,11 @@
             </a>
         </div>
     </main>
-
-    <script src="js/accessibility.js"></script>
-    <script src="js/videollamada.js"></script>
+<!-- Librería Socket.io provista automáticamente por el servidor -->
+<script src="/socket.io/socket.io.js"></script>
+<!-- Tu script de accesibilidad previo -->
+<script src="js/accessibility.js"></script>
+<!-- Tu nuevo script de videollamada real -->
+<script src="js/videollamada-funcional.js"></script>
 </body>
 </html>
