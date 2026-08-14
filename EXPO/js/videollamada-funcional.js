@@ -36,65 +36,39 @@ async function iniciarMedia() {
         localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         if (localVideo) localVideo.srcObject = localStream;
         
-        // Una vez lista nuestra cámara, iniciamos la conexión P2P
-        iniciarConexionPeer();
+        // Avisar al servidor que ya estamos listos en la página de videollamada
+        socket.emit('unirse-a-llamada');
     } catch (error) {
         console.error("Error al acceder a la cámara:", error);
-        alert("Por favor, permite el acceso a tu cámara y micrófono para usar la videollamada.");
+        alert("Por favor, permite el acceso a tu cámara y micrófono.");
     }
 }
 
-async function iniciarConexionPeer() {
-    peerConnection = new RTCPeerConnection(servers);
+// El servidor nos avisa que hay alguien más esperando y debemos iniciar la llamada (Oferta)
+socket.on('crear-oferta', async () => {
+    await crearPeerConnection();
+    const offer = await peerConnection.createOffer();
+    await peerConnection.setLocalDescription(offer);
+    socket.emit('offer', offer);
+});
 
-    remoteStream = new MediaStream();
-    if (remoteVideo) remoteVideo.srcObject = remoteStream;
-
-    // Agregar nuestros streams locales al PeerConnection
-    localStream.getTracks().forEach(track => {
-        peerConnection.addTrack(track, localStream);
-    });
-
-    // Recibir streams del otro usuario
-    peerConnection.ontrack = (event) => {
-        event.streams[0].getTracks().forEach(track => {
-            remoteStream.addTrack(track);
-        });
-        // Ocultar el aviso de "Waiting for video..." cuando entra el video real
-        if (remotePlaceholder) remotePlaceholder.style.display = 'none';
-        iniciarCronometro();
-    };
-
-    peerConnection.onicecandidate = (event) => {
-        if (event.candidate) {
-            socket.emit('ice-candidate', event.candidate);
-        }
-    };
-
-    // Si somos el primer usuario en entrar, creamos la oferta de llamada
-    socket.on('connect', async () => {
-        // Creamos la oferta para conectar con quien se uniera después
-        const offer = await peerConnection.createOffer();
-        await peerConnection.setLocalDescription(offer);
-        socket.emit('offer', offer);
-    });
-}
-
-// Escuchar ofertas y respuestas de otros usuarios conectados en la red
+// Recibir la oferta del primer usuario
 socket.on('offer', async (offer) => {
-    if (!peerConnection) return;
+    await crearPeerConnection();
     await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
     const answer = await peerConnection.createAnswer();
     await peerConnection.setLocalDescription(answer);
     socket.emit('answer', answer);
 });
 
+// Recibir la respuesta del segundo usuario
 socket.on('answer', async (answer) => {
-    if (peerConnection && !peerConnection.currentRemoteDescription) {
+    if (peerConnection) {
         await peerConnection.setRemoteDescription(new RTCSessionDescription(answer));
     }
 });
 
+// Recibir candidatos ICE
 socket.on('ice-candidate', async (candidate) => {
     if (peerConnection) {
         try {
@@ -105,7 +79,34 @@ socket.on('ice-candidate', async (candidate) => {
     }
 });
 
-// Control de Micrófono
+async function crearPeerConnection() {
+    if (peerConnection) return;
+    
+    peerConnection = new RTCPeerConnection(servers);
+
+    remoteStream = new MediaStream();
+    if (remoteVideo) remoteVideo.srcObject = remoteStream;
+
+    localStream.getTracks().forEach(track => {
+        peerConnection.addTrack(track, localStream);
+    });
+
+    peerConnection.ontrack = (event) => {
+        event.streams[0].getTracks().forEach(track => {
+            remoteStream.addTrack(track);
+        });
+        if (remotePlaceholder) remotePlaceholder.style.display = 'none';
+        iniciarCronometro();
+    };
+
+    peerConnection.onicecandidate = (event) => {
+        if (event.candidate) {
+            socket.emit('ice-candidate', event.candidate);
+        }
+    };
+}
+
+// Controles de Micrófono y Cámara
 document.getElementById('micButton')?.addEventListener('click', () => {
     const audioTrack = localStream?.getAudioTracks()[0];
     if (audioTrack) {
@@ -115,7 +116,6 @@ document.getElementById('micButton')?.addEventListener('click', () => {
     }
 });
 
-// Control de Cámara
 document.getElementById('cameraButton')?.addEventListener('click', () => {
     const videoTrack = localStream?.getVideoTracks()[0];
     if (videoTrack) {
@@ -125,5 +125,35 @@ document.getElementById('cameraButton')?.addEventListener('click', () => {
     }
 });
 
-// Iniciar proceso al cargar
 iniciarMedia();
+// Función para cerrar la llamada por completo
+function terminarLlamada() {
+    // 1. Detener todas las pistas de la cámara y micrófono locales (apaga la luz de la cámara)
+    if (localStream) {
+        localStream.getTracks().forEach(track => track.stop());
+    }
+
+    // 2. Cerrar la conexión WebRTC con el otro usuario
+    if (peerConnection) {
+        peerConnection.close();
+        peerConnection = null;
+    }
+
+    // 3. Detener el cronómetro de la llamada
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        segundosTotales = 0;
+    }
+
+    // 4. Desconectar del servidor de Socket.io
+    if (socket) {
+        socket.disconnect();
+    }
+
+    // 5. Redirigir al usuario a la página de agradecimiento, inicio o historial
+    window.location.href = 'finished.html'; // Cambia 'finished.html' por la página a la que quieras mandarla al colgar
+}
+
+// Escuchar el clic en el botón de colgar
+document.getElementById('endCallButton')?.addEventListener('click', terminarLlamada);
