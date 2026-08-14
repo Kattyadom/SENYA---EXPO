@@ -1,132 +1,507 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENYA - About Us</title>
-    <link rel="stylesheet" href="about.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>About Us - SENYA</title>
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN (IDÉNTICO AL ANTERIOR) -->
-    <header>
-        <div class="logo" role="img" aria-label="SENYA Logo">
-            SEN<span class="logo-y">Y</span>A
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <div class="navbar-container">
+
+            <a href="index.html" class="logo">
+                <img src="img/Senyalogo.png" alt="SENYA Logo">
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="opciones.html">Partner Network</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="soporte.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="#" class="help-btn">
+                Accessibility
+            </a>
+
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
         </div>
-        <nav aria-label="Menú principal">
-            <a href="index.html">Home</a>
-            <a href="servicios1.html">Services</a>
-            <a href="profile.html">Profile</a>
-            <a href="about.html">About Us</a>
-            <a href="soporte.html">Contact</a>
-        </nav>
-        <button class="btn-help" aria-label="Obtener ayuda y soporte técnico">Get Help</button>
+
     </header>
 
-    <!-- CONTENEDOR PRINCIPAL AZUL -->
-    <main class="main-container">
-        
-        <!-- SECCIÓN HERO / BANNER SUPERIOR -->
+
+    <!-- ================= MAIN ================= -->
+    <main class="about-page">
+
+
+        <!-- ================= HERO ================= -->
         <section class="about-hero">
-            <div class="hero-text">
-                <h1 class="hero-title">We connect people, <br><span class="highlight-blue">we create opportunities.</span></h1>
-                <p class="hero-description">
-                    At Senya, we believe communication should be accessible to everyone. That's why we created an inclusive platform that connects users with interpreters in real time, removing barriers for people with hearing disabilities in a fast and secure way.
+
+            <!-- Decoraciones de fondo -->
+            <div class="hero-shape shape-one"></div>
+            <div class="hero-shape shape-two"></div>
+            <div class="hero-shape shape-three"></div>
+
+
+            <div class="about-hero-content">
+
+                <!-- TEXTO -->
+                <div class="about-hero-text">
+
+                    <span class="about-badge">
+                        <i class="fa-solid fa-hands-asl-interpreting"></i>
+                        ABOUT SENYA
+                    </span>
+
+                    <h1>
+                        We connect people,
+                        <span>we create opportunities.</span>
+                    </h1>
+
+                    <p>
+                        At SENYA, we believe communication should be accessible
+                        to everyone. That's why we created an inclusive platform
+                        that connects users with interpreters in real time,
+                        removing barriers for people with hearing disabilities
+                        in a fast and secure way.
+                    </p>
+
+
+                    <!-- Pequeños datos -->
+                    <div class="about-hero-stats">
+
+                        <div class="about-stat">
+                            <i class="fa-solid fa-users"></i>
+
+                            <div>
+                                <strong>Inclusive</strong>
+                                <span>Communication</span>
+                            </div>
+                        </div>
+
+
+                        <div class="about-stat">
+                            <i class="fa-solid fa-bolt"></i>
+
+                            <div>
+                                <strong>Real Time</strong>
+                                <span>Connection</span>
+                            </div>
+                        </div>
+
+
+                        <div class="about-stat">
+                            <i class="fa-solid fa-shield-heart"></i>
+
+                            <div>
+                                <strong>Accessible</strong>
+                                <span>For Everyone</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGEN -->
+                <div class="about-hero-visual">
+
+                    <div class="hero-image-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop"
+                            alt="People communicating through accessible technology"
+                            class="about-hero-image"
+                        >
+
+                    </div>
+
+
+                    <!-- Tarjeta flotante -->
+                    <div class="communication-card">
+
+                        <div class="communication-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+
+                        <div>
+                            <span>OUR PURPOSE</span>
+
+                            <p>
+                                Communication is a right,
+                                not a privilege.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Elemento decorativo -->
+                    <div class="floating-accessibility">
+
+                        <i class="fa-solid fa-universal-access"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= INTRO ================= -->
+        <section class="about-intro">
+
+            <div class="section-heading">
+
+                <span>WHO WE ARE</span>
+
+                <h2>
+                    Technology with a purpose
+                </h2>
+
+                <p>
+                    SENYA combines accessibility, technology and human
+                    connection to create communication without barriers.
                 </p>
-            </div>
-            <div class="hero-image-container">
-                <!-- Cambia 'ruta-de-tu-imagen.jpg' por el nombre real de tu imagen -->
-              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop" alt="Intérprete utilizando lenguaje de señas con un usuario" class="hero-img">
-                <div class="quote-badge" role="blockquote">
-                    <i class="fa-solid fa-quote-left quote-icon"></i>
-                    <p>Communication is a right, not a privilege.</p>
-                    <div class="quote-line"></div>
-                </div>
-            </div>
-        </section>
 
-        <!-- SECCIÓN INFERIOR: HISTORIA, MISIÓN, VISIÓN Y VALORES -->
-        <section class="about-grid">
-            
-            <!-- Tarjeta: Our Story -->
-            <div class="info-card pink-card" tabindex="0">
-                <div class="card-icon-floating">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-                <h2>Our story</h2>
-                <p>SENYA was created to make communication in banks, health centers, and essential services more accessible for everyone.</p>
-            </div>
-
-            <!-- Tarjeta: Our Mission -->
-            <div class="info-card pink-card" tabindex="0">
-                <div class="card-icon-floating">
-                    <i class="fa-solid fa-bullseye"></i>
-                </div>
-                <h2>Our mission</h2>
-                <p>Provide an accessible, fast, and reliable solution that allows people to communicate through interpreters and technological tools in real time.</p>
-            </div>
-
-            <!-- Tarjeta: Our Vision -->
-            <div class="info-card pink-card" tabindex="0">
-                <div class="card-icon-floating">
-                    <i class="fa-solid fa-mountain-sun"></i>
-                </div>
-                <h2>Our vision</h2>
-                <p>Build a future where communication has no barriers and where everyone can access services and opportunities under equal conditions.</p>
-            </div>
-
-            <!-- Tarjeta Azul: Our Values -->
-            <div class="values-card" tabindex="0">
-                <h2>Our values</h2>
-                <ul class="values-list">
-                    <li>
-                        <i class="fa-solid fa-users"></i>
-                        <span>Empathy</span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-heart"></i>
-                        <span>Inclusion</span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-handshake"></i>
-                        <span>Trust</span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-lightbulb"></i>
-                        <span>Innovation</span>
-                    </li>
-                </ul>
             </div>
 
         </section>
 
+
+
+        <!-- ================= STORY / MISSION / VISION ================= -->
+        <section class="about-cards-section">
+
+            <div class="about-cards">
+
+
+                <!-- OUR STORY -->
+                <article class="about-card story-card">
+
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+
+                    <span class="card-number">01</span>
+
+                    <h3>Our Story</h3>
+
+                    <p>
+                        SENYA was created to make communication in banks,
+                        health centers, and essential services more
+                        accessible for everyone.
+                    </p>
+
+                    <div class="card-line"></div>
+
+                </article>
+
+
+
+                <!-- OUR MISSION -->
+                <article class="about-card mission-card">
+
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <span class="card-number">02</span>
+
+                    <h3>Our Mission</h3>
+
+                    <p>
+                        Provide an accessible, fast, and reliable solution
+                        that allows people to communicate through interpreters
+                        and technological tools in real time.
+                    </p>
+
+                    <div class="card-line"></div>
+
+                </article>
+
+
+
+                <!-- OUR VISION -->
+                <article class="about-card vision-card">
+
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+
+                    <span class="card-number">03</span>
+
+                    <h3>Our Vision</h3>
+
+                    <p>
+                        Build a future where communication has no barriers
+                        and where everyone can access services and
+                        opportunities under equal conditions.
+                    </p>
+
+                    <div class="card-line"></div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= VALUES ================= -->
+        <section class="values-section">
+
+
+            <div class="values-content">
+
+
+                <!-- TEXTO IZQUIERDO -->
+                <div class="values-text">
+
+                    <span class="section-tag">
+                        WHAT DEFINES US
+                    </span>
+
+                    <h2>
+                        Our values guide
+                        <span>everything we do.</span>
+                    </h2>
+
+                    <p>
+                        We believe that accessible technology can create
+                        meaningful opportunities when it is built with
+                        people and inclusion at the center.
+                    </p>
+
+                </div>
+
+
+
+                <!-- GRID DE VALORES -->
+                <div class="values-grid">
+
+
+                    <div class="value-item">
+
+                        <div class="value-icon">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+
+                        <div>
+                            <h3>Empathy</h3>
+                            <p>
+                                We understand the needs and experiences
+                                of every person.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="value-item">
+
+                        <div class="value-icon">
+                            <i class="fa-solid fa-universal-access"></i>
+                        </div>
+
+                        <div>
+                            <h3>Inclusion</h3>
+                            <p>
+                                Everyone deserves equal access to
+                                communication and opportunities.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="value-item">
+
+                        <div class="value-icon">
+                            <i class="fa-solid fa-shield-heart"></i>
+                        </div>
+
+                        <div>
+                            <h3>Trust</h3>
+                            <p>
+                                We create secure and reliable experiences
+                                for every user.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="value-item">
+
+                        <div class="value-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+
+                        <div>
+                            <h3>Innovation</h3>
+                            <p>
+                                We use technology to create better and
+                                more accessible solutions.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
     </main>
 
-    <footer id="contact">
 
-<div class="footer-grid">
 
-<div>
-<h3>SENYA</h3>
-<p>Accessibility in Technology</p>
-</div>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
 
-<div>
-<h3>Quick Links</h3>
-<a href="#">Home</a>
-<a href="#">Services</a>
-</div>
+        <div class="footer-container">
 
-<div>
-<h3>Contact</h3>
-<a href="#">support@senya.com</a>
-</div>
 
-</div>
+            <!-- Logo -->
+            <div class="footer-column">
 
-</footer>
+                <div class="logo" role="img" aria-label="SENYA Logo">
+                    SEN<span class="logo-y">Y</span>A
+                </div>
+
+                <p>
+                    "Communication is not a privilege, it's a right."
+                </p>
+
+            </div>
+
+
+
+            <!-- Information -->
+            <div class="footer-column">
+
+                <h3>Information</h3>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="login.html">Join to us</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="#how">How to use Senya?</a></li>
+                </ul>
+
+            </div>
+
+
+
+            <!-- Useful Links -->
+            <div class="footer-column">
+
+                <h3>Useful Links</h3>
+
+                <ul>
+                    <li><a href="soporte.html">Technical Support</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="login.html">Join to us</a></li>
+                    <li><a href="index.html#how">How to use Senya?</a></li>
+                </ul>
+
+            </div>
+
+
+
+            <!-- Services -->
+            <div class="footer-column">
+
+                <h3>Our Services</h3>
+
+                <ul>
+                    <li><a href="bankop.html">Banks</a></li>
+                    <li><a href="opciones.html">Call Centers</a></li>
+                    <li><a href="opciones.html">Internet</a></li>
+                    <li><a href="opciones.html">Shops</a></li>
+                </ul>
+
+            </div>
+
+
+
+            <!-- Contact -->
+            <div class="footer-column">
+
+                <h3>Contact Us</h3>
+
+                <p>📞 +503 9842-5783</p>
+                
+                <!-- Correo funcional para enviar reportes directamente -->
+                <p>
+                    <a href="mailto:senya.sv@gmail.com?subject=Reporte%20de%20Usuario%20-%20SENYA" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#FF4F8B'" onmouseout="this.style.color='inherit'">
+                        ✉ senya.sv@gmail.com
+                    </a>
+                </p>
+
+                <div class="socials">
+                    <a href="#">Instagram</a>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Senya. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+    <!-- ================= BOTÓN DE EMERGENCIA ================= -->
+    <a
+        href="videollamada.html"
+        class="emergency-btn"
+        title="Emergency"
+    >
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <span>Emergency</span>
+
+    </a>
 
 </body>
+
 </html>

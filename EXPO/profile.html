@@ -4,98 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - SENYA</title>
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/general.css">
     <!--Importación de fuentes e iconos-->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo" role="img" aria-label="SENYA Logo">
-            SEN<span class="logo-y">Y</span>A
-        </div>
-        <nav aria-label="Menú principal">
-            <a href="index.html">Home</a>
-            <a href="servicios1.html">Services</a>
-            <a href="profile.html">Profile</a>
-            <a href="about.html">About Us</a>
-            <a href="soporte.html">Contact</a>
-        </nav>
-        <button class="btn-help" aria-label="Obtener ayuda y soporte técnico">Get Help</button>
-    </header>
+     <!-- Accessibility Panel -->
+ <div class="accessibility-panel" id="accessibilityPanel"> 
 
-    <!--Main container-->
-<div class="container">
-    <div class="profile-container">
-        <div class="sidebar">
-            <div class="profile-pic">
-                <img id="previewImage" src="img/random.jpg"alt="Foto">
-                <h3 id="displayName"> Ariana Fernández </h3>
-                <p>Customer</p>
+<div class="panel-header"> 
+<h3>Accessibility</h3> 
+<button id="closePanel">&times;</button> 
+</div> 
 
-                <div class="upload-btn">
-                    <input type="file" id="imageUpload" accept="image/*">
-                    <label for="imageUpload"> Cambiar foto </label>
-                </div>
-            </div>
+<div class="panel-content">
 
-            <div class="menu">
-                <a href="#" class="active">👤 Personal information</a>
-                <a href="#">🔒 Login & Password</a>
-                <a href="#">🚪 Log Out</a>
-            </div>
-        </div>
+<button class="acc-card low-vision" id="lowVisionBtn"> 
+<div class="acc-icon">👁️</div> 
+<div class="acc-info"> 
+<h4>Low Vision</h4> 
+<p>High contrast, larger text and stronger buttons</p> 
+</div> 
+</button> 
 
-    <!--Formulario-->
-        <div class="profile-card">
-            <h2>Personal information</h2>
-                <div class="gender">
-                    <input type="radio" name="gender" checked> Female
-                    <input type="radio" name="gender"> Male
-                </div>
+<button class="acc-card dyslexia-mode" id="dyslexiaBtn"> 
+<div class="acc-icon">📖</div> 
+<div class="acc-info"> 
+<h4>Dyslexia</h4> 
+<p>Friendly font, soft colors and more spacing</p> 
+</div> 
+</button> 
 
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" id="firstName">
-                    </div>
+<button class="acc-card deaf-mode" id="deafBtn"> 
+<div class="acc-icon">🤟</div> 
+<div class="acc-info"> 
+<h4>Deaf Support</h4> 
+<p>Visual communication and larger icons</p> 
+</div> 
+</button> 
 
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" id="lastName">
-                    </div>
-
-                    <div class="form-group full">
-                        <label>Email</label>
-                        <input type="email" id="email">
-                    </div>
-
-                    <div class="form-group full">
-                        <label>Address</label>
-                        <input type="text" id="address">
-                    </div>                
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" id="phone">
-                    </div>
-                    <div class="form-group">
-                        <label>Date of Birth</label>
-                        <input type="date" id="birth">
-                    </div>
-                    <div class="buttons">
-                        <button class="discard" onclick="resetData()">
-                        Discard Changes
-                    </button>
-
-<button class="save" onclick="saveData()">
-    Save Changes
-</button>
+<div class="text-size-box"> 
+<label>Text Size</label> 
+<div class="size-buttons"> 
+<button id="smallText">A-</button> 
+<button id="normalText" class="active">A</button> 
+<button id="largeText">A+</button> 
 </div>
-    </div>
-        </div>
-            </div>
-                </div>
+</div> 
 
+ <button class="reset-btn" id="resetAccessibility">
+      Reset Accessibility
+    </button>
+
+  </div>
+</div>
+    <header class="navbar">
+    <div class="navbar-container">
+        <a href="#" class="logo">
+            <img src="img/Senyalogo.png" alt="SENYA Logo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="opciones.html">Partner Network</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="soporte.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="help-btn" id="accessibilityBtn">
+    Accesibility
+</a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
+<div class="profile-page">
+    <aside class="sidebar">
+        <div class="profile-header">
+            <div class="image-container">
+                <img src="https://th.bing.com/th/id/R.73cca7706f5b45af3d0507a6d971358f?rik=DzBosi9adsdChw&pid=ImgRaw&r=0" id="previewImage">
+                <label for="imageUpload" class="camera-btn">
+                    <i class="fa-solid fa-camera"></i>
+                </label>
+                <input type="file" id="imageUpload" accept="image/*">
+            </div>
+            <h2 id="displayName">Ariana Fernández</h2>
+            <span class="badge">Customer</span>
+            <p class="sign-language">
+                LESSA
+            </p>
+        </div>
+        <nav>
+            <a href="#personal" class="active">
+                <i class="fa-solid fa-user"></i>
+                Personal information
+            </a>
+            <a href="#contact">
+                <i class="fa-solid fa-phone"></i>
+                Contact methods
+            </a>
+            <a href="#settings">
+                <i class="fa-solid fa-gear"></i>
+                Configuration
+            </a>
+        </nav>
+    </aside>
+    <main class="content">
+        <section class="card" id="personal">
+            <div class="card-title">
+                <h2>Personal information</h2>
+                <button class="edit-btn" onclick="toggleEdit(this)">
+                    Edit
+                </button>
+            </div>
+            <div class="card-grid">
+                <div class="field">
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        id="firstName"
+                        value="Ariana">
+                </div>
+                <div class="field">
+                    <label>Last name</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        value="Fernández">
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        value="ariana@email.com">
+                </div>
+                <div class="field">
+                    <label>Birthday</label>
+                    <input
+                        type="date"
+                        id="birth">
+                </div>
+            </div>
+        </section>
+        <section class="card" id="contact">
+            <div class="card-title">
+                <h2>Contact methods</h2>
+                <button class="edit-btn">
+                    Edit
+                </button>
+            </div>
+            <div class="card-grid">
+                <div class="field">
+                    <label>Phone number</label>
+                    <input
+                        type="text"
+                        id="phone"
+                        value="+503 7495 2947">
+                </div>
+                <div class="field">
+                     <label>WhatsApp</label>
+                    <input
+                    type="text"
+                    id="whatsapp">
+                </div>
+                </div>
+                <div class="field full">
+                    <label>Address</label>
+                    <input
+                        type="text"
+                        id="address">
+                </div>
+            </div>
+        </section>
+        <section class="card" id="settings">
+            <div class="card-title">
+                <h2>Configuration</h2>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h4>Theme</h4>
+                    <p>Light theme</p>
+                </div>
+                <button>Change</button>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h4>Log out</h4>
+                    <p>Log out from your account</p>
+                </div>
+                <button id="logoutBtn">Log out</button>
+            </div>
+            </div>
+        </section>
+    </main>
+</div>
 <!--Footer-->
 <footer class="footer">
     <div class="footer-container">
@@ -144,126 +250,40 @@
     </div>
     <hr>
     <div class="footer-bottom">
-        <p>© 2025 Senya. All Rights Reserved.</p>
+        <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
 </footer>
+<a href="videollamada.html" class="emergency-btn" title="Emergency">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <span>Emergency</span>
+</a>
+<div class="logout-modal" id="logoutModal">
+    <div class="logout-modal-overlay"></div>
 
-<script>
+    <div class="logout-modal-card">
+        <div class="logout-icon">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
 
-/* DATOS INICIALES */
+        <h2>Log out?</h2>
 
-const defaultData = {
+        <p>
+            Are you sure you want to log out of your SENYA account?
+        </p>
 
-firstName:"Ariana",
-lastName:"Fernández",
-email:"arianaabfdz@gmail.com",
-address:"San Salvador, San Martín",
-phone:"+503 7495 2947",
-birth:"2000-11-21"
+        <div class="logout-actions">
+            <button id="cancelLogout" class="cancel-logout">
+                Maybe later
+            </button>
 
-};
-
-/* CARGAR */
-
-function loadData(){
-
-const user =
-JSON.parse(localStorage.getItem("userProfile"))
-|| defaultData;
-
-firstName.value=user.firstName;
-lastName.value=user.lastName;
-email.value=user.email;
-address.value=user.address;
-phone.value=user.phone;
-birth.value=user.birth;
-
-displayName.textContent=
-user.firstName + " " + user.lastName;
-
-}
-
-/* GUARDAR */
-
-function saveData(){
-
-const user={
-
-firstName:firstName.value,
-lastName:lastName.value,
-email:email.value,
-address:address.value,
-phone:phone.value,
-birth:birth.value
-
-};
-
-localStorage.setItem(
-"userProfile",
-JSON.stringify(user)
-);
-
-displayName.textContent =
-user.firstName + " " + user.lastName;
-
-alert("Cambios guardados correctamente");
-
-}
-
-/* RESETEAR */
-
-function resetData(){
-
-localStorage.removeItem("userProfile");
-loadData();
-
-alert("Datos restaurados");
-
-}
-
-/* FOTO */
-
-imageUpload.addEventListener("change",function(){
-
-const file=this.files[0];
-
-if(file){
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-previewImage.src=e.target.result;
-
-localStorage.setItem(
-"profileImage",
-e.target.result
-);
-
-}
-
-reader.readAsDataURL(file);
-
-}
-
-});
-
-window.onload=()=>{
-
-loadData();
-
-const savedImage=
-localStorage.getItem("profileImage");
-
-if(savedImage){
-
-previewImage.src=savedImage;
-
-}
-
-};
-
-</script>
-
+            <button id="confirmLogout" class="confirm-logout">
+                Log out
+            </button>
+        </div>
+    </div>
+</div>
+<script src="js/profile.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/modal.js"></script>
 </body>
 </html>
