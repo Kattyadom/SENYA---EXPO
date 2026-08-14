@@ -1,133 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Senya - Video Call</title>
-<link rel="stylesheet" href="css/videollamada.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENYA - Video Call</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/videollamada.css">
 </head>
 
 <body>
-
-<header>
-        <div class="logo" role="img" aria-label="SENYA Logo">
-            SEN<span class="logo-y">Y</span>A
+    <!-- Accessibility Panel -->
+    <div class="accessibility-panel" id="accessibilityPanel"> 
+        <div class="panel-header"> 
+            <h3>Accessibility</h3> 
+            <button id="closePanel">&times;</button> 
+        </div> 
+        <div class="panel-content">
+            <button class="acc-card low-vision" id="lowVisionBtn"> 
+                <div class="acc-icon">👁️</div> 
+                <div class="acc-info"> 
+                    <h4>Low Vision</h4> 
+                    <p>High contrast, larger text and stronger buttons</p> 
+                </div> 
+            </button> 
+            <button class="acc-card dyslexia-mode" id="dyslexiaBtn"> 
+                <div class="acc-icon">📖</div> 
+                <div class="acc-info"> 
+                    <h4>Dyslexia</h4> 
+                    <p>Friendly font, soft colors and more spacing</p> 
+                </div> 
+            </button> 
+            <button class="acc-card deaf-mode" id="deafBtn"> 
+                <div class="acc-icon">🤟</div> 
+                <div class="acc-info"> 
+                    <h4>Deaf Support</h4> 
+                    <p>Visual communication and larger icons</p> 
+                </div> 
+            </button> 
+            <div class="text-size-box"> 
+                <label>Text Size</label> 
+                <div class="size-buttons"> 
+                    <button id="smallText">A-</button> 
+                    <button id="normalText" class="active">A</button> 
+                    <button id="largeText">A+</button> 
+                </div>
+            </div> 
+            <button class="reset-btn" id="resetAccessibility">
+                Reset Accessibility
+            </button>
         </div>
-        <nav aria-label="Menú principal">
-            <a href="index.html">Home</a>
-            <a href="opciones.html"> Partner Network </a>
-            <a href="profile.html">Profile</a>
-            <a href="about.html">About Us</a>
-            <a href="soporte.html">Contact</a>
-        </nav>
-        <button class="btn-help" aria-label="Obtener ayuda y soporte técnico">Get Help</button>
+    </div>
+
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <img src="img/Senyalogo.png" alt="SENYA Logo">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="opciones.html">Partner Network</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="soporte.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="help-btn" id="accessibilityBtn">
+                Accesibility
+            </a>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </header>
 
-
-<!-- VIDEOCALL -->
-<section class="videocall">
-
-    <div class="videos">
-
-        <div class="video-box">
-            <h3>User Camera</h3>
-            <div class="camera">
-                📹 Camera Preview
+    <main class="call-page">
+        <div class="call-header">
+            <div class="call-status">
+                <span class="status-dot"></span>
+                <span>Call in progress</span>
+            </div>
+            <div class="call-time">
+                <i class="fa-regular fa-clock"></i>
+                <span id="callTimer">00:00</span>
             </div>
         </div>
-
-        <div class="video-box">
-            <h3>Interpreter Camera</h3>
-            <div class="camera">
-                📹 Interpreter Preview
+        <section class="call-area">
+            <div class="main-video">
+                <div class="video-placeholder">
+                    <div class="person-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h2>Interpreter</h2>
+                    <p>Waiting for video...</p>
+                </div>
+                <div class="video-info">
+                    <div>
+                        <strong>Interpreter</strong>
+                        <span>Sign Language Interpreter</span>
+                    </div>
+                    <div class="connection">
+                        <i class="fa-solid fa-wifi"></i>
+                        Excellent connection
+                    </div>
+                </div>
             </div>
-        </div>
-
-    </div>
-
-    <div class="controls">
-        <button class="mic">🎤 Microphone</button>
-        <button class="camera-btn">📷 Camera</button>
-        <a href="finished.html"class="hangup">📞 End Call </a>
-    </div>
-
-</section>
-
-<!-- CHAT -->
-<section class="chat">
-
-<h2>Backup Chat</h2>
-
-<div class="messages">
-<p><strong>User:</strong> Hello.</p>
-<p><strong>Interpreter:</strong> Hi! How can I help you?</p>
-</div>
-
-<div class="chat-input">
-<input type="text" placeholder="Write your message...">
-<button>Send</button>
-</div>
-
-</section>
-
-<!--Footer-->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-column">
-            <div class="logo" role="img" aria-label="SENYA Logo">
-                SEN<span class="logo-y">Y</span>A
+            <div class="self-video">
+                <div class="self-placeholder">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="self-label">
+                    <span>You</span>
+                </div>
             </div>
-            <p>"Communication is not a privilege, it's a right."</p>
-        </div>
-
-        <div class="footer-column">
-            <h3>Information</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Join to us</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">How to use Senya?</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-column">
-            <h3>Useful Links</h3>
-            <ul>
-                <li><a href="#">Technical Support</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Join to us</a></li>
-                <li><a href="#">How to use Senya?</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-column">
-            <h3>Our Services</h3>
-            <ul>
-                <li><a href="#">Banks</a></li>
-                <li><a href="#">Call Centers</a></li>
-                <li><a href="#">Internet</a></li>
-                <li><a href="#">Shops</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <p>📞 +503 9842-5783</p>
-            <p>✉ senya.sv@gmail.com</p>
-            <div class="socials">
-                <a href="#">Instagram</a>
+            <button class="expand-video" aria-label="Expand video">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+        </section>
+        <aside class="chat-panel" id="chatPanel">
+            <div class="chat-header">
+                <div>
+                    <h3>Chat</h3>
+                    <span>Backup communication</span>
+                </div>
+                <button class="close-chat" id="closeChat">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
+            <div class="messages">
+                <div class="message received">
+                    <span class="message-name">Interpreter</span>
+                    <p>Hello! How can I help you?</p>
+                    <small>Now</small>
+                </div>
+                <div class="message sent">
+                    <p>Hello! I need help with a service.</p>
+                    <small>Now</small>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Write a message..." aria-label="Write a message">
+                <button aria-label="Send message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </aside>
+        <div class="controls">
+            <button class="control-button" id="micButton" aria-label="Microphone">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
+            <button class="control-button" id="cameraButton" aria-label="Camera">
+                <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="control-button" aria-label="Speaker">
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <button class="control-button" aria-label="Share screen">
+                <i class="fa-solid fa-display"></i>
+            </button>
+            <button class="control-button chat-button" id="chatButton" aria-label="Open chat">
+                <i class="fa-regular fa-comment"></i>
+                <span class="chat-notification">1</span>
+            </button>
+            <a href="finished.html" class="end-call" aria-label="End call">
+                <i class="fa-solid fa-phone-slash"></i>
+            </a>
         </div>
-    </div>
+    </main>
 
-    <hr>
-
-    <div class="footer-bottom">
-        <p>© 2025 Senya. All Rights Reserved.</p>
-    </div>
-
-</footer>
-
+    <script src="js/accessibility.js"></script>
+    <script src="js/videollamada.js"></script>
 </body>
 </html>
