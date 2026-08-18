@@ -470,3 +470,7 @@ font-size:14px;
 body.text-large{ 
 font-size:19px; 
 }
+
+.speech-mode .acc-icon{ 
+    background:#E0EAFF; 
+}
