@@ -470,3 +470,318 @@ font-size:14px;
 body.text-large{ 
 font-size:19px; 
 }
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+    .navbar {
+        width: 94%;
+        top: 15px;
+    }
+
+    .navbar-container {
+        padding: 13px 25px;
+    }
+
+    .nav-links {
+        gap: 25px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .help-btn {
+        padding: 11px 20px;
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 45px 6%;
+        padding-bottom: 8%;
+    }
+
+    .footer-container {
+        gap: 30px;
+    }
+
+}
+
+
+/* CELULAR */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        width: 94%;
+        top: 10px;
+    }
+
+    .navbar-container {
+        padding: 10px 16px;
+        border-radius: 30px;
+    }
+
+    .logo img {
+        height: 38px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .right-actions {
+        gap: 7px;
+    }
+
+    .help-btn {
+        padding: 9px 15px;
+        font-size: 13px;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+
+    /* FOOTER */
+    .footer {
+        padding: 40px 7%;
+        padding-bottom: 25%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .footer-column {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .footer-column h2 {
+        font-size: 22px;
+    }
+
+    .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .footer-column p {
+        font-size: 14px;
+    }
+
+    .footer-column input {
+        width: 100%;
+    }
+
+    .footer-column button {
+        max-width: 200px;
+    }
+
+    .socials {
+        gap: 10px;
+    }
+
+
+    /* FOOTER BOTTOM */
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+
+    /* BOTON EMERGENCIA */
+    .emergency-btn {
+        right: 18px;
+        bottom: 18px;
+        width: 58px;
+        height: 58px;
+    }
+
+    .emergency-btn i {
+        font-size: 21px;
+    }
+
+    .emergency-btn:hover {
+        width: 58px;
+        padding: 0;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .emergency-btn:hover span {
+        display: none;
+    }
+
+
+    /* PANEL DE ACCESIBILIDAD */
+    .accessibility-panel {
+        width: 100%;
+        right: -100%;
+    }
+
+    .accessibility-panel.open {
+        right: 0;
+    }
+
+    .panel-header {
+        padding: 18px;
+    }
+
+    .panel-content {
+        padding: 18px;
+        gap: 14px;
+        overflow-y: auto;
+    }
+
+    .acc-card {
+        padding: 15px;
+        border-radius: 18px;
+    }
+
+    .acc-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+
+    .acc-info h4 {
+        font-size: 15px;
+    }
+
+    .acc-info p {
+        font-size: 13px;
+    }
+
+    .text-size-box {
+        padding: 15px;
+    }
+
+}
+
+
+/* CELULARES PEQUEÑOS */
+@media (max-width: 480px) {
+
+    .navbar {
+        width: 96%;
+    }
+
+    .navbar-container {
+        padding: 9px 12px;
+    }
+
+    .logo img {
+        height: 34px;
+    }
+
+    .help-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    /* FOOTER */
+    .footer {
+        padding: 35px 6%;
+        padding-bottom: 28%;
+    }
+
+    .footer-column h2 {
+        font-size: 20px;
+    }
+
+    .footer-column h3 {
+        font-size: 17px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+        font-size: 14px;
+    }
+
+    .footer-column button {
+        width: 100%;
+        max-width: none;
+    }
+
+
+    /* EMERGENCIA */
+    .emergency-btn {
+        width: 52px;
+        height: 52px;
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .emergency-btn i {
+        font-size: 19px;
+    }
+
+
+    /* ACCESIBILIDAD */
+    .panel-header h3 {
+        font-size: 1rem;
+    }
+
+    .acc-card {
+        gap: 12px;
+        padding: 13px;
+    }
+
+    .acc-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        font-size: 1.2rem;
+    }
+
+    .size-buttons {
+        gap: 6px;
+    }
+
+    .size-buttons button {
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+
+}
+
+
+/* CELULARES MUY PEQUEÑOS */
+@media (max-width: 360px) {
+
+    .logo img {
+        height: 30px;
+    }
+
+    .help-btn {
+        display: none;
+    }
+
+    .navbar-container {
+        justify-content: space-between;
+    }
+
+    .emergency-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+}
