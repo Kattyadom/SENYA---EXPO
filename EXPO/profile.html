@@ -10,6 +10,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+     <!-- Accessibility Panel -->
+ <div class="accessibility-panel" id="accessibilityPanel"> 
+
+<div class="panel-header"> 
+<h3>Accessibility</h3> 
+<button id="closePanel">&times;</button> 
+</div> 
+
+<div class="panel-content">
+
+<button class="acc-card low-vision" id="lowVisionBtn"> 
+<div class="acc-icon">👁️</div> 
+<div class="acc-info"> 
+<h4>Low Vision</h4> 
+<p>High contrast, larger text and stronger buttons</p> 
+</div> 
+</button> 
+
+<button class="acc-card dyslexia-mode" id="dyslexiaBtn"> 
+<div class="acc-icon">📖</div> 
+<div class="acc-info"> 
+<h4>Dyslexia</h4> 
+<p>Friendly font, soft colors and more spacing</p> 
+</div> 
+</button> 
+
+<button class="acc-card deaf-mode" id="deafBtn"> 
+<div class="acc-icon">🤟</div> 
+<div class="acc-info"> 
+<h4>Deaf Support</h4> 
+<p>Visual communication and larger icons</p> 
+</div> 
+</button> 
+
+<div class="text-size-box"> 
+<label>Text Size</label> 
+<div class="size-buttons"> 
+<button id="smallText">A-</button> 
+<button id="normalText" class="active">A</button> 
+<button id="largeText">A+</button> 
+</div>
+</div> 
+
+ <button class="reset-btn" id="resetAccessibility">
+      Reset Accessibility
+    </button>
+
+  </div>
+</div>
     <header class="navbar">
     <div class="navbar-container">
         <a href="#" class="logo">
@@ -24,9 +73,9 @@
                 <li><a href="soporte.html">Contact</a></li>
             </ul>
         </nav>
-        <a href="#" class="help-btn">
-            Accesibility
-        </a>
+        <a href="#" class="help-btn" id="accessibilityBtn">
+    Accesibility
+</a>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
@@ -36,7 +85,7 @@
     <aside class="sidebar">
         <div class="profile-header">
             <div class="image-container">
-                <img src="img/random.jpg" id="previewImage">
+                <img src="https://th.bing.com/th/id/R.73cca7706f5b45af3d0507a6d971358f?rik=DzBosi9adsdChw&pid=ImgRaw&r=0" id="previewImage">
                 <label for="imageUpload" class="camera-btn">
                     <i class="fa-solid fa-camera"></i>
                 </label>
@@ -117,10 +166,11 @@
                         value="+503 7495 2947">
                 </div>
                 <div class="field">
-                    <label>WhatsApp</label>
+                     <label>WhatsApp</label>
                     <input
-                        type="text"
-                        value="+503 7495 2947">
+                    type="text"
+                    id="whatsapp">
+                </div>
                 </div>
                 <div class="field full">
                     <label>Address</label>
@@ -146,7 +196,7 @@
                     <h4>Log out</h4>
                     <p>Log out from your account</p>
                 </div>
-                <button>Log out</button>
+                <button id="logoutBtn">Log out</button>
             </div>
             </div>
         </section>
@@ -202,12 +252,38 @@
     <div class="footer-bottom">
         <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
-
-    <script src="js/profile.js"></script>
 </footer>
 <a href="videollamada.html" class="emergency-btn" title="Emergency">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <span>Emergency</span>
 </a>
+<div class="logout-modal" id="logoutModal">
+    <div class="logout-modal-overlay"></div>
+
+    <div class="logout-modal-card">
+        <div class="logout-icon">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+
+        <h2>Log out?</h2>
+
+        <p>
+            Are you sure you want to log out of your SENYA account?
+        </p>
+
+        <div class="logout-actions">
+            <button id="cancelLogout" class="cancel-logout">
+                Maybe later
+            </button>
+
+            <button id="confirmLogout" class="confirm-logout">
+                Log out
+            </button>
+        </div>
+    </div>
+</div>
+<script src="js/profile.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/modal.js"></script>
 </body>
 </html>

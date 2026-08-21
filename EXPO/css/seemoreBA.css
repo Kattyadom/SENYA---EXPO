@@ -1,0 +1,291 @@
+/* Importación de tipografía Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ======================================================
+   COLORS
+   ====================================================== */
+:root {
+  --fondo-celeste: #F4F8FF;   /* Celeste muy claro/hielo de la interfaz SENYA */
+  --azul-principal: #2563EB;
+  --azul-oscuro: #1E3A8A;
+  --azul-muy-claro: #DBEAFE;
+  --rosado-principal: #FF4F8B;
+  --rosado-pastel: #F9A8D4;
+  --rosado-muy-claro: #FCE7F3;
+  --blanco: #FFFFFF;
+  --texto-oscuro: #1E293B;
+  --texto-mutado: #64748B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--fondo-celeste);
+  color: var(--texto-oscuro);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+  width: 90%;
+  max-width: 780px;
+  background: var(--blanco);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
+  overflow: hidden;
+  border: 1px solid var(--azul-muy-claro);
+  
+  /* El margen superior de 110px empuja el contenido hacia abajo para que no quede detrás del menú */
+  margin: 110px auto 50px auto; 
+  flex: 1;
+}
+
+/* Encabezado del Banco */
+.bank-header {
+  background-color: var(--azul-principal);
+  color: var(--blanco);
+  padding: 32px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Contenedor de botones */
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Botón Call Now */
+.btn-call {
+  background-color: var(--azul-muy-claro); 
+  color: var(--azul-oscuro);              
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-call:hover {
+  background-color: #BFDBFE; 
+  transform: translateY(-1px);
+}
+
+
+.bank-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blanco);
+}
+
+.btn-back {
+  background-color: var(--rosado-principal);
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(255, 79, 139, 0.3);
+}
+
+.btn-back:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Cuerpo principal */
+.bank-body {
+  padding: 32px 28px;
+}
+
+.section-title {
+  font-size: 1.15rem;
+  color: var(--azul-principal);
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bank-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--texto-oscuro);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.divider {
+  height: 2px;
+  background-color: var(--azul-muy-claro);
+  margin: 24px 0;
+}
+/* RESPONSIVE*/
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+
+  .bank-header {
+    padding: 24px 20px;
+  }
+
+  .bank-body {
+    padding: 24px 20px;
+  }
+
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .container {
+    margin-top: 90px;
+    border-radius: 12px;
+  }
+
+  .bank-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .bank-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-call, 
+  .btn-back {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* Cambia la cuadrícula de datos a 1 sola columna */
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-logo {
+    max-width: 160px;
+  }
+  
+  .badge {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* Logo banco */
+.bank-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.bank-logo {
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Cuadrícula de información */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.detail-card {
+  background-color: var(--azul-muy-claro);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--azul-principal);
+}
+
+.detail-card.highlight {
+  background-color: var(--rosado-muy-claro);
+  border-left: 4px solid var(--rosado-principal);
+}
+
+.detail-card .label {
+  font-size: 0.85rem;
+  color: var(--texto-mutado);
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.detail-card .value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+}
+
+.sub-value {
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+/* Indicador de Lengua de Señas */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: var(--rosado-pastel);
+  color: var(--azul-oscuro);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    margin-top: 90px;
+  }
+
+  .bank-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}

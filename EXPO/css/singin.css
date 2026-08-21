@@ -160,6 +160,7 @@ body{
     align-items:center;
     gap:10px;
     transition:.3s;
+        text-decoration: none;
 }
 .login-btn:hover{
     background:#f74c8b;
