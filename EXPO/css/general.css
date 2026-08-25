@@ -259,218 +259,223 @@ hr{
         box-shadow:0 0 0 0 rgba(244,114,182,0);
     }
 }
-.accessibility-panel{ 
-position:fixed; top:0; right:-360px; width:340px; height:100vh; 
-background:white; box-shadow:-10px 0 40px rgba(0,0,0,.15); 
+.accessibility-panel{
+position:fixed; top:0; right:-360px; width:340px; height:100vh;
+background:white; box-shadow:-10px 0 40px rgba(0,0,0,.15);
 z-index:3000;
 transition:.35s ease;
-display:flex; 
-flex-direction:column; 
+display:flex;
+flex-direction:column;
 }
 
 .accessibility-panel.open{
- right:0; 
-} 
+ right:0;
+}
 
 .panel-header{
-background:linear-gradient(135deg,#2563EB,#FF4F8B); 
-color:white; 
+background:linear-gradient(135deg,#2563EB,#FF4F8B);
+color:white;
 padding:22px;
-display:flex; 
+display:flex;
 justify-content:space-between;
-align-items:center; 
-} 
+align-items:center;
+}
 
-.panel-header h3{ 
-font-size:1.15rem; 
+.panel-header h3{
+font-size:1.15rem;
 }
 
 #closePanel{
-background:none; 
+background:none;
 border:none;
 color:white;
 font-size:1.8rem;
 cursor:pointer;
 }
  
-.panel-content{ 
-padding:22px; 
-display:flex; 
-flex-direction:column; 
-gap:18px; 
+.panel-content{
+padding:22px;
+display:flex;
+flex-direction:column;
+gap:18px;
 }
 
 .acc-card{
-display:flex; 
-align-items:center; 
-gap:16px; 
-padding:18px; 
+display:flex;
+align-items:center;
+gap:16px;
+padding:18px;
 border-radius:22px;
-border:2px solid #EEF2FF; 
-background:white; 
-cursor:pointer; 
-transition:.3s ease; 
-text-align:left; 
-} 
+border:2px solid #EEF2FF;
+background:white;
+cursor:pointer;
+transition:.3s ease;
+text-align:left;
+}
 
-.acc-card:hover{ 
-transform:translateY(-3px); 
+.acc-card:hover{
+transform:translateY(-3px);
 box-shadow:0 12px 24px rgba(37,99,235,.12);
 }
 
 .acc-icon{
 width:56px;
-height:56px; 
-border-radius:18px; 
-display:flex; 
-align-items:center; 
-justify-content:center; 
+height:56px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
 font-size:1.6rem; flex-shrink:0;
-} 
+}
  
-.low-vision .acc-icon{ 
+.low-vision .acc-icon{
 background:#DBEAFE;
-} 
+}
 
-.dyslexia-mode .acc-icon{ 
-background:#FCE7F3; 
+.dyslexia-mode .acc-icon{
+background:#FCE7F3;
 }
 
 .deaf-mode .acc-icon{
-background:#DBEAFE; 
-} 
+background:#DBEAFE;
+}
 
 .acc-info h4{
-color:#1E3A8A; 
-margin-bottom:4px; 
-} 
+color:#1E3A8A;
+margin-bottom:4px;
+}
 
-.acc-info p{ 
-color:#64748B; 
-font-size:.9rem; 
-line-height:1.5; 
-} 
+.acc-info p{
+color:#64748B;
+font-size:.9rem;
+line-height:1.5;
+}
 
-.text-size-box{ 
-background:#F8FAFC; 
-border-radius:20px; 
-padding:18px; 
-} 
+.text-size-box{
+background:#F8FAFC;
+border-radius:20px;
+padding:18px;
+}
 
-.text-size-box label{ 
-display:block; 
-margin-bottom:14px; 
-color:#1E3A8A; 
-font-weight:600; 
-} 
+.text-size-box label{
+display:block;
+margin-bottom:14px;
+color:#1E3A8A;
+font-weight:600;
+}
 
-.size-buttons{ 
-display:flex; 
-gap:10px; 
-} 
+.size-buttons{
+display:flex;
+gap:10px;
+}
 
 .size-buttons button{
-flex:1; 
+flex:1;
 padding:12px;
-border:none; 
-border-radius:14px; 
-background:white; 
-color:#1E3A8A; 
-font-weight:700; 
-cursor:pointer; 
-border:1px solid #E2E8F0; 
-} 
+border:none;
+border-radius:14px;
+background:white;
+color:#1E3A8A;
+font-weight:700;
+cursor:pointer;
+border:1px solid #E2E8F0;
+}
 
-.size-buttons button.active{ 
-background:#2563EB; 
-color:white; 
-} 
+.size-buttons button.active{
+background:#2563EB;
+color:white;
+}
 
 .reset-btn{
-padding:15px; 
-border:none; 
-border-radius:18px; 
-background:#F1F5F9; 
-color:#1E3A8A; 
-font-weight:600; 
-cursor:pointer; 
+padding:15px;
+border:none;
+border-radius:18px;
+background:#F1F5F9;
+color:#1E3A8A;
+font-weight:600;
+cursor:pointer;
 }
 
 /* ===== MODES ===== */
 
 body.low-vision{
-background:#0B1220 !important; 
-color:#FFFFFF !important; 
-} 
+background:#0B1220 !important;
+color:#FFFFFF !important;
+}
 
 body.low-vision section,
 body.low-vision .card,
-body.low-vision .step, 
-body.low-vision .footer, 
+body.low-vision .step,
+body.low-vision .footer,
 body.low-vision .navbar-container{
-background:#111827 !important; 
-color:#FFFFFF !important; 
-border-color:#374151 !important; 
-} 
+background:#111827 !important;
+color:#FFFFFF !important;
+border-color:#374151 !important;
+}
 
 body.low-vision h1,
 body.low-vision h2,
-body.low-vision h3, 
-body.low-vision p, 
-body.low-vision span, 
-body.low-vision a{ 
-color:#FFFFFF !important; 
-} 
+body.low-vision h3,
+body.low-vision p,
+body.low-vision span,
+body.low-vision a{
+color:#FFFFFF !important;
+}
 
-body.low-vision .primary, 
-body.low-vision .account-btn, 
-body.low-vision .help-btn{ 
-background:#FFD60A !important; 
-color:#000 !important; 
-} 
+body.low-vision .primary,
+body.low-vision .account-btn,
+body.low-vision .help-btn{
+background:#FFD60A !important;
+color:#000 !important;
+}
 
 body.dyslexia{
 background:#F7F3E8 !important;
-color:#2B2B2B !important; 
+color:#2B2B2B !important;
 }
 
-body.dyslexia *{ 
-font-family:Arial, sans-serif !important; 
-} 
+body.dyslexia *{
+font-family:Arial, sans-serif !important;
+}
 
-body.dyslexia p, 
+body.dyslexia p,
 body.dyslexia li,
-body.dyslexia span{ 
-line-height:2 !important; 
-letter-spacing:.4px; 
-} 
+body.dyslexia span{
+line-height:2 !important;
+letter-spacing:.4px;
+}
 
-body.deaf-visual .icon, 
-body.deaf-visual .number{ 
-transform:scale(1.25); 
-} 
+body.deaf-visual .icon,
+body.deaf-visual .number{
+transform:scale(1.25);
+}
 
-body.deaf-visual .hero-buttons a, 
-body.deaf-visual .account-btn, 
-body.deaf-visual .help-btn{ 
-padding:18px 36px !important; 
-font-size:1.08rem !important; 
-} 
+body.deaf-visual .hero-buttons a,
+body.deaf-visual .account-btn,
+body.deaf-visual .help-btn{
+padding:18px 36px !important;
+font-size:1.08rem !important;
+}
 
 body.deaf-visual .card,
-body.deaf-visual .step{ 
-border-width:2px !important; 
-transform:scale(1.02); 
-} 
-
-body.text-small{ 
-font-size:14px;
-} 
-
-body.text-large{ 
-font-size:19px; 
+body.deaf-visual .step{
+border-width:2px !important;
+transform:scale(1.02);
 }
 
+body.text-small{
+font-size:14px;
+}
+
+body.text-large{
+font-size:19px;
+}
+
+.speech-mode .acc-icon{
+     background:#E0EAFF;
+     }
+
+     
 /* =====================================================
    RESPONSIVE
    ===================================================== */
@@ -903,9 +908,4 @@ body.sign-menu-open{
         height:125px;
     }
 
-
-.speech-mode .acc-icon{ 
-    background:#E0EAFF; 
-
-}
 }

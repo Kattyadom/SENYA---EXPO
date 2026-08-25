@@ -6,14 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>About Us - SENYA</title>
-
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+
+  <!-- Accessibility Panel -->
+<div class="accessibility-panel" id="accessibilityPanel">
+
+<div class="panel-header">
+<h3>Accessibility</h3>
+<button id="closePanel">×</button>
+</div>
+
+<div class="panel-content">
+
+<button class="acc-card low-vision" id="lowVisionBtn">
+<div class="acc-icon">👁️</div>
+<div class="acc-info">
+<h4>Low Vision</h4>
+<p>High contrast, larger text and stronger buttons</p>
+</div>
+</button>
+
+<button class="acc-card dyslexia-mode" id="dyslexiaBtn">
+<div class="acc-icon">📖</div>
+<div class="acc-info">
+<h4>Dyslexia</h4>
+<p>Friendly font, soft colors and more spacing</p>
+</div>
+</button>
+
+<button class="acc-card deaf-mode" id="deafBtn">
+<div class="acc-icon">🤟</div>
+<div class="acc-info">
+<h4>Deaf Support</h4>
+<p>Visual communication and larger icons</p>
+</div>
+</button>
+
+<button class="acc-card speech-mode" id="speechBtn">
+<div class="acc-icon">🔊</div> <div class="acc-info">
+<h4>Read Aloud</h4>
+<p>Read the text on the screen with voice</p>
+</div>
+</button>
+
+<div class="text-size-box">
+<label>Text Size</label>
+<div class="size-buttons">
+<button id="smallText">A-</button>
+<button id="normalText" class="active">A</button>
+<button id="largeText">A+</button>
+</div>
+</div>
+
+<button class="reset-btn" id="resetAccessibility">
+Reset Accessibility
+</button>
+
+</div>
+</div>
 
     <!-- ================= NAVBAR ================= -->
     <header class="navbar">
@@ -50,11 +105,15 @@
     <!-- ================= MAIN ================= -->
     <main class="about-page">
 
+
         <!-- ================= HERO ================= -->
         <section class="about-hero">
 
-            <!-- Decoración de fondo -->
+            <!-- Decoraciones de fondo -->
             <div class="hero-shape shape-one"></div>
+            <div class="hero-shape shape-two"></div>
+            <div class="hero-shape shape-three"></div>
+
 
             <div class="about-hero-content">
 
@@ -79,6 +138,7 @@
                         in a fast and secure way.
                     </p>
 
+
                     <!-- Pequeños datos -->
                     <div class="about-hero-stats">
 
@@ -91,6 +151,7 @@
                             </div>
                         </div>
 
+
                         <div class="about-stat">
                             <i class="fa-solid fa-bolt"></i>
 
@@ -99,6 +160,7 @@
                                 <span>Connection</span>
                             </div>
                         </div>
+
 
                         <div class="about-stat">
                             <i class="fa-solid fa-shield-heart"></i>
@@ -149,7 +211,9 @@
 
                     <!-- Elemento decorativo -->
                     <div class="floating-accessibility">
+
                         <i class="fa-solid fa-universal-access"></i>
+
                     </div>
 
                 </div>
@@ -157,6 +221,7 @@
             </div>
 
         </section>
+
 
 
         <!-- ================= INTRO ================= -->
@@ -180,10 +245,12 @@
         </section>
 
 
+
         <!-- ================= STORY / MISSION / VISION ================= -->
         <section class="about-cards-section">
 
             <div class="about-cards">
+
 
                 <!-- OUR STORY -->
                 <article class="about-card story-card">
@@ -205,6 +272,7 @@
                     <div class="card-line"></div>
 
                 </article>
+
 
 
                 <!-- OUR MISSION -->
@@ -229,6 +297,7 @@
                 </article>
 
 
+
                 <!-- OUR VISION -->
                 <article class="about-card vision-card">
 
@@ -250,15 +319,19 @@
 
                 </article>
 
+
             </div>
 
         </section>
 
 
+
         <!-- ================= VALUES ================= -->
         <section class="values-section">
 
+
             <div class="values-content">
+
 
                 <!-- TEXTO IZQUIERDO -->
                 <div class="values-text">
@@ -281,10 +354,11 @@
                 </div>
 
 
+
                 <!-- GRID DE VALORES -->
                 <div class="values-grid">
 
-                    <!-- EMPATHY -->
+
                     <div class="value-item">
 
                         <div class="value-icon">
@@ -293,7 +367,6 @@
 
                         <div>
                             <h3>Empathy</h3>
-
                             <p>
                                 We understand the needs and experiences
                                 of every person.
@@ -303,7 +376,7 @@
                     </div>
 
 
-                    <!-- INCLUSION -->
+
                     <div class="value-item">
 
                         <div class="value-icon">
@@ -312,7 +385,6 @@
 
                         <div>
                             <h3>Inclusion</h3>
-
                             <p>
                                 Everyone deserves equal access to
                                 communication and opportunities.
@@ -322,7 +394,7 @@
                     </div>
 
 
-                    <!-- TRUST -->
+
                     <div class="value-item">
 
                         <div class="value-icon">
@@ -331,7 +403,6 @@
 
                         <div>
                             <h3>Trust</h3>
-
                             <p>
                                 We create secure and reliable experiences
                                 for every user.
@@ -341,7 +412,7 @@
                     </div>
 
 
-                    <!-- INNOVATION -->
+
                     <div class="value-item">
 
                         <div class="value-icon">
@@ -350,7 +421,6 @@
 
                         <div>
                             <h3>Innovation</h3>
-
                             <p>
                                 We use technology to create better and
                                 more accessible solutions.
@@ -359,13 +429,15 @@
 
                     </div>
 
+
                 </div>
 
             </div>
 
-        </section>
 
+        </section>
     </main>
+
 
 
     <!-- ================= FOOTER ================= -->
@@ -373,7 +445,8 @@
 
         <div class="footer-container">
 
-            <!-- LOGO / DESCRIPTION -->
+
+            <!-- Logo -->
             <div class="footer-column">
 
                 <div class="logo" role="img" aria-label="SENYA Logo">
@@ -387,59 +460,69 @@
             </div>
 
 
-            <!-- INFORMATION -->
+
+            <!-- Information -->
             <div class="footer-column">
 
                 <h3>Information</h3>
 
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Join to us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="login.html">Join to us</a></li>
                     <li><a href="about.html">About us</a></li>
-                    <li><a href="#">How to use Senya?</a></li>
+                    <li><a href="#how">How to use Senya?</a></li>
                 </ul>
 
             </div>
 
 
-            <!-- USEFUL LINKS -->
+
+            <!-- Useful Links -->
             <div class="footer-column">
 
                 <h3>Useful Links</h3>
 
                 <ul>
                     <li><a href="soporte.html">Technical Support</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Join to us</a></li>
-                    <li><a href="#">How to use Senya?</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="login.html">Join to us</a></li>
+                    <li><a href="index.html#how">How to use Senya?</a></li>
                 </ul>
 
             </div>
 
 
-            <!-- SERVICES -->
+
+            <!-- Services -->
             <div class="footer-column">
 
                 <h3>Our Services</h3>
 
                 <ul>
-                    <li><a href="#">Banks</a></li>
-                    <li><a href="#">Call Centers</a></li>
-                    <li><a href="#">Internet</a></li>
-                    <li><a href="#">Shops</a></li>
+                    <li><a href="bankop.html">Banks</a></li>
+                    <li><a href="opciones.html">Call Centers</a></li>
+                    <li><a href="opciones.html">Internet</a></li>
+                    <li><a href="opciones.html">Shops</a></li>
                 </ul>
 
             </div>
 
 
-            <!-- CONTACT -->
+
+            <!-- Contact -->
             <div class="footer-column">
 
                 <h3>Contact Us</h3>
 
                 <p>📞 +503 9842-5783</p>
-                <p>✉️ senya.sv@gmail.com</p>
+                
+                <!-- Correo funcional para enviar reportes directamente -->
+                <p>
+                    <a href="mailto:senya.sv@gmail.com?subject=Reporte%20de%20Usuario%20-%20SENYA" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#FF4F8B'" onmouseout="this.style.color='inherit'">
+                        ✉ senya.sv@gmail.com
+                    </a>
+                </p>
 
                 <div class="socials">
                     <a href="#">Instagram</a>
@@ -447,13 +530,13 @@
 
             </div>
 
+
         </div>
 
 
         <hr>
 
 
-        <!-- FOOTER BOTTOM -->
         <div class="footer-bottom">
 
             <p>
@@ -463,8 +546,6 @@
         </div>
 
     </footer>
-
-
     <!-- ================= BOTÓN DE EMERGENCIA ================= -->
     <a
         href="videollamada.html"
@@ -478,7 +559,7 @@
 
     </a>
 
-
+    <script src="js/accessibility.js"></script>
 </body>
 
 </html>
