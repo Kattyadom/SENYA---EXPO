@@ -122,42 +122,58 @@ document.getElementById('largeText')?.addEventListener(
 let speaking = false;
 let utterance;
 
-document.getElementById('speechBtn').onclick = () => {
+const speechBtn = document.getElementById('speechBtn');
 
-  const btn = document.getElementById('speechBtn');
+if (speechBtn) {
 
-  // Si ya está leyendo, detener
-  if (speaking) {
-    speechSynthesis.cancel();
-    speaking = false;
-    btn.querySelector('h4').innerText = 'Read Aloud';
-    return;
-  }
+  speechBtn.onclick = () => {
 
-  // Leer el contenido visible de la página
-  const text = document.body.innerText;
+    const btn = speechBtn;
 
-  utterance = new SpeechSynthesisUtterance(text);
+    if (speaking) {
+      speechSynthesis.cancel();
+      speaking = false;
 
-  // Idioma inglés
-  utterance.lang = 'en-US';
+      const title = btn.querySelector('h4');
 
-  // Velocidad de lectura
-  utterance.rate = 1;
+      if (title) {
+        title.innerText = 'Read Aloud';
+      }
 
-  // Tono de voz
-  utterance.pitch = 1;
+      return;
+    }
 
-  speechSynthesis.speak(utterance);
+    const text = document.body.innerText;
 
-  speaking = true;
-  btn.querySelector('h4').innerText = 'Stop Reading';
+    utterance = new SpeechSynthesisUtterance(text);
 
-  utterance.onend = () => {
-    speaking = false;
-    btn.querySelector('h4').innerText = 'Read Aloud';
+    utterance.lang = 'en-US';
+    utterance.rate = 1;
+    utterance.pitch = 1;
+
+    speechSynthesis.speak(utterance);
+
+    speaking = true;
+
+    const title = btn.querySelector('h4');
+
+    if (title) {
+      title.innerText = 'Stop Reading';
+    }
+
+    utterance.onend = () => {
+
+      speaking = false;
+
+      if (title) {
+        title.innerText = 'Read Aloud';
+      }
+
+    };
+
   };
-};
+
+}
 
 
 // ===== RESET ACCESSIBILITY =====
