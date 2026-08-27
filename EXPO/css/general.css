@@ -475,7 +475,6 @@ font-size:19px;
    RESPONSIVE
    ===================================================== */
 
-/* TABLET */
 @media (max-width: 1024px) {
 
     .navbar {
@@ -511,8 +510,6 @@ font-size:19px;
 
 }
 
-
-/* CELULAR */
 @media (max-width: 768px) {
 
     /* NAVBAR */
@@ -671,7 +668,6 @@ font-size:19px;
 }
 
 
-/* CELULARES PEQUEÑOS */
 @media (max-width: 480px) {
 
     .navbar {

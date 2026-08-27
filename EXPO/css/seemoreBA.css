@@ -274,18 +274,54 @@ body {
   color: var(--azul-oscuro);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .container {
-    margin-top: 90px;
-  }
+/* ---Rsponsive--- */
 
-  .bank-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+@media(max-width:900px){
 
-  .details-grid {
-    grid-template-columns: 1fr;
-  }
+    .service-header{
+
+        flex-direction:column;
+
+    }
+
+    .service-content{
+        grid-template-columns:1fr;
+    }
+    .column ul{
+        grid-template-columns:1fr;
+    }
+    .service-footer{
+        justify-content:center;
+    }
+}
+@media(max-width:768px){
+
+    .header h1{
+        font-size:2.2rem;
+    }
+
+    .services{
+        padding:50px 0;
+    }
+
+}
+
+@media(max-width:900px){
+
+.profile-container{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+}
+
+.form-grid{
+    grid-template-columns:1fr;
+}
+
+.form-group.full{
+    grid-column:auto;
+}
+
 }

@@ -13,9 +13,7 @@ body{
     background:#f4f7fb;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 /*Navbar*/
 header {
@@ -359,34 +357,57 @@ nav a.active {
     font-weight:700;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
+/* ---Rsponsive--- */
 
 @media(max-width:900px){
 
-    header{
+    .service-header{
+
         flex-direction:column;
-        gap:15px;
+
     }
 
-    nav{
-        flex-wrap:wrap;
+    .service-content{
+        grid-template-columns:1fr;
+    }
+    .column ul{
+        grid-template-columns:1fr;
+    }
+    .service-footer{
         justify-content:center;
-        gap:15px;
+    }
+}
+@media(max-width:768px){
+
+    .header h1{
+        font-size:2.2rem;
     }
 
-    .services-container{
-        padding:25px;
+    .services{
+        padding:50px 0;
     }
 
-    .services-container h1{
-        font-size:32px;
-    }
+}
 
-    .intro-text{
-        font-size:16px;
-    }
+@media(max-width:900px){
+
+.profile-container{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+}
+
+.form-grid{
+    grid-template-columns:1fr;
+}
+
+.form-group.full{
+    grid-column:auto;
+}
+
 }
 /*footer  */
 .footer{
