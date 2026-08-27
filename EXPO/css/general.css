@@ -905,3 +905,369 @@ body.sign-menu-open{
     }
 
 }
+
+/* =====================================================
+   ACCESSIBILITY PANEL - FINAL FIX
+   ===================================================== */
+
+/* =====================================================
+   ACCESSIBILITY PANEL
+   ===================================================== */
+
+.accessibility-panel {
+    position: fixed;
+    top: 90px;
+    right: -390px;
+
+    width: 370px;
+    max-width: calc(100vw - 30px);
+    height: calc(100vh - 110px);
+
+    background: #ffffff;
+
+    border-radius: 28px 0 0 28px;
+
+    box-shadow: -10px 15px 40px rgba(45, 91, 227, 0.18);
+
+    border: 1px solid #E0EAFF;
+
+    z-index: 3000;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    transition: right .35s ease;
+}
+
+.accessibility-panel.open {
+    right: 0;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.panel-header {
+    background: linear-gradient(
+        135deg,
+        #2563EB,
+        #F6639A
+    );
+
+    color: #ffffff;
+
+    padding: 20px 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.panel-header h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#closePanel {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.18);
+
+    color: #ffffff;
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .25s ease;
+}
+
+#closePanel:hover {
+    background: rgba(255,255,255,.30);
+    transform: rotate(90deg);
+}
+
+
+/* =====================================================
+   CONTENIDO CON SCROLL
+   ===================================================== */
+
+.panel-content {
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   TARJETAS DE ACCESIBILIDAD
+   ===================================================== */
+
+.acc-card {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    border: 1px solid #E0EAFF;
+
+    background: #ffffff;
+
+    color: #1E3A8A;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+    text-align: left;
+
+    flex-shrink: 0;
+}
+
+.acc-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #BFD3FF;
+
+    box-shadow:
+        0 8px 20px rgba(37,99,235,.10);
+}
+
+
+/* =====================================================
+   ICONOS PEQUEÑOS
+   ===================================================== */
+
+.acc-icon {
+    width: 46px;
+    height: 46px;
+
+    min-width: 46px;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.25rem;
+
+    color: #2563EB;
+
+    background: #DBEAFE;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+}
+
+.low-vision .acc-icon {
+    background: #DBEAFE;
+    color: #2563EB;
+}
+
+.dyslexia-mode .acc-icon,
+.dyslexia .acc-icon {
+    background: #FCE7F3;
+    color: #F6639A;
+}
+
+.deaf-mode .acc-icon,
+.deaf-visual .acc-icon {
+    background: #E0EAFF;
+    color: #2563EB;
+}
+
+.speech-mode .acc-icon {
+    background: #E0EAFF;
+    color: #2563EB;
+}
+
+
+/* =====================================================
+   ICONOS INTERNOS
+   ===================================================== */
+
+.acc-icon i,
+.acc-icon svg {
+    width: auto;
+    height: auto;
+
+    font-size: 1.25rem;
+
+    color: inherit !important;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+}
+
+
+/* =====================================================
+   TEXTO
+   ===================================================== */
+
+.acc-info {
+    min-width: 0;
+}
+
+.acc-info h4 {
+    margin: 0 0 3px;
+
+    color: #1E3A8A;
+
+    font-size: .95rem;
+
+    font-weight: 600;
+}
+
+.acc-info p {
+    margin: 0;
+
+    color: #64748B;
+
+    font-size: .82rem;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   TEXT SIZE
+   ===================================================== */
+
+.text-size-box {
+    background: #F8FAFC;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 20px;
+
+    padding: 16px;
+}
+
+.text-size-box label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #1E3A8A;
+
+    font-weight: 600;
+}
+
+.size-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.size-buttons button {
+    flex: 1;
+
+    padding: 10px 8px;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    color: #1E3A8A;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.size-buttons button:hover {
+    border-color: #2563EB;
+}
+
+.size-buttons button.active {
+    background: #2563EB;
+    color: #ffffff;
+    border-color: #2563EB;
+}
+
+
+/* =====================================================
+   RESET
+   ===================================================== */
+
+.reset-btn {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: #EEF4FF;
+
+    color: #2563EB;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.reset-btn:hover {
+    background: #DBEAFE;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+
+.panel-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+    background: #BFD3FF;
+    border-radius: 10px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+    background: #2563EB;
+}
