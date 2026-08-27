@@ -97,7 +97,7 @@ nav a.active {
     box-shadow: 0 6px 14px rgba(244, 151, 169, 0.5);
 }
 
-/* --- CONTENEDOR PRINCIPAL AZUL --- */
+/* --- CONTENEDOR PRINCIPAL --- */
 .main-container {
     background-color: #9cd3ff;
     border-radius: 24px;
@@ -239,7 +239,7 @@ nav a.active {
     outline-offset: 3px;
 }
 
-/* --- SECCIÓN INFERIOR (MISMO ROSA DEL BOTÓN SERVICES) --- */
+/* --- SECCIÓN INFERIOR --- */
 .includes-box {
     background-color: #f497a9; /* Tono idéntico al botón de servicios */
     border-radius: 16px;
@@ -628,7 +628,7 @@ nav a:hover {
     outline-offset: 3px;
 }
 
-/* --- SECCIÓN INFERIOR (MISMO ROSA DEL BOTÓN SERVICES) --- */
+/* --- SECCIÓN INFERIOR  --- */
 .includes-box {
     background-color: #f497a9; /* Tono idéntico al botón de servicios */
     border-radius: 16px;
@@ -779,4 +779,55 @@ hr{
     flex-wrap:wrap;
     margin-top: 4%;
 }
->>>>>>> 5ac2273189aa7ef010dff254c05b2e29805ee9b8:EXPO/css/servicios1.css
+
+/* ---Rsponsive--- */
+
+@media(max-width:900px){
+
+    .service-header{
+
+        flex-direction:column;
+
+    }
+
+    .service-content{
+        grid-template-columns:1fr;
+    }
+    .column ul{
+        grid-template-columns:1fr;
+    }
+    .service-footer{
+        justify-content:center;
+    }
+}
+@media(max-width:768px){
+
+    .header h1{
+        font-size:2.2rem;
+    }
+
+    .services{
+        padding:50px 0;
+    }
+
+}
+
+@media(max-width:900px){
+
+.profile-container{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+}
+
+.form-grid{
+    grid-template-columns:1fr;
+}
+
+.form-group.full{
+    grid-column:auto;
+}
+
+}

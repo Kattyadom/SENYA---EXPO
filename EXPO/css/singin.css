@@ -344,32 +344,54 @@ body{
     font-size:.75rem;
     opacity:.75;
 }
+/* ---Rsponsive--- */
+
 @media(max-width:900px){
-    body{
-        overflow:auto;
-    }
-    .login-container{
-        height:auto;
-        min-height:100vh;
+
+    .service-header{
+
         flex-direction:column;
+
     }
-    .login-card{
-        width:100%;
-        min-height:100vh;
-        height:auto;
-        padding:90px 25px 50px;
+
+    .service-content{
+        grid-template-columns:1fr;
     }
-    .login-content{
-        max-width:520px;
+    .column ul{
+        grid-template-columns:1fr;
     }
-    .back-home{
-        top:30px;
-        left:25px;
+    .service-footer{
+        justify-content:center;
     }
-    .login-image{
-        display:none;
+}
+@media(max-width:768px){
+
+    .header h1{
+        font-size:2.2rem;
     }
-    .logo-mobile{
-        display:block;
+
+    .services{
+        padding:50px 0;
     }
+
+}
+
+@media(max-width:900px){
+
+.profile-container{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+}
+
+.form-grid{
+    grid-template-columns:1fr;
+}
+
+.form-group.full{
+    grid-column:auto;
+}
+
 }
