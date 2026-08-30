@@ -15,7 +15,7 @@
 
 <body>
    
-     <!-- Accessibility Panel -->
+    <!-- Accessibility Panel -->
 <div class="accessibility-panel" id="accessibilityPanel">
 
 <div class="panel-header">
@@ -106,7 +106,7 @@ Reset Accessibility
                 <span id="callTimer">00:00</span>
             </div>
         </div>
-        <section class="call-area">
+        <section class="call-area" id="callArea">
     <div class="main-video">
         <!-- Etiqueta de video real para el usuario remoto -->
         <video id="remoteVideo" autoplay playsinline style="width:100%; height:100%; object-fit:cover;"></video>
@@ -139,38 +139,11 @@ Reset Accessibility
         </div>
     </div>
     
-    <button class="expand-video" aria-label="Expand video">
+    <button class="expand-video" id="expandButton" aria-label="Expand video">
         <i class="fa-solid fa-expand"></i>
     </button>
 </section>
-        <aside class="chat-panel" id="chatPanel">
-            <div class="chat-header">
-                <div>
-                    <h3>Chat</h3>
-                    <span>Backup communication</span>
-                </div>
-                <button class="close-chat" id="closeChat">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="messages">
-                <div class="message received">
-                    <span class="message-name">Interpreter</span>
-                    <p>Hello! How can I help you?</p>
-                    <small>Now</small>
-                </div>
-                <div class="message sent">
-                    <p>Hello! I need help with a service.</p>
-                    <small>Now</small>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="Write a message..." aria-label="Write a message">
-                <button aria-label="Send message">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </div>
-        </aside>
+
         <div class="controls">
             <button class="control-button" id="micButton" aria-label="Microphone">
                 <i class="fa-solid fa-microphone"></i>
@@ -181,18 +154,28 @@ Reset Accessibility
             <button class="control-button" aria-label="Speaker">
                 <i class="fa-solid fa-volume-high"></i>
             </button>
-            <button class="control-button" aria-label="Share screen">
-                <i class="fa-solid fa-display"></i>
-            </button>
-            <button class="control-button chat-button" id="chatButton" aria-label="Open chat">
-                <i class="fa-regular fa-comment"></i>
-                <span class="chat-notification">1</span>
-            </button>
             <button class="end-call" id="endCallButton" aria-label="End call">
-    <i class="fa-solid fa-phone-slash"></i>
-</button>
+                <i class="fa-solid fa-phone-slash"></i>
+            </button>
         </div>
     </main>
+
+<!-- Código JavaScript para activar la pantalla completa -->
+<script>
+    const expandButton = document.getElementById('expandButton');
+    const callArea = document.getElementById('callArea');
+
+    expandButton?.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            callArea.requestFullscreen().catch(err => {
+                alert(`Error al intentar poner en pantalla completa: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    });
+</script>
+
 <!-- Librería Socket.io provista automáticamente por el servidor -->
 <script src="/socket.io/socket.io.js"></script>
 <!-- Tu script de accesibilidad previo -->
