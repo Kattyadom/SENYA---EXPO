@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/bankop.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/modal.css">
+    <!--MEDIA PIPE VISION(OTRO SCRIPT PARA EL MOVIMIENTO DE CABEZA)-->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
     <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -44,6 +46,14 @@
 <h4>Deaf Support</h4>
 <p>Visual communication and larger icons</p>
 </div>
+</button>
+
+<button class="acc-card" id="activarHeadTracking">
+    <div class="acc-icon">🔄</div>
+    <div class="acc-info">
+        <h4>Head Control</h4>
+        <p>Navigate and scroll using head movements</p>
+    </div>
 </button>
 
 <button class="acc-card speech-mode" id="speechBtn">
@@ -484,5 +494,9 @@ Reset Accessibility
 <script src="js/modal.js"></script>
 <script src="js/opciones.js"></script>
 <script src="js/accessibility.js"></script>
+<!--SCRIPT PARA MOVIMIENTO CON LA CABEZA-->
+<script type="module" src="js/head-tracking.js"></script>
+<!-- Cursor virtual controlado por la cabeza -->
+<div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
 </body>
 </html>
