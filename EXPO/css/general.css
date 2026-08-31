@@ -475,48 +475,6 @@ font-size:19px;
      background:#E0EAFF;
      }
 
-     
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-
-@media (max-width: 1024px) {
-
-    .navbar {
-        width: 94%;
-        top: 15px;
-    }
-
-    .navbar-container {
-        padding: 13px 25px;
-    }
-
-    .nav-links {
-        gap: 25px;
-    }
-
-    .nav-links a {
-        font-size: 14px;
-    }
-
-    .help-btn {
-        padding: 11px 20px;
-        font-size: 14px;
-    }
-
-    .footer {
-        padding: 45px 6%;
-        padding-bottom: 8%;
-    }
-
-    .footer-container {
-        gap: 30px;
-    }
-
-}
-
-@media (max-width: 768px) {
-
     /* NAVBAR */
     .navbar {
         width: 94%;
@@ -765,27 +723,6 @@ font-size:19px;
 }
 
 
-/* CELULARES MUY PEQUEÑOS */
-@media (max-width: 360px) {
-
-    .logo img {
-        height: 30px;
-    }
-
-    .help-btn {
-        display: none;
-    }
-
-    .navbar-container {
-        justify-content: space-between;
-    }
-
-    .emergency-btn {
-        width: 48px;
-        height: 48px;
-    }
-
-}
 
 /* ===== SIGN LANGUAGE VIDEO MENU ===== */
 
