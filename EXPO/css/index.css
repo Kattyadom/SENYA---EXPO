@@ -25,9 +25,11 @@ body{
 section{
     padding:90px 9%;
 }
+
 /*Hero*/
 .hero{
     margin-top:30px;
+    background: #ffffff;
 }
 .hero-right::before{
     content:"";
@@ -48,9 +50,8 @@ section{
     display:flex;
     justify-content:center;
     align-items:center;
-}
-.hero-right{
     height: 600px;
+    position:relative;
 }
 a{
     text-decoration:none;
@@ -124,9 +125,6 @@ a{
 .hero-info span{
     color:#1E3A8A;
 }
-.hero-right{
-    position:relative;
-}
 .hero-right img{
     max-width:600px;
     margin:auto;
@@ -140,6 +138,7 @@ a{
         transform:translateY(-15px);
     }
 }
+
 /*Títulos de secciones*/
 .section-title{
     text-align:center;
@@ -158,9 +157,10 @@ a{
 .section-title p{
     color:#1E3A8A;
 }
+
 /*Categorías*/
 .categories-home{
-    background:white;
+    background:linear-gradient(180deg,#fff7fb,#ffffff);
 }
 .category-grid{
     display:grid;
@@ -192,6 +192,7 @@ a{
 .category-card p{
     color:#1E3A8A;
 }
+
 /*Why Senya?*/
 .why-senya{
     display:grid;
@@ -238,16 +239,19 @@ a{
     z-index:2;
     display:flex;
     align-items:flex-start;
+    justify-content:space-between;
+    gap:20px;
     padding:20px;
 }
 .why-card{
     position:relative;
-    width:260px;
+    flex: 1;
+    min-width: 0;
     min-height:330px;
-    margin-left:-28px;
+    margin-left:0;
     background:white;
     border-radius:22px;
-    padding:35px 28px;
+    padding:35px 20px;
     text-align:center;
     box-shadow:0 10px 25px rgba(62, 81, 255, 0.35);
     transition:.35s;
@@ -277,18 +281,20 @@ a{
     color:var(--primary);
 }
 .why-card h3{
-    font-size:1.35rem;
+    font-size:1.25rem;
     color:#2563EB;
     margin-bottom:15px;
 }
 .why-card p{
     color:#1E3A8A;
     line-height:1.7;
-    font-size:.95rem;
+    font-size:.9rem;
 }
+
 /*Servicios*/
 .services{
     padding:90px 8%;
+    background:linear-gradient(180deg,#f8fbff,#ffffff);
 }
 .services-container{
     display:grid;
@@ -353,6 +359,7 @@ a{
     min-height: 650px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(30,58,138,.15);
+    border-radius: 25px;
 }
 .services-image img{
     width: 100%;
@@ -371,6 +378,7 @@ a{
     );
     z-index:1;
 }
+
 /*How it works?*/
 .how{
     padding:120px 8%;
@@ -441,11 +449,6 @@ a{
     height:100%;
     object-fit:cover;
     display:block;
-}
-.step-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
     transition:.5s;
 }
 .step:hover img{
@@ -471,10 +474,11 @@ a{
     font-size:1.05rem;
     max-width:450px;
 }
+
 /*Testimonials*/
 .testimonials{
     padding:100px 8%;
-    background:#FFFFFF;
+    background:linear-gradient(180deg,#ffffff,#fff7fb);
     position:relative;
     overflow:hidden;
 }
@@ -512,6 +516,7 @@ a{
     border-radius:24px;
     box-shadow:0 15px 40px rgba(30,58,138,.08);
     transition:.35s;
+    border:1px solid var(--border);
 }
 .testimonial-card:hover{
     transform:translateY(-10px);
@@ -552,6 +557,7 @@ a{
     color:#1E3A8A;
     font-size:.9rem;
 }
+
 /*Call to action*/
 .cta{
     position:relative;
@@ -637,6 +643,7 @@ a{
 .cta-btn:hover i{
     transform:translateX(6px);
 }
+
 /*Responsive*/
 @media(max-width:900px){
 .hero{
