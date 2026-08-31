@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Schedule an Appointment - SENYA</title>
+
+    <link rel="stylesheet" href="css/general.css">
+
+    <link rel="stylesheet" href="css/agendar.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="navbar-container">
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="img/Senyalogo.png"
+                alt="SENYA Logo"
+            >
+
+        </a>
+
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="opciones.html">
+                        Partner Network
+                    </a>
+                </li>
+
+                <li>
+                    <a href="profile.html">
+                        Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="soporte.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <a href="#" class="help-btn">
+            Accessibility
+        </a>
+
+
+        <div class="menu-toggle">
+
+            <i class="fas fa-bars"></i>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= APPOINTMENT SECTION ================= -->
+
+<main class="appointment-page">
+
+    <div class="appointment-container">
+
+
+        <!-- Page Header -->
+
+        <div class="appointment-header">
+
+            <span class="appointment-label">
+                SENYA APPOINTMENTS
+            </span>
+
+
+            <h1>
+                Schedule Your Appointment
+            </h1>
+
+
+            <p>
+                Tell us what you need help with and choose one of the available call center shifts.
+            </p>
+
+        </div>
+
+
+
+        <!-- Appointment Card -->
+
+        <div class="appointment-card">
+
+
+            <!-- ================= SERVICE ================= -->
+
+            <div class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="heading-icon">
+
+                        <i class="fa-solid fa-building-columns"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Service
+                        </h2>
+
+                        <p>
+                            The service you selected
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="selected-service" id="selectedService">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+
+                    <div>
+
+                        <h3 id="serviceName">
+                            Selected Service
+                        </h3>
+
+
+                        <p id="serviceDescription">
+                            Service selected from SENYA Partner Network
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= REASON ================= -->
+
+            <div class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="heading-icon">
+
+                        <i class="fa-solid fa-message"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            What do you need help with?
+                        </h2>
+
+                        <p>
+                            Tell us why you want to contact this service.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <textarea
+                    id="appointmentReason"
+                    placeholder="Example: I need help with a bank transfer..."
+                    maxlength="500"
+                ></textarea>
+
+
+                <div class="character-count">
+
+                    <span id="characterCount">
+                        0
+                    </span>/500
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= INTERPRETER ================= -->
+
+            <div class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="heading-icon">
+
+                        <i class="fa-solid fa-hands-asl-interpreting"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Do you need an interpreter?
+                        </h2>
+
+                        <p>
+                            Choose whether you need an interpreter during the call.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="interpreter-options">
+
+
+                    <button
+                        type="button"
+                        class="interpreter-option"
+                        id="interpreterYes"
+                        data-value="Yes"
+                    >
+
+                        <i class="fa-solid fa-check"></i>
+
+
+                        <div>
+
+                            <strong>
+                                Yes
+                            </strong>
+
+                            <span>
+                                I need an interpreter
+                            </span>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        class="interpreter-option"
+                        id="interpreterNo"
+                        data-value="No"
+                    >
+
+                        <i class="fa-solid fa-xmark"></i>
+
+
+                        <div>
+
+                            <strong>
+                                No
+                            </strong>
+
+                            <span>
+                                I don't need an interpreter
+                            </span>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= LANGUAGE ================= -->
+
+            <div class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="heading-icon">
+
+                        <i class="fa-solid fa-language"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Preferred Language
+                        </h2>
+
+                        <p>
+                            Select the language for your appointment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <select id="appointmentLanguage">
+
+                    <option value="">
+                        Select a language
+                    </option>
+
+                    <option value="Spanish">
+                        Spanish
+                    </option>
+
+                    <option value="English">
+                        English
+                    </option>
+
+                    <option value="LESSA">
+                        LESSA
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- ================= AVAILABLE SHIFTS ================= -->
+
+            <div class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="heading-icon">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Available Call Center Slots
+                        </h2>
+
+                        <p>
+                            Select one of the available times offered by our operators:
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="slots-grid"
+                    id="slotsContainer"
+                >
+
+
+                    <div
+                        class="slot-card"
+                        data-date="Monday, Oct 15"
+                        data-time="09:00 AM"
+                    >
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <strong>
+                            Monday, Oct 15
+                        </strong>
+
+                        <span>
+                            09:00 AM
+                        </span>
+
+                    </div>
+
+
+
+                    <div
+                        class="slot-card"
+                        data-date="Monday, Oct 15"
+                        data-time="02:30 PM"
+                    >
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <strong>
+                            Monday, Oct 15
+                        </strong>
+
+                        <span>
+                            02:30 PM
+                        </span>
+
+                    </div>
+
+
+
+                    <div
+                        class="slot-card"
+                        data-date="Tuesday, Oct 16"
+                        data-time="11:00 AM"
+                    >
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <strong>
+                            Tuesday, Oct 16
+                        </strong>
+
+                        <span>
+                            11:00 AM
+                        </span>
+
+                    </div>
+
+
+
+                    <div
+                        class="slot-card"
+                        data-date="Wednesday, Oct 17"
+                        data-time="03:00 PM"
+                    >
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <strong>
+                            Wednesday, Oct 17
+                        </strong>
+
+                        <span>
+                            03:00 PM
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= CONFIRM ================= -->
+
+            <div class="appointment-actions">
+
+                <button
+                    type="button"
+                    class="confirm-btn"
+                    id="confirmAppointment"
+                >
+
+                    <span>
+                        Confirm Appointment
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- ================= CONFIRMATION MODAL ================= -->
+
+<div
+    class="confirmation-overlay"
+    id="confirmationOverlay"
+>
+
+    <div class="confirmation-card">
+
+
+        <div class="success-icon">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <h2>
+            Appointment Confirmed!
+        </h2>
+
+
+        <p>
+            Your appointment has been successfully scheduled.
+        </p>
+
+
+
+        <div class="appointment-summary">
+
+
+            <div>
+
+                <span>
+                    Service
+                </span>
+
+                <strong id="summaryService">
+                    Selected Service
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Date
+                </span>
+
+                <strong id="summaryDate">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Time
+                </span>
+
+                <strong id="summaryTime">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Interpreter
+                </span>
+
+                <strong id="summaryInterpreter">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Language
+                </span>
+
+                <strong id="summaryLanguage">
+                    -
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <button
+            type="button"
+            class="back-home-btn"
+            id="backHomeBtn"
+        >
+
+            Back to Home
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="js/agendar.js"></script>
+
+</body>
+
+</html>

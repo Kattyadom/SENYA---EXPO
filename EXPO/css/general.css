@@ -211,6 +211,8 @@ hr{
     display:flex;
     align-items:center;
     justify-content:center;
+    padding:0;
+    gap:0;
     border-radius:50px;
     background:#F472B6;
     color:#fff;
@@ -220,11 +222,13 @@ hr{
     box-shadow:0 10px 25px rgba(244,114,182,.35);
     transition:all .35s ease;
 }
+
 .emergency-btn i{
     font-size:24px;
     min-width:24px;
     text-align:center;
 }
+
 .emergency-btn span{
     max-width:0;
     opacity:0;
@@ -232,6 +236,7 @@ hr{
     white-space:nowrap;
     transition:all .3s ease;
 }
+
 .emergency-btn:hover{
     width:180px;
     justify-content:flex-start;
@@ -244,10 +249,6 @@ hr{
     max-width:120px;
     opacity:1;
 }
-.emergency-btn{
-
-    animation:pulse 2s infinite;
-}
 @keyframes pulse{
     0%{
         box-shadow:0 0 0 0 rgba(244,114,182,.5);
@@ -259,6 +260,59 @@ hr{
         box-shadow:0 0 0 0 rgba(244,114,182,0);
     }
 }
+
+/* =====================================================
+   MY APPOINTMENT - SOLO BOTÓN
+   ===================================================== */
+
+.appointment-float-btn{
+    position:fixed;
+    right:30px;
+    bottom:105px;
+    width:65px;
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    border-radius:50px;
+    background:#F472B6;
+    color:#fff;
+    text-decoration:none;
+    overflow:hidden;
+    z-index:999;
+    box-shadow:0 10px 25px rgba(244,114,182,.35);
+    transition:all .35s ease;
+    cursor:pointer;
+}
+
+.appointment-float-btn i{
+    font-size:24px;
+    min-width:24px;
+    text-align:center;
+}
+
+.appointment-float-btn span{
+    max-width:0;
+    opacity:0;
+    overflow:hidden;
+    white-space:nowrap;
+    transition:all .3s ease;
+}
+
+.appointment-float-btn:hover{
+    width:180px;
+    justify-content:flex-start;
+    padding:0 22px;
+    gap:12px;
+    background:#EC4899;
+}
+
+.appointment-float-btn:hover span{
+    max-width:120px;
+    opacity:1;
+}
+
 .accessibility-panel{
 position:fixed; top:0; right:-360px; width:340px; height:100vh;
 background:white; box-shadow:-10px 0 40px rgba(0,0,0,.15);
@@ -517,7 +571,6 @@ font-size:19px;
 
 @media (max-width: 768px) {
 
-    /* NAVBAR */
     .navbar {
         width: 94%;
         top: 10px;
@@ -623,6 +676,29 @@ font-size:19px;
     }
 
     .emergency-btn:hover span {
+        display: none;
+    }
+
+    /* BOTON MY APPOINTMENT */
+    .appointment-float-btn {
+        right: 18px;
+        bottom: 88px;
+        width: 58px;
+        height: 58px;
+    }
+
+    .appointment-float-btn i {
+        font-size: 21px;
+    }
+
+    .appointment-float-btn:hover {
+        width: 58px;
+        padding: 0;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .appointment-float-btn:hover span {
         display: none;
     }
 
@@ -735,6 +811,18 @@ font-size:19px;
         font-size: 19px;
     }
 
+    /* MY APPOINTMENT */
+    .appointment-float-btn {
+        width: 52px;
+        height: 52px;
+        right: 14px;
+        bottom: 80px;
+    }
+
+    .appointment-float-btn i {
+        font-size: 19px;
+    }
+
 
     /* ACCESIBILIDAD */
     .panel-header h3 {
@@ -783,6 +871,14 @@ font-size:19px;
     .emergency-btn {
         width: 48px;
         height: 48px;
+    }
+
+    /* MY APPOINTMENT */
+    .appointment-float-btn {
+        width: 48px;
+        height: 48px;
+        right: 14px;
+        bottom: 72px;
     }
 
 }

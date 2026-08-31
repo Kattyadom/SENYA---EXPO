@@ -1,0 +1,543 @@
+/* ================================
+   SENYA - APPOINTMENT PAGE
+================================ */
+
+.appointment-page {
+    min-height: 100vh;
+    padding: 70px 20px 90px;
+    background: #f7faff;
+}
+
+.appointment-container {
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.appointment-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.appointment-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.appointment-header h1 {
+    margin: 0 0 15px;
+    color: #172554;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.appointment-header p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ================================
+   MAIN CARD
+================================ */
+
+.appointment-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 45px rgba(37, 99, 235, 0.08);
+}
+
+/* ================================
+   FORM SECTIONS
+================================ */
+
+.form-section {
+    padding: 30px 0;
+    border-bottom: 1px solid #e8eef7;
+}
+
+.form-section:first-child {
+    padding-top: 0;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.heading-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    border-radius: 14px;
+    background: #eef5ff;
+    color: #2563eb;
+    font-size: 20px;
+}
+
+.section-heading h2 {
+    margin: 0 0 5px;
+    color: #172554;
+    font-size: 19px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #7b8798;
+    font-size: 14px;
+}
+
+/* ================================
+   SELECTED SERVICE
+================================ */
+
+.selected-service {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 18px 20px;
+
+    background: #f5f9ff;
+    border: 1px solid #dce9ff;
+    border-radius: 15px;
+}
+
+.selected-service > i {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 18px;
+}
+
+.selected-service h3 {
+    margin: 0 0 5px;
+    color: #172554;
+    font-size: 16px;
+}
+
+.selected-service p {
+    margin: 0;
+    color: #718096;
+    font-size: 13px;
+}
+
+/* ================================
+   TEXTAREA
+================================ */
+
+#appointmentReason {
+    width: 100%;
+    min-height: 140px;
+
+    box-sizing: border-box;
+
+    padding: 17px;
+
+    resize: vertical;
+
+    border: 1px solid #dbe4f0;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: #1e293b;
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+#appointmentReason::placeholder {
+    color: #9aa7b8;
+}
+
+#appointmentReason:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.character-count {
+    margin-top: 7px;
+    text-align: right;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* ================================
+   INTERPRETER
+================================ */
+
+.interpreter-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.interpreter-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 17px;
+
+    border: 1px solid #dbe4f0;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.interpreter-option:hover {
+    border-color: #9fc1ff;
+    background: #f8fbff;
+}
+
+.interpreter-option.selected {
+    border-color: #2563eb !important;
+    background: #eef5ff !important;
+    box-shadow: 0 0 0 2px #2563eb;
+}
+
+.interpreter-option > i {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #eef5ff;
+    color: #2563eb;
+}
+
+.interpreter-option strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #172554;
+    font-size: 15px;
+}
+
+.interpreter-option span {
+    color: #718096;
+    font-size: 13px;
+}
+
+/* ================================
+   SELECT
+================================ */
+
+#appointmentLanguage {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 15px 17px;
+
+    border: 1px solid #dbe4f0;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: #334155;
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+#appointmentLanguage:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* ================================
+   SLOTS (CALL CENTER SHIFTS)
+================================ */
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.slot-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 12px;
+    border: 1px solid #dbe4f0;
+    border-radius: 14px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-align: center;
+}
+
+.slot-card i {
+    font-size: 20px;
+    color: #2563eb;
+    margin-bottom: 8px;
+}
+
+.slot-card strong {
+    color: #172554;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.slot-card span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.slot-card:hover {
+    border-color: #9fc1ff;
+    background: #f8fbff;
+}
+
+.slot-card.selected {
+    border-color: #2563eb !important;
+    background: #eef5ff !important;
+    box-shadow: 0 0 0 2px #2563eb;
+}
+
+/* ================================
+   CONFIRM BUTTON
+================================ */
+
+.appointment-actions {
+    padding-top: 30px;
+}
+
+.confirm-btn {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 17px 25px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.confirm-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.confirm-btn i {
+    font-size: 14px;
+}
+
+/* ================================
+   CONFIRMATION OVERLAY
+================================ */
+
+.confirmation-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    z-index: 9999;
+}
+
+.confirmation-overlay.show {
+    display: flex;
+}
+
+.confirmation-card {
+    width: min(480px, 100%);
+
+    padding: 38px;
+
+    border-radius: 24px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    box-shadow: 0 25px 70px rgba(15, 23, 42, 0.2);
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e9f8ef;
+    color: #16a34a;
+
+    font-size: 28px;
+}
+
+.confirmation-card h2 {
+    margin: 0 0 10px;
+
+    color: #172554;
+    font-size: 27px;
+}
+
+.confirmation-card > p {
+    margin: 0 0 25px;
+
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ================================
+   APPOINTMENT SUMMARY
+================================ */
+
+.appointment-summary {
+    margin-bottom: 25px;
+
+    padding: 5px 0;
+
+    border-top: 1px solid #e8eef7;
+}
+
+.appointment-summary div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+.appointment-summary span {
+    color: #7b8798;
+    font-size: 13px;
+}
+
+.appointment-summary strong {
+    color: #172554;
+    font-size: 14px;
+    text-align: right;
+}
+
+/* ================================
+   BACK HOME
+================================ */
+
+.back-home-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.back-home-btn:hover {
+    background: #1d4ed8;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 700px) {
+
+    .appointment-page {
+        padding: 45px 15px 60px;
+    }
+
+    .appointment-header h1 {
+        font-size: 32px;
+    }
+
+    .appointment-card {
+        padding: 25px 20px;
+    }
+
+    .interpreter-options {
+        grid-template-columns: 1fr;
+    }
+
+    .confirmation-card {
+        padding: 30px 22px;
+    }
+}
