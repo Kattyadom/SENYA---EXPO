@@ -17,7 +17,3 @@ searchInput.addEventListener("keyup", function(){
         }
     });
 });
-function selectService(serviceName) {
-    localStorage.setItem("senya_selected_service", serviceName);
-    window.location.href = "agendar.html";
-}
