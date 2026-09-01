@@ -28,7 +28,6 @@ section{
 
 /*Hero*/
 .hero{
-    margin-top:30px;
     background: #ffffff;
 }
 .hero-right::before{
