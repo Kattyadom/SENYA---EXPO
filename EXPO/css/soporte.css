@@ -11,6 +11,7 @@
     --shadow:0 12px 35px rgba(30,58,138,.08);
 }
 
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -39,17 +40,18 @@ a{
 /* =========================
    HERO
 ========================= */
-
 .support-hero{
-    min-height:450px;
-    padding:95px 7% 75px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(180deg,#fff 0%,#F7FAFF 100%);
+    min-height: 450px;
+    padding-top: 12px;
+    padding: 120px 2% 160px; /* <- Aumentamos el padding superior de 95px a 140px (o más si tu navbar es más alta) */
+    margin-top: 0px;       /* <- Asegura un margen superior adecuado desde la barra de navegación */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg,#fff 0%,#F7FAFF 100%);
 }
 
 .support-hero:before{
