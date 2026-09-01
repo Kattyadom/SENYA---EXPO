@@ -1,0 +1,270 @@
+/* =====================================================
+   RESPONSIVE GENERAL - TODAS LAS PÁGINAS
+   ===================================================== */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+*{
+    max-width:100%;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+
+/* =====================================================
+   TABLETS
+   ===================================================== */
+
+@media (max-width: 1024px){
+
+    section{
+        padding-left:6% !important;
+        padding-right:6% !important;
+    }
+
+    .container{
+        width:92%;
+        max-width:100%;
+        margin:auto;
+    }
+
+    h1{
+        font-size:clamp(2.3rem,5vw,4rem);
+    }
+
+    h2{
+        font-size:clamp(2rem,4vw,3rem);
+    }
+
+    .row{
+        flex-wrap:wrap;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+
+/* =====================================================
+   TABLETS PEQUEÑAS
+   ===================================================== */
+
+@media (max-width: 768px){
+
+    section{
+        padding-top:70px !important;
+        padding-bottom:70px !important;
+    }
+
+    .container{
+        width:92%;
+    }
+
+    h1{
+        font-size:2.3rem;
+        line-height:1.15;
+    }
+
+    h2{
+        font-size:2rem;
+    }
+
+    h3{
+        font-size:1.4rem;
+    }
+
+    p{
+        font-size:.95rem;
+        line-height:1.7;
+    }
+
+
+    /* GRID */
+
+    .grid,
+    .grid-2,
+    .grid-3,
+    .grid-4{
+        grid-template-columns:1fr !important;
+    }
+
+
+    /* FLEX */
+
+    .row{
+        flex-direction:column;
+        align-items:center;
+    }
+
+
+    /* CARDS */
+
+    .card,
+    .service-card,
+    .about-card{
+        width:100%;
+        max-width:600px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+
+    /* IMÁGENES */
+
+    img{
+        max-width:100%;
+        height:auto;
+    }
+
+
+    /* FORMULARIOS */
+
+    .form-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    input,
+    textarea,
+    select{
+        width:100%;
+        max-width:100%;
+    }
+}
+
+
+/* =====================================================
+   CELULARES
+   ===================================================== */
+
+@media (max-width:600px){
+
+    body{
+        font-size:14px;
+    }
+
+    section{
+        padding-left:5% !important;
+        padding-right:5% !important;
+        padding-top:55px !important;
+        padding-bottom:55px !important;
+    }
+
+    .container{
+        width:95%;
+    }
+
+
+    /* TEXTOS */
+
+    h1{
+        font-size:2rem;
+    }
+
+    h2{
+        font-size:1.8rem;
+    }
+
+    h3{
+        font-size:1.25rem;
+    }
+
+    p{
+        font-size:.88rem;
+    }
+
+
+    /* FLEX */
+
+    .flex,
+    .flex-container,
+    .row{
+        flex-direction:column;
+    }
+
+
+    /* BOTONES */
+
+    .buttons,
+    .button-container,
+    .hero-buttons{
+        width:100%;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .buttons button,
+    .buttons a,
+    .button-container button,
+    .hero-buttons a{
+        width:100%;
+    }
+
+
+    /* CARDS */
+
+    .card,
+    .service-card,
+    .about-card{
+        padding:22px 18px;
+    }
+
+
+    /* TABLAS */
+
+    .table-container{
+        width:100%;
+        overflow-x:auto;
+    }
+
+    table{
+        min-width:600px;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUEÑOS
+   ===================================================== */
+
+@media (max-width:400px){
+
+    section{
+        padding-left:4% !important;
+        padding-right:4% !important;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    h2{
+        font-size:1.6rem;
+    }
+
+    h3{
+        font-size:1.15rem;
+    }
+
+    p{
+        font-size:.84rem;
+    }
+
+    .container{
+        width:96%;
+    }
+
+    .card,
+    .service-card,
+    .about-card{
+        padding:18px 15px;
+    }
+}

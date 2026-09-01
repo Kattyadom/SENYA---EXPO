@@ -1,3 +1,4 @@
+
 /* =========================
    RESET
 ========================= */
@@ -9,7 +10,8 @@
     font-family:'Quicksand',sans-serif;
 }
 
-/*Navbar*/
+/* Navbar */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -18,6 +20,7 @@ header {
     max-width: 95%;
     margin: 0 auto;
 }
+
 .logo {
     font-family: 'Quicksand', sans-serif;
     font-size: 32px;
@@ -67,7 +70,8 @@ nav a:hover {
     padding-bottom: 4px;
 }
 
-/*botón get help*/
+/* botón get help */
+
 .btn-help {
     background-color: #f0a4b5;
     color: white;
@@ -87,6 +91,7 @@ nav a:hover {
     box-shadow: 0 6px 14px rgba(245, 165, 181, 0.5);
 }
 
+
 /* =========================
    CONTENEDOR
 ========================= */
@@ -102,6 +107,7 @@ nav a:hover {
     position:relative;
     overflow:hidden;
 }
+
 
 /* EFECTOS DIFUMINADOS */
 
@@ -140,6 +146,7 @@ nav a:hover {
     z-index:2;
 }
 
+
 /* =========================
    CONTENIDO
 ========================= */
@@ -151,6 +158,7 @@ nav a:hover {
     position:relative;
     z-index:2;
 }
+
 
 /* =========================
    WAITING TIPS
@@ -213,6 +221,7 @@ nav a:hover {
     line-height:1.4;
 }
 
+
 /* =========================
    CONNECTING CARD
 ========================= */
@@ -230,6 +239,7 @@ nav a:hover {
     color:#126AD6;
     font-size:32px;
 }
+
 
 /* RELOJ */
 
@@ -255,11 +265,13 @@ nav a:hover {
 
 }
 
+
 .status-text{
     color:#126AD6;
     font-size:18px;
     margin-bottom:30px;
 }
+
 
 /* =========================
    BARRA DE CARGA
@@ -294,6 +306,7 @@ nav a:hover {
 
 }
 
+
 /* =========================
    BOTÓN CANCELAR
 ========================= */
@@ -314,43 +327,15 @@ nav a:hover {
     transform:scale(1.05);
 }
 
+
 /* =========================
-   RESPONSIVE
+   FOOTER
 ========================= */
-
-@media(max-width:900px){
-
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
-    }
-
-    .waiting-content{
-        flex-direction:column;
-    }
-
-    .tips-card{
-        width:100%;
-    }
-
-    .waiting-container h1{
-        font-size:32px;
-    }
-
-}
-
-/* FOOTER */ 
 
 .footer{
     background:#f5f5f5;
     padding:50px 8%;
-    padding-bottom: 9%;
+    padding-bottom:9%;
 }
 
 .footer-container{
@@ -358,7 +343,7 @@ nav a:hover {
     justify-content:space-between;
     flex-wrap:wrap;
     gap:40px;
-    margin-top: 4%;
+    margin-top:4%;
 }
 
 .footer-column{
@@ -398,8 +383,8 @@ nav a:hover {
 
 .footer-column a:hover{
     color:#090e55;
-    font-weight: bold;
-    text-decoration: underline;
+    font-weight:bold;
+    text-decoration:underline;
 }
 
 .footer-column input{
@@ -442,7 +427,7 @@ nav a:hover {
 hr{
     margin:40px 0 20px;
     border:1px solid #a2d7fa;
-    margin-top: 8%;
+    margin-top:8%;
 }
 
 .footer-bottom{
@@ -450,5 +435,6 @@ hr{
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
-    margin-top: 4%;
+    margin-top:4%;
 }
+
