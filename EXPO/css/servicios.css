@@ -20,7 +20,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px; 
+    padding: 15px 20px;
     max-width: 95%;
     margin: 0 auto;
 }
@@ -68,7 +68,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #126ad6; 
+    color: #126ad6;
     border-bottom: 2px solid #126ad6;
     padding-bottom: 4px;
 }
@@ -98,7 +98,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px; 
+    padding: 15px 20px;
     max-width: 95%;
     margin: 0 auto;
 }
@@ -147,7 +147,7 @@ nav a {
 }
 
 nav a.active {
-    color: #1d4ed8; 
+    color: #1d4ed8;
     border-bottom: 2px solid #1d4ed8;
     padding-bottom: 4px;
 }
@@ -169,7 +169,7 @@ nav a.active {
     background-color: #e08597;
     transform: translateY(-1px);
 }
-    
+   
 /* =========================
    MAIN CONTAINER
 ========================= */
@@ -515,3 +515,4 @@ hr{
     flex-wrap:wrap;
     margin-top: 4%;
 }
+

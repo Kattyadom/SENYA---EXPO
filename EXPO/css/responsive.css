@@ -1,270 +1,112 @@
-/* =====================================================
-   RESPONSIVE GENERAL - TODAS LAS PÁGINAS
-   ===================================================== */
+/* ==========================================================================
+   CSS RESPONSIVE PARA TODAS LAS PANTALLAS (Mobile -> Desktop -> 4K)
+   ========================================================================== */
 
-html,
-body{
-    width:100%;
-    max-width:100%;
-    overflow-x:hidden;
+/* 1. RESET Y PROPIEDADES GLOBALES */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-*{
-    max-width:100%;
+:root {
+  /* Tipografía fluida: se escala automáticamente entre móvil y monitor */
+  --font-size-title: clamp(1.5rem, 4vw, 3rem);
+  --font-size-body: clamp(0.95rem, 1.2vw, 1.15rem);
 }
 
-img{
-    max-width:100%;
-    height:auto;
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  background-color: #f8fafc;
+  color: #1e293b;
+  min-height: 100vh;
 }
 
-
-/* =====================================================
-   TABLETS
-   ===================================================== */
-
-@media (max-width: 1024px){
-
-    section{
-        padding-left:6% !important;
-        padding-right:6% !important;
-    }
-
-    .container{
-        width:92%;
-        max-width:100%;
-        margin:auto;
-    }
-
-    h1{
-        font-size:clamp(2.3rem,5vw,4rem);
-    }
-
-    h2{
-        font-size:clamp(2rem,4vw,3rem);
-    }
-
-    .row{
-        flex-wrap:wrap;
-    }
-
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+/* 2. REGLA MULTIMEDIA FLUIDA */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-
-/* =====================================================
-   TABLETS PEQUEÑAS
-   ===================================================== */
-
-@media (max-width: 768px){
-
-    section{
-        padding-top:70px !important;
-        padding-bottom:70px !important;
-    }
-
-    .container{
-        width:92%;
-    }
-
-    h1{
-        font-size:2.3rem;
-        line-height:1.15;
-    }
-
-    h2{
-        font-size:2rem;
-    }
-
-    h3{
-        font-size:1.4rem;
-    }
-
-    p{
-        font-size:.95rem;
-        line-height:1.7;
-    }
-
-
-    /* GRID */
-
-    .grid,
-    .grid-2,
-    .grid-3,
-    .grid-4{
-        grid-template-columns:1fr !important;
-    }
-
-
-    /* FLEX */
-
-    .row{
-        flex-direction:column;
-        align-items:center;
-    }
-
-
-    /* CARDS */
-
-    .card,
-    .service-card,
-    .about-card{
-        width:100%;
-        max-width:600px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-
-    /* IMÁGENES */
-
-    img{
-        max-width:100%;
-        height:auto;
-    }
-
-
-    /* FORMULARIOS */
-
-    .form-grid{
-        grid-template-columns:1fr !important;
-    }
-
-    input,
-    textarea,
-    select{
-        width:100%;
-        max-width:100%;
-    }
+/* 3. CONTENEDOR PRINCIPAL ULTRA-RESPONSIVE */
+.main-container {
+  /* Ancho dinámico con clamp: min 90%, ideal 85vw, max 1400px en monitores PC */
+  width: clamp(90%, 85vw, 1400px);
+  margin: 2rem auto;
+  background-color: #ffffff;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-
-/* =====================================================
-   CELULARES
-   ===================================================== */
-
-@media (max-width:600px){
-
-    body{
-        font-size:14px;
-    }
-
-    section{
-        padding-left:5% !important;
-        padding-right:5% !important;
-        padding-top:55px !important;
-        padding-bottom:55px !important;
-    }
-
-    .container{
-        width:95%;
-    }
-
-
-    /* TEXTOS */
-
-    h1{
-        font-size:2rem;
-    }
-
-    h2{
-        font-size:1.8rem;
-    }
-
-    h3{
-        font-size:1.25rem;
-    }
-
-    p{
-        font-size:.88rem;
-    }
-
-
-    /* FLEX */
-
-    .flex,
-    .flex-container,
-    .row{
-        flex-direction:column;
-    }
-
-
-    /* BOTONES */
-
-    .buttons,
-    .button-container,
-    .hero-buttons{
-        width:100%;
-        flex-direction:column;
-        gap:10px;
-    }
-
-    .buttons button,
-    .buttons a,
-    .button-container button,
-    .hero-buttons a{
-        width:100%;
-    }
-
-
-    /* CARDS */
-
-    .card,
-    .service-card,
-    .about-card{
-        padding:22px 18px;
-    }
-
-
-    /* TABLAS */
-
-    .table-container{
-        width:100%;
-        overflow-x:auto;
-    }
-
-    table{
-        min-width:600px;
-    }
+.header-title {
+  font-size: var(--font-size-title);
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
+/* 4. REJILLA ADAPTABLE CON CSS GRID (Sin necesidad de mil media queries) */
+.cards-grid {
+  display: grid;
+  /* Crea columnas automáticamente de mínimo 280px y máximo 1fr según el ancho del monitor */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
 
-/* =====================================================
-   CELULARES PEQUEÑOS
-   ===================================================== */
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
 
-@media (max-width:400px){
+/* 5. FORMULARIO CONTENIDO */
+.form-box {
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto 0 auto;
+  padding: 1.5rem;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+}
 
-    section{
-        padding-left:4% !important;
-        padding-right:4% !important;
-    }
+.form-input, .btn-primary {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+}
 
-    h1{
-        font-size:1.8rem;
-    }
+.btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-    h2{
-        font-size:1.6rem;
-    }
+/* 6. AJUSTES FINOS PARA PANTALLAS ESPECÍFICAS */
 
-    h3{
-        font-size:1.15rem;
-    }
+/* Monitores Ultrapanorámicos / PC Grandes (> 1600px) */
+@media (min-width: 1600px) {
+  .main-container {
+    max-width: 1600px; /* Expande más el contenido en pantallas gigantes */
+  }
+}
 
-    p{
-        font-size:.84rem;
-    }
-
-    .container{
-        width:96%;
-    }
-
-    .card,
-    .service-card,
-    .about-card{
-        padding:18px 15px;
-    }
+/* Celulares (< 600px) */
+@media (max-width: 600px) {
+  .main-container {
+    width: 95%;
+    margin: 0.5rem auto;
+  }
 }

@@ -1,27 +1,17 @@
-```css
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
 .about-page{
     overflow:hidden;
     background:linear-gradient(180deg,#fff 0%,#fffafd 45%,#f8fbff 100%);
     color:#1E3A8A;
 }
 
-.about-page section{
-    padding:100px 9%;
-}
-
+.about-page section{padding:100px 9%;}
 .about-page h1,
 .about-page h2,
 .about-page h3,
-.about-page p{
-    margin:0;
-}
+.about-page p{margin:0;}
 
-.about-page a{
-    text-decoration:none;
-}
-
+.about-page a{text-decoration:none;}
 
 /* ===HERO=== */
 
@@ -30,7 +20,7 @@
     min-height:100vh;
     display:flex;
     align-items:center;
-    padding-top:220px!important;
+    padding-top:220px!important; /* ⬅ Espacio aumentado para evitar que choque con el navbar */
     overflow:hidden;
 }
 
@@ -82,9 +72,7 @@
     z-index:2;
 }
 
-.about-hero-text{
-    animation:fadeUp .9s ease both;
-}
+.about-hero-text{animation:fadeUp .9s ease both;}
 
 .about-badge{
     display:inline-flex;
@@ -119,7 +107,6 @@
     line-height:1.9;
     margin-bottom:45px;
 }
-
 
 /* Stats */
 
@@ -173,7 +160,6 @@
     color:#6d6d6d;
 }
 
-
 /* Imagen hero */
 
 .about-hero-visual{
@@ -214,7 +200,6 @@
 .hero-image-wrapper:hover .about-hero-image{
     transform:scale(1.08);
 }
-
 
 /* Card flotante */
 
@@ -279,7 +264,6 @@
     z-index:4;
 }
 
-
 /* ===INTRO=== */
 
 .about-intro{
@@ -316,12 +300,9 @@
     line-height:1.8;
 }
 
-
 /* ====STORY - MISSION - VISION==== */
 
-.about-cards-section{
-    padding-top:30px!important;
-}
+.about-cards-section{padding-top:30px!important;}
 
 .about-cards{
     max-width:1350px;
@@ -355,26 +336,16 @@
     transition:.5s ease;
 }
 
-.story-card::before{
-    background:#DBEAFE;
-}
-
-.mission-card::before{
-    background:#FCE7F3;
-}
-
-.vision-card::before{
-    background:#E9E3FF;
-}
+.story-card::before{background:#DBEAFE;}
+.mission-card::before{background:#FCE7F3;}
+.vision-card::before{background:#E9E3FF;}
 
 .about-card:hover{
     transform:translateY(-14px);
     box-shadow:0 25px 55px rgba(30,58,138,.16);
 }
 
-.about-card:hover::before{
-    transform:scale(1.35);
-}
+.about-card:hover::before{transform:scale(1.35);}
 
 .about-card-icon{
     width:75px;
@@ -436,22 +407,11 @@
     transition:.35s ease;
 }
 
-.story-card .card-line{
-    background:#2563EB;
-}
+.story-card .card-line{background:#2563EB;}
+.mission-card .card-line{background:#FF4F8B;}
+.vision-card .card-line{background:#7B5CFF;}
 
-.mission-card .card-line{
-    background:#FF4F8B;
-}
-
-.vision-card .card-line{
-    background:#7B5CFF;
-}
-
-.about-card:hover .card-line{
-    width:110px;
-}
-
+.about-card:hover .card-line{width:110px;}
 
 /* ===VALUES=== */
 
@@ -573,51 +533,156 @@
     font-size:.82rem;
     line-height:1.65;
 }
-
-
 /* ===ANIMATIONS==== */
 
 @keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
 @keyframes fadeRight{
-    from{
-        opacity:0;
-        transform:translateX(50px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
+    from{opacity:0;transform:translateX(50px);}
+    to{opacity:1;transform:translateX(0);}
 }
 
 @keyframes floatCard{
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-15px);
-    }
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
 }
 
 @keyframes floatIcon{
-    0%,100%{
-        transform:translateY(0) rotate(0);
+    0%,100%{transform:translateY(0) rotate(0);}
+    50%{transform:translateY(-18px) rotate(5deg);}
+}
+
+/* ===RESPONSIVE==== */
+
+@media(max-width:1100px){
+    .about-page section{
+        padding-left:7%;
+        padding-right:7%;
     }
 
-    50%{
-        transform:translateY(-18px) rotate(5deg);
+    .about-hero-content{gap:45px;}
+    .about-cards{gap:20px;}
+    .about-card{padding:35px 28px;}
+    .values-content{gap:50px;}
+    .value-item{padding:20px;}
+}
+
+@media(max-width:900px){
+    .about-hero{
+        padding-top:200px!important;
+        padding-bottom:90px!important;
+    }
+
+    .about-hero-content,
+    .values-content{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .about-hero-text>p,
+    .values-text>p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .about-hero-stats{justify-content:center;}
+
+    .about-hero-visual{min-height:500px;}
+
+    .hero-image-wrapper{
+        max-width:470px;
+        height:500px;
+    }
+
+    .communication-card{left:5%;}
+
+    .about-cards{
+        grid-template-columns:1fr;
+        max-width:600px;
+    }
+
+    .values-grid{
+        max-width:700px;
+        margin:auto;
+        text-align:left;
     }
 }
-```
+
+@media(max-width:600px){
+    .about-page section{padding:75px 6%;}
+
+    .about-hero{
+        min-height:auto;
+        padding-top:160px!important;
+    }
+
+    .about-hero-text h1{font-size:2.8rem;}
+
+    .about-hero-text>p{
+        font-size:.98rem;
+        line-height:1.8;
+    }
+
+    .about-hero-stats{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .about-stat{width:100%;}
+
+    .about-hero-visual{min-height:440px;}
+
+    .hero-image-wrapper{
+        height:410px;
+        border-radius:40% 40% 30% 30% / 25% 25% 20% 20%;
+    }
+
+    .communication-card{
+        width:220px;
+        left:0;
+        bottom:20px;
+        padding:15px;
+    }
+
+    .communication-card p{font-size:.78rem;}
+
+    .floating-accessibility{
+        width:65px;
+        height:65px;
+        top:20px;
+        font-size:1.5rem;
+    }
+
+    .section-heading h2{font-size:2.4rem;}
+
+    .about-card{
+        min-height:auto;
+        padding:35px 25px;
+    }
+
+    .card-number{
+        font-size:3.3rem;
+        top:30px;
+        right:25px;
+    }
+
+    .values-text h2{font-size:2.7rem;}
+
+    .values-grid{grid-template-columns:1fr;}
+
+    .value-item{
+        padding:22px;
+        text-align:left;
+    }
+}
+
+@media(max-width:380px){
+    .about-hero-text h1{font-size:2.4rem;}
+    .about-stat{min-width:auto;}
+    .communication-card{width:200px;}
+    .about-card h3{font-size:1.4rem;}
+    .values-text h2{font-size:2.3rem;}
+}

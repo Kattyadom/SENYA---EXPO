@@ -55,8 +55,8 @@ body {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        135deg, 
-        rgba(42, 109, 255, 0.85), 
+        135deg,
+        rgba(42, 109, 255, 0.85),
         rgba(28, 58, 136, 0.8)
     );
     z-index: 2;

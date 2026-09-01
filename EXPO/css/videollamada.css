@@ -12,7 +12,7 @@ html, body {
 }
 body {
     /* Ajusta este valor según la altura real de tu Navbar para que no tape nada */
-    padding-top: 100px; 
+    padding-top: 100px;
     background: linear-gradient(180deg, #ffffff 0%, #fff8fc 100%);
     font-family: 'Poppins', sans-serif;
 }

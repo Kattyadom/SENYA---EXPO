@@ -1,4 +1,3 @@
-<<<<<<< HEAD:EXPO/servicios1.css
 /* --- ENLACE A FUENTES --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@700&display=swap');
 
@@ -12,7 +11,7 @@
 
 body {
     background-color: #ffffff;
-    color: #1a1a1a; 
+    color: #1a1a1a;
     padding: 10px 20px;
     /* FUENTE DE LA LETºRA */
     font-family: 'Poppins', sans-serif;
@@ -23,7 +22,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px; 
+    padding: 15px 20px;
     max-width: 95%;
     margin: 0 auto;
 }
@@ -72,7 +71,7 @@ nav a {
 }
 
 nav a.active {
-    color: #1d4ed8; 
+    color: #1d4ed8;
     border-bottom: 2px solid #1d4ed8;
     padding-bottom: 4px;
 }
@@ -102,15 +101,15 @@ nav a.active {
     background-color: #9cd3ff;
     border-radius: 24px;
     width: 95%;        
-    max-width: 1600px; 
-    margin: 15px auto; 
-    padding: 40px 40px; 
+    max-width: 1600px;
+    margin: 15px auto;
+    padding: 40px 40px;
     text-align: center;
     box-shadow: 0 8px 24px rgba(0,0,0,0.05);
 }
 
 .main-title {
-    color: #000000; 
+    color: #000000;
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 45px;
@@ -121,8 +120,8 @@ nav a.active {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    gap: 25px; 
-    margin-bottom: 45px; 
+    gap: 25px;
+    margin-bottom: 45px;
     position: relative;
 }
 
@@ -150,12 +149,12 @@ nav a.active {
     justify-content: space-between;
     min-height: 250px;
     transition: all 0.2s ease;
-    outline: none; 
+    outline: none;
 }
 
 .step-card:focus, .step-card:focus-visible {
     transform: scale(1.02);
-    box-shadow: 0 0 0 4px #1d6ed3, 0 10px 20px rgba(0,0,0,0.15); 
+    box-shadow: 0 0 0 4px #1d6ed3, 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .step-number {
@@ -219,8 +218,8 @@ nav a.active {
     font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
-    margin-bottom: 45px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    margin-bottom: 45px;
     transition: all 0.2s ease;
 }
 #link{
@@ -231,7 +230,7 @@ nav a.active {
 .btn-services:hover {
     background-color: #e08597;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-services:focus-visible, .btn-help:focus-visible {
@@ -243,7 +242,7 @@ nav a.active {
 .includes-box {
     background-color: #f497a9; /* Tono idéntico al botón de servicios */
     border-radius: 16px;
-    padding: 35px; 
+    padding: 35px;
     border: 1px solid #e08597; /* Borde un poco más oscuro para dar profundidad */
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
@@ -252,7 +251,7 @@ nav a.active {
     color: #4a2830; /* Tono oscuro para máxima legibilidad sobre el rosa */
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 35px; 
+    margin-bottom: 35px;
 }
 
 .features-grid {
@@ -272,18 +271,18 @@ nav a.active {
 
 .feature-item i {
     font-size: 40px;
-    color: #4a2830; 
+    color: #4a2830;
     margin-bottom: 15px;
 }
 
 .feature-item span {
-    color: #4a2830; 
+    color: #4a2830;
     font-size: 16px;
     font-weight: 600;
     text-align: center;
 }
 
-/* FOOTER */ 
+/* FOOTER */
 
 .footer{
     background:#f5f5f5;
@@ -390,11 +389,6 @@ hr{
     flex-wrap:wrap;
     margin-top: 4%;
 }
-=======
-/* --- ENLACE A FUENTES --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@700&display=swap');
-
-/* --- CONFIGURACIÓN GENERAL --- */
 * {
     margin: 0;
     padding: 0;
@@ -404,7 +398,7 @@ hr{
 
 body {
     background-color: #ffffff;
-    color: #1a1a1a; 
+    color: #1a1a1a;
     padding: 10px 20px;
 }
 
@@ -413,7 +407,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px; 
+    padding: 15px 20px;
     max-width: 95%;
     margin: 0 auto;
 }
@@ -461,7 +455,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #126ad6; 
+    color: #126ad6;
     border-bottom: 2px solid #126ad6;
     padding-bottom: 4px;
 }
@@ -491,15 +485,15 @@ nav a:hover {
     background-color: #9cd3ff;
     border-radius: 24px;
     width: 95%;        
-    max-width: 1600px; 
-    margin: 15px auto; 
-    padding: 40px 40px; 
+    max-width: 1600px;
+    margin: 15px auto;
+    padding: 40px 40px;
     text-align: center;
     box-shadow: 0 8px 24px rgba(0,0,0,0.05);
 }
 
 .main-title {
-    color: #000000; 
+    color: #000000;
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 45px;
@@ -510,8 +504,8 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    gap: 25px; 
-    margin-bottom: 45px; 
+    gap: 25px;
+    margin-bottom: 45px;
     position: relative;
 }
 
@@ -539,12 +533,12 @@ nav a:hover {
     justify-content: space-between;
     min-height: 250px;
     transition: all 0.2s ease;
-    outline: none; 
+    outline: none;
 }
 
 .step-card:focus, .step-card:focus-visible {
     transform: scale(1.02);
-    box-shadow: 0 0 0 4px #1d6ed3, 0 10px 20px rgba(0,0,0,0.15); 
+    box-shadow: 0 0 0 4px #1d6ed3, 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .step-number {
@@ -608,8 +602,8 @@ nav a:hover {
     font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
-    margin-bottom: 45px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    margin-bottom: 45px;
     transition: all 0.2s ease;
 }
 #link{
@@ -620,7 +614,7 @@ nav a:hover {
 .btn-services:hover {
     background-color: #e08597;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-services:focus-visible, .btn-help:focus-visible {
@@ -632,7 +626,7 @@ nav a:hover {
 .includes-box {
     background-color: #f497a9; /* Tono idéntico al botón de servicios */
     border-radius: 16px;
-    padding: 35px; 
+    padding: 35px;
     border: 1px solid #e08597; /* Borde un poco más oscuro para dar profundidad */
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
@@ -641,7 +635,7 @@ nav a:hover {
     color: #4a2830; /* Tono oscuro para máxima legibilidad sobre el rosa */
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 35px; 
+    margin-bottom: 35px;
 }
 
 .features-grid {
@@ -661,18 +655,18 @@ nav a:hover {
 
 .feature-item i {
     font-size: 40px;
-    color: #4a2830; 
+    color: #4a2830;
     margin-bottom: 15px;
 }
 
 .feature-item span {
-    color: #4a2830; 
+    color: #4a2830;
     font-size: 16px;
     font-weight: 600;
     text-align: center;
 }
 
-/* FOOTER */ 
+/* FOOTER */
 
 .footer{
     background:#f5f5f5;
@@ -831,3 +825,4 @@ hr{
 }
 
 }
+

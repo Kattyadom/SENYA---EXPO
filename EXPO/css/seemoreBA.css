@@ -41,9 +41,9 @@ body {
   box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
   overflow: hidden;
   border: 1px solid var(--azul-muy-claro);
-  
+ 
   /* El margen superior de 110px empuja el contenido hacia abajo para que no quede detrás del menú */
-  margin: 110px auto 50px auto; 
+  margin: 110px auto 50px auto;
   flex: 1;
 }
 
@@ -69,7 +69,7 @@ body {
 
 /* Botón Call Now */
 .btn-call {
-  background-color: var(--azul-muy-claro); 
+  background-color: var(--azul-muy-claro);
   color: var(--azul-oscuro);              
   text-decoration: none;
   padding: 10px 20px;
@@ -84,7 +84,7 @@ body {
 }
 
 .btn-call:hover {
-  background-color: #BFDBFE; 
+  background-color: #BFDBFE;
   transform: translateY(-1px);
 }
 
@@ -185,7 +185,7 @@ body {
     gap: 10px;
   }
 
-  .btn-call, 
+  .btn-call,
   .btn-back {
     width: 100%;
     justify-content: center;
@@ -201,7 +201,7 @@ body {
   .bank-logo {
     max-width: 160px;
   }
-  
+ 
   .badge {
     width: 100%;
     justify-content: center;
