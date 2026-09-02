@@ -12,6 +12,10 @@ body{
 body{
     background:#f6f9ff;
 }
+.navbar a.active {
+    color: #1E3A8A; /* El color o estilo que prefieras para indicar dónde está */
+    border-bottom: 2px solid #FF4F8B;
+}
 .navbar{
     position:fixed;
     top:20px;
