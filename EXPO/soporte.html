@@ -9,16 +9,14 @@
     <link rel="stylesheet" href="css/soporte.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--MEDIA PIPE VISION(OTRO SCRIPT PARA EL MOVIMIENTO DE CABEZA)-->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
- <!-- Accessibility Panel -->
-<div class="accessibility-panel" id="accessibilityPanel">
+  <div class="accessibility-panel" id="accessibilityPanel">
 
 <div class="panel-header">
 <h3>Accessibility</h3>
@@ -82,7 +80,6 @@ Reset Accessibility
 </div>
 </div>
 
-
   <header class="navbar">
         <div class="navbar-container">
             <a href="#" class="logo">
@@ -94,7 +91,7 @@ Reset Accessibility
                     <li><a href="opciones.html">Partner Network</a></li>
                     <li><a href="profile.html">Profile</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="soporte.html">Contact</a></li>
+                    <li><a href="soporte.html" class="active">Contact</a></li>
                 </ul>
             </nav>
             <a href="#" class="help-btn">
@@ -108,530 +105,368 @@ Reset Accessibility
 
     <main>
 
-
-        <!-- HERO -->
         <section class="support-hero">
-
             <div class="hero-content">
-
-                <div class="support-badge"> 
-                    <i class="fa-solid fa-headset"></i>
-
-                    <span>
-
-                        WE ARE HERE TO HELP
-
-                    </span>
-                </div>
-
                 <div class="hero-title">
-
                     <h1>
                         How can we
                         <span>help you?</span>
                     </h1>
-
                     <p>
                         Need assistance with SENYA? Our support options are here
                         to help you solve problems and communicate without barriers.
                     </p>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- SUPPORT OPTIONS -->
         <section class="support-section">
-
             <div class="section-heading">
-
                 <span class="section-label">
                     TECHNICAL SUPPORT
                 </span>
-
                 <h2>
                     We're here for you
                 </h2>
-
                 <p>
                     Choose the type of assistance you need and let us know
                     what is happening.
                 </p>
-
             </div>
-
 
             <div class="support-cards">
 
-
-                <!-- CARD 01 -->
                 <article class="support-card">
-
                     <div class="card-top">
-
                         <div class="support-icon">
                             <i class="fa-solid fa-wifi"></i>
                         </div>
-
                         <span class="card-number">
                             01
                         </span>
-
                     </div>
 
-
                     <div class="card-content">
-
                         <h3>
                             Connection Issues
                         </h3>
-
                         <p>
                             Having trouble connecting to SENYA?
                             Tell us what happened and our team will
                             help you.
                         </p>
-
                     </div>
 
-
                     <div class="form-area">
-
                         <label for="connection-message">
                             Describe your issue
                         </label>
-
                         <textarea
                             id="connection-message"
                             name="connection-message"
-                            placeholder="Describe your issue..."></textarea>
-
+                            placeholder="Describe your issue..."
+                            required></textarea>
                         <button
                             type="button"
                             class="support-button send-button">
-
                             <span>
                                 Send Report
                             </span>
-
                             <i class="fa-solid fa-arrow-right"></i>
-
                         </button>
-
                     </div>
-
                 </article>
 
-
-                <!-- CARD 02 -->
                 <article class="support-card">
-
                     <div class="card-top">
-
                         <div class="support-icon">
                             <i class="fa-solid fa-comments"></i>
                         </div>
-
                         <span class="card-number">
                             02
                         </span>
-
                     </div>
 
-
                     <div class="card-content">
-
                         <h3>
                             Text Chat
                         </h3>
-
                         <p>
                             Contact our support team directly and
                             send us your question or message.
                         </p>
-
                     </div>
 
-
                     <div class="form-area">
-
                         <label for="chat-message">
                             Your message
                         </label>
-
                         <textarea
                             id="chat-message"
                             name="chat-message"
-                            placeholder="Type your message..."></textarea>
-
+                            placeholder="Type your message..."
+                            required></textarea>
                         <button
                             type="button"
                             class="support-button send-button">
-
                             <span>
                                 Send Message
                             </span>
-
                             <i class="fa-solid fa-paper-plane"></i>
-
                         </button>
-
                     </div>
-
                 </article>
 
-
-                <!-- CARD 03 -->
                 <article class="support-card">
-
                     <div class="card-top">
-
                         <div class="support-icon">
                             <i class="fa-solid fa-headset"></i>
                         </div>
-
                         <span class="card-number">
                             03
                         </span>
-
                     </div>
 
-
                     <div class="card-content">
-
                         <h3>
                             Complaints & Call Issues
                         </h3>
-
                         <p>
                             Report interpreter problems, call quality
                             issues or anything that affected your
                             experience.
                         </p>
-
                     </div>
 
-
                     <div class="form-area">
-
                         <label for="complaint-message">
                             Describe the problem
                         </label>
-
                         <textarea
                             id="complaint-message"
                             name="complaint-message"
-                            placeholder="Describe the problem..."></textarea>
-
+                            placeholder="Describe the problem..."
+                            required></textarea>
                         <button
                             type="button"
                             class="support-button send-button">
-
                             <span>
                                 Submit
                             </span>
-
                             <i class="fa-solid fa-check"></i>
-
                         </button>
-
                     </div>
-
                 </article>
 
             </div>
-
         </section>
 
-
-        <!-- FAQ -->
         <section class="faq-section">
-
             <div class="faq-container">
 
-
-                <!-- FAQ INTRODUCTION -->
                 <div class="faq-introduction">
-
                     <span class="section-label">
                         NEED MORE HELP?
                     </span>
-
                     <h2>
                         Frequently Asked
                         <strong>Questions</strong>
                     </h2>
-
                     <p>
                         Find quick answers to some of the most common
                         questions about using SENYA.
                     </p>
-
                     <div class="faq-decoration">
-
                         <i class="fa-solid fa-circle-question"></i>
-
                     </div>
-
                 </div>
 
-
-                <!-- FAQ LIST -->
                 <div class="faq-list">
 
-
-                    <!-- QUESTION 01 -->
                     <details class="faq-item">
-
                         <summary>
-
                             <span>
                                 How do I contact an interpreter?
                             </span>
-
                             <i class="fa-solid fa-plus"></i>
-
                         </summary>
-
                         <div class="faq-answer">
-
                             <p>
                                 Go to Services and select
                                 "Request Interpreter".
                             </p>
-
                         </div>
-
                     </details>
 
-
-                    <!-- QUESTION 02 -->
                     <details class="faq-item">
-
                         <summary>
-
                             <span>
                                 How do I cancel a session?
                             </span>
-
                             <i class="fa-solid fa-plus"></i>
-
                         </summary>
-
                         <div class="faq-answer">
-
                             <p>
                                 Open your active session and click
                                 "Cancel Session".
                             </p>
-
                         </div>
-
                     </details>
 
-
-                    <!-- QUESTION 03 -->
                     <details class="faq-item">
-
                         <summary>
-
                             <span>
                                 How do I reset my password?
                             </span>
-
                             <i class="fa-solid fa-plus"></i>
-
                         </summary>
-
                         <div class="faq-answer">
-
                             <p>
                                 You can reset your password from
                                 your account settings.
                             </p>
-
                         </div>
-
                     </details>
 
-
-                    <!-- QUESTION 04 -->
                     <details class="faq-item">
-
                         <summary>
-
                             <span>
                                 How long does matching take?
                             </span>
-
                             <i class="fa-solid fa-plus"></i>
-
                         </summary>
-
                         <div class="faq-answer">
-
                             <p>
                                 Matching time depends on interpreter
                                 availability.
                             </p>
-
                         </div>
-
                     </details>
 
-
-                    <!-- QUESTION 05 -->
                     <details class="faq-item">
-
                         <summary>
-
                             <span>
                                 What should I do if my call has problems?
                             </span>
-
                             <i class="fa-solid fa-plus"></i>
-
                         </summary>
-
                         <div class="faq-answer">
-
                             <p>
                                 Check your internet connection first.
                                 If the problem continues, contact our
                                 technical support team.
                             </p>
-
                         </div>
-
                     </details>
 
                 </div>
 
             </div>
-
         </section>
 
     </main>
 
-
-    <!-- SENT MODAL -->
     <div
         class="sent-modal"
         id="sentModal"
         aria-hidden="true">
-
         <div class="sent-modal-content">
-
-
             <button
                 type="button"
                 class="modal-close"
                 id="closeModal"
                 aria-label="Close modal">
-
                 <i class="fa-solid fa-xmark"></i>
-
             </button>
 
-
             <div class="sent-icon">
-
                 <i class="fa-solid fa-check"></i>
-
             </div>
-
 
             <span class="modal-label">
                 MESSAGE SENT
             </span>
 
-
             <h2>
                 Sent!
             </h2>
-
 
             <p>
                 Your message has been received.
                 Our support team will review it soon.
             </p>
 
-
             <button
                 type="button"
                 class="modal-button"
                 id="modalDone">
-
                 Done
-
             </button>
-
         </div>
-
     </div>
-    <!--Footer-->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-column">
-            <div class="logo" role="img" aria-label="SENYA Logo">
-                SEN<span class="logo-y">Y</span>A
-        </div>
-            <p>"Communication is not a privilege, it's a right."</p>
-        </div>
-        <div class="footer-column">
-            <h3>Information</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Join to us</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">How to use Senya?</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Useful Links</h3>
-            <ul>
-                <li><a href="#">Technical Support</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Join to us</a></li>
-                <li><a href="#">How to use Senya?</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Our Services</h3>
-            <ul>
-                <li><a href="#">Banks</a></li>
-                <li><a href="#">Call Centers</a></li>
-                <li><a href="#">Internet</a></li>
-                <li><a href="#">Shops</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <p>📞 +503 9842-5783</p>
-            <p>✉ senya.sv@gmail.com</p>
-            <div class="socials">
-                <a href="#">Instagram</a>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="logo" role="img" aria-label="SENYA Logo">
+                    SEN<span class="logo-y">Y</span>A
+            </div>
+                <p>"Communication is not a privilege, it's a right."</p>
+            </div>
+            <div class="footer-column">
+                <h3>Information</h3>
+                <ul>
+                    <li><span class="disabled-link">Home</span></li>
+                    <li><span class="disabled-link">Services</span></li>
+                    <li><span class="disabled-link">Join to us</span></li>
+                    <li><span class="disabled-link">About us</span></li>
+                    <li><span class="disabled-link">How to use Senya?</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><span class="disabled-link">Technical Support</span></li>
+                    <li><span class="disabled-link">Services</span></li>
+                    <li><span class="disabled-link">Join to us</span></li>
+                    <li><span class="disabled-link">How to use Senya?</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><span class="disabled-link">Banks</span></li>
+                    <li><span class="disabled-link">Call Centers</span></li>
+                    <li><span class="disabled-link">Internet</span></li>
+                    <li><span class="disabled-link">Shops</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>📞 +503 9842-5783</p>
+                <p>✉ senya.sv@gmail.com</p>
+                <div class="socials">
+                    <div class="social-logo" role="img" aria-label="SENYA Logo">
+                        <img src="img/Senyalogo.png" alt="SENYA Logo">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <hr>
-    <div class="footer-bottom">
-        <p>© 2026 Senya. All Rights Reserved.</p>
-    </div>
-</footer>
-<a href="videollamada.html" class="emergency-btn" title="Emergency">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <span>Emergency</span>
-</a>
+        <hr>
+        <div class="footer-bottom">
+            <p>© 2026 Senya. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="videollamada.html" class="emergency-btn" title="Emergency">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>Emergency</span>
+    </a>
+
     <script src="js/soporte.js"></script>
     <script src="js/accessibility.js"></script>
-    <!--SCRIPT PARA MOVIMIENTO CON LA CABEZA-->
-<script type="module" src="js/head-tracking.js"></script>
-<!-- Cursor virtual controlado por la cabeza -->
-<div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+    <script src="js/modal.js"></script>
+    <script type="module" src="js/head-tracking.js"></script>
+    <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
 </body>
 </html>

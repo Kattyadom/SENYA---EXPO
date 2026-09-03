@@ -12,6 +12,10 @@ body{
 body{
     background:#f6f9ff;
 }
+.navbar a.active {
+    color: #1E3A8A; /* El color o estilo que prefieras para indicar dónde está */
+    border-bottom: 2px solid #FF4F8B;
+}
 .navbar{
     position:fixed;
     top:20px;
@@ -148,15 +152,12 @@ body{
 .footer-column ul li{
     margin-bottom:12px;
 }
-.footer-column a{
-    text-decoration:none;
-    color:#1E3A8A;
-    transition:.3s;
-}
-.footer-column a:hover{
-    color:#1E3A8A;
-    font-weight: bold;
-    text-decoration: underline;
+/* Estilo para simular el diseño anterior de los enlaces pero sin ser interactivos */
+.footer-column ul li span.disabled-link {
+    color: #1E3A8A; /* O el color que usaras para tus enlaces */
+    cursor: default;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 .footer-column input{
     width:100%;
@@ -175,20 +176,102 @@ body{
     cursor:pointer;
     border-radius:5px;
 }
-.footer-column button:hover{
-    background:#1E3A8A;
+.socials{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+    align-items: center;
+}
+/* Estilo adaptado para el logo de SENYA en la sección de redes sociales */
+.social-logo {
+    font-weight: bold;
+    font-size: 16px;
+    color: #1E3A8A;
+}
+.social-logo .logo-y {
+    color: #2563EB; /* O el color distintivo de tu letra Y */
+}
+hr{
+    margin:40px 0 20px;
+    border:1px solid #a2d7fa;
+    margin-top: 8%;
+}
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-top: 4%;
+}
+/*Footer*/
+.footer{
+    background:#ecf5ff;
+    padding:50px 8%;
+    padding-bottom: 9%;
+}
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:40px;
+    margin-top: 4%;
+}
+.footer-column{
+    flex:1;
+    min-width:180px;
+}
+.footer-column h2{
+    margin-bottom:10px;
+    color:#1E3A8A;
+}
+.footer-column h3{
+    margin-bottom:20px;
+    color:#2563EB;
+}
+.footer-column p{
+    color:#1E3A8A;
+    margin-bottom:10px;
+    line-height:1.5;
+}
+.footer-column ul{
+    list-style:none;
+}
+.footer-column ul li{
+    margin-bottom:12px;
+}
+.footer-column ul li span.disabled-link {
+    color: #1E3A8A;
+    cursor: default;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-column input{
+    width:100%;
+    padding:10px;
+    margin:15px 0;
+    border:none;
+    border-bottom:2px solid #999;
+    background:transparent;
+    outline:none;
+}
+.footer-column button{
+    padding:10px 25px;
+    border:none;
+    background:#126ad6;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
 }
 .socials{
     display:flex;
     gap:15px;
     margin-top:20px;
+    align-items: center;
 }
-.socials a{
-    background:#126ad6;
-    color:white;
-    padding:10px;
-    border-radius:50px;
-    font-size:14px;
+.social-logo img {
+    width: 120px; /* Puedes ajustar este valor según el tamaño que desees */
+    height: auto;
+    display: block;
 }
 hr{
     margin:40px 0 20px;
