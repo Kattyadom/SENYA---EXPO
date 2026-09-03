@@ -404,6 +404,10 @@ color:#FFFFFF !important;
 }
 
 body.low-vision section,
+body.low-vision article,
+body.low-vision div,
+body.low-vision main,
+body.low-vision header,
 body.low-vision .card,
 body.low-vision .step,
 body.low-vision .footer,
@@ -411,15 +415,23 @@ body.low-vision .navbar-container{
 background:#111827 !important;
 color:#FFFFFF !important;
 border-color:#374151 !important;
+visibility: visible !important;
+opacity: 1 !important;
 }
 
 body.low-vision h1,
 body.low-vision h2,
 body.low-vision h3,
+body.low-vision h4,
+body.low-vision h5,
+body.low-vision h6,
 body.low-vision p,
 body.low-vision span,
+body.low-vision li,
 body.low-vision a{
 color:#FFFFFF !important;
+visibility: visible !important;
+opacity: 1 !important;
 }
 
 body.low-vision .primary,
@@ -427,6 +439,23 @@ body.low-vision .account-btn,
 body.low-vision .help-btn{
 background:#FFD60A !important;
 color:#000 !important;
+visibility: visible !important;
+opacity: 1 !important;
+}
+
+body.low-vision img,
+body.low-vision svg,
+body.low-vision i,
+body.low-vision [class*="fa-"]{
+display: inline-block !important;
+visibility: visible !important;
+opacity: 1 !important;
+}
+
+body.low-vision i,
+body.low-vision svg,
+body.low-vision [class*="fa-"]{
+color: #FFD60A !important;
 }
 
 body.dyslexia{
