@@ -1,525 +1,466 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthcare - SENYA</title>
-    <link rel="stylesheet" href="css/bankop.css">
+
+    <title>Healthcare Services | SENYA</title>
+
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/bankop.css">
     <link rel="stylesheet" href="css/modal.css">
-    <!--MEDIA PIPE VISION(OTRO SCRIPT PARA EL MOVIMIENTO DE CABEZA)-->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
-    <!-- Importación de fuentes e iconos -->
+    
+    <!-- MEDIA PIPE VISION (SCRIPT PARA EL MOVIMIENTO DE CABEZA) -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
- <!-- Accessibility Panel -->
-<div class="accessibility-panel" id="accessibilityPanel">
 
-<div class="panel-header">
-<h3>Accessibility</h3>
-<button id="closePanel">×</button>
-</div>
+    <!-- Panel de Accesibilidad -->
+    <div class="accessibility-panel" id="accessibilityPanel">
 
-<div class="panel-content">
+        <div class="panel-header">
+            <h3>Accessibility</h3>
+            <button id="closePanel">×</button>
+        </div>
 
-<button class="acc-card low-vision" id="lowVisionBtn">
-<div class="acc-icon">👁️</div>
-<div class="acc-info">
-<h4>Low Vision</h4>
-<p>High contrast, larger text and stronger buttons</p>
-</div>
-</button>
+        <div class="panel-content">
 
-<button class="acc-card dyslexia-mode" id="dyslexiaBtn">
-<div class="acc-icon">📖</div>
-<div class="acc-info">
-<h4>Dyslexia</h4>
-<p>Friendly font, soft colors and more spacing</p>
-</div>
-</button>
+            <button class="acc-card low-vision" id="lowVisionBtn">
+                <div class="acc-icon">👁️</div>
+                <div class="acc-info">
+                    <h4>Low Vision</h4>
+                    <p>High contrast, larger text and stronger buttons</p>
+                </div>
+            </button>
 
-<button class="acc-card deaf-mode" id="deafBtn">
-<div class="acc-icon">🤟</div>
-<div class="acc-info">
-<h4>Deaf Support</h4>
-<p>Visual communication and larger icons</p>
-</div>
-</button>
+            <button class="acc-card dyslexia-mode" id="dyslexiaBtn">
+                <div class="acc-icon">📖</div>
+                <div class="acc-info">
+                    <h4>Dyslexia</h4>
+                    <p>Friendly font, soft colors and more spacing</p>
+                </div>
+            </button>
 
-<button class="acc-card" id="activarHeadTracking">
-    <div class="acc-icon">🔄</div>
-    <div class="acc-info">
-        <h4>Head Control</h4>
-        <p>Navigate and scroll using head movements</p>
+            <button class="acc-card deaf-mode" id="deafBtn">
+                <div class="acc-icon">🤟</div>
+                <div class="acc-info">
+                    <h4>Deaf Support</h4>
+                    <p>Visual communication and larger icons</p>
+                </div>
+            </button>
+
+            <button class="acc-card" id="activarHeadTracking">
+                <div class="acc-icon">🔄</div>
+                <div class="acc-info">
+                    <h4>Head Control</h4>
+                    <p>Navigate and scroll using head movements</p>
+                </div>
+            </button>
+
+            <button class="acc-card speech-mode" id="speechBtn">
+                <div class="acc-icon">🔊</div>
+                <div class="acc-info">
+                    <h4>Read Aloud</h4>
+                    <p>Read the text on the screen with voice</p>
+                </div>
+            </button>
+
+            <!-- Traducción con Google Translate -->
+            <div class="acc-card translate-card">
+                <div class="acc-icon"><i class="fas fa-language"></i></div>
+                <div class="acc-info">
+                    <h4>Idioma / Language</h4>
+                    <p>Traducir sitio web / Translate website</p>
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+
+            <div class="text-size-box">
+                <label>Text Size</label>
+                <div class="size-buttons">
+                    <button id="smallText">A-</button>
+                    <button id="normalText" class="active">A</button>
+                    <button id="largeText">A+</button>
+                </div>
+            </div>
+
+            <button class="reset-btn" id="resetAccessibility">
+                Reset Accessibility
+            </button>
+
+        </div>
     </div>
-</button>
 
-<button class="acc-card speech-mode" id="speechBtn">
-<div class="acc-icon">🔊</div> <div class="acc-info">
-<h4>Read Aloud</h4>
-<p>Read the text on the screen with voice</p>
-</div>
-</button>
-
-<div class="text-size-box">
-<label>Text Size</label>
-<div class="size-buttons">
-<button id="smallText">A-</button>
-<button id="normalText" class="active">A</button>
-<button id="largeText">A+</button>
-</div>
-</div>
-
-<button class="reset-btn" id="resetAccessibility">
-Reset Accessibility
-</button>
-
-</div>
-</div>
-
-  </div>
-</div>
-<section>
     <header class="navbar">
-    <div class="navbar-container">
-        <a href="#" class="logo">
-            <img src="img/Senyalogo.png" alt="SENYA Logo">
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="opciones.html">Partner Network</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="soporte.html">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="#" class="help-btn" id="accessibilityBtn">
-    Accesibility
-</a>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-</header>
-<section class="services">
-    <div class="header">
-        <span>
-            Healthcare Services
-        </span>
-        <h1>Choose a healthcare provider <br> to contact with</h1>
-        <p>
-            Choose a healthcare provider below and we'll connect you with it in seconds.
-        </p>
-        <div class="search-box">
-            <input
-            id="searchInput"
-            type="text"
-            placeholder="Search healthcare providers..."
-            >
-        </div>
-    </div>
-    <div class="categories">
-        
-        <button onclick="window.location.href='opciones.html'">
-            All
-        </button>
-        <button onclick="window.location.href='bankop.html'">
-            🏦 Banking
-        </button>
-        <button onclick="window.location.href='teleop.html'">
-            📱 Telecom
-        </button>
-        <button onclick="window.location.href='healthop.html'" class="active">
-            🏥 Healthcare
-        </button>
-        <button onclick="window.location.href='utilitiesop.html'">
-            💡 Utilities
-        </button>
-        <button onclick="window.location.href='govop.html'">
-            🏛 Government
-        </button>
-    </div>
 
-    <!--ISSS El Salvador-->
+        <div class="navbar-container">
 
-    <section class="services-container">
-    <div class="service-card">
-        <div class="service-header">
-            <div class="service-info">
-                <img src="https://www.transparencia.gob.sv/cargar_imagen.php?id=Mjc=" alt="ISSS El Salvador">
-                <div>
-                    <h2>ISSS El Salvador</h2>
-                    <span class="category">
-                        <i class="fa-solid fa-hospital"></i>
-                        Healthcare
-                    </span>
-                    <p>
-                        Public social security healthcare services, appointments, and medical support with certified interpreter assistance.
-                    </p>
-                </div>
-            </div>
-            <div class="status">
-                <span class="available">
-                    <span class="circle"></span>
-                    Available
-                </span>
-                <span class="popular">
-                    ⭐ Most Used
-                </span>
-            </div>
-        </div>
-        <div class="divider"></div>
-        <div class="service-content">
-            <div class="column">
-                <h4>Available Services</h4>
-                <ul>
-                    <li>Medical appointments & scheduling</li>
-                    <li>Pharmacy & prescriptions inquiries</li>
-                    <li>Cotizations & afiliations</li>
-                    <li>Emergency medical support</li>
-                </ul>
-            </div>
-            <div class="column">
-                <h4>Languages</h4>
-                <div class="badges">
-                    <span>🇺🇸 English</span>
-                    <span>🇪🇸 Español</span>
-                    <span>LESSA</span>
-                </div>
-                <div class="wait">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>Estimated wait: <strong>Less than 2 min</strong></span>
-                </div>
-            </div>
-        </div>
-
-         <!-- see more-->
-        <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='seemoreisss.html'">
-        See more
-    </button>
-       
-   <!-- call-->
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-    </div>
-
-     <!--Hospital de Diagnóstico-->
-<div class="service-card">
-    <div class="service-header">
-        <div class="service-info">
-             <img src="https://presupuestocirugias.com/wp-content/uploads/2022/03/Hospital-Diagnostico.png" alt="Hospital de Diagnóstico">
-            <div>
-                <h2>Hospital de Diagnóstico</h2>
-                <span class="category">
-                    <i class="fa-solid fa-hospital"></i>
-                    Healthcare
-                </span>
-                <p>
-                    Private medical care, specialized clinical services, and emergency attention.
-                </p>
-            </div>
-        </div>
-        <div class="status">
-            <span class="available">
-                <span class="circle"></span>
-                Available
-            </span>
-            <span class="popular">
-                    ⭐ Most Used
-                </span>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="service-content">
-        <div class="column">
-            <h4>Available Services</h4>
-            <ul>
-                <li>Doctor appointments & consultation</li>
-                <li>Laboratory & imaging results</li>
-                <li>Emergency room coordination</li>
-                <li>Specialized medical care</li>
-            </ul>
-        </div>
-        <div class="column">
-            <h4>Languages</h4>
-            <div class="badges">
-                <span>🇺🇸 English</span>
-                <span>🇪🇸 Español</span>
-                <span>LESSA</span>
-            </div>
-            <div class="wait">
-                <i class="fa-regular fa-clock"></i>
-                <span>Estimated wait: <strong>2 min</strong></span>
-            </div>
-        </div>
-    </div>
-     <!--seemore-->
-    <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='seemorehospitaldiag.html'">
-        See more
-    </button>
-      <!--call-->
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-</div>
-
-  <!--Hospital Benjamín Bloom-->
-<div class="service-card">
-        <div class="service-header">
-            <div class="service-info">
-                <img src="https://tse2.mm.bing.net/th/id/OIP.vzgw33ygMbtjg9RUk6KRnwAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hospital Bloom">
-                <div>
-                    <h2>Hospital Nacional de Niños Benjamín Bloom</h2>
-                    <span class="category">
-                        <i class="fa-solid fa-hospital"></i>
-                        Healthcare
-                    </span>
-                    <p>
-                        Specialized pediatric healthcare support and family assistance.
-                    </p>
-                </div>
-            </div>
-            <div class="status">
-                <span class="available">
-                    <span class="circle"></span>
-                    Available
-                </span>
-            </div>
-        </div>
-        <div class="divider"></div>
-        <div class="service-content">
-            <div class="column">
-                <h4>Available Services</h4>
-                <ul>
-                    <li>Pediatric care coordination</li>
-                    <li>Specialized medical guidance</li>
-                    <li>Hospitalization inquiries</li>
-                    <li>Patient support services</li>
-                </ul>
-            </div>
-            <div class="column">
-                <h4>Languages</h4>
-                <div class="badges">
-                    <span>🇺🇸 English</span>
-                    <span>🇪🇸 Español</span>
-                    <span>LESSA</span>
-                </div>
-                <div class="wait">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>Estimated wait: <strong>Less than 2 min</strong></span>
-                </div>
-            </div>
-        </div>
-         <!--see more-->
-        <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='seemorebenjabloom.html'">
-        See more
-    </button>
-     <!--call-->
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-    </div>
-    <!--Farmacias San Nicolás-->
-<div class="service-card">
-    <div class="service-header">
-        <div class="service-info">
-             <img src="https://elencuentrosv.com/valledulce/wp-content/uploads/2024/11/Farmacias-San-Nicolas.jpg" alt="Farmacias San Nicolás">
-            <div>
-                <h2>Farmacias San Nicolás</h2>
-                <span class="category">
-                    <i class="fa-solid fa-prescription-bottle-medical"></i>
-                    Healthcare
-                </span>
-                <p>
-                    Prescription delivery, medicine orders, and professional pharmacy assistance.
-                </p>
-            </div>
-        </div>
-        <div class="status">
-            <span class="available">
-                <span class="circle"></span>
-                Available
-            </span>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="service-content">
-        <div class="column">
-            <h4>Available Services</h4>
-            <ul>
-                <li>Home delivery orders</li>
-                <li>Prescription verification</li>
-                <li>Medical product inquiries</li>
-                <li>Customer support</li>
-            </ul>
-        </div>
-        <div class="column">
-            <h4>Languages</h4>
-            <div class="badges">
-                <span>🇺🇸 English</span>
-                <span>🇪🇸 Español</span>
-                <span>LESSA</span>
-            </div>
-            <div class="wait">
-                <i class="fa-regular fa-clock"></i>
-                <span>Estimated wait: <strong>2 min</strong></span>
-            </div>
-        </div>
-    </div>
-    <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='seemorefarmanicolas.html'">
-        See more
-    </button>
-
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-    </div>
-</div>
-</section>
-</section>
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-column">
-            <div class="logo" role="img" aria-label="SENYA Logo">
-                SEN<span class="logo-y">Y</span>A
-        </div>
-            <p>"Communication is not a privilege, it's a right."</p>
-        </div>
-        <div class="footer-column">
-            <h3>Information</h3>
-            <ul>
-                <li><span class="disabled-link">Home</span></li>
-                <li><span class="disabled-link">Services</span></li>
-                <li><span class="disabled-link">Join to us</span></li>
-                <li><span class="disabled-link">About us</span></li>
-                <li><span class="disabled-link">How to use Senya?</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Useful Links</h3>
-            <ul>
-                <li><span class="disabled-link">Technical Support</span></li>
-                <li><span class="disabled-link">Services</span></li>
-                <li><span class="disabled-link">Join to us</span></li>
-                <li><span class="disabled-link">How to use Senya?</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Our Services</h3>
-            <ul>
-                <li><span class="disabled-link">Banks</span></li>
-                <li><span class="disabled-link">Call Centers</span></li>
-                <li><span class="disabled-link">Internet</span></li>
-                <li><span class="disabled-link">Shops</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <p>📞 +503 9842-5783</p>
-            <p>✉ senya.sv@gmail.com</p>
-            <div class="socials">
-                <div class="social-logo" role="img" aria-label="SENYA Logo">
-                    <img src="img/Senyalogo.png" alt="SENYA Logo">
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="footer-bottom">
-        <p>© 2026 Senya. All Rights Reserved.</p>
-    </div>
-</footer>
-<a href="videollamada.html" class="emergency-btn" title="Emergency">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <span>Emergency</span>
-</a>
-<div class="login-modal" id="loginModal">
-    <div class="login-modal-overlay"></div>
-
-    <div class="login-modal-card">
-        <button class="modal-close" id="modalClose">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <div class="modal-icon">
-            <i class="fa-solid fa-user"></i>
-        </div>
-
-        <h2>Create your profile</h2>
-
-        <p>
-            To create and manage your profile, you need to
-            sign in or create a SENYA account first.
-        </p>
-
-        <div class="modal-buttons">
-            <a href="login.html" class="modal-join">
-                Join us
-                <i class="fa-solid fa-arrow-right"></i>
+            <a href="index.html" class="logo">
+                <img src="img/Senyalogo.png" alt="SENYA Logo">
             </a>
 
-            <button class="modal-later" id="modalLater">
-                Maybe later
-            </button>
-        </div>
-    </div>
-</div>
-<div class="call-modal" id="callModal">
-    <div class="call-modal-overlay"></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="opciones.html">Partner Network</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="soporte.html">Contact</a></li>
+                </ul>
+            </nav>
 
-    <div class="call-modal-card">
-
-        <button class="modal-close" id="callModalClose">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <div class="modal-icon">
-            <i class="fa-solid fa-phone"></i>
-        </div>
-
-        <h2>Sign in to make a call</h2>
-
-        <p>
-            To contact a service provider and make calls through SENYA,
-            you need to sign in or create an account first.
-        </p>
-
-        <div class="modal-buttons">
-
-            <a href="login.html" class="modal-join">
-                Join us
-                <i class="fa-solid fa-arrow-right"></i>
+            <a href="#" class="help-btn" id="accessibilityBtn">
+                Accessibility
             </a>
 
-            <button class="modal-later" id="callModalLater">
-                Maybe later
-            </button>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
 
         </div>
 
+    </header>
+
+    <main>
+        <section class="services">
+            <div class="header">
+                <span>Healthcare Services</span>
+                <h1>Choose a healthcare provider <br> to contact with</h1>
+                <p>Choose a healthcare provider below and we'll connect you with it in seconds.</p>
+                
+                <div class="search-box">
+                    <input id="searchInput" type="text" placeholder="Search healthcare providers...">
+                </div>
+            </div>
+
+            <div class="categories">
+                <button onclick="window.location.href='opciones.html'">All</button>
+                <button onclick="window.location.href='bankop.html'">🏦 Banking</button>
+                <button onclick="window.location.href='teleop.html'">📱 Telecom</button>
+                <button onclick="window.location.href='healthop.html'" class="active">🏥 Healthcare</button>
+                <button onclick="window.location.href='utilitiesop.html'">💡 Utilities</button>
+                <button onclick="window.location.href='govop.html'">🏛 Government</button>
+            </div>
+
+            <section class="services-container">
+                
+                <!-- ISSS El Salvador -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-info">
+                            <img src="https://www.transparencia.gob.sv/cargar_imagen.php?id=Mjc=" alt="ISSS El Salvador">
+                            <div>
+                                <h2>ISSS El Salvador</h2>
+                                <span class="category">
+                                    <i class="fa-solid fa-hospital"></i> Healthcare
+                                </span>
+                                <p>Public social security healthcare services, appointments, and medical support with certified interpreter assistance.</p>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <span class="available"><span class="circle"></span> Available</span>
+                            <span class="popular">⭐ Most Used</span>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="service-content">
+                        <div class="column">
+                            <h4>Available Services</h4>
+                            <ul>
+                                <li>Medical appointments & scheduling</li>
+                                <li>Pharmacy & prescriptions inquiries</li>
+                                <li>Cotizations & afiliations</li>
+                                <li>Emergency medical support</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Languages</h4>
+                            <div class="badges">
+                                <span>🇺🇸 English</span>
+                                <span>🇪🇸 Español</span>
+                                <span>LESSA</span>
+                            </div>
+                            <div class="wait">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>Estimated wait: <strong>Less than 2 min</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <button class="see-more" onclick="window.location.href='seemoreisss.html'">See more</button>
+                        <button class="call-now" onclick="window.location.href='videollamada.html'">
+                            <i class="fa-solid fa-phone"></i> Call now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hospital de Diagnóstico -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-info">
+                            <img src="https://presupuestocirugias.com/wp-content/uploads/2022/03/Hospital-Diagnostico.png" alt="Hospital de Diagnóstico">
+                            <div>
+                                <h2>Hospital de Diagnóstico</h2>
+                                <span class="category">
+                                    <i class="fa-solid fa-hospital"></i> Healthcare
+                                </span>
+                                <p>Private medical care, specialized clinical services, and emergency attention.</p>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <span class="available"><span class="circle"></span> Available</span>
+                            <span class="popular">⭐ Most Used</span>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="service-content">
+                        <div class="column">
+                            <h4>Available Services</h4>
+                            <ul>
+                                <li>Doctor appointments & consultation</li>
+                                <li>Laboratory & imaging results</li>
+                                <li>Emergency room coordination</li>
+                                <li>Specialized medical care</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Languages</h4>
+                            <div class="badges">
+                                <span>🇺🇸 English</span>
+                                <span>🇪🇸 Español</span>
+                                <span>LESSA</span>
+                            </div>
+                            <div class="wait">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>Estimated wait: <strong>2 min</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <button class="see-more" onclick="window.location.href='seemorehospitaldiag.html'">See more</button>
+                        <button class="call-now" onclick="window.location.href='videollamada.html'">
+                            <i class="fa-solid fa-phone"></i> Call now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hospital Benjamín Bloom -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-info">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.vzgw33ygMbtjg9RUk6KRnwAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hospital Bloom">
+                            <div>
+                                <h2>Hospital Nacional de Niños Benjamín Bloom</h2>
+                                <span class="category">
+                                    <i class="fa-solid fa-hospital"></i> Healthcare
+                                </span>
+                                <p>Specialized pediatric healthcare support and family assistance.</p>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <span class="available"><span class="circle"></span> Available</span>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="service-content">
+                        <div class="column">
+                            <h4>Available Services</h4>
+                            <ul>
+                                <li>Pediatric care coordination</li>
+                                <li>Specialized medical guidance</li>
+                                <li>Hospitalization inquiries</li>
+                                <li>Patient support services</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Languages</h4>
+                            <div class="badges">
+                                <span>🇺🇸 English</span>
+                                <span>🇪🇸 Español</span>
+                                <span>LESSA</span>
+                            </div>
+                            <div class="wait">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>Estimated wait: <strong>Less than 2 min</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <button class="see-more" onclick="window.location.href='seemorebenjabloom.html'">See more</button>
+                        <button class="call-now" onclick="window.location.href='videollamada.html'">
+                            <i class="fa-solid fa-phone"></i> Call now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Farmacias San Nicolás -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-info">
+                            <img src="https://elencuentrosv.com/valledulce/wp-content/uploads/2024/11/Farmacias-San-Nicolas.jpg" alt="Farmacias San Nicolás">
+                            <div>
+                                <h2>Farmacias San Nicolás</h2>
+                                <span class="category">
+                                    <i class="fa-solid fa-prescription-bottle-medical"></i> Healthcare
+                                </span>
+                                <p>Prescription delivery, medicine orders, and professional pharmacy assistance.</p>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <span class="available"><span class="circle"></span> Available</span>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="service-content">
+                        <div class="column">
+                            <h4>Available Services</h4>
+                            <ul>
+                                <li>Home delivery orders</li>
+                                <li>Prescription verification</li>
+                                <li>Medical product inquiries</li>
+                                <li>Customer support</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Languages</h4>
+                            <div class="badges">
+                                <span>🇺🇸 English</span>
+                                <span>🇪🇸 Español</span>
+                                <span>LESSA</span>
+                            </div>
+                            <div class="wait">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>Estimated wait: <strong>2 min</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <button class="see-more" onclick="window.location.href='seemorefarmanicolas.html'">See more</button>
+                        <button class="call-now" onclick="window.location.href='videollamada.html'">
+                            <i class="fa-solid fa-phone"></i> Call now
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="logo" role="img" aria-label="SENYA Logo">
+                    SEN<span class="logo-y">Y</span>A
+                </div>
+                <p>"Communication is not a privilege, it's a right."</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="opciones.html">Services</a></li>
+                    <li><a href="opciones.html">Join us</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="about.html">How to use Senya?</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="soporte.html">Technical Support</a></li>
+                    <li><a href="opciones.html">Services</a></li>
+                    <li><a href="opciones.html">Join us</a></li>
+                    <li><a href="about.html">How to use Senya?</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="bankop.html">Banks</a></li>
+                    <li><a href="teleop.html">Call Centers</a></li>
+                    <li><a href="utilitiesop.html">Internet</a></li>
+                    <li><a href="opciones.html">Shops</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>📞 +503 9842-5783</p>
+                <p>✉ senya.sv@gmail.com</p>
+                <div class="socials">
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="footer-bottom">
+            <p>© 2026 Senya. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="videollamada.html" class="emergency-btn" title="Emergency">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>Emergency</span>
+    </a>
+
+    <!-- Modales -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-overlay"></div>
+        <div class="login-modal-card">
+            <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-icon"><i class="fa-solid fa-user"></i></div>
+            <h2>Create your profile</h2>
+            <p>To create and manage your profile, you need to sign in or create a SENYA account first.</p>
+            <div class="modal-buttons">
+                <a href="login.html" class="modal-join">Join us <i class="fa-solid fa-arrow-right"></i></a>
+                <button class="modal-later" id="modalLater">Maybe later</button>
+            </div>
+        </div>
     </div>
-</div>
-<script src="js/modal.js"></script>
-<script src="js/opciones.js"></script>
-<script src="js/accessibility.js"></script>
-<!--SCRIPT PARA MOVIMIENTO CON LA CABEZA-->
-<script type="module" src="js/head-tracking.js"></script>
-<!-- Cursor virtual controlado por la cabeza -->
-<div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+
+    <div class="call-modal" id="callModal">
+        <div class="call-modal-overlay"></div>
+        <div class="call-modal-card">
+            <button class="modal-close" id="callModalClose"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-icon"><i class="fa-solid fa-phone"></i></div>
+            <h2>Sign in to make a call</h2>
+            <p>To contact a service provider and make calls through SENYA, you need to sign in or create an account first.</p>
+            <div class="modal-buttons">
+                <a href="login.html" class="modal-join">Join us <i class="fa-solid fa-arrow-right"></i></a>
+                <button class="modal-later" id="callModalLater">Maybe later</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cursor virtual para el control con cabeza -->
+    <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+
+    <!-- Script Google Translate -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'es,en',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Scripts de la aplicación -->
+    <script src="js/modal.js"></script>
+    <script src="js/opciones.js"></script>
+    <script src="js/accessibility.js"></script>
+    
+    <!-- SCRIPT PARA MOVIMIENTO CON LA CABEZA -->
+    <script type="module" src="js/head-tracking.js"></script>
 </body>
 </html>

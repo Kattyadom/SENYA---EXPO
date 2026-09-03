@@ -3,705 +3,598 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opciones - SENYA </title>
+    <title>Opciones - SENYA</title>
     <link rel="stylesheet" href="css/opciones.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/modal.css">
     <!--MEDIA PIPE VISION(OTRO SCRIPT PARA EL MOVIMIENTO DE CABEZA)-->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
     <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- Accessibility Panel -->
-<div class="accessibility-panel" id="accessibilityPanel">
+  <div class="accessibility-panel" id="accessibilityPanel">
 
-<div class="panel-header">
-<h3>Accessibility</h3>
-<button id="closePanel">×</button>
-</div>
-
-<div class="panel-content">
-
-<button class="acc-card low-vision" id="lowVisionBtn">
-<div class="acc-icon">👁️</div>
-<div class="acc-info">
-<h4>Low Vision</h4>
-<p>High contrast, larger text and stronger buttons</p>
-</div>
-</button>
-
-<button class="acc-card dyslexia-mode" id="dyslexiaBtn">
-<div class="acc-icon">📖</div>
-<div class="acc-info">
-<h4>Dyslexia</h4>
-<p>Friendly font, soft colors and more spacing</p>
-</div>
-</button>
-
-<button class="acc-card deaf-mode" id="deafBtn">
-<div class="acc-icon">🤟</div>
-<div class="acc-info">
-<h4>Deaf Support</h4>
-<p>Visual communication and larger icons</p>
-</div>
-</button>
-
-<button class="acc-card" id="activarHeadTracking">
-    <div class="acc-icon">🔄</div>
-    <div class="acc-info">
-        <h4>Head Control</h4>
-        <p>Navigate and scroll using head movements</p>
+    <div class="panel-header">
+      <h3>Accessibility</h3>
+      <button id="closePanel">×</button>
     </div>
-</button>
 
-<button class="acc-card speech-mode" id="speechBtn">
-<div class="acc-icon">🔊</div> <div class="acc-info">
-<h4>Read Aloud</h4>
-<p>Read the text on the screen with voice</p>
-</div>
-</button>
+    <div class="panel-content">
 
-<div class="text-size-box">
-<label>Text Size</label>
-<div class="size-buttons">
-<button id="smallText">A-</button>
-<button id="normalText" class="active">A</button>
-<button id="largeText">A+</button>
-</div>
-</div>
+      <button class="acc-card low-vision" id="lowVisionBtn">
+        <div class="acc-icon">👁️</div>
+        <div class="acc-info">
+          <h4>Low Vision</h4>
+          <p>High contrast, larger text and stronger buttons</p>
+        </div>
+      </button>
 
-<button class="reset-btn" id="resetAccessibility">
-Reset Accessibility
-</button>
+      <button class="acc-card dyslexia-mode" id="dyslexiaBtn">
+        <div class="acc-icon">📖</div>
+        <div class="acc-info">
+          <h4>Dyslexia</h4>
+          <p>Friendly font, soft colors and more spacing</p>
+        </div>
+      </button>
 
-</div>
-</div>
+      <button class="acc-card deaf-mode" id="deafBtn">
+        <div class="acc-icon">🤟</div>
+        <div class="acc-info">
+          <h4>Deaf Support</h4>
+          <p>Visual communication and larger icons</p>
+        </div>
+      </button>
 
-    <header class="navbar">
+      <button class="acc-card" id="activarHeadTracking">
+        <div class="acc-icon">🔄</div>
+        <div class="acc-info">
+          <h4>Head Control</h4>
+          <p>Navigate and scroll using head movements</p>
+        </div>
+      </button>
+
+      <button class="acc-card speech-mode" id="speechBtn">
+        <div class="acc-icon">🔊</div>
+        <div class="acc-info">
+          <h4>Read Aloud</h4>
+          <p>Read the text on the screen with voice</p>
+        </div>
+      </button>
+
+      <!-- ===== OPCIÓN DE TRADUCCIÓN CON GOOGLE TRANSLATE ===== -->
+      <div class="acc-card translate-card">
+        <div class="acc-icon"><i class="fas fa-language"></i></div>
+        <div class="acc-info">
+          <h4>Language / Idioma</h4>
+          <p>Translate website</p>
+          <div id="google_translate_element"></div>
+        </div>
+      </div>
+      <!-- =================================================== -->
+
+      <div class="text-size-box">
+        <label>Text Size</label>
+        <div class="size-buttons">
+          <button id="smallText">A-</button>
+          <button id="normalText" class="active">A</button>
+          <button id="largeText">A+</button>
+        </div>
+      </div>
+
+      <button class="reset-btn" id="resetAccessibility">
+        Reset Accessibility
+      </button>
+
+    </div>
+  </div>
+
+  <header class="navbar">
     <div class="navbar-container">
-        <a href="#" class="logo">
-            <img src="img/Senyalogo.png" alt="SENYA Logo">
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="opciones.html" class="active">Partner Network</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="soporte.html">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="#" class="help-btn" id="accessibilityBtn">
-    Accesibility
-</a>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
+      <a href="#" class="logo">
+        <img src="img/Senyalogo.png" alt="SENYA Logo">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="opciones.html" class="active">Partner Network</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="soporte.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="help-btn" id="accessibilityBtn">
+        Accesibility
+      </a>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
-</header>
-<section class="services">
+  </header>
+
+  <section class="services">
     <div class="header">
-        <span>ALL THE SERVICES</span>
-        <h1>Who would you like to contact?</h1>
-        <p>
-            Choose a service below and we'll connect you with it in seconds.
-        </p>
-        <div class="search-box">
-            <input
-            id="searchInput"
-            type="text"
-            placeholder="Search banks, hospitals, utilities..."
-            >
-        </div>
+      <span>ALL THE SERVICES</span>
+      <h1>Who would you like to contact?</h1>
+      <p>Choose a service below and we'll connect you with it in seconds.</p>
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="Search banks, hospitals, utilities...">
+      </div>
     </div>
+
     <div class="categories">
-        
-        <button class="active">All</button>
-        <button onclick="window.location.href='bankop.html'">
-            🏦 Banking
-        </button>
-        <button onclick="window.location.href='teleop.html'">
-            📱 Telecom
-        </button>
-        <button onclick="window.location.href='healthop.html'">
-            🏥 Healthcare
-        </button>
-        <button onclick="window.location.href='utilitiesop.html'">
-            💡 Utilities
-        </button>
-        <button onclick="window.location.href='govop.html'">
-            🏛 Government
-        </button>
+      <button class="active">All</button>
+      <button onclick="window.location.href='bankop.html'">🏦 Banking</button>
+      <button onclick="window.location.href='teleop.html'">📱 Telecom</button>
+      <button onclick="window.location.href='healthop.html'">🏥 Healthcare</button>
+      <button onclick="window.location.href='utilitiesop.html'">💡 Utilities</button>
+      <button onclick="window.location.href='govop.html'">🏛 Government</button>
     </div>
-    <!---Banco-->
+
+    <!-- Contenedor general de tarjetas -->
     <section class="services-container">
-    <div class="service-card">
+
+      <!-- Banco Agrícola -->
+      <div class="service-card">
         <div class="service-header">
-            <div class="service-info">
-                <img src="img/image.png" alt="Banco Agricola">
-                <div>
-                    <h2>Banco Agrícola</h2>
-                    <span class="category">
-                        <i class="fa-solid fa-building-columns"></i>
-                        Banking
-                    </span>
-                    <p>
-                        Banking services with certified interpreter assistance.
-                    </p>
-                </div>
+          <div class="service-info">
+            <img src="img/image.png" alt="Banco Agricola">
+            <div>
+              <h2>Banco Agrícola</h2>
+              <span class="category"><i class="fa-solid fa-building-columns"></i> Banking</span>
+              <p>Banking services with certified interpreter assistance.</p>
             </div>
-            <div class="status">
-                <span class="available">
-                    <span class="circle"></span>
-                    Available
-                </span>
-                <span class="popular">
-                    ⭐ Most Used
-                </span>
-            </div>
+          </div>
+          <div class="status">
+            <span class="available"><span class="circle"></span> Available</span>
+            <span class="popular">⭐ Most Used</span>
+          </div>
         </div>
         <div class="divider"></div>
         <div class="service-content">
-            <div class="column">
-                <h4>Available Services</h4>
-                <ul>
-                    <li>Account information</li>
-                    <li>Money transfers</li>
-                    <li>Credit cards</li>
-                    <li>Customer support</li>
-                </ul>
+          <div class="column">
+            <h4>Available Services</h4>
+            <ul>
+              <li>Account information</li>
+              <li>Money transfers</li>
+              <li>Credit cards</li>
+              <li>Customer support</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h4>Languages</h4>
+            <div class="badges">
+              <span>🇺🇸 English</span>
+              <span>🇪🇸 Español</span>
+              <span>LESSA</span>
             </div>
-            <div class="column">
-                <h4>Languages</h4>
-                <div class="badges">
-                    <span>🇺🇸 English</span>
-                    <span>🇪🇸 Español</span>
-                    <span>LESSA</span>
-                </div>
-                <div class="wait">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>Estimated wait: <strong>Less than 2 min</strong></span>
-                </div>
+            <div class="wait">
+              <i class="fa-regular fa-clock"></i>
+              <span>Estimated wait: <strong>Less than 2 min</strong></span>
             </div>
+          </div>
         </div>
         <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='#'">
-        See more
-    </button>
-
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
+          <button class="see-more" onclick="window.location.href='#'">See more</button>
+          <button class="call-now" onclick="window.location.href='videollamada.html'">
+            <i class="fa-solid fa-phone"></i> Call now
+          </button>
         </div>
-    </div>
-     <!---ISS-->
-    <div class="service-card">
-    <div class="service-header">
-        <div class="service-info">
+      </div>
+
+      <!-- ISSS -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-info">
             <img src="https://www.transparencia.gob.sv/cargar_imagen.php?id=Mjc=" alt="ISSS">
             <div>
-                <h2>ISSS</h2>
-                <span class="category">
-                    <i class="fa-solid fa-hospital"></i>
-                    Healthcare
-                </span>
-                <p>
-                    Assistance for appointments, medical services and administrative procedures.
-                </p>
+              <h2>ISSS</h2>
+              <span class="category"><i class="fa-solid fa-hospital"></i> Healthcare</span>
+              <p>Assistance for appointments, medical services and administrative procedures.</p>
             </div>
+          </div>
+          <div class="status">
+            <span class="available"><span class="circle"></span> Available</span>
+            <span class="popular">⭐ Most Used</span>
+          </div>
         </div>
-        <div class="status">
-            <span class="available">
-                <span class="circle"></span>
-                Available
-            </span>
-             <span class="popular">
-                    ⭐ Most Used
-                </span>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="service-content">
-        <div class="column">
+        <div class="divider"></div>
+        <div class="service-content">
+          <div class="column">
             <h4>Available Services</h4>
             <ul>
-                <li>Medical appointments</li>
-                <li>Laboratory information</li>
-                <li>Prescriptions</li>
-                <li>Patient services</li>
+              <li>Medical appointments</li>
+              <li>Laboratory information</li>
+              <li>Prescriptions</li>
+              <li>Patient services</li>
             </ul>
-        </div>
-        <div class="column">
+          </div>
+          <div class="column">
             <h4>Languages</h4>
             <div class="badges">
-                <span>🇺🇸 English</span>
-                <span>🇪🇸 Español</span>
-                <span>LESSA</span>
+              <span>🇺🇸 English</span>
+              <span>🇪🇸 Español</span>
+              <span>LESSA</span>
             </div>
             <div class="wait">
-                <i class="fa-regular fa-clock"></i>
-                <span>Estimated wait: <strong>3 min</strong></span>
+              <i class="fa-regular fa-clock"></i>
+              <span>Estimated wait: <strong>3 min</strong></span>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="service-footer">
-        <button class="see-more" onclick="window.location.href='#'">
-        See more
-    </button>
+        <div class="service-footer">
+          <button class="see-more" onclick="window.location.href='#'">See more</button>
+          <button class="call-now" onclick="window.location.href='videollamada.html'">
+            <i class="fa-solid fa-phone"></i> Call now
+          </button>
+        </div>
+      </div>
 
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-    </div>
-</div>
-
- <!---Banco-->
-<div class="service-card">
-    <div class="service-header">
-        <div class="service-info">
-             <img src="https://www.baccredomatic.com/themes/custom/bac_theme/images/logo.png" alt="BAC">
+      <!-- BAC Credomatic -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-info">
+            <img src="https://www.baccredomatic.com/themes/custom/bac_theme/images/logo.png" alt="BAC">
             <div>
-                <h2>BAC Credomatic</h2>
-                <span class="category">
-                    <i class="fa-solid fa-building-columns"></i>
-                    Banking
-                </span>
-                <p>
-                    Receive support for banking transactions, loans and customer assistance.
-                </p>
+              <h2>BAC Credomatic</h2>
+              <span class="category"><i class="fa-solid fa-building-columns"></i> Banking</span>
+              <p>Receive support for banking transactions, loans and customer assistance.</p>
             </div>
+          </div>
+          <div class="status">
+            <span class="available"><span class="circle"></span> Available</span>
+            <span class="popular">⭐ Most Used</span>
+          </div>
         </div>
-        <div class="status">
-            <span class="available">
-                <span class="circle"></span>
-                Available
-            </span>
-            <span class="popular">
-                    ⭐ Most Used
-                </span>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="service-content">
-        <div class="column">
+        <div class="divider"></div>
+        <div class="service-content">
+          <div class="column">
             <h4>Available Services</h4>
             <ul>
-                <li>Account inquiries</li>
-                <li>Credit cards</li>
-                <li>Loans</li>
-                <li>Wire transfers</li>
+              <li>Account inquiries</li>
+              <li>Credit cards</li>
+              <li>Loans</li>
+              <li>Wire transfers</li>
             </ul>
-        </div>
-        <div class="column">
+          </div>
+          <div class="column">
             <h4>Languages</h4>
             <div class="badges">
-                <span>🇺🇸 English</span>
-                <span>🇪🇸 Español</span>
-                <span>LESSA</span>
+              <span>🇺🇸 English</span>
+              <span>🇪🇸 Español</span>
+              <span>LESSA</span>
             </div>
             <div class="wait">
-                <i class="fa-regular fa-clock"></i>
-                <span>Estimated wait: <strong>2 min</strong></span>
+              <i class="fa-regular fa-clock"></i>
+              <span>Estimated wait: <strong>2 min</strong></span>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='#'">
-        See more
-    </button>
+        <div class="service-footer">
+          <button class="see-more" onclick="window.location.href='#'">See more</button>
+          <button class="call-now" onclick="window.location.href='videollamada.html'">
+            <i class="fa-solid fa-phone"></i> Call now
+          </button>
+        </div>
+      </div>
 
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-</div>
-</div>
- <!---claro-->
-<div class="service-card">
-    <div class="service-header">
-        <div class="service-info">
+      <!-- Claro -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-info">
             <img src="https://th.bing.com/th/id/R.8871bfa7d393b9cb4e3805065a76d529?rik=j3TOeKFUX0qFkQ&pid=ImgRaw&r=0" alt="Claro">
             <div>
-                <h2>Claro El Salvador</h2>
-                <span class="category">
-                    <i class="fa-solid fa-tower-cell"></i>
-                    Telecommunications
-                </span>
-                <p>
-                    Connect with us for mobile, internet and billing support.
-                </p>
+              <h2>Claro El Salvador</h2>
+              <span class="category"><i class="fa-solid fa-tower-cell"></i> Telecommunications</span>
+              <p>Connect with us for mobile, internet and billing support.</p>
             </div>
+          </div>
+          <div class="status">
+            <span class="available"><span class="circle"></span> Available</span>
+            <span class="popular">⭐ Most Used</span>
+          </div>
         </div>
-        <div class="status">
-            <span class="available">
-                <span class="circle"></span>
-                Available
-            </span>
-            <span class="popular">
-                    ⭐ Most Used
-                </span>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="service-content">
-        <div class="column">
+        <div class="divider"></div>
+        <div class="service-content">
+          <div class="column">
             <h4>Available Services</h4>
             <ul>
-                <li>Mobile plans</li>
-                <li>Internet support</li>
-                <li>Billing inquiries</li>
-                <li>Technical assistance</li>
+              <li>Mobile plans</li>
+              <li>Internet support</li>
+              <li>Billing inquiries</li>
+              <li>Technical assistance</li>
             </ul>
-        </div>
-        <div class="column">
+          </div>
+          <div class="column">
             <h4>Languages</h4>
             <div class="badges">
-                <span>🇺🇸 English</span>
-                <span>🇪🇸 Español</span>
-                <span>LESSA</span>
+              <span>🇺🇸 English</span>
+              <span>🇪🇸 Español</span>
+              <span>LESSA</span>
             </div>
             <div class="wait">
-                <i class="fa-regular fa-clock"></i>
-                <span>Estimated wait: <strong>1 min</strong></span>
+              <i class="fa-regular fa-clock"></i>
+              <span>Estimated wait: <strong>1 min</strong></span>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="service-footer">
         <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='#'">
-        See more
-    </button>
+          <button class="see-more" onclick="window.location.href='#'">See more</button>
+          <button class="call-now" onclick="window.location.href='videollamada.html'">
+            <i class="fa-solid fa-phone"></i> Call now
+          </button>
+        </div>
+      </div>
 
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-    </div>
-</div>
- <!---CAES-->
-<div class="service-card">
-    <div class="service-header">
-        <div class="service-info">
+      <!-- CAESS -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-info">
             <img src="https://tse1.mm.bing.net/th/id/OIP.GOs281Cy9brGYfQDE-Rs3QHaBR?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="CAESS">
             <div>
-                <h2>CAESS</h2>
-                <span class="category">
-                    <i class="fa-solid fa-bolt"></i>
-                    Utilities
-                </span>
-                <p>
-                    Support for electricity services, billing and outage reports.
-                </p>
+              <h2>CAESS</h2>
+              <span class="category"><i class="fa-solid fa-bolt"></i> Utilities</span>
+              <p>Support for electricity services, billing and outage reports.</p>
             </div>
+          </div>
+          <div class="status">
+            <span class="available"><span class="circle"></span> Available</span>
+            <span class="popular">⭐ Most Used</span>
+          </div>
         </div>
-        <div class="status">
-            <span class="available">
-                <span class="circle"></span>
-                Available
-            </span>
-            <span class="popular">
-                    ⭐ Most Used
-                </span>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="service-content">
-        <div class="column">
+        <div class="divider"></div>
+        <div class="service-content">
+          <div class="column">
             <h4>Available Services</h4>
             <ul>
-                <li>Power outages</li>
-                <li>Bill payments</li>
-                <li>New service requests</li>
-                <li>Customer support</li>
+              <li>Power outages</li>
+              <li>Bill payments</li>
+              <li>New service requests</li>
+              <li>Customer support</li>
             </ul>
-        </div>
-        <div class="column">
+          </div>
+          <div class="column">
             <h4>Languages</h4>
             <div class="badges">
-                <span>🇺🇸 English</span>
-                <span>🇪🇸 Español</span>
-                <span>LESSA</span>
+              <span>🇺🇸 English</span>
+              <span>🇪🇸 Español</span>
+              <span>LESSA</span>
             </div>
             <div class="wait">
-                <i class="fa-regular fa-clock"></i>
-                <span>Estimated wait: <strong>4 min</strong></span>
+              <i class="fa-regular fa-clock"></i>
+              <span>Estimated wait: <strong>4 min</strong></span>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="service-footer">
         <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='#'">
-        See more
-    </button>
+          <button class="see-more" onclick="window.location.href='#'">See more</button>
+          <button class="call-now" onclick="window.location.href='videollamada.html'">
+            <i class="fa-solid fa-phone"></i> Call now
+          </button>
+        </div>
+      </div>
 
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-    </div>
-</div>
- <!---ANDA-->
-<div class="service-card">
-    <div class="service-header">
-        <div class="service-info">
+      <!-- ANDA -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-info">
             <img src="https://th.bing.com/th/id/R.33936fc3a63ea40abf688d6247d7a0bc?rik=a6vDxpoeXh6B7w&riu=http%3a%2f%2f4.bp.blogspot.com%2f_aqXtc4Bagwk%2fTH0XwQ7XB8I%2fAAAAAAAAAkI%2fmhjV9Ysz5pQ%2fs1600%2flogo-nuevo_ANDA.png&ehk=bnmZGQpquGs2dJ99QUwGyI0p54c2YvFTbsEGeF5IzuM%3d&risl=&pid=ImgRaw&r=0" alt="ANDA">
             <div>
-                <h2>ANDA</h2>
-                <span class="category">
-                    <i class="fa-solid fa-faucet-drip"></i>
-                    Utilities
-                </span>
-                <p>
-                    Assistance for water services, billing and maintenance requests.
-                </p>
+              <h2>ANDA</h2>
+              <span class="category"><i class="fa-solid fa-faucet-drip"></i> Utilities</span>
+              <p>Assistance for water services, billing and maintenance requests.</p>
             </div>
+          </div>
+          <div class="status">
+            <span class="available"><span class="circle"></span> Available</span>
+            <span class="popular">⭐ Most Used</span>
+          </div>
         </div>
-        <div class="status">
-            <span class="available">
-                <span class="circle"></span>
-                Available
-            </span>
-            <span class="popular">
-                    ⭐ Most Used
-                </span>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="service-content">
-        <div class="column">
+        <div class="divider"></div>
+        <div class="service-content">
+          <div class="column">
             <h4>Available Services</h4>
             <ul>
-                <li>Water supply issues</li>
-                <li>Billing questions</li>
-                <li>Service requests</li>
-                <li>Customer assistance</li>
+              <li>Water supply issues</li>
+              <li>Billing questions</li>
+              <li>Service requests</li>
+              <li>Customer assistance</li>
             </ul>
-        </div>
-        <div class="column">
+          </div>
+          <div class="column">
             <h4>Languages</h4>
             <div class="badges">
-                <span>🇺🇸 English</span>
-                <span>🇪🇸 Español</span>
-                <span>LESSA</span>
+              <span>🇺🇸 English</span>
+              <span>🇪🇸 Español</span>
+              <span>LESSA</span>
             </div>
             <div class="wait">
-                <i class="fa-regular fa-clock"></i>
-                <span>Estimated wait: <strong>5 min</strong></span>
+              <i class="fa-regular fa-clock"></i>
+              <span>Estimated wait: <strong>5 min</strong></span>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="service-footer">
         <div class="service-footer">
-    <button class="see-more" onclick="window.location.href='#'">
-        See more
-    </button>
+          <button class="see-more" onclick="window.location.href='#'">See more</button>
+          <button class="call-now" onclick="window.location.href='videollamada.html'">
+            <i class="fa-solid fa-phone"></i> Call now
+          </button>
+        </div>
+      </div>
 
-    <button class="call-now" onclick="window.location.href='videollamada.html'">
-        <i class="fa-solid fa-phone"></i>
-        Call now
-    </button>
-</div>
-    </div>
-</div>
- <!---TIGO-->
-<div class="service-card">
-    <div class="service-header">
-        <div class="service-info">
+      <!-- Tigo -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-info">
             <img src="https://tse1.mm.bing.net/th/id/OIP.HlelBhiJOfsRzO2fXl6Y7gHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tigo">
             <div>
-                <h2>Tigo</h2>
-                <span class="category">
-                    <i class="fa-solid fa-tower-cell"></i>
-                    Telecommunications
-                </span>
-                <p>
-                    Interpreter support for internet, television and mobile services.
-                </p>
+              <h2>Tigo</h2>
+              <span class="category"><i class="fa-solid fa-tower-cell"></i> Telecommunications</span>
+              <p>Interpreter support for internet, television and mobile services.</p>
             </div>
+          </div>
+          <div class="status">
+            <span class="available"><span class="circle"></span> Available</span>
+            <span class="popular">⭐ Most Used</span>
+          </div>
         </div>
-        <div class="status">
-            <span class="available">
-                <span class="circle"></span>
-                Available
-            </span>
-            <span class="popular">
-                    ⭐ Most Used
-            </span>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="service-content">
-        <div class="column">
+        <div class="divider"></div>
+        <div class="service-content">
+          <div class="column">
             <h4>Available Services</h4>
             <ul>
-                <li>Mobile services</li>
-                <li>Home internet</li>
-                <li>TV packages</li>
-                <li>Technical support</li>
+              <li>Mobile services</li>
+              <li>Home internet</li>
+              <li>TV packages</li>
+              <li>Technical support</li>
             </ul>
-        </div>
-        <div class="column">
+          </div>
+          <div class="column">
             <h4>Languages</h4>
             <div class="badges">
-                <span>🇺🇸 English</span>
-                <span>🇪🇸 Español</span>
-                <span>LESSA</span>
+              <span>🇺🇸 English</span>
+              <span>🇪🇸 Español</span>
+              <span>LESSA</span>
             </div>
             <div class="wait">
-                <i class="fa-regular fa-clock"></i>
-                <span>Estimated wait: <strong>1 min</strong></span>
+              <i class="fa-regular fa-clock"></i>
+              <span>Estimated wait: <strong>1 min</strong></span>
             </div>
+          </div>
         </div>
-    </div>
-    
-    <div class="service-footer">
-        <button class="see-more" onclick="window.location.href='#'">
-        See more
-    </button>
-        <button class="call-now" onclick="window.location.href='videollamada.html'">
-    <i class="fa-solid fa-phone"></i>
-    Call now
-</button>
-    </div>
-</div>
-</section>
-</section>
-<footer class="footer">
+        <div class="service-footer">
+          <button class="see-more" onclick="window.location.href='#'">See more</button>
+          <button class="call-now" onclick="window.location.href='videollamada.html'">
+            <i class="fa-solid fa-phone"></i> Call now
+          </button>
+        </div>
+      </div>
+
+    </section>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="footer-container">
-        <div class="footer-column">
-            <div class="logo" role="img" aria-label="SENYA Logo">
-                SEN<span class="logo-y">Y</span>A
+      <div class="footer-column">
+        <div class="logo" role="img" aria-label="SENYA Logo">
+          SEN<span class="logo-y">Y</span>A
         </div>
-            <p>"Communication is not a privilege, it's a right."</p>
+        <p>"Communication is not a privilege, it's a right."</p>
+      </div>
+      <div class="footer-column">
+        <h3>Information</h3>
+        <ul>
+          <li><span class="disabled-link">Home</span></li>
+          <li><span class="disabled-link">Services</span></li>
+          <li><span class="disabled-link">Join to us</span></li>
+          <li><span class="disabled-link">About us</span></li>
+          <li><span class="disabled-link">How to use Senya?</span></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Useful Links</h3>
+        <ul>
+          <li><span class="disabled-link">Technical Support</span></li>
+          <li><span class="disabled-link">Services</span></li>
+          <li><span class="disabled-link">Join to us</span></li>
+          <li><span class="disabled-link">How to use Senya?</span></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Our Services</h3>
+        <ul>
+          <li><span class="disabled-link">Banks</span></li>
+          <li><span class="disabled-link">Call Centers</span></li>
+          <li><span class="disabled-link">Internet</span></li>
+          <li><span class="disabled-link">Shops</span></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>📞 +503 9842-5783</p>
+        <p>✉ senya.sv@gmail.com</p>
+        <div class="socials">
+          <div class="social-logo" role="img" aria-label="SENYA Logo">
+            <img src="img/Senyalogo.png" alt="SENYA Logo">
+          </div>
         </div>
-        <div class="footer-column">
-            <h3>Information</h3>
-            <ul>
-                <li><span class="disabled-link">Home</span></li>
-                <li><span class="disabled-link">Services</span></li>
-                <li><span class="disabled-link">Join to us</span></li>
-                <li><span class="disabled-link">About us</span></li>
-                <li><span class="disabled-link">How to use Senya?</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Useful Links</h3>
-            <ul>
-                <li><span class="disabled-link">Technical Support</span></li>
-                <li><span class="disabled-link">Services</span></li>
-                <li><span class="disabled-link">Join to us</span></li>
-                <li><span class="disabled-link">How to use Senya?</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Our Services</h3>
-            <ul>
-                <li><span class="disabled-link">Banks</span></li>
-                <li><span class="disabled-link">Call Centers</span></li>
-                <li><span class="disabled-link">Internet</span></li>
-                <li><span class="disabled-link">Shops</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <p>📞 +503 9842-5783</p>
-            <p>✉ senya.sv@gmail.com</p>
-            <div class="socials">
-                <div class="social-logo" role="img" aria-label="SENYA Logo">
-                    <img src="img/Senyalogo.png" alt="SENYA Logo">
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
     <hr>
     <div class="footer-bottom">
-        <p>© 2026 Senya. All Rights Reserved.</p>
+      <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
-</footer>
-<a href="videollamada.html" class="emergency-btn" title="Emergency">
+  </footer>
+
+  <a href="videollamada.html" class="emergency-btn" title="Emergency">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <span>Emergency</span>
-</a>
-<div class="login-modal" id="loginModal">
+  </a>
+
+  <!-- MODALES -->
+  <div class="login-modal" id="loginModal">
     <div class="login-modal-overlay"></div>
-
     <div class="login-modal-card">
-        <button class="modal-close" id="modalClose">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <div class="modal-icon">
-            <i class="fa-solid fa-user"></i>
-        </div>
-
-        <h2>Create your profile</h2>
-
-        <p>
-            To create and manage your profile, you need to
-            sign in or create a SENYA account first.
-        </p>
-
-        <div class="modal-buttons">
-            <a href="login.html" class="modal-join">
-                Join us
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-            <button class="modal-later" id="modalLater">
-                Maybe later
-            </button>
-        </div>
+      <button class="modal-close" id="modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-icon">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <h2>Create your profile</h2>
+      <p>To create and manage your profile, you need to sign in or create a SENYA account first.</p>
+      <div class="modal-buttons">
+        <a href="login.html" class="modal-join">
+          Join us <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="modal-later" id="modalLater">Maybe later</button>
+      </div>
     </div>
-</div>
-<div class="call-modal" id="callModal">
+  </div>
+
+  <div class="call-modal" id="callModal">
     <div class="call-modal-overlay"></div>
-
     <div class="call-modal-card">
-
-        <button class="modal-close" id="callModalClose">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <div class="modal-icon">
-            <i class="fa-solid fa-phone"></i>
-        </div>
-
-        <h2>Sign in to make a call</h2>
-
-        <p>
-            To contact a service provider and make calls through SENYA,
-            you need to sign in or create an account first.
-        </p>
-
-        <div class="modal-buttons">
-
-            <a href="login.html" class="modal-join">
-                Join us
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-            <button class="modal-later" id="callModalLater">
-                Maybe later
-            </button>
-
-        </div>
-
+      <button class="modal-close" id="callModalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-icon">
+        <i class="fa-solid fa-phone"></i>
+      </div>
+      <h2>Sign in to make a call</h2>
+      <p>To contact a service provider and make calls through SENYA, you need to sign in or create an account first.</p>
+      <div class="modal-buttons">
+        <a href="login.html" class="modal-join">
+          Join us <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="modal-later" id="callModalLater">Maybe later</button>
+      </div>
     </div>
-</div>
-<script src="js/modal.js"></script>
-<script src="js/opciones.js"></script>
-<script src="js/accessibility.js"></script>
-<!--SCRIPT PARA MOVIMIENTO CON LA CABEZA-->
-<script type="module" src="js/head-tracking.js"></script>
-<!-- Cursor virtual controlado por la cabeza -->
-<div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+  </div>
+
+  <!-- SCRIPT DE INICIALIZACIÓN DE GOOGLE TRANSLATE -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'es,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- ARCHIVOS JS -->
+  <script src="js/modal.js"></script>
+  <script src="js/opciones.js"></script>
+  <script src="js/accessibility.js"></script>
+  <!-- SCRIPT PARA MOVIMIENTO CON LA CABEZA -->
+  <script type="module" src="js/head-tracking.js"></script>
+
+  <!-- Cursor virtual controlado por la cabeza -->
+  <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
 </body>
 </html>

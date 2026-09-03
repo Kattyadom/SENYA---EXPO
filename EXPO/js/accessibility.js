@@ -98,58 +98,64 @@ let lastSpokenElement = null;
 const synth = window.speechSynthesis;
 const speechBtn = document.getElementById('speechBtn');
 
+// Actualizar la interfaz del botón de voz
+function updateSpeechButtonUI() {
+  if (!speechBtn) return;
+  const h4 = speechBtn.querySelector('h4');
+  if (h4) {
+    h4.textContent = isSpeechActive ? 'Stop Reading' : 'Read Aloud';
+  }
+}
+
 if (speechBtn) {
   speechBtn.onclick = () => {
     isSpeechActive = !isSpeechActive;
-    const title = speechBtn.querySelector('h4') || speechBtn;
+    saveMode('speechActive', isSpeechActive);
+    updateSpeechButtonUI();
 
     if (!isSpeechActive) {
       synth.cancel();
       lastSpokenElement = null;
-      if (speechBtn.querySelector('h4')) {
-        speechBtn.querySelector('h4').textContent = 'Read Aloud';
-      }
-    } else {
-      if (speechBtn.querySelector('h4')) {
-        speechBtn.querySelector('h4').textContent = 'Stop Reading';
-      }
     }
   };
 }
 
-// Función encargada de emitir la voz
+// Función encargada de emitir la voz sin modificar el DOM real
 function speakText(text) {
   if (!isSpeechActive || !text || !text.trim()) return;
 
   synth.cancel();
 
   const utterance = new SpeechSynthesisUtterance(text.trim());
-  utterance.lang = 'en-US';
+  utterance.lang = 'es-ES'; // Cambiado a Español para mejor coincidencia con la UI
   utterance.rate = 1;
   utterance.pitch = 1;
 
   synth.speak(utterance);
 }
 
-// Función para obtener texto limpio ignorando etiquetas de iconos
+// Función segura para extraer texto eliminando clones de íconos
 function extractText(element) {
+  if (!element) return '';
+  
+  // Se crea un clon desconectado del DOM para no afectar la pantalla
   const clone = element.cloneNode(true);
-  const icons = clone.querySelectorAll('i, svg, .icon, [class*="fa-"]');
+  const icons = clone.querySelectorAll('i, svg, .icon, [class*="fa-"], img');
   icons.forEach(icon => icon.remove());
 
   return (clone.textContent || clone.innerText || '').replace(/\s+/g, ' ').trim();
 }
 
-// Evento Hover Inteligente
+// Evento Hover Optimizado
 document.addEventListener('mouseover', (event) => {
   if (!isSpeechActive) return;
 
   const target = event.target;
 
-  // Ignorar panel de accesibilidad
-  if (target.closest('#accessibilityPanel')) return;
+  // Ignorar panel de accesibilidad para evitar lecturas de la propia interfaz
+  if (target.closest('#accessibilityPanel') || target.closest('.sign-language-panel')) return;
 
-  // 1. Botones o enlaces
+  // PRIORIDAD 1: Botones o Enlaces Interactivos
   const interactiveEl = target.closest('button, a, [role="button"]');
   if (interactiveEl) {
     if (lastSpokenElement === interactiveEl) return;
@@ -158,52 +164,61 @@ document.addEventListener('mouseover', (event) => {
     const label = interactiveEl.getAttribute('aria-label') || 
                   interactiveEl.getAttribute('title') || 
                   extractText(interactiveEl) || 
-                  'button';
+                  'Enlace';
 
-    speakText(`Button, ${label}`);
+    speakText(`Boton, ${label}`);
     return;
   }
 
-  // 2. Tarjetas completas
-  const cardEl = target.closest('.category-card, .why-card, .card, .step, .testimonial-card, .option-card');
-  if (cardEl) {
-    if (lastSpokenElement === cardEl) return;
-    lastSpokenElement = cardEl;
-
-    const cleanText = extractText(cardEl);
-    speakText(`Card: ${cleanText}`);
-    return;
-  }
-
-  // 3. Encabezados (h1 a h6)
-  const headingEl = target.closest('h1, h2, h3, h4, h5, h6');
-  if (headingEl) {
-    if (lastSpokenElement === headingEl) return;
-    lastSpokenElement = headingEl;
-
-    speakText(`Heading, ${extractText(headingEl)}`);
-    return;
-  }
-
-  // 4. Imágenes (Aquí lee la propiedad alt de cada imagen)
+  // PRIORIDAD 2: Imágenes independientes
   const imgEl = target.closest('img');
   if (imgEl) {
     if (lastSpokenElement === imgEl) return;
     lastSpokenElement = imgEl;
 
-    const altText = imgEl.getAttribute('alt') || 'image';
-    speakText(`Image of ${altText}`);
+    const altText = imgEl.getAttribute('alt') || 'Imagen';
+    speakText(`Imagen de ${altText}`);
     return;
   }
 
-  // 5. Párrafos y elementos de texto
-  const textEl = target.closest('p, span, li, label');
-  if (textEl && extractText(textEl) !== '') {
-    if (lastSpokenElement === textEl) return;
-    lastSpokenElement = textEl;
+  // PRIORIDAD 3: Encabezados (h1 a h6)
+  const headingEl = target.closest('h1, h2, h3, h4, h5, h6');
+  if (headingEl) {
+    if (lastSpokenElement === headingEl) return;
+    lastSpokenElement = headingEl;
 
-    speakText(extractText(textEl));
+    speakText(extractText(headingEl));
     return;
+  }
+
+  // PRIORIDAD 4: Tarjetas y contenedores principales
+  const cardEl = target.closest('.category-card, .why-card, .card, .step, .testimonial-card, .option-card, .acc-card');
+  if (cardEl) {
+    if (lastSpokenElement === cardEl) return;
+    lastSpokenElement = cardEl;
+
+    speakText(extractText(cardEl));
+    return;
+  }
+
+  // PRIORIDAD 5: Texto plano (párrafos, ítems de lista, etiquetas)
+  const textEl = target.closest('p, span, li, label');
+  if (textEl) {
+    const textContent = extractText(textEl);
+    if (textContent !== '') {
+      if (lastSpokenElement === textEl) return;
+      lastSpokenElement = textEl;
+
+      speakText(textContent);
+      return;
+    }
+  }
+});
+
+// Limpiar la referencia cuando el cursor sale del sitio
+document.addEventListener('mouseout', (event) => {
+  if (!event.relatedTarget) {
+    lastSpokenElement = null;
   }
 });
 
@@ -226,6 +241,11 @@ if (resetBtn) {
     localStorage.removeItem('dyslexia');
     localStorage.removeItem('deafVisual');
     localStorage.removeItem('textSize');
+    localStorage.removeItem('speechActive');
+
+    isSpeechActive = false;
+    synth.cancel();
+    updateSpeechButtonUI();
 
     setTextSize('normal');
   };
@@ -321,6 +341,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (localStorage.getItem('deafVisual') === 'true') {
     document.body.classList.add('deaf-visual');
+  }
+
+  if (localStorage.getItem('speechActive') === 'true') {
+    isSpeechActive = true;
+    updateSpeechButtonUI();
   }
 
   const savedTextSize = localStorage.getItem('textSize');
