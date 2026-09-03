@@ -1,112 +1,91 @@
-/* ==========================================================================
-   CSS RESPONSIVE PARA TODAS LAS PANTALLAS (Mobile -> Desktop -> 4K)
-   ========================================================================== */
-
-/* 1. RESET Y PROPIEDADES GLOBALES */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ==========================================
+   1. RESETEO Y NORMAS DE SEGURIDAD
+   ========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-:root {
-  /* Tipografía fluida: se escala automáticamente entre móvil y monitor */
-  --font-size-title: clamp(1.5rem, 4vw, 3rem);
-  --font-size-body: clamp(0.95rem, 1.2vw, 1.15rem);
+html, body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
 }
 
-body {
-  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-  font-size: var(--font-size-body);
-  line-height: 1.6;
-  background-color: #f8fafc;
-  color: #1e293b;
-  min-height: 100vh;
+/* Multimedia que se ajusta sin importar qué tan pequeño sea el contenedor */
+img, video, iframe, canvas, svg {
+    max-width: 100% !important;
+    height: auto;
 }
 
-/* 2. REGLA MULTIMEDIA FLUIDA */
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* ==========================================
+   2. CONTENEDORES Y FLUIDEZ GENERAL
+   ========================================== */
+main, section, .container, .wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(5px, 2vw, 20px);
 }
 
-/* 3. CONTENEDOR PRINCIPAL ULTRA-RESPONSIVE */
-.main-container {
-  /* Ancho dinámico con clamp: min 90%, ideal 85vw, max 1400px en monitores PC */
-  width: clamp(90%, 85vw, 1400px);
-  margin: 2rem auto;
-  background-color: #ffffff;
-  padding: clamp(1rem, 3vw, 2.5rem);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+/* Grids adaptables para tarjetas y elementos de contenido */
+.card-container, 
+.services-grid, 
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 15px;
 }
 
-.header-title {
-  font-size: var(--font-size-title);
-  text-align: center;
-  margin-bottom: 1.5rem;
+/* ==========================================
+   3. ADAPTABILIDAD ULTRA-EXTREMA (HASTA 62px)
+   ========================================== */
+
+/* PANTALLAS PEQUEÑAS (Móviles estándar <= 480px) */
+@media (max-width: 480px) {
+    /* Ajusta tipografías y rellenos para aprovechar el espacio */
+    h1 { font-size: 1.4rem; }
+    h2 { font-size: 1.2rem; }
+    p, span, a { font-size: 0.85rem; }
 }
 
-/* 4. REJILLA ADAPTABLE CON CSS GRID (Sin necesidad de mil media queries) */
-.cards-grid {
-  display: grid;
-  /* Crea columnas automáticamente de mínimo 280px y máximo 1fr según el ancho del monitor */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
+/* PANTALLAS ULTRA-PEQUEÑAS (Colapso extremo <= 280px y hasta 62px) */
+@media (max-width: 280px) {
+    /* Elimina márgenes laterales grandes para evitar desbordes */
+    body, main, section, .container {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
 
-.card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
+    /* Oculta textos descriptivos secundarios y etiquetas para no romper el ancho */
+    p, span, label, .self-label, .video-info span, .chat-header span {
+        display: none !important;
+    }
 
-/* 5. FORMULARIO CONTENIDO */
-.form-box {
-  width: 100%;
-  max-width: 500px;
-  margin: 2rem auto 0 auto;
-  padding: 1.5rem;
-  background-color: #f1f5f9;
-  border-radius: 8px;
-}
+    /* Ajusta tarjetas y contenedores para que quepan en micro-espacios */
+    .call-header, 
+    .video-info, 
+    .controls, 
+    .chat-panel {
+        padding: 4px !important;
+        height: auto !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+    }
 
-.form-input, .btn-primary {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
-  font-size: 1rem;
-}
+    /* Botones reducidos y centrados */
+    button, .btn, .control-button, .end-call {
+        width: 100% !important;
+        max-width: 45px !important;
+        height: 38px !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        font-size: 12px !important;
+    }
 
-.btn-primary {
-  background-color: #2563eb;
-  color: #fff;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* 6. AJUSTES FINOS PARA PANTALLAS ESPECÍFICAS */
-
-/* Monitores Ultrapanorámicos / PC Grandes (> 1600px) */
-@media (min-width: 1600px) {
-  .main-container {
-    max-width: 1600px; /* Expande más el contenido en pantallas gigantes */
-  }
-}
-
-/* Celulares (< 600px) */
-@media (max-width: 600px) {
-  .main-container {
-    width: 95%;
-    margin: 0.5rem auto;
-  }
+    /* Ajuste para íconos dentro de botones */
+    i, svg {
+        font-size: 14px !important;
+    }
 }

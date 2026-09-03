@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* ======================================================
-   COLORS
+   COLORS & VARIABLES
    ====================================================== */
 :root {
   --fondo-celeste: #F4F8FF;   /* Celeste muy claro/hielo de la interfaz SENYA */
@@ -41,8 +41,6 @@ body {
   box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
   overflow: hidden;
   border: 1px solid var(--azul-muy-claro);
- 
-  /* El margen superior de 110px empuja el contenido hacia abajo para que no quede detrás del menú */
   margin: 110px auto 50px auto;
   flex: 1;
 }
@@ -57,6 +55,12 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.bank-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blanco);
 }
 
 /* Contenedor de botones */
@@ -86,13 +90,6 @@ body {
 .btn-call:hover {
   background-color: #BFDBFE;
   transform: translateY(-1px);
-}
-
-
-.bank-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--blanco);
 }
 
 .btn-back {
@@ -139,74 +136,7 @@ body {
   background-color: var(--azul-muy-claro);
   margin: 24px 0;
 }
-/* RESPONSIVE*/
-@media (max-width: 768px) {
-  .container {
-    width: 95%;
-    margin-top: 100px;
-    margin-bottom: 30px;
-  }
 
-  .bank-header {
-    padding: 24px 20px;
-  }
-
-  .bank-body {
-    padding: 24px 20px;
-  }
-
-  .details-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-}
-
-
-@media (max-width: 576px) {
-  .container {
-    margin-top: 90px;
-    border-radius: 12px;
-  }
-
-  .bank-header {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-    gap: 16px;
-  }
-
-  .bank-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .header-buttons {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .btn-call,
-  .btn-back {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    padding: 12px;
-  }
-
-  /* Cambia la cuadrícula de datos a 1 sola columna */
-  .details-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bank-logo {
-    max-width: 160px;
-  }
- 
-  .badge {
-    width: 100%;
-    justify-content: center;
-  }
-}
 /* Logo banco */
 .bank-logo-container {
   display: flex;
@@ -272,56 +202,4 @@ body {
   font-weight: 600;
   background-color: var(--rosado-pastel);
   color: var(--azul-oscuro);
-}
-
-/* ---Rsponsive--- */
-
-@media(max-width:900px){
-
-    .service-header{
-
-        flex-direction:column;
-
-    }
-
-    .service-content{
-        grid-template-columns:1fr;
-    }
-    .column ul{
-        grid-template-columns:1fr;
-    }
-    .service-footer{
-        justify-content:center;
-    }
-}
-@media(max-width:768px){
-
-    .header h1{
-        font-size:2.2rem;
-    }
-
-    .services{
-        padding:50px 0;
-    }
-
-}
-
-@media(max-width:900px){
-
-.profile-container{
-    flex-direction:column;
-}
-
-.sidebar{
-    width:100%;
-}
-
-.form-grid{
-    grid-template-columns:1fr;
-}
-
-.form-group.full{
-    grid-column:auto;
-}
-
 }

@@ -1,279 +1,216 @@
-.login-modal{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-    visibility:hidden;
-    opacity:0;
-    transition:opacity .3s ease, visibility .3s ease;
+.login-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease, visibility .3s ease;
 }
 
-.login-modal.active{
-    visibility:visible;
-    opacity:1;
+.login-modal.active {
+    visibility: visible;
+    opacity: 1;
 }
 
-.login-modal-overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(15,23,42,.45);
-    backdrop-filter:blur(5px);
+.login-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, .45);
+    backdrop-filter: blur(5px);
 }
 
-.login-modal-card{
-    position:relative;
-    width:90%;
-    max-width:460px;
-    background:#fff;
-    border-radius:25px;
-    padding:40px;
-    text-align:center;
-    box-shadow:0 20px 60px rgba(15,23,42,.2);
-    transform:translateY(20px) scale(.96);
-    transition:transform .3s ease;
+.login-modal-card {
+    position: relative;
+    width: 90%;
+    max-width: 460px;
+    background: #fff;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .2);
+    transform: translateY(20px) scale(.96);
+    transition: transform .3s ease;
 }
 
-.login-modal.active .login-modal-card{
-    transform:translateY(0) scale(1);
+.login-modal.active .login-modal-card {
+    transform: translateY(0) scale(1);
 }
 
-.modal-close{
-    position:absolute;
-    top:18px;
-    right:18px;
-    width:38px;
-    height:38px;
-    border:none;
-    border-radius:50%;
-    background:#F1F5F9;
-    color:#64748B;
-    cursor:pointer;
-    font-size:16px;
-    transition:.3s;
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: #F1F5F9;
+    color: #64748B;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
 }
 
-.modal-close:hover{
-    background:#EAF1FF;
-    color:#2563EB;
+.modal-close:hover {
+    background: #EAF1FF;
+    color: #2563EB;
 }
 
-.modal-icon{
-    width:70px;
-    height:70px;
-    margin:0 auto 20px;
-    border-radius:50%;
-    background:#EAF1FF;
-    color:#2563EB;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:28px;
+.modal-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #EAF1FF;
+    color: #2563EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
 }
 
-.login-modal-card h2{
-    color:#1E293B;
-    font-size:27px;
-    margin-bottom:12px;
+.login-modal-card h2 {
+    color: #1E293B;
+    font-size: 27px;
+    margin-bottom: 12px;
 }
 
-.login-modal-card p{
-    color:#64748B;
-    font-size:15px;
-    line-height:1.7;
-    margin-bottom:30px;
+.login-modal-card p {
+    color: #64748B;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 30px;
 }
 
-.modal-buttons{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.modal-join{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    text-decoration:none;
-    background:#2563EB;
-    color:#fff;
-    padding:14px 20px;
-    border-radius:12px;
-    font-weight:600;
-    transition:.3s;
+.modal-join {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    background: #2563EB;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: .3s;
 }
 
-.modal-join:hover{
-    background:#1E3ABA;
-    transform:translateY(-2px);
+.modal-join:hover {
+    background: #1E3ABA;
+    transform: translateY(-2px);
 }
 
-.modal-later{
-    border:none;
-    background:transparent;
-    color:#64748B;
-    padding:12px;
-    border-radius:12px;
-    cursor:pointer;
-    font-family:'Poppins',sans-serif;
-    font-size:15px;
-    font-weight:500;
-    transition:.3s;
+.modal-later {
+    border: none;
+    background: transparent;
+    color: #64748B;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .3s;
 }
 
-.modal-later:hover{
-    background:#F1F5F9;
-    color:#1E293B;
-}
-.call-modal{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-    visibility:hidden;
-    opacity:0;
-    transition:opacity .3s ease, visibility .3s ease;
+.modal-later:hover {
+    background: #F1F5F9;
+    color: #1E293B;
 }
 
-.call-modal.active{
-    visibility:visible;
-    opacity:1;
+.call-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease, visibility .3s ease;
 }
 
-.call-modal-overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(15,23,42,.45);
-    backdrop-filter:blur(5px);
+.call-modal.active {
+    visibility: visible;
+    opacity: 1;
 }
 
-.call-modal-card{
-    position:relative;
-    width:90%;
-    max-width:460px;
-    background:#fff;
-    border-radius:25px;
-    padding:40px;
-    text-align:center;
-    box-shadow:0 20px 60px rgba(15,23,42,.2);
-    transform:translateY(20px) scale(.96);
-    transition:transform .3s ease;
+.call-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, .45);
+    backdrop-filter: blur(5px);
 }
 
-.call-modal.active .call-modal-card{
-    transform:translateY(0) scale(1);
+.call-modal-card {
+    position: relative;
+    width: 90%;
+    max-width: 460px;
+    background: #fff;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .2);
+    transform: translateY(20px) scale(.96);
+    transition: transform .3s ease;
 }
 
-.call-modal-card .modal-close{
-    position:absolute;
-    top:18px;
-    right:18px;
-    width:38px;
-    height:38px;
-    border:none;
-    border-radius:50%;
-    background:#F1F5F9;
-    color:#64748B;
-    cursor:pointer;
-    font-size:16px;
-    transition:.3s;
+.call-modal.active .call-modal-card {
+    transform: translateY(0) scale(1);
 }
 
-.call-modal-card .modal-close:hover{
-    background:#EAF1FF;
-    color:#2563EB;
+.call-modal-card .modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: #F1F5F9;
+    color: #64748B;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
 }
 
-.call-modal-card .modal-icon{
-    width:70px;
-    height:70px;
-    margin:0 auto 20px;
-    border-radius:50%;
-    background:#EAF1FF;
-    color:#2563EB;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:28px;
+.call-modal-card .modal-close:hover {
+    background: #EAF1FF;
+    color: #2563EB;
 }
 
-.call-modal-card h2{
-    color:#2563EB;
-    font-size:27px;
-    margin-bottom:12px;
+.call-modal-card .modal-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #EAF1FF;
+    color: #2563EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
 }
 
-.call-modal-card p{
-    color:#64748B;
-    font-size:15px;
-    line-height:1.7;
-    margin-bottom:30px;
+.call-modal-card h2 {
+    color: #2563EB;
+    font-size: 27px;
+    margin-bottom: 12px;
 }
 
-@media(max-width:500px){
-
-    .login-modal-card{
-        padding:35px 25px;
-    }
-
-    .login-modal-card h2{
-        font-size:23px;
-    }
-
-}
-
-/* ---Rsponsive--- */
-
-@media(max-width:900px){
-
-    .service-header{
-
-        flex-direction:column;
-
-    }
-
-    .service-content{
-        grid-template-columns:1fr;
-    }
-    .column ul{
-        grid-template-columns:1fr;
-    }
-    .service-footer{
-        justify-content:center;
-    }
-}
-@media(max-width:768px){
-
-    .header h1{
-        font-size:2.2rem;
-    }
-
-    .services{
-        padding:50px 0;
-    }
-
-}
-
-@media(max-width:900px){
-
-.profile-container{
-    flex-direction:column;
-}
-
-.sidebar{
-    width:100%;
-}
-
-.form-grid{
-    grid-template-columns:1fr;
-}
-
-.form-group.full{
-    grid-column:auto;
-}
-
+.call-modal-card p {
+    color: #64748B;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 30px;
 }

@@ -314,37 +314,6 @@ nav a:hover {
     transform:scale(1.05);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:900px){
-
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
-    }
-
-    .waiting-content{
-        flex-direction:column;
-    }
-
-    .tips-card{
-        width:100%;
-    }
-
-    .waiting-container h1{
-        font-size:32px;
-    }
-
-}
-
 /* FOOTER */
 
 .footer{
