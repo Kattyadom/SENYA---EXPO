@@ -17,6 +17,134 @@
 </head>
 
 <body>
+ <!-- Accessibility Panel -->
+<div class="accessibility-panel" id="accessibilityPanel">
+
+<div class="panel-header">
+<h3>Accessibility</h3>
+<button id="closePanel">×</button>
+</div>
+
+<div class="panel-content">
+
+<button class="acc-card low-vision" id="lowVisionBtn">
+<div class="acc-icon">👁️</div>
+<div class="acc-info">
+<h4>Low Vision</h4>
+<p>High contrast, larger text and stronger buttons</p>
+</div>
+</button>
+
+<button class="acc-card dyslexia-mode" id="dyslexiaBtn">
+<div class="acc-icon">📖</div>
+<div class="acc-info">
+<h4>Dyslexia</h4>
+<p>Friendly font, soft colors and more spacing</p>
+</div>
+</button>
+
+<button class="acc-card deaf-mode" id="deafBtn">
+<div class="acc-icon">🤟</div>
+<div class="acc-info">
+<h4>Deaf Support</h4>
+<p>Visual communication and larger icons</p>
+</div>
+</button>
+
+<button class="acc-card" id="activarHeadTracking">
+    <div class="acc-icon">🔄</div>
+    <div class="acc-info">
+        <h4>Head Control</h4>
+        <p>Navigate and scroll using head movements</p>
+    </div>
+</button>
+
+<button class="acc-card speech-mode" id="speechBtn">
+<div class="acc-icon">🔊</div> <div class="acc-info">
+<h4>Read Aloud</h4>
+<p>Read the text on the screen with voice</p>
+</div>
+</button>
+
+<div class="text-size-box">
+<label>Text Size</label>
+<div class="size-buttons">
+<button id="smallText">A-</button>
+<button id="normalText" class="active">A</button>
+<button id="largeText">A+</button>
+</div>
+</div>
+
+<button class="reset-btn" id="resetAccessibility">
+Reset Accessibility
+</button>
+
+</div>
+</div>
+
+  </div>
+</div>
+<section>
+    <header class="navbar">
+    <div class="navbar-container">
+        <a href="#" class="logo">
+            <img src="img/Senyalogo.png" alt="SENYA Logo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="opciones.html">Partner Network</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="soporte.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="help-btn" id="accessibilityBtn">
+    Accesibility
+</a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
+<section class="services">
+    <div class="header">
+        <span>
+            Healthcare Services
+        </span>
+        <h1>Choose a healthcare provider <br> to contact with</h1>
+        <p>
+            Choose a healthcare provider below and we'll connect you with it in seconds.
+        </p>
+        <div class="search-box">
+            <input
+            id="searchInput"
+            type="text"
+            placeholder="Search healthcare providers..."
+            >
+        </div>
+    </div>
+    <div class="categories">
+        
+        <button onclick="window.location.href='opciones.html'">
+            All
+        </button>
+        <button onclick="window.location.href='bankop.html'">
+            🏦 Banking
+        </button>
+        <button onclick="window.location.href='teleop.html'">
+            📱 Telecom
+        </button>
+        <button onclick="window.location.href='healthop.html'" class="active">
+            🏥 Healthcare
+        </button>
+        <button onclick="window.location.href='utilitiesop.html'">
+            💡 Utilities
+        </button>
+        <button onclick="window.location.href='govop.html'">
+            🏛 Government
+        </button>
+    </div>
 
     <!-- Panel de Accesibilidad -->
     <div class="accessibility-panel" id="accessibilityPanel">
@@ -84,6 +212,123 @@
                     <button id="smallText">A-</button>
                     <button id="normalText" class="active">A</button>
                     <button id="largeText">A+</button>
+        </div>
+         <!--see more-->
+        <div class="service-footer">
+    <button class="see-more" onclick="window.location.href='seemorebenjabloom.html'">
+        See more
+    </button>
+     <!--call-->
+    <button class="call-now" onclick="window.location.href='videollamada.html'">
+        <i class="fa-solid fa-phone"></i>
+        Call now
+    </button>
+</div>
+    </div>
+    <!--Farmacias San Nicolás-->
+<div class="service-card">
+    <div class="service-header">
+        <div class="service-info">
+             <img src="https://elencuentrosv.com/valledulce/wp-content/uploads/2024/11/Farmacias-San-Nicolas.jpg" alt="Farmacias San Nicolás">
+            <div>
+                <h2>Farmacias San Nicolás</h2>
+                <span class="category">
+                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+                    Healthcare
+                </span>
+                <p>
+                    Prescription delivery, medicine orders, and professional pharmacy assistance.
+                </p>
+            </div>
+        </div>
+        <div class="status">
+            <span class="available">
+                <span class="circle"></span>
+                Available
+            </span>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="service-content">
+        <div class="column">
+            <h4>Available Services</h4>
+            <ul>
+                <li>Home delivery orders</li>
+                <li>Prescription verification</li>
+                <li>Medical product inquiries</li>
+                <li>Customer support</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h4>Languages</h4>
+            <div class="badges">
+                <span>🇺🇸 English</span>
+                <span>🇪🇸 Español</span>
+                <span>LESSA</span>
+            </div>
+            <div class="wait">
+                <i class="fa-regular fa-clock"></i>
+                <span>Estimated wait: <strong>2 min</strong></span>
+            </div>
+        </div>
+    </div>
+    <div class="service-footer">
+    <button class="see-more" onclick="window.location.href='seemorefarmanicolas.html'">
+        See more
+    </button>
+
+    <button class="call-now" onclick="window.location.href='videollamada.html'">
+        <i class="fa-solid fa-phone"></i>
+        Call now
+    </button>
+</div>
+    </div>
+</div>
+</section>
+</section>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="logo" role="img" aria-label="SENYA Logo">
+                SEN<span class="logo-y">Y</span>A
+        </div>
+            <p>"Communication is not a privilege, it's a right."</p>
+        </div>
+        <div class="footer-column">
+            <h3>Information</h3>
+            <ul>
+                <li><span class="disabled-link">Home</span></li>
+                <li><span class="disabled-link">Services</span></li>
+                <li><span class="disabled-link">Join to us</span></li>
+                <li><span class="disabled-link">About us</span></li>
+                <li><span class="disabled-link">How to use Senya?</span></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Useful Links</h3>
+            <ul>
+                <li><span class="disabled-link">Technical Support</span></li>
+                <li><span class="disabled-link">Services</span></li>
+                <li><span class="disabled-link">Join to us</span></li>
+                <li><span class="disabled-link">How to use Senya?</span></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Our Services</h3>
+            <ul>
+                <li><span class="disabled-link">Banks</span></li>
+                <li><span class="disabled-link">Call Centers</span></li>
+                <li><span class="disabled-link">Internet</span></li>
+                <li><span class="disabled-link">Shops</span></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p>📞 +503 9842-5783</p>
+            <p>✉ senya.sv@gmail.com</p>
+            <div class="socials">
+                <div class="social-logo" role="img" aria-label="SENYA Logo">
+                    <img src="img/Senyalogo.png" alt="SENYA Logo">
                 </div>
             </div>
 
