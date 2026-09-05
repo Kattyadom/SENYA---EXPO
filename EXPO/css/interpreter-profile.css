@@ -1,0 +1,1704 @@
+/* =========================================================
+   1. VARIABLES
+========================================================= */
+
+:root {
+
+    --blue: #2563EB;
+    --blue-dark: #1D4ED8;
+    --blue-light: #EEF4FF;
+
+    --pink: #FF4F8B;
+    --pink-light: #FFF1F6;
+
+    --white: #FFFFFF;
+
+    --background: #F8FAFC;
+
+    --text: #1E293B;
+    --text-soft: #64748B;
+
+    --border: #E2E8F0;
+
+    --green: #16A34A;
+    --green-light: #ECFDF3;
+
+}
+
+
+/* =========================================================
+   2. RESET / GENERAL
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background-color: var(--background);
+
+    color: var(--text);
+
+}
+
+
+button,
+input,
+textarea {
+
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+button {
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   3. NAVBAR
+========================================================= */
+
+.navbar {
+
+    width: 100%;
+    height: 76px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--white);
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+}
+
+
+/* NAVBAR LOGO */
+
+.navbar-logo {
+
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+}
+
+
+.navbar-logo img {
+
+    width: 115px;
+
+    object-fit: contain;
+
+}
+
+
+/* NAVBAR MENU */
+
+.navbar-menu {
+
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+
+}
+
+
+.navbar-menu a {
+
+    position: relative;
+
+    color: var(--text-soft);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.3s;
+
+}
+
+
+.navbar-menu a:hover {
+
+    color: var(--blue);
+
+}
+
+
+.navbar-menu a.active {
+
+    color: var(--blue);
+
+    font-weight: 600;
+
+}
+
+
+.navbar-menu a.active::after {
+
+    content: "";
+
+    width: 22px;
+    height: 3px;
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -11px;
+
+    transform: translateX(-50%);
+
+    background-color: var(--pink);
+
+    border-radius: 20px;
+
+}
+
+
+/* NAVBAR ACTIONS */
+
+.navbar-actions {
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.notification-button {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background-color: var(--white);
+
+    color: var(--text-soft);
+
+    font-size: 16px;
+
+    transition: 0.3s;
+
+}
+
+
+.notification-button:hover {
+
+    border-color: var(--blue);
+
+    color: var(--blue);
+
+}
+
+
+.navbar-user {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.navbar-avatar {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--blue);
+
+    color: var(--white);
+
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+
+.navbar-user div:last-child {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.navbar-name {
+
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+
+.navbar-user small {
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   4. MAIN CONTAINER
+========================================================= */
+
+.main-container {
+
+    width: min(1180px, 90%);
+
+    margin: 0 auto;
+
+    padding: 45px 0 70px;
+
+}
+
+
+/* =========================================================
+   5. PAGE HEADER
+========================================================= */
+
+.page-header {
+
+    margin-bottom: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.page-label {
+
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    color: var(--pink);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+}
+
+
+.page-header h1 {
+
+    margin-bottom: 7px;
+
+    color: var(--blue);
+
+    font-size: 34px;
+
+}
+
+
+.page-header p {
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+.edit-profile-button {
+
+    padding: 12px 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: var(--blue);
+
+    color: var(--white);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s;
+
+}
+
+
+.edit-profile-button:hover {
+
+    background-color: var(--blue-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================================
+   6. PROFILE GRID
+========================================================= */
+
+.profile-grid {
+
+    display: grid;
+
+    grid-template-columns: 320px 1fr;
+
+    gap: 24px;
+
+    align-items: start;
+
+}
+
+
+/* =========================================================
+   7. LEFT COLUMN / SIDEBAR
+========================================================= */
+
+.profile-sidebar {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+/* PROFILE CARD */
+
+.profile-card {
+
+    padding: 30px 24px;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    text-align: center;
+
+}
+
+
+.profile-image {
+
+    width: 92px;
+    height: 92px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--blue-dark)
+    );
+
+    color: var(--white);
+
+    border-radius: 50%;
+
+    font-size: 27px;
+    font-weight: 600;
+
+}
+
+
+.profile-status {
+
+    width: fit-content;
+
+    margin: 0 auto 13px;
+
+    padding: 5px 10px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    background-color: var(--green-light);
+
+    color: var(--green);
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    background-color: var(--green);
+
+    border-radius: 50%;
+
+}
+
+
+.profile-card h2 {
+
+    margin-bottom: 3px;
+
+    font-size: 21px;
+
+}
+
+
+.profile-role {
+
+    margin-bottom: 12px;
+
+    color: var(--text-soft);
+
+    font-size: 12px;
+
+}
+
+
+.verified-badge {
+
+    width: fit-content;
+
+    margin: 0 auto;
+
+    padding: 7px 11px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    background-color: var(--blue-light);
+
+    color: var(--blue);
+
+    border-radius: 9px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+
+.rating {
+
+    margin-top: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+}
+
+
+.rating span {
+
+    color: var(--text);
+
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+
+.rating span i {
+
+    color: #F59E0B;
+
+}
+
+
+.rating small {
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+
+}
+
+
+.profile-divider {
+
+    height: 1px;
+
+    margin: 22px 0;
+
+    background-color: var(--border);
+
+}
+
+
+/* CONTACT INFORMATION */
+
+.profile-contact {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+
+}
+
+
+.contact-item {
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 11px;
+
+    text-align: left;
+
+}
+
+
+.contact-item > i {
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--pink-light);
+
+    color: var(--pink);
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+}
+
+
+.contact-item div {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.contact-item small {
+
+    margin-bottom: 2px;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+}
+
+
+.contact-item span {
+
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 500;
+
+}
+
+
+/* AVAILABILITY CARD */
+
+.availability-card {
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+}
+
+
+.availability-card div {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.availability-label {
+
+    margin-bottom: 3px;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+}
+
+
+.availability-card strong {
+
+    color: var(--text);
+
+    font-size: 12px;
+
+}
+
+
+/* SWITCH */
+
+.switch {
+
+    position: relative;
+
+    width: 46px;
+    height: 25px;
+
+}
+
+
+.switch input {
+
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+
+}
+
+
+.slider {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-color: #CBD5E1;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+
+}
+
+
+.slider::before {
+
+    content: "";
+
+    width: 19px;
+    height: 19px;
+
+    position: absolute;
+
+    left: 3px;
+    top: 3px;
+
+    background-color: var(--white);
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+
+}
+
+
+.switch input:checked + .slider {
+
+    background-color: var(--green);
+
+}
+
+
+.switch input:checked + .slider::before {
+
+    transform: translateX(21px);
+
+}
+
+
+/* =========================================================
+   8. RIGHT COLUMN / CONTENT
+========================================================= */
+
+.profile-content {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+/* CONTENT CARD */
+
+.content-card {
+
+    padding: 25px;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+}
+
+
+/* CARD HEADER */
+
+.card-header {
+
+    margin-bottom: 22px;
+
+}
+
+
+.card-header > div {
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.card-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--blue-light);
+
+    color: var(--blue);
+
+    border-radius: 11px;
+
+    font-size: 15px;
+
+}
+
+
+.card-icon.pink-icon {
+
+    background-color: var(--pink-light);
+
+    color: var(--pink);
+
+}
+
+
+.card-header h3 {
+
+    margin-bottom: 3px;
+
+    font-size: 16px;
+
+}
+
+
+.card-header p {
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   9. PROFESSIONAL INFORMATION
+========================================================= */
+
+.information-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 13px;
+
+}
+
+
+.information-item {
+
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--background);
+
+    border-radius: 11px;
+
+}
+
+
+.information-item span {
+
+    margin-bottom: 5px;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+}
+
+
+.information-item strong {
+
+    font-size: 12px;
+
+}
+
+
+.verified-text {
+
+    color: var(--green);
+
+}
+
+
+.profile-description {
+
+    margin-top: 17px;
+
+    padding-top: 17px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+
+.profile-description span {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+}
+
+
+.profile-description p {
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   10. LANGUAGES
+========================================================= */
+
+.language-list {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.language-card {
+
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+}
+
+
+.language-icon {
+
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: var(--blue-light);
+
+    color: var(--blue);
+
+    border-radius: 10px;
+
+}
+
+
+.language-card div:nth-child(2) {
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+}
+
+
+.language-card strong {
+
+    font-size: 11px;
+
+}
+
+
+.language-card small {
+
+    color: var(--text-soft);
+
+    font-size: 8px;
+
+}
+
+
+.level-badge {
+
+    padding: 4px 7px;
+
+    background-color: var(--pink-light);
+
+    color: var(--pink);
+
+    border-radius: 7px;
+
+    font-size: 8px;
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   11. SPECIALIZATIONS
+========================================================= */
+
+.specializations {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+}
+
+
+.specialization {
+
+    padding: 9px 12px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    background-color: var(--blue-light);
+
+    color: var(--blue-dark);
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 500;
+
+}
+
+
+/* =========================================================
+   12. STATISTICS
+========================================================= */
+
+.statistics-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.statistic-card {
+
+    padding: 17px 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    background-color: var(--background);
+
+    border-radius: 12px;
+
+}
+
+
+.statistic-icon {
+
+    width: 37px;
+    height: 37px;
+
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--pink-light);
+
+    color: var(--pink);
+
+    border-radius: 10px;
+
+}
+
+
+.statistic-card strong {
+
+    margin-bottom: 3px;
+
+    color: var(--blue);
+
+    font-size: 19px;
+
+}
+
+
+.statistic-card span {
+
+    color: var(--text-soft);
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   13. DOCUMENT
+========================================================= */
+
+.document-card {
+
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+}
+
+
+.document-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--pink-light);
+
+    color: var(--pink);
+
+    border-radius: 10px;
+
+}
+
+
+.document-information {
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+}
+
+
+.document-information strong {
+
+    font-size: 12px;
+
+}
+
+
+.document-information small {
+
+    margin-top: 2px;
+
+    color: var(--text-soft);
+
+    font-size: 9px;
+
+}
+
+
+.document-status {
+
+    padding: 6px 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    background-color: var(--green-light);
+
+    color: var(--green);
+
+    border-radius: 8px;
+
+    font-size: 9px;
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   14. MODAL
+========================================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.modal.active {
+
+    display: flex;
+
+}
+
+
+.modal-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-color: rgba(15, 23, 42, 0.45);
+
+}
+
+
+.modal-content {
+
+    width: min(580px, 90%);
+
+    max-height: 90vh;
+
+    padding: 27px;
+
+    position: relative;
+
+    overflow-y: auto;
+
+    background-color: var(--white);
+
+    border-radius: 18px;
+
+    z-index: 2;
+
+}
+
+
+.modal-header {
+
+    margin-bottom: 23px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.modal-header h2 {
+
+    color: var(--blue);
+
+    font-size: 22px;
+
+}
+
+
+.close-modal {
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background-color: var(--background);
+
+    color: var(--text-soft);
+
+    border-radius: 50%;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================================
+   15. FORM INSIDE MODAL
+========================================================= */
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 13px;
+
+}
+
+
+.form-group {
+
+    margin-bottom: 15px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--blue-dark);
+
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background-color: var(--background);
+
+    color: var(--text);
+
+    outline: none;
+
+    font-size: 12px;
+
+    transition: 0.3s;
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: var(--blue);
+
+    background-color: var(--white);
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+
+}
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+}
+
+
+/* =========================================================
+   16. MODAL BUTTONS
+========================================================= */
+
+.modal-actions {
+
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+}
+
+
+.cancel-button,
+.save-button {
+
+    padding: 11px 17px;
+
+    border-radius: 9px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+
+.cancel-button {
+
+    border: 1px solid var(--border);
+
+    background-color: var(--white);
+
+    color: var(--text-soft);
+
+}
+
+
+.save-button {
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    border: none;
+
+    background-color: var(--blue);
+
+    color: var(--white);
+
+}
+
+
+.save-button:hover {
+
+    background-color: var(--blue-dark);
+
+}
+
+
+/* =========================================================
+   17. RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .navbar {
+
+        padding: 0 4%;
+
+    }
+
+
+    .navbar-menu {
+
+        display: none;
+
+    }
+
+
+    .profile-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .profile-sidebar {
+
+        display: grid;
+
+        grid-template-columns: 2fr 1fr;
+
+    }
+
+
+    .availability-card {
+
+        height: fit-content;
+
+    }
+
+
+    .language-list {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   18. RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+
+        height: 68px;
+
+    }
+
+
+    .navbar-user div:last-child {
+
+        display: none;
+
+    }
+
+
+    .navbar-logo img {
+
+        width: 95px;
+
+    }
+
+
+    .main-container {
+
+        width: 92%;
+
+        padding-top: 30px;
+
+    }
+
+
+    .page-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .page-header h1 {
+
+        font-size: 27px;
+
+    }
+
+
+    .edit-profile-button {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
+    .profile-sidebar {
+
+        display: flex;
+
+    }
+
+
+    .information-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .statistics-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .document-card {
+
+        align-items: flex-start;
+
+    }
+
+
+    .document-status {
+
+        display: none;
+
+    }
+
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+    }
+
+
+    .modal-content {
+
+        padding: 21px;
+
+    }
+
+}
+
+
+/* =========================================================
+   19. RESPONSIVE - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .statistics-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .content-card {
+
+        padding: 20px 16px;
+
+    }
+
+
+    .profile-card {
+
+        padding: 25px 18px;
+
+    }
+
+}

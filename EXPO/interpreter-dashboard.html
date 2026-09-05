@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interpreter Dashboard - SENYA</title>
+
+    <!-- SENYA shared styles -->
+    <link rel="stylesheet" href="css/general.css">
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="css/interpreter-dashboard.css">
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         ACCESSIBILITY PANEL
+    ====================================================== -->
+
+    <div
+        class="accessibility-panel"
+        id="accessibilityPanel"
+    >
+
+        <div class="panel-header">
+
+            <h3>
+                Accessibility
+            </h3>
+
+            <button id="closePanel">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="panel-content">
+
+            <button
+                class="acc-card low-vision"
+                id="lowVisionBtn"
+            >
+
+                <div class="acc-icon">👁️</div>
+
+                <div class="acc-info">
+
+                    <h4>Low Vision</h4>
+
+                    <p>
+                        High contrast and larger text
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="acc-card dyslexia-mode"
+                id="dyslexiaBtn"
+            >
+
+                <div class="acc-icon">📖</div>
+
+                <div class="acc-info">
+
+                    <h4>Dyslexia</h4>
+
+                    <p>
+                        Friendly font and more spacing
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="acc-card speech-mode"
+                id="speechBtn"
+            >
+
+                <div class="acc-icon">🔊</div>
+
+                <div class="acc-info">
+
+                    <h4>Read Aloud</h4>
+
+                    <p>
+                        Read the page with voice
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <div class="text-size-box">
+
+                <label>Text Size</label>
+
+                <div class="size-buttons">
+
+                    <button id="smallText">A-</button>
+
+                    <button
+                        id="normalText"
+                        class="active"
+                    >
+                        A
+                    </button>
+
+                    <button id="largeText">A+</button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="reset-btn"
+                id="resetAccessibility"
+            >
+                Reset Accessibility
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="navbar-container">
+
+            <a
+                href="interpreter-dashboard.html"
+                class="logo"
+            >
+
+                <img
+                    src="img/Senyalogo.png"
+                    alt="SENYA Logo"
+                >
+
+            </a>
+
+
+            <nav>
+
+                <ul
+                    class="nav-links"
+                    id="interpreterNav"
+                >
+
+                    <li>
+                        <a
+                            href="interpreter-dashboard.html"
+                            class="active"
+                        >
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#requests">
+                            Requests
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#session">
+                            Session
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#history">
+                            History
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="interpreter-profile.html">
+                            Profile
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <div class="right-actions">
+
+                <a
+                    href="#"
+                    class="help-btn"
+                    id="accessibilityBtn"
+                >
+                    Accessibility
+                </a>
+
+                <div
+                    class="menu-toggle"
+                    id="menuToggle"
+                >
+
+                    <i class="fas fa-bars"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="dashboard-page">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero-section">
+
+
+            <!-- LEFT CARD -->
+
+            <article class="hero-card">
+
+                <div class="hero-card-content">
+
+                    <span class="section-label">
+                        INTERPRETER DASHBOARD
+                    </span>
+
+                    <h1>
+                        Help users connect
+                        <span>without barriers</span>
+                    </h1>
+
+                    <p>
+                        Manage your availability, accept requests,
+                        and assist SENYA users through the services they need.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#requests"
+                            class="primary-btn"
+                        >
+                            View requests
+                        </a>
+
+                        <a
+                            href="interpreter-profile.html"
+                            class="secondary-btn"
+                        >
+                            My profile
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="hero-phone">
+
+                        <div class="hero-phone-header">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="hero-phone-body">
+
+                            <div class="mini-card blue-card">
+                                <i class="fa-solid fa-hands-asl-interpreting"></i>
+                                <div>
+                                    <strong>LESSA Support</strong>
+                                    <p>Accessible communication</p>
+                                </div>
+                            </div>
+
+                            <div class="mini-card pink-card">
+                                <i class="fa-solid fa-video"></i>
+                                <div>
+                                    <strong>Active help</strong>
+                                    <p>Live interpreter assistance</p>
+                                </div>
+                            </div>
+
+                            <div class="mini-card white-card">
+                                <i class="fa-solid fa-user-check"></i>
+                                <div>
+                                    <strong>Verified interpreter</strong>
+                                    <p>Andrea Martínez</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- RIGHT STATUS -->
+
+            <aside class="status-panel">
+
+                <div class="status-top">
+
+                    <div>
+
+                        <small>
+                            CURRENT STATUS
+                        </small>
+
+                        <h3 id="availabilityText">
+                            Available
+                        </h3>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="availabilitySwitch"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <p
+                    class="status-message"
+                    id="availabilityMessage"
+                >
+                    You can receive new requests.
+                </p>
+
+
+                <div class="interpreter-mini-profile">
+
+                    <div class="mini-avatar">
+                        AM
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Andrea Martínez
+                        </strong>
+
+                        <span>
+                            Verified Interpreter
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="status-stats">
+
+                    <div>
+                        <strong>8</strong>
+                        <span>Today</span>
+                    </div>
+
+                    <div>
+                        <strong>4.9</strong>
+                        <span>Rating</span>
+                    </div>
+
+                    <div>
+                        <strong>2</strong>
+                        <span>Waiting</span>
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUMMARY
+        ================================================== -->
+
+        <section class="summary-section">
+
+            <article class="summary-card">
+
+                <div class="summary-icon blue-soft">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+
+                <div>
+                    <h3>
+                        About your dashboard
+                    </h3>
+                    <p>
+                        This space helps you see new requests,
+                        manage your active session and keep track of recent help.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="summary-card">
+
+                <div class="summary-icon pink-soft">
+                    <i class="fa-solid fa-language"></i>
+                </div>
+
+                <div>
+                    <h3>
+                        Communication
+                    </h3>
+                    <p>
+                        Main communication method:
+                        <strong>LESSA</strong>
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="summary-card">
+
+                <div class="summary-icon blue-soft">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+
+                <div>
+                    <h3>
+                        Verification
+                    </h3>
+                    <p>
+                        Your interpreter profile is currently
+                        <strong>verified</strong>.
+                    </p>
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REQUESTS
+        ================================================== -->
+
+        <section
+            class="content-section"
+            id="requests"
+        >
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">
+                        REQUESTS
+                    </span>
+                    <h2>
+                        People waiting for assistance
+                    </h2>
+                </div>
+
+                <p
+                    class="section-counter"
+                    id="requestCount"
+                >
+                    2 waiting
+                </p>
+
+            </div>
+
+
+            <div
+                class="requests-list"
+                id="requestsList"
+            >
+
+
+                <!-- REQUEST 1 -->
+
+                <article
+                    class="request-card"
+                    data-request-id="1"
+                >
+
+                    <div class="request-service">
+
+                        <div class="request-icon blue-soft">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+
+                        <div class="request-text">
+
+                            <span>
+                                BANKING
+                            </span>
+
+                            <h3>
+                                BAC Credomatic
+                            </h3>
+
+                            <p>
+                                Ariana F. · LESSA · Debit card information
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="request-side">
+
+                        <div class="request-time">
+
+                            <small>Waiting</small>
+
+                            <strong>00:42</strong>
+
+                        </div>
+
+                        <div class="request-actions">
+
+                            <button
+                                class="decline-btn"
+                                data-action="decline"
+                            >
+                                Decline
+                            </button>
+
+                            <button
+                                class="accept-btn"
+                                data-action="accept"
+                            >
+                                Accept
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- REQUEST 2 -->
+
+                <article
+                    class="request-card"
+                    data-request-id="2"
+                >
+
+                    <div class="request-service">
+
+                        <div class="request-icon pink-soft">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <div class="request-text">
+
+                            <span class="pink-text">
+                                HEALTHCARE
+                            </span>
+
+                            <h3>
+                                ISSS
+                            </h3>
+
+                            <p>
+                                Carlos M. · LESSA · Medical appointment information
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="request-side">
+
+                        <div class="request-time">
+
+                            <small>Waiting</small>
+
+                            <strong>01:18</strong>
+
+                        </div>
+
+                        <div class="request-actions">
+
+                            <button
+                                class="decline-btn"
+                                data-action="decline"
+                            >
+                                Decline
+                            </button>
+
+                            <button
+                                class="accept-btn"
+                                data-action="accept"
+                            >
+                                Accept
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div
+                class="empty-state"
+                id="emptyRequests"
+                hidden
+            >
+
+                <i class="fa-regular fa-circle-check"></i>
+
+                <h3>
+                    No requests right now
+                </h3>
+
+                <p>
+                    New assistance requests will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SESSION + HISTORY
+        ================================================== -->
+
+        <section class="bottom-grid">
+
+
+            <!-- SESSION -->
+
+            <section
+                class="content-section"
+                id="session"
+            >
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            CURRENT SESSION
+                        </span>
+                        <h2>
+                            Live assistance
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="session-empty"
+                    id="sessionEmpty"
+                >
+
+                    <div class="session-empty-icon">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            No active session
+                        </h3>
+
+                        <p>
+                            Accept a request to begin assisting a user.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="session-card"
+                    id="sessionCard"
+                    hidden
+                >
+
+                    <span class="ready-badge">
+                        READY
+                    </span>
+
+                    <h3 id="sessionService">
+                        BAC Credomatic
+                    </h3>
+
+                    <p id="sessionDetails">
+                        Ariana F. · LESSA · Debit card information
+                    </p>
+
+                    <div class="session-buttons">
+
+                        <a
+                            href="videollamada.html"
+                            class="call-btn"
+                        >
+                            <i class="fa-solid fa-video"></i>
+                            Start call
+                        </a>
+
+                        <button
+                            class="finish-btn"
+                            id="finishButton"
+                        >
+                            Finish
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- HISTORY -->
+
+            <section
+                class="content-section"
+                id="history"
+            >
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">
+                            HISTORY
+                        </span>
+                        <h2>
+                            Recent sessions
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="history-list">
+
+                    <article class="history-row">
+
+                        <div class="history-icon blue-soft">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+
+                        <div class="history-text">
+                            <h3>BAC Credomatic</h3>
+                            <p>Mario P. · 14 min</p>
+                        </div>
+
+                        <span>
+                            Completed
+                        </span>
+
+                    </article>
+
+
+                    <article class="history-row">
+
+                        <div class="history-icon pink-soft">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <div class="history-text">
+                            <h3>ISSS</h3>
+                            <p>Elena C. · 22 min</p>
+                        </div>
+
+                        <span>
+                            Completed
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/interpreter-dashboard.js"></script>
+
+</body>
+
+</html>
