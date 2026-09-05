@@ -6,82 +6,83 @@
     <title>Perfil - SENYA</title>
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/general.css">
-    <!--Importación de fuentes e iconos-->
-    <!--MEDIA PIPE VISION(OTRO SCRIPT PARA EL MOVIMIENTO DE CABEZA)-->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
+
+    <!-- Importación de fuentes e iconos -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
- <!-- Accessibility Panel -->
+
+<!-- Accessibility Panel -->
 <div class="accessibility-panel" id="accessibilityPanel">
-
-<div class="panel-header">
-<h3>Accessibility</h3>
-<button id="closePanel">×</button>
-</div>
-
-<div class="panel-content">
-
-<button class="acc-card low-vision" id="lowVisionBtn">
-<div class="acc-icon">👁️</div>
-<div class="acc-info">
-<h4>Low Vision</h4>
-<p>High contrast, larger text and stronger buttons</p>
-</div>
-</button>
-
-<button class="acc-card dyslexia-mode" id="dyslexiaBtn">
-<div class="acc-icon">📖</div>
-<div class="acc-info">
-<h4>Dyslexia</h4>
-<p>Friendly font, soft colors and more spacing</p>
-</div>
-</button>
-
-<button class="acc-card deaf-mode" id="deafBtn">
-<div class="acc-icon">🤟</div>
-<div class="acc-info">
-<h4>Deaf Support</h4>
-<p>Visual communication and larger icons</p>
-</div>
-</button>
-
-<button class="acc-card" id="activarHeadTracking">
-    <div class="acc-icon">🔄</div>
-    <div class="acc-info">
-        <h4>Head Control</h4>
-        <p>Navigate and scroll using head movements</p>
+    <div class="panel-header">
+        <h3>Accessibility</h3>
+        <button id="closePanel">×</button>
     </div>
-</button>
 
-<button class="acc-card speech-mode" id="speechBtn">
-<div class="acc-icon">🔊</div> <div class="acc-info">
-<h4>Read Aloud</h4>
-<p>Read the text on the screen with voice</p>
-</div>
-</button>
+    <div class="panel-content">
+        <button class="acc-card low-vision" id="lowVisionBtn">
+            <div class="acc-icon">👁️</div>
+            <div class="acc-info">
+                <h4>Low Vision</h4>
+                <p>High contrast, larger text and stronger buttons</p>
+            </div>
+        </button>
 
-<div class="text-size-box">
-<label>Text Size</label>
-<div class="size-buttons">
-<button id="smallText">A-</button>
-<button id="normalText" class="active">A</button>
-<button id="largeText">A+</button>
-</div>
+        <button class="acc-card dyslexia-mode" id="dyslexiaBtn">
+            <div class="acc-icon">📖</div>
+            <div class="acc-info">
+                <h4>Dyslexia</h4>
+                <p>Friendly font, soft colors and more spacing</p>
+            </div>
+        </button>
+
+        <button class="acc-card deaf-mode" id="deafBtn">
+            <div class="acc-icon">🤟</div>
+            <div class="acc-info">
+                <h4>Deaf Support</h4>
+                <p>Visual communication and larger icons</p>
+            </div>
+        </button>
+
+        <button class="acc-card" id="activarHeadTracking">
+            <div class="acc-icon">🔄</div>
+            <div class="acc-info">
+                <h4>Head Control</h4>
+                <p>Navigate and scroll using head movements</p>
+            </div>
+        </button>
+
+        <button class="acc-card speech-mode" id="speechBtn">
+            <div class="acc-icon">🔊</div>
+            <div class="acc-info">
+                <h4>Read Aloud</h4>
+                <p>Read the text on the screen with voice</p>
+            </div>
+        </button>
+
+        <div class="text-size-box">
+            <label>Text Size</label>
+            <div class="size-buttons">
+                <button id="smallText">A-</button>
+                <button id="normalText" class="active">A</button>
+                <button id="largeText">A+</button>
+            </div>
+        </div>
+
+        <button class="reset-btn" id="resetAccessibility">
+            Reset Accessibility
+        </button>
+    </div>
 </div>
 
-<button class="reset-btn" id="resetAccessibility">
-Reset Accessibility
-</button>
-
-</div>
-</div>
-  
-    <header class="navbar">
+<header class="navbar">
     <div class="navbar-container">
         <a href="#" class="logo">
             <img src="img/Senyalogo.png" alt="SENYA Logo">
         </a>
+
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -91,143 +92,310 @@ Reset Accessibility
                 <li><a href="soporte.html">Contact</a></li>
             </ul>
         </nav>
+
         <a href="#" class="help-btn" id="accessibilityBtn">
-    Accesibility
-</a>
+            Accessibility
+        </a>
+
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
     </div>
 </header>
+
 <div class="profile-page">
+
     <aside class="sidebar">
         <div class="profile-header">
             <div class="image-container">
-                <img src="https://th.bing.com/th/id/R.73cca7706f5b45af3d0507a6d971358f?rik=DzBosi9adsdChw&pid=ImgRaw&r=0" id="previewImage">
+                <img src="https://th.bing.com/th/id/R.73cca7706f5b45af3d0507a6d971358f?rik=DzBosi9adsdChw&pid=ImgRaw&r=0" id="previewImage" alt="Profile picture">
                 <label for="imageUpload" class="camera-btn">
                     <i class="fa-solid fa-camera"></i>
                 </label>
                 <input type="file" id="imageUpload" accept="image/*">
             </div>
+
             <h2 id="displayName">Ariana Fernández</h2>
-            <span class="badge">Customer</span>
-            <p class="sign-language">
-                LESSA
-            </p>
+            <span class="badge">SENYA User</span>
+            <p class="sign-language">LESSA</p>
         </div>
+
         <nav>
             <a href="#personal" class="active">
                 <i class="fa-solid fa-user"></i>
                 Personal information
             </a>
+
             <a href="#contact">
                 <i class="fa-solid fa-phone"></i>
                 Contact methods
             </a>
+
+            <a href="#communication">
+                <i class="fa-solid fa-comments"></i>
+                Communication
+            </a>
+
+            <a href="#accessibility">
+                <i class="fa-solid fa-universal-access"></i>
+                Accessibility
+            </a>
+
+            <a href="#favorites">
+                <i class="fa-solid fa-bookmark"></i>
+                Saved Services
+            </a>
+
+            <a href="#history">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Assistance history
+            </a>
+
             <a href="#settings">
                 <i class="fa-solid fa-gear"></i>
                 Configuration
             </a>
         </nav>
     </aside>
+
     <main class="content">
+
+        <!-- PERSONAL INFORMATION -->
         <section class="card" id="personal">
             <div class="card-title">
                 <h2>Personal information</h2>
-                <button class="edit-btn" onclick="toggleEdit(this)">
-                    Edit
-                </button>
+                <button class="edit-btn">Edit</button>
             </div>
+
             <div class="card-grid">
                 <div class="field">
-                    <label>Name</label>
-                    <input
-                        type="text"
-                        id="firstName"
-                        value="Ariana">
+                    <label for="firstName">Name</label>
+                    <input type="text" id="firstName" value="Ariana" disabled>
                 </div>
+
                 <div class="field">
-                    <label>Last name</label>
-                    <input
-                        type="text"
-                        id="lastName"
-                        value="Fernández">
+                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" value="Fernández" disabled>
                 </div>
+
                 <div class="field">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value="ariana@email.com">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="ariana@email.com" disabled>
                 </div>
+
                 <div class="field">
-                    <label>Birthday</label>
-                    <input
-                        type="date"
-                        id="birth">
+                    <label for="birth">Birthday</label>
+                    <input type="date" id="birth" disabled>
                 </div>
             </div>
         </section>
+
+        <!-- CONTACT METHODS -->
         <section class="card" id="contact">
             <div class="card-title">
                 <h2>Contact methods</h2>
-                <button class="edit-btn">
-                    Edit
-                </button>
+                <button class="edit-btn">Edit</button>
             </div>
+
             <div class="card-grid">
                 <div class="field">
-                    <label>Phone number</label>
-                    <input
-                        type="text"
-                        id="phone"
-                        value="+503 7495 2947">
+                    <label for="phone">Phone number</label>
+                    <input type="text" id="phone" value="+503 7495 2947" disabled>
                 </div>
+
                 <div class="field">
-                     <label>WhatsApp</label>
-                    <input
-                    type="text"
-                    id="whatsapp">
+                    <label for="whatsapp">WhatsApp</label>
+                    <input type="text" id="whatsapp" value="+503 7495 2947" disabled>
                 </div>
-                </div>
+
                 <div class="field full">
-                    <label>Address</label>
-                    <input
-                        type="text"
-                        id="address">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" value="San Salvador, El Salvador" disabled>
                 </div>
             </div>
         </section>
+
+        <!-- COMMUNICATION PREFERENCES -->
+        <section class="card" id="communication">
+            <div class="card-title">
+                <h2>Communication preferences</h2>
+            </div>
+
+            <div class="preference-group">
+                <h4>Preferred communication</h4>
+                <label class="check-option">
+                    <input type="checkbox" id="lessaPreference" checked>
+                    <span>LESSA (Lengua de Señas Salvadoreña)</span>
+                </label>
+
+                <label class="check-option">
+                    <input type="checkbox" id="spanishPreference">
+                    <span>Spanish</span>
+                </label>
+
+                <label class="check-option">
+                    <input type="checkbox" id="englishPreference">
+                    <span>English</span>
+                </label>
+            </div>
+
+            <div class="preference-group">
+                <h4>Preferred assistance</h4>
+                <label class="check-option">
+                    <input type="checkbox" id="videoPreference" checked>
+                    <span>Video interpretation</span>
+                </label>
+
+                <label class="check-option">
+                    <input type="checkbox" id="textPreference">
+                    <span>Text assistance</span>
+                </label>
+            </div>
+
+            <button class="save-preferences-btn" id="saveCommunication">Save preferences</button>
+        </section>
+
+        <!-- ACCESSIBILITY -->
+        <section class="card" id="accessibility">
+            <div class="card-title">
+                <h2>Accessibility preferences</h2>
+            </div>
+
+            <div class="accessibility-options">
+                <label class="check-option">
+                    <input type="checkbox" id="readAloudPreference">
+                    <span>Read aloud</span>
+                </label>
+
+                <label class="check-option">
+                    <input type="checkbox" id="highContrastPreference">
+                    <span>High contrast</span>
+                </label>
+
+                <label class="check-option">
+                    <input type="checkbox" id="largeTextPreference">
+                    <span>Large text</span>
+                </label>
+
+                <label class="check-option">
+                    <input type="checkbox" id="dyslexiaPreference">
+                    <span>Dyslexia mode</span>
+                </label>
+
+                <label class="check-option">
+                    <input type="checkbox" id="headControlPreference">
+                    <span>Head control</span>
+                </label>
+            </div>
+
+            <button class="save-preferences-btn" id="saveAccessibility">Save preferences</button>
+        </section>
+
+        <!-- SAVED SERVICES / FAVORITES -->
+        <section class="card" id="favorites">
+            <div class="card-title">
+                <h2>Saved Services</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="service-details">
+                        <h4>BAC Credomatic</h4>
+                        <p>Bank / Financial Services</p>
+                    </div>
+                    <button class="action-icon-btn" title="Remove"><i class="fa-solid fa-trash"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-hospital"></i></div>
+                    <div class="service-details">
+                        <h4>ISSS General Hospital</h4>
+                        <p>Healthcare Services</p>
+                    </div>
+                    <button class="action-icon-btn" title="Remove"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASSISTANCE HISTORY -->
+        <section class="card" id="history">
+            <div class="card-title">
+                <h2>Assistance history</h2>
+            </div>
+
+            <div class="history-list">
+                <div class="history-item">
+                    <div>
+                        <h4>BAC Credomatic</h4>
+                        <p>Interpreter assistance</p>
+                    </div>
+                    <div class="history-info">
+                        <span>Sep 04</span>
+                        <span class="status completed">Completed</span>
+                    </div>
+                </div>
+
+                <div class="history-item">
+                    <div>
+                        <h4>ISSS</h4>
+                        <p>Interpreter assistance</p>
+                    </div>
+                    <div class="history-info">
+                        <span>Sep 02</span>
+                        <span class="status completed">Completed</span>
+                    </div>
+                </div>
+
+                <div class="history-item">
+                    <div>
+                        <h4>Claro</h4>
+                        <p>Interpreter assistance</p>
+                    </div>
+                    <div class="history-info">
+                        <span>Aug 28</span>
+                        <span class="status completed">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONFIGURATION -->
         <section class="card" id="settings">
             <div class="card-title">
                 <h2>Configuration</h2>
             </div>
+
             <div class="setting-item">
                 <div>
                     <h4>Theme</h4>
-                    <p>Light theme</p>
+                    <p id="themeStatusText">Dark theme (Active)</p>
                 </div>
-                <button>Change</button>
+                <button type="button" id="themeToggleBtn">Change</button>
             </div>
+
             <div class="setting-item">
                 <div>
                     <h4>Log out</h4>
                     <p>Log out from your account</p>
                 </div>
-                <button id="logoutBtn">Log out</button>
-            </div>
+                <button type="button" id="logoutBtn">Log out</button>
             </div>
         </section>
+
     </main>
+
 </div>
+
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-column">
             <div class="logo" role="img" aria-label="SENYA Logo">
                 SEN<span class="logo-y">Y</span>A
-        </div>
+            </div>
             <p>"Communication is not a privilege, it's a right."</p>
         </div>
+
         <div class="footer-column">
             <h3>Information</h3>
             <ul>
@@ -238,6 +406,7 @@ Reset Accessibility
                 <li><span class="disabled-link">How to use Senya?</span></li>
             </ul>
         </div>
+
         <div class="footer-column">
             <h3>Useful Links</h3>
             <ul>
@@ -247,6 +416,7 @@ Reset Accessibility
                 <li><span class="disabled-link">How to use Senya?</span></li>
             </ul>
         </div>
+
         <div class="footer-column">
             <h3>Our Services</h3>
             <ul>
@@ -256,6 +426,7 @@ Reset Accessibility
                 <li><span class="disabled-link">Shops</span></li>
             </ul>
         </div>
+
         <div class="footer-column">
             <h3>Contact Us</h3>
             <p>📞 +503 9842-5783</p>
@@ -267,46 +438,42 @@ Reset Accessibility
             </div>
         </div>
     </div>
+
     <hr>
+
     <div class="footer-bottom">
         <p>© 2026 Senya. All Rights Reserved.</p>
     </div>
 </footer>
+
 <a href="videollamada.html" class="emergency-btn" title="Emergency">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <span>Emergency</span>
 </a>
+
+<!-- LOGOUT MODAL -->
 <div class="logout-modal" id="logoutModal">
     <div class="logout-modal-overlay"></div>
-
     <div class="logout-modal-card">
         <div class="logout-icon">
             <i class="fa-solid fa-right-from-bracket"></i>
         </div>
-
         <h2>Log out?</h2>
-
-        <p>
-            Are you sure you want to log out of your SENYA account?
-        </p>
-
+        <p>Are you sure you want to log out of your SENYA account?</p>
         <div class="logout-actions">
-            <button id="cancelLogout" class="cancel-logout">
-                Maybe later
-            </button>
-
-            <button id="confirmLogout" class="confirm-logout">
-                Log out
-            </button>
+            <button id="cancelLogout" class="cancel-logout">Maybe later</button>
+            <button id="confirmLogout" class="confirm-logout">Log out</button>
         </div>
     </div>
 </div>
+
 <script src="js/profile.js"></script>
 <script src="js/accessibility.js"></script>
 <script src="js/modal.js"></script>
-<!--SCRIPT PARA MOVIMIENTO CON LA CABEZA-->
 <script type="module" src="js/head-tracking.js"></script>
+
 <!-- Cursor virtual controlado por la cabeza -->
 <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+
 </body>
 </html>
