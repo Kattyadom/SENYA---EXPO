@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interpreter Registration | SENYA</title>
+  <link rel="stylesheet" href="css/interpreter-register.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+  <main class="page">
+    <aside class="brand-panel">
+      <a class="brand-logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a>
+      <div class="brand-copy">
+        <h1>Help make communication accessible.</h1>
+        <p>Join SENYA as an interpreter and help users communicate confidently with the services they need.</p>
+
+        <div class="benefits">
+          <div class="benefit"><span><i class="fa-solid fa-user-check"></i></span><div><strong>Verified profile</strong><small>Build a trusted professional identity.</small></div></div>
+          <div class="benefit"><span><i class="fa-solid fa-video"></i></span><div><strong>Accessible sessions</strong><small>Receive and manage interpretation requests.</small></div></div>
+          <div class="benefit"><span><i class="fa-solid fa-chart-line"></i></span><div><strong>Professional growth</strong><small>Track sessions, ratings and experience.</small></div></div>
+        </div>
+      </div>
+      <p class="brand-footer">Communication must be a right, not a privilege.</p>
+    </aside>
+
+    <section class="form-panel">
+      <div class="form-wrap">
+        <a href="SignUp.html" class="back"><i class="fa-solid fa-arrow-left"></i> Back</a>
+
+        <header class="heading">
+          <span>INTERPRETER APPLICATION</span>
+          <h2>Create your interpreter profile</h2>
+          <p>Complete your information. Your application will be reviewed before your interpreter account becomes active.</p>
+        </header>
+
+        <form id="interpreterForm">
+          <section class="card">
+            <div class="card-title"><span><i class="fa-solid fa-user"></i></span><div><h3>Personal information</h3><p>Tell us who you are.</p></div></div>
+            <div class="grid-2">
+              <label class="field">First name<div class="input"><i class="fa-solid fa-user"></i><input id="firstName" type="text" placeholder="Your first name" required></div></label>
+              <label class="field">Last name<div class="input"><i class="fa-solid fa-user"></i><input id="lastName" type="text" placeholder="Your last name" required></div></label>
+            </div>
+            <div class="grid-2">
+              <label class="field">Email address<div class="input"><i class="fa-solid fa-envelope"></i><input id="email" type="email" placeholder="example@email.com" required></div></label>
+              <label class="field">Phone number<div class="input"><i class="fa-solid fa-phone"></i><input id="phone" type="tel" placeholder="+503 0000 0000" required></div></label>
+            </div>
+            <label class="field">Password<div class="input"><i class="fa-solid fa-lock"></i><input id="password" type="password" minlength="8" placeholder="Create a secure password" required><button type="button" id="togglePassword" aria-label="Show password"><i class="fa-solid fa-eye"></i></button></div><small>Use at least 8 characters.</small></label>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><span><i class="fa-solid fa-briefcase"></i></span><div><h3>Professional information</h3><p>Tell SENYA about your interpreter experience.</p></div></div>
+            <div class="grid-2">
+              <label class="field">Years of experience<div class="input"><i class="fa-solid fa-calendar-check"></i><input id="experience" type="number" min="0" max="60" placeholder="e.g. 3" required></div></label>
+              <label class="field">Certification / credential<div class="input"><i class="fa-solid fa-certificate"></i><input id="certification" type="text" placeholder="Certification name or ID" required></div></label>
+            </div>
+
+            <div class="field block-label">Languages / communication methods</div>
+            <div class="language-grid">
+              <label class="language"><input type="checkbox" name="language" value="LESSA"><b></b><span><strong>LESSA</strong><small>Salvadoran Sign Language</small></span></label>
+              <label class="language"><input type="checkbox" name="language" value="Spanish"><b></b><span><strong>Spanish</strong><small>Spoken communication</small></span></label>
+              <label class="language"><input type="checkbox" name="language" value="English"><b></b><span><strong>English</strong><small>Spoken communication</small></span></label>
+            </div>
+            <small class="helper">Select at least one option.</small>
+
+            <div class="field block-label spacing">Areas of specialization</div>
+            <div class="chips">
+              <label><input type="checkbox" name="specialty" value="Banking"><span><i class="fa-solid fa-building-columns"></i> Banking</span></label>
+              <label><input type="checkbox" name="specialty" value="Healthcare"><span><i class="fa-solid fa-heart-pulse"></i> Healthcare</span></label>
+              <label><input type="checkbox" name="specialty" value="Government"><span><i class="fa-solid fa-landmark"></i> Government</span></label>
+              <label><input type="checkbox" name="specialty" value="Telecommunications"><span><i class="fa-solid fa-tower-cell"></i> Telecommunications</span></label>
+              <label><input type="checkbox" name="specialty" value="Utilities"><span><i class="fa-solid fa-bolt"></i> Utilities</span></label>
+              <label><input type="checkbox" name="specialty" value="General"><span><i class="fa-solid fa-comments"></i> General</span></label>
+            </div>
+
+            <label class="field spacing">Professional summary <em>(optional)</em><div class="textarea"><i class="fa-solid fa-pen"></i><textarea id="bio" maxlength="300" placeholder="Briefly describe your experience as an interpreter..."></textarea></div><small class="count"><span id="bioCount">0</span>/300</small></label>
+          </section>
+
+          <section class="card">
+            <div class="card-title"><span><i class="fa-solid fa-shield-halved"></i></span><div><h3>Verification</h3><p>Upload a document that supports your credentials.</p></div></div>
+            <div class="field block-label">Certification document</div>
+            <label class="upload" for="certificateFile"><span><i class="fa-solid fa-cloud-arrow-up"></i></span><div><strong id="fileLabel">Upload certification</strong><small>PDF, JPG or PNG · max. 5 MB</small></div><b>Choose file</b></label>
+            <input class="file-input" id="certificateFile" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+            <label class="terms"><input id="terms" type="checkbox" required><span>I confirm that the information provided is accurate and I agree to SENYA's verification process and privacy policy.</span></label>
+          </section>
+
+          <div class="notice"><i class="fa-solid fa-circle-info"></i><p>Interpreter accounts are reviewed before activation. You will receive a notification when your profile has been verified.</p></div>
+          <button class="submit" type="submit">Submit application <i class="fa-solid fa-arrow-right"></i></button>
+          <p class="signin">Already have an account? <a href="signin.html">Sign in</a></p>
+        </form>
+
+        <section id="successState" class="success" hidden>
+          <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+          <span>APPLICATION RECEIVED</span>
+          <h2>Thank you for joining SENYA.</h2>
+          <p>Your interpreter application was submitted successfully. The SENYA team will review your information before activating your account.</p>
+          <a class="submit success-link" href="signin.html">Go to sign in <i class="fa-solid fa-arrow-right"></i></a>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="js/interpreter-register.js"></script>
+</body>
+</html>

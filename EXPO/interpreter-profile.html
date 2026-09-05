@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interpreter Profile | SENYA</title>
+
+    <link rel="stylesheet" href="css/interpreter-profile.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="navbar-logo">
+            <img src="img/Senyalogo.png" alt="SENYA">
+        </a>
+
+        <nav class="navbar-menu">
+
+            <a href="interpreter-dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="interpreter-profile.html" class="active">
+                My Profile
+            </a>
+
+            <a href="#">
+                History
+            </a>
+
+        </nav>
+
+        <div class="navbar-actions">
+
+            <button class="notification-button">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+
+            <div class="navbar-user">
+
+                <div class="navbar-avatar">
+                    AM
+                </div>
+
+                <div>
+                    <span class="navbar-name">Andrea Martínez</span>
+                    <small>Interpreter</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main-container">
+
+
+        <!-- =========================
+             PAGE HEADER
+        ========================== -->
+
+        <section class="page-header">
+
+            <div>
+
+                <span class="page-label">
+                    INTERPRETER PROFILE
+                </span>
+
+                <h1>
+                    My professional profile
+                </h1>
+
+                <p>
+                    Manage the information users see when you assist them through SENYA.
+                </p>
+
+            </div>
+
+            <button class="edit-profile-button" id="editProfileButton">
+
+                <i class="fa-solid fa-pen"></i>
+
+                Edit profile
+
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             PROFILE GRID
+        ========================== -->
+
+        <section class="profile-grid">
+
+
+            <!-- =========================
+                 LEFT COLUMN
+            ========================== -->
+
+            <aside class="profile-sidebar">
+
+
+                <!-- PROFILE CARD -->
+
+                <article class="profile-card">
+
+                    <div class="profile-image">
+                        AM
+                    </div>
+
+                    <div class="profile-status">
+                        <span class="status-dot"></span>
+                        Available
+                    </div>
+
+                    <h2 id="profileName">
+                        Andrea Martínez
+                    </h2>
+
+                    <p class="profile-role">
+                        Certified SENYA Interpreter
+                    </p>
+
+                    <div class="verified-badge">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Verified Interpreter
+
+                    </div>
+
+                    <div class="rating">
+
+                        <span>
+                            <i class="fa-solid fa-star"></i>
+                            4.9
+                        </span>
+
+                        <small>
+                            184 reviews
+                        </small>
+
+                    </div>
+
+                    <div class="profile-divider"></div>
+
+                    <div class="profile-contact">
+
+                        <div class="contact-item">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <div>
+                                <small>Email</small>
+                                <span id="profileEmail">
+                                    andrea@senya.com
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            <div>
+                                <small>Phone</small>
+                                <span id="profilePhone">
+                                    +503 7000 0000
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <div>
+                                <small>Location</small>
+                                <span>
+                                    San Salvador, El Salvador
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- AVAILABILITY -->
+
+                <article class="availability-card">
+
+                    <div>
+
+                        <span class="availability-label">
+                            Availability
+                        </span>
+
+                        <strong id="availabilityText">
+                            Accepting requests
+                        </strong>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="availabilitySwitch"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </article>
+
+            </aside>
+
+
+            <!-- =========================
+                 RIGHT COLUMN
+            ========================== -->
+
+            <section class="profile-content">
+
+
+                <!-- PROFESSIONAL INFORMATION -->
+
+                <article class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-icon">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Professional Information
+                                </h3>
+
+                                <p>
+                                    Your interpreter experience and qualifications.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="information-grid">
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Years of experience
+                            </span>
+
+                            <strong id="profileExperience">
+                                4 years
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Certification
+                            </span>
+
+                            <strong id="profileCertification">
+                                LESSA Interpreter Certification
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Verification status
+                            </span>
+
+                            <strong class="verified-text">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                Verified
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                SENYA Member since
+                            </span>
+
+                            <strong>
+                                March 2026
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-description">
+
+                        <span>
+                            About me
+                        </span>
+
+                        <p id="profileBio">
+                            Professional interpreter with experience providing accessible
+                            communication support through Salvadoran Sign Language.
+                            Focused on respectful, clear and confidential communication.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LANGUAGES -->
+
+                <article class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-icon pink-icon">
+                                <i class="fa-solid fa-language"></i>
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Languages & Communication
+                                </h3>
+
+                                <p>
+                                    Communication methods available during assistance.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="language-list">
+
+                        <div class="language-card">
+
+                            <div class="language-icon">
+                                <i class="fa-solid fa-hands-asl-interpreting"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    LESSA
+                                </strong>
+
+                                <small>
+                                    Salvadoran Sign Language
+                                </small>
+
+                            </div>
+
+                            <span class="level-badge">
+                                Fluent
+                            </span>
+
+                        </div>
+
+
+                        <div class="language-card">
+
+                            <div class="language-icon">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Spanish
+                                </strong>
+
+                                <small>
+                                    Spoken communication
+                                </small>
+
+                            </div>
+
+                            <span class="level-badge">
+                                Native
+                            </span>
+
+                        </div>
+
+
+                        <div class="language-card">
+
+                            <div class="language-icon">
+                                <i class="fa-solid fa-earth-americas"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    English
+                                </strong>
+
+                                <small>
+                                    Spoken communication
+                                </small>
+
+                            </div>
+
+                            <span class="level-badge">
+                                Intermediate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SPECIALIZATIONS -->
+
+                <article class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-icon">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Areas of Specialization
+                                </h3>
+
+                                <p>
+                                    Services where you have interpretation experience.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="specializations">
+
+                        <span class="specialization">
+                            <i class="fa-solid fa-building-columns"></i>
+                            Banking
+                        </span>
+
+                        <span class="specialization">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            Healthcare
+                        </span>
+
+                        <span class="specialization">
+                            <i class="fa-solid fa-landmark"></i>
+                            Government
+                        </span>
+
+                        <span class="specialization">
+                            <i class="fa-solid fa-tower-cell"></i>
+                            Telecommunications
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- STATISTICS -->
+
+                <article class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-icon pink-icon">
+                                <i class="fa-solid fa-chart-column"></i>
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Interpreter Statistics
+                                </h3>
+
+                                <p>
+                                    Your activity inside SENYA.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="statistics-grid">
+
+
+                        <div class="statistic-card">
+
+                            <div class="statistic-icon">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+
+                            <strong>
+                                184
+                            </strong>
+
+                            <span>
+                                Completed sessions
+                            </span>
+
+                        </div>
+
+
+                        <div class="statistic-card">
+
+                            <div class="statistic-icon">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <strong>
+                                4.9
+                            </strong>
+
+                            <span>
+                                Average rating
+                            </span>
+
+                        </div>
+
+
+                        <div class="statistic-card">
+
+                            <div class="statistic-icon">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+
+                            <strong>
+                                42h
+                            </strong>
+
+                            <span>
+                                Assistance time
+                            </span>
+
+                        </div>
+
+
+                        <div class="statistic-card">
+
+                            <div class="statistic-icon">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                            </div>
+
+                            <strong>
+                                98%
+                            </strong>
+
+                            <span>
+                                Positive feedback
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+                <!-- CERTIFICATION -->
+
+                <article class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-icon">
+                                <i class="fa-solid fa-certificate"></i>
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Verification Documents
+                                </h3>
+
+                                <p>
+                                    Documents approved by SENYA.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="document-card">
+
+                        <div class="document-icon">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+
+                        <div class="document-information">
+
+                            <strong>
+                                LESSA Interpreter Certificate
+                            </strong>
+
+                            <small>
+                                Verified by SENYA
+                            </small>
+
+                        </div>
+
+                        <span class="document-status">
+
+                            <i class="fa-solid fa-check"></i>
+
+                            Verified
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         EDIT PROFILE MODAL
+    ========================== -->
+
+    <div class="modal" id="editModal">
+
+        <div class="modal-overlay" id="modalOverlay"></div>
+
+        <section class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="page-label">
+                        EDIT PROFILE
+                    </span>
+
+                    <h2>
+                        Update your information
+                    </h2>
+
+                </div>
+
+                <button class="close-modal" id="closeModal">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <form id="editProfileForm">
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="editFirstName">
+                            First name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editFirstName"
+                            value="Andrea"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editLastName">
+                            Last name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editLastName"
+                            value="Martínez"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="editEmail"
+                        value="andrea@senya.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editPhone">
+                        Phone number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editPhone"
+                        value="+503 7000 0000"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editExperience">
+                        Years of experience
+                    </label>
+
+                    <input
+                        type="number"
+                        id="editExperience"
+                        value="4"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editCertification">
+                        Certification
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editCertification"
+                        value="LESSA Interpreter Certification"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editBio">
+                        About me
+                    </label>
+
+                    <textarea
+                        id="editBio"
+                        rows="5"
+                    >Professional interpreter with experience providing accessible communication support through Salvadoran Sign Language. Focused on respectful, clear and confidential communication.</textarea>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancelButton"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+
+                        Save changes
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+    <script src="js/interpreter-profile.js"></script>
+
+</body>
+</html>

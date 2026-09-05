@@ -12,39 +12,34 @@
 </head>
 <body>
     
+    <!--Panel de accesibilidad-->>
   <div class="accessibility-panel" id="accessibilityPanel">
-    
 <div class="panel-header">
-<h3>Accessibility</h3>
-<button id="closePanel">×</button>
+    <h3>Accessibility</h3>
+    <button id="closePanel">×</button>
 </div>
-
-<div class="panel-content">
-
+    <div class="panel-content">
 <button class="acc-card low-vision" id="lowVisionBtn">
-<div class="acc-icon">👁️</div>
-<div class="acc-info">
-<h4>Low Vision</h4>
-<p>High contrast, larger text and stronger buttons</p>
-</div>
+    <div class="acc-icon">👁️</div>
+        <div class="acc-info">
+            <h4>Low Vision</h4>
+            <p>High contrast, larger text and stronger buttons</p>
+    </div>
 </button>
-
 <button class="acc-card dyslexia-mode" id="dyslexiaBtn">
-<div class="acc-icon">📖</div>
-<div class="acc-info">
-<h4>Dyslexia</h4>
-<p>Friendly font, soft colors and more spacing</p>
-</div>
+    <div class="acc-icon">📖</div>
+        <div class="acc-info">
+        <h4>Dyslexia</h4>
+        <p>Friendly font, soft colors and more spacing</p>
+    </div>
 </button>
-
 <button class="acc-card deaf-mode" id="deafBtn">
-<div class="acc-icon">🤟</div>
-<div class="acc-info">
-<h4>Deaf Support</h4>
-<p>Visual communication and larger icons</p>
-</div>
+    <div class="acc-icon">🤟</div>
+        <div class="acc-info">
+            <h4>Deaf Support</h4>
+            <p>Visual communication and larger icons</p>
+        </div>
 </button>
-
 <button class="acc-card" id="activarHeadTracking">
     <div class="acc-icon">🔄</div>
     <div class="acc-info">
@@ -52,36 +47,22 @@
         <p>Navigate and scroll using head movements</p>
     </div>
 </button>
-
 <button class="acc-card speech-mode" id="speechBtn">
-<div class="acc-icon">🔊</div> <div class="acc-info">
-<h4>Read Aloud</h4>
-<p>Read the text on the screen with voice</p>
-</div>
+    <div class="acc-icon">🔊</div> <div class="acc-info">
+        <h4>Read Aloud</h4>
+        <p>Read the text on the screen with voice</p>
+    </div>
 </button>
-
-<!-- ===== AÑADIDO: OPCIÓN DE TRADUCCIÓN A ESPAÑOL ===== -->
-<div class="acc-card translate-card">
-  <div class="acc-icon"><i class="fas fa-language"></i></div>
-  <div class="acc-info">
-    <h4>Language / Idioma</h4>
-    <p>Translate website</p>
-    <div id="google_translate_element"></div>
-  </div>
-</div>
-<!-- =================================================== -->
-
 <div class="text-size-box">
-<label>Text Size</label>
-<div class="size-buttons">
-<button id="smallText">A-</button>
-<button id="normalText" class="active">A</button>
-<button id="largeText">A+</button>
+    <label>Text Size</label>
+        <div class="size-buttons">
+            <button id="smallText">A-</button>
+            <button id="normalText" class="active">A</button>
+            <button id="largeText">A+</button>
+        </div>
 </div>
-</div>
-
 <button class="reset-btn" id="resetAccessibility">
-Reset Accessibility
+    Reset Accessibility
 </button>
 
 </div>
@@ -121,7 +102,7 @@ Reset Accessibility
             video calls in real time.
         </p>
         <div class="hero-buttons">
-            <a href="login.html" class="primary">
+            <a href="SignUp.html" class="primary">
                 Join SENYA
             </a>
             <a href="opciones.html" class="secondary">
@@ -464,6 +445,7 @@ Reset Accessibility
     </div>
 </div>
 
+<!--Scripts de JS-->
 <script src="js/index.js"></script>
 <script src="js/modal.js"></script>
 
@@ -483,7 +465,7 @@ Reset Accessibility
 <!-- ARCHIVOS JS DE NAVEGACIÓN Y ACCESIBILIDAD -->
 <script src="js/accessibility.js"></script>
 <script type="module" src="js/head-tracking.js"></script>
-
+<!--Cursor de la opción de headtracking-->
 <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
 </body>
 </html>
