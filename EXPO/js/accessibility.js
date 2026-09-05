@@ -4,14 +4,14 @@ const panel = document.getElementById('accessibilityPanel');
 const openBtn = document.getElementById('accessibilityBtn');
 const closeBtn = document.getElementById('closePanel');
 
-if(openBtn && panel){
+if (openBtn && panel) {
   openBtn.addEventListener('click', e => {
     e.preventDefault();
     panel.classList.add('open');
   });
 }
 
-if(closeBtn && panel){
+if (closeBtn && panel) {
   closeBtn.addEventListener('click', () => {
     panel.classList.remove('open');
   });
@@ -20,7 +20,7 @@ if(closeBtn && panel){
 
 // ===== SAVE MODE =====
 
-function saveMode(mode, enabled){
+function saveMode(mode, enabled) {
   localStorage.setItem(mode, enabled);
 }
 
@@ -29,14 +29,10 @@ function saveMode(mode, enabled){
 
 const lowVisionBtn = document.getElementById('lowVisionBtn');
 
-if(lowVisionBtn){
+if (lowVisionBtn) {
   lowVisionBtn.onclick = () => {
     document.body.classList.toggle('low-vision');
-
-    saveMode(
-      'lowVision',
-      document.body.classList.contains('low-vision')
-    );
+    saveMode('lowVision', document.body.classList.contains('low-vision'));
   };
 }
 
@@ -45,14 +41,10 @@ if(lowVisionBtn){
 
 const dyslexiaBtn = document.getElementById('dyslexiaBtn');
 
-if(dyslexiaBtn){
+if (dyslexiaBtn) {
   dyslexiaBtn.onclick = () => {
     document.body.classList.toggle('dyslexia');
-
-    saveMode(
-      'dyslexia',
-      document.body.classList.contains('dyslexia')
-    );
+    saveMode('dyslexia', document.body.classList.contains('dyslexia'));
   };
 }
 
@@ -61,40 +53,32 @@ if(dyslexiaBtn){
 
 const deafBtn = document.getElementById('deafBtn');
 
-if(deafBtn){
+if (deafBtn) {
   deafBtn.onclick = () => {
     document.body.classList.toggle('deaf-visual');
-
-    saveMode(
-      'deafVisual',
-      document.body.classList.contains('deaf-visual')
-    );
+    saveMode('deafVisual', document.body.classList.contains('deaf-visual'));
   };
 }
 
 
 // ===== TEXT SIZE =====
 
-function setTextSize(size){
-
-  document.body.classList.remove(
-    'text-small',
-    'text-large'
-  );
+function setTextSize(size) {
+  document.body.classList.remove('text-small', 'text-large');
 
   document.querySelectorAll('.size-buttons button')
     .forEach(b => b.classList.remove('active'));
 
-  if(size === 'small'){
+  if (size === 'small') {
     document.body.classList.add('text-small');
     document.getElementById('smallText')?.classList.add('active');
   }
 
-  if(size === 'normal'){
+  if (size === 'normal') {
     document.getElementById('normalText')?.classList.add('active');
   }
 
-  if(size === 'large'){
+  if (size === 'large') {
     document.body.classList.add('text-large');
     document.getElementById('largeText')?.classList.add('active');
   }
@@ -102,87 +86,149 @@ function setTextSize(size){
   localStorage.setItem('textSize', size);
 }
 
+document.getElementById('smallText')?.addEventListener('click', () => setTextSize('small'));
+document.getElementById('normalText')?.addEventListener('click', () => setTextSize('normal'));
+document.getElementById('largeText')?.addEventListener('click', () => setTextSize('large'));
 
-document.getElementById('smallText')?.addEventListener(
-  'click',
-  () => setTextSize('small')
-);
 
-document.getElementById('normalText')?.addEventListener(
-  'click',
-  () => setTextSize('normal')
-);
+// ===== READ ALOUD (LECTURA AL PASAR EL CURSOR) =====
 
-document.getElementById('largeText')?.addEventListener(
-  'click',
-  () => setTextSize('large')
-);
-
-// ===== READ ALOUD =====
-let speaking = false;
-let utterance;
-
+let isSpeechActive = false;
+let lastSpokenElement = null;
+const synth = window.speechSynthesis;
 const speechBtn = document.getElementById('speechBtn');
 
+// Actualizar la interfaz del botón de voz
+function updateSpeechButtonUI() {
+  if (!speechBtn) return;
+  const h4 = speechBtn.querySelector('h4');
+  if (h4) {
+    h4.textContent = isSpeechActive ? 'Stop Reading' : 'Read Aloud';
+  }
+}
+
 if (speechBtn) {
-
   speechBtn.onclick = () => {
+    isSpeechActive = !isSpeechActive;
+    saveMode('speechActive', isSpeechActive);
+    updateSpeechButtonUI();
 
-    const btn = speechBtn;
+    if (!isSpeechActive) {
+      synth.cancel();
+      lastSpokenElement = null;
+    }
+  };
+}
 
-    if (speaking) {
-      speechSynthesis.cancel();
-      speaking = false;
+// Función encargada de emitir la voz sin modificar el DOM real
+function speakText(text) {
+  if (!isSpeechActive || !text || !text.trim()) return;
 
-      const title = btn.querySelector('h4');
+  synth.cancel();
 
-      if (title) {
-        title.innerText = 'Read Aloud';
-      }
+  const utterance = new SpeechSynthesisUtterance(text.trim());
+  utterance.lang = 'es-ES'; // Cambiado a Español para mejor coincidencia con la UI
+  utterance.rate = 1;
+  utterance.pitch = 1;
 
+  synth.speak(utterance);
+}
+
+// Función segura para extraer texto eliminando clones de íconos
+function extractText(element) {
+  if (!element) return '';
+  
+  // Se crea un clon desconectado del DOM para no afectar la pantalla
+  const clone = element.cloneNode(true);
+  const icons = clone.querySelectorAll('i, svg, .icon, [class*="fa-"], img');
+  icons.forEach(icon => icon.remove());
+
+  return (clone.textContent || clone.innerText || '').replace(/\s+/g, ' ').trim();
+}
+
+// Evento Hover Optimizado
+document.addEventListener('mouseover', (event) => {
+  if (!isSpeechActive) return;
+
+  const target = event.target;
+
+  // Ignorar panel de accesibilidad para evitar lecturas de la propia interfaz
+  if (target.closest('#accessibilityPanel') || target.closest('.sign-language-panel')) return;
+
+  // PRIORIDAD 1: Botones o Enlaces Interactivos
+  const interactiveEl = target.closest('button, a, [role="button"]');
+  if (interactiveEl) {
+    if (lastSpokenElement === interactiveEl) return;
+    lastSpokenElement = interactiveEl;
+
+    const label = interactiveEl.getAttribute('aria-label') || 
+                  interactiveEl.getAttribute('title') || 
+                  extractText(interactiveEl) || 
+                  'Enlace';
+
+    speakText(`Boton, ${label}`);
+    return;
+  }
+
+  // PRIORIDAD 2: Imágenes independientes
+  const imgEl = target.closest('img');
+  if (imgEl) {
+    if (lastSpokenElement === imgEl) return;
+    lastSpokenElement = imgEl;
+
+    const altText = imgEl.getAttribute('alt') || 'Imagen';
+    speakText(`Imagen de ${altText}`);
+    return;
+  }
+
+  // PRIORIDAD 3: Encabezados (h1 a h6)
+  const headingEl = target.closest('h1, h2, h3, h4, h5, h6');
+  if (headingEl) {
+    if (lastSpokenElement === headingEl) return;
+    lastSpokenElement = headingEl;
+
+    speakText(extractText(headingEl));
+    return;
+  }
+
+  // PRIORIDAD 4: Tarjetas y contenedores principales
+  const cardEl = target.closest('.category-card, .why-card, .card, .step, .testimonial-card, .option-card, .acc-card');
+  if (cardEl) {
+    if (lastSpokenElement === cardEl) return;
+    lastSpokenElement = cardEl;
+
+    speakText(extractText(cardEl));
+    return;
+  }
+
+  // PRIORIDAD 5: Texto plano (párrafos, ítems de lista, etiquetas)
+  const textEl = target.closest('p, span, li, label');
+  if (textEl) {
+    const textContent = extractText(textEl);
+    if (textContent !== '') {
+      if (lastSpokenElement === textEl) return;
+      lastSpokenElement = textEl;
+
+      speakText(textContent);
       return;
     }
+  }
+});
 
-    const text = document.body.innerText;
-
-    utterance = new SpeechSynthesisUtterance(text);
-
-    utterance.lang = 'en-US';
-    utterance.rate = 1;
-    utterance.pitch = 1;
-
-    speechSynthesis.speak(utterance);
-
-    speaking = true;
-
-    const title = btn.querySelector('h4');
-
-    if (title) {
-      title.innerText = 'Stop Reading';
-    }
-
-    utterance.onend = () => {
-
-      speaking = false;
-
-      if (title) {
-        title.innerText = 'Read Aloud';
-      }
-
-    };
-
-  };
-
-}
+// Limpiar la referencia cuando el cursor sale del sitio
+document.addEventListener('mouseout', (event) => {
+  if (!event.relatedTarget) {
+    lastSpokenElement = null;
+  }
+});
 
 
 // ===== RESET ACCESSIBILITY =====
 
 const resetBtn = document.getElementById('resetAccessibility');
 
-if(resetBtn){
+if (resetBtn) {
   resetBtn.onclick = () => {
-
     document.body.classList.remove(
       'low-vision',
       'dyslexia',
@@ -195,166 +241,120 @@ if(resetBtn){
     localStorage.removeItem('dyslexia');
     localStorage.removeItem('deafVisual');
     localStorage.removeItem('textSize');
+    localStorage.removeItem('speechActive');
+
+    isSpeechActive = false;
+    synth.cancel();
+    updateSpeechButtonUI();
 
     setTextSize('normal');
   };
 }
 
 
-// =====================================================
-// SIGN LANGUAGE VIDEO MENU
-// =====================================================
+// ===== SIGN LANGUAGE VIDEO MENU =====
 
 const signMenuButton = document.querySelector('.menu-toggle');
 
-if(signMenuButton){
-
-  // Create panel
+if (signMenuButton) {
   const signPanel = document.createElement('div');
-
   signPanel.className = 'sign-language-panel';
 
   signPanel.innerHTML = `
-
     <div class="sign-panel-header">
-
-      <button
-        class="sign-close-btn"
-        aria-label="Close">
-        &times;
-      </button>
-
+      <button class="sign-close-btn" aria-label="Close">&times;</button>
     </div>
-
     <div class="sign-panel-content">
-
-      <!-- HOME -->
       <a href="index.html" class="sign-video-card">
         <video muted loop playsinline preload="metadata">
           <source src="videos/home.mp4" type="video/mp4">
         </video>
       </a>
-
-      <!-- PARTNER NETWORK -->
       <a href="opciones.html" class="sign-video-card">
         <video muted loop playsinline preload="metadata">
           <source src="videos/network.mp4" type="video/mp4">
         </video>
       </a>
-
-      <!-- PROFILE -->
       <a href="profile.html" class="sign-video-card">
         <video muted loop playsinline preload="metadata">
           <source src="videos/perfil.mp4" type="video/mp4">
         </video>
       </a>
-
-      <!-- ABOUT US -->
       <a href="about.html" class="sign-video-card">
         <video muted loop playsinline preload="metadata">
           <source src="videos/about.mp4" type="video/mp4">
         </video>
       </a>
-
-      <!-- CONTACT -->
       <a href="soporte.html" class="sign-video-card">
         <video muted loop playsinline preload="metadata">
           <source src="videos/contacto.mp4" type="video/mp4">
         </video>
       </a>
-
     </div>
   `;
 
-  // Add panel to the page
   document.body.appendChild(signPanel);
 
-  // Close button
-  const signCloseButton =
-    signPanel.querySelector('.sign-close-btn');
+  const signCloseButton = signPanel.querySelector('.sign-close-btn');
 
-
-  // Open panel
   signMenuButton.addEventListener('click', () => {
-
     signPanel.classList.add('open');
-
     document.body.classList.add('sign-menu-open');
-
     const videos = signPanel.querySelectorAll('video');
-
     videos.forEach(video => {
       video.play().catch(() => {});
     });
-
   });
 
-
-  // Close panel
   signCloseButton.addEventListener('click', () => {
-
     signPanel.classList.remove('open');
-
     document.body.classList.remove('sign-menu-open');
-
     const videos = signPanel.querySelectorAll('video');
-
     videos.forEach(video => {
       video.pause();
     });
-
   });
 
-
-  // Close with ESC
   document.addEventListener('keydown', event => {
-
-    if(event.key === 'Escape'){
-
+    if (event.key === 'Escape') {
       signPanel.classList.remove('open');
-
       document.body.classList.remove('sign-menu-open');
-
       const videos = signPanel.querySelectorAll('video');
-
       videos.forEach(video => {
         video.pause();
       });
-
     }
-
   });
-
 }
 
 
 // ===== RESTORE ACCESSIBILITY =====
 
 window.addEventListener('DOMContentLoaded', () => {
-
-  if(localStorage.getItem('lowVision') === 'true'){
+  if (localStorage.getItem('lowVision') === 'true') {
     document.body.classList.add('low-vision');
   }
 
-  if(localStorage.getItem('dyslexia') === 'true'){
+  if (localStorage.getItem('dyslexia') === 'true') {
     document.body.classList.add('dyslexia');
   }
 
-  if(localStorage.getItem('deafVisual') === 'true'){
+  if (localStorage.getItem('deafVisual') === 'true') {
     document.body.classList.add('deaf-visual');
   }
 
-  const savedTextSize =
-    localStorage.getItem('textSize');
+  if (localStorage.getItem('speechActive') === 'true') {
+    isSpeechActive = true;
+    updateSpeechButtonUI();
+  }
 
-  if(savedTextSize === 'small'){
+  const savedTextSize = localStorage.getItem('textSize');
+
+  if (savedTextSize === 'small') {
     setTextSize('small');
-  }
-  else if(savedTextSize === 'large'){
+  } else if (savedTextSize === 'large') {
     setTextSize('large');
-  }
-  else{
+  } else {
     setTextSize('normal');
   }
-
 });

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/modal.css">
     <!--MEDIA PIPE VISION(OTRO SCRIPT PARA EL MOVIMIENTO DE CABEZA)-->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
     <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -61,6 +61,16 @@
 <p>Read the text on the screen with voice</p>
 </div>
 </button>
+
+<!-- OPCIÓN DE TRADUCCIÓN A ESPAÑOL -->
+<div class="acc-card translate-card">
+  <div class="acc-icon"><i class="fas fa-language"></i></div>
+  <div class="acc-info">
+    <h4>Idioma / Language</h4>
+    <p>Traducir sitio web / Translate website</p>
+    <div id="google_translate_element"></div>
+  </div>
+</div>
 
 <div class="text-size-box">
 <label>Text Size</label>
@@ -196,7 +206,7 @@ Reset Accessibility
     <button class="see-more" onclick="window.location.href='seemoreBA.html'">
         See more
     </button>
-       
+        
    <!-- call-->
     <button class="call-now" onclick="window.location.href='videollamada.html'">
         <i class="fa-solid fa-phone"></i>
@@ -693,12 +703,27 @@ Reset Accessibility
 
     </div>
 </div>
+
+<!-- Cursor virtual controlado por movimiento de cabeza -->
+<div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+
+<!-- Script de Google Translate -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'es,en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Scripts de Funcionalidad y Accesibilidad -->
 <script src="js/modal.js"></script>
 <script src="js/opciones.js"></script>
 <script src="js/accessibility.js"></script>
-<!--SCRIPT PARA MOVIMIENTO CON LA CABEZA-->
 <script type="module" src="js/head-tracking.js"></script>
-<!-- Cursor virtual controlado por la cabeza -->
-<div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
 </body>
 </html>
