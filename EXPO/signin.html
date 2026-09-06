@@ -39,8 +39,13 @@
                 <div class="remember"><label><input type="checkbox" id="rememberMe"><span>Remember my email</span></label></div>
                 <button type="submit" class="login-btn" id="signInButton"><span>Sign In</span><i class="fa-solid fa-arrow-right"></i></button>
             </form>
+            <div class="auth-help-actions">
+                <button type="button" class="auth-help-button" id="recoverPassword">Reset password</button>
+                <button type="button" class="auth-help-button" id="resendConfirmation">Resend confirmation</button>
+            </div>
+            <p id="authHelpStatus" class="auth-help-status" role="status"></p>
             <div class="divider"><span>New to SENYA?</span></div>
-            <a href="login.html" class="create-account-btn"><span>Create an account</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="SignUp.html" class="create-account-btn"><span>Create an account</span><i class="fa-solid fa-arrow-right"></i></a>
             <p class="role-note"><i class="fa-solid fa-shield-halved"></i> Interpreter accounts must be verified before they can access the interpreter dashboard.</p>
         </div>
     </section>
@@ -58,6 +63,8 @@
         </div>
     </section>
 </main>
+<script src="js/senya-api.js"></script>
+<script src="js/email-return.js"></script>
 <script src="js/signin.js"></script>
 <script src="js/accessibility.js"></script>
 <script type="module" src="js/head-tracking.js"></script>

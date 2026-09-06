@@ -131,33 +131,19 @@ form.addEventListener('submit',async e=>{
         return;
     }
     const specialties=[...document.querySelectorAll('input[name="specialty"]:checked')].map(input=>input.value);
+    if(!specialties.length){alert('Please select at least one specialty.');return;}
     const email=document.getElementById('email').value.trim().toLowerCase();
-    const applications=JSON.parse(localStorage.getItem('senyaInterpreterApplications'))||[];
-    const existingApplication=applications.find(app=>(app.email||'').toLowerCase()===email);
-    if(existingApplication){
-        alert('An interpreter application with this email already exists.');
-        return;
-    }
-    const passwordHash=await hashPassword(password.value);
-    const application={
-        id:`INT-${Date.now()}`,
-        role:'interpreter',
-        firstName:document.getElementById('firstName').value.trim(),
-        lastName:document.getElementById('lastName').value.trim(),
-        email,
-        phone:document.getElementById('phone').value.trim(),
-        passwordHash,
-        experience:Number(document.getElementById('experience').value),
-        certification:document.getElementById('certification').value.trim(),
-        languages,
-        specialties,
-        bio:bio.value.trim(),
-        verificationStatus:'pending',
-        submittedAt:new Date().toISOString()
-    };
-    applications.push(application);
-    localStorage.setItem('senyaInterpreterApplications',JSON.stringify(applications));
-    form.hidden=true;
-    success.hidden=false;
-    success.scrollIntoView({behavior:'smooth',block:'center'});
+    submitButton.disabled=true;
+    try {
+        const registration=await Senya.signUp(email,password.value,{
+            role:'interpreter',firstName:document.getElementById('firstName').value.trim(),
+            lastName:document.getElementById('lastName').value.trim(),phone:document.getElementById('phone').value.trim(),
+            experience:Number(document.getElementById('experience').value),certification:document.getElementById('certification').value.trim(),
+            languages,specialties,bio:bio.value.trim()
+        });
+        form.hidden=true; success.hidden=false;
+        success.querySelector('p').textContent=registration.access_token?'Account created. You can sign in and upload your certificate. SENYA must verify your interpreter profile before you receive appointments.':'Check your email to confirm your account. SENYA must verify your credentials before you can receive appointments.';
+    } catch(e) { Senya.error(e); } finally { submitButton.disabled=false; }
 });
+
+fileInput.disabled=true; fileLabel.textContent="Upload your certificate from your profile after confirming your email.";

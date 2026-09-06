@@ -94,7 +94,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="opciones.html" class="active">Partner Network</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="appointments.html">My appointments</a></li>
+<li><a href="profile.html">Profile</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="soporte.html">Contact</a></li>
             </ul>
@@ -123,6 +124,7 @@
         </div>
 
         <form id="requestForm" class="request-form">
+            <div class="form-group"><label for="serviceName">Service or organization</label><input id="serviceName" name="service" type="text" maxlength="120" required placeholder="For example, BAC Credomatic or ISSS"></div>
             
             <!-- Language Selection -->
             <div class="form-group">
@@ -135,10 +137,13 @@
                 </select>
             </div>
 
-            <!-- Details of Request -->
+            <div class="form-group"><label for="specialty">Service specialty</label><select id="specialty" required><option value="">Choose the service area</option><option>Banking</option><option>Healthcare</option><option>Government</option><option>Telecommunications</option><option>Utilities</option><option>General</option></select></div>
+<div class="form-group"><label for="requestType">When do you need assistance?</label><select id="requestType"><option value="immediate">Immediate assistance — as soon as an interpreter accepts</option><option value="scheduled">Schedule an appointment</option></select></div>
+<div class="form-group" hidden><label for="scheduledAt">Date and time (your local time)</label><input type="datetime-local" id="scheduledAt"><p>Your interpreter reserves this appointment until the session ends.</p></div>
+<!-- Details of Request -->
             <div class="form-group">
                 <label for="details"><i class="fa-solid fa-pen-to-square"></i> Details of your request</label>
-                <textarea id="details" name="details" rows="5" required placeholder="Describe what you need help with (e.g. 'I want to inquire about opening a savings account' or 'I need help with my medical appointment')..."></textarea>
+                <textarea maxlength="3000" id="details" name="details" rows="5" required placeholder="Describe what you need help with (e.g. 'I want to inquire about opening a savings account' or 'I need help with my medical appointment')..."></textarea>
             </div>
 
             <div class="form-actions">
@@ -166,7 +171,8 @@
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <!-- Scripts JS -->
-  <script src="js/accessibility.js"></script>
+  <script src="js/senya-api.js"></script>
+<script src="js/accessibility.js"></script>
   <script type="module" src="js/head-tracking.js"></script>
   <script src="js/request.js"></script>
 

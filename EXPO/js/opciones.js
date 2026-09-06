@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestButtons.forEach(button => {
         button.addEventListener("click", (e) => {
             // Comprobamos si hay un usuario en sesión
-            const usuarioActivo = localStorage.getItem("usuarioActivo") || sessionStorage.getItem("usuarioActivo");
+            const usuarioActivo = sessionStorage.getItem("senyaAuth");
 
             // Si NO está autenticado y existe el modal, detenemos la navegación y abrimos el modal
             if (!usuarioActivo && callModal) {

@@ -134,7 +134,7 @@ registerSubmit.disabled = true;
 ========================= */
 const registerForm = document.getElementById("registerForm");
 
-registerForm.addEventListener("submit", (event) => {
+registerForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const firstName = document.getElementById("registerFirstName").value.trim();
@@ -159,36 +159,11 @@ registerForm.addEventListener("submit", (event) => {
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem("senyaUsers")) || [];
-    const existingUser = users.find(user => user.email === email);
-
-    if (existingUser) {
-        alert("An account with this email already exists.");
-        return;
-    }
-
-    const newUser = {
-        id: "USR-" + Date.now(),
-        role: "user",
-        firstName: firstName,
-        lastName: lastName,
-        birthday: birthday,
-        phone: phone,
-        whatsapp: whatsapp,
-        address: address,
-        email: email,
-        password: password,
-        createdAt: new Date().toISOString()
-    };
-
-    users.push(newUser);
-    localStorage.setItem("senyaUsers", JSON.stringify(users));
-
-    const rememberUser = document.getElementById("rememberUser").checked;
-    if (rememberUser) {
-        localStorage.setItem("senyaRememberEmail", email);
-    }
-
-    alert("Your SENYA account was created successfully!");
-    window.location.href = "signin.html";
+    registerSubmit.disabled=true;
+    try {
+        const registration=await Senya.signUp(email,password,{role:'user',firstName,lastName,birthday,phone,whatsapp,address});
+        sessionStorage.setItem('senyaRegistrationEmail',email);
+        alert(registration.access_token?'Account created. You can now sign in with your email and password.':'Check your email to confirm your account before signing in. If you already registered with this email, use your existing password or select Reset password.');
+        location.href='signin.html';
+    } catch(e) { Senya.error(e); } finally { registerSubmit.disabled=false; }
 });

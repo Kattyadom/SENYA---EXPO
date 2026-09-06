@@ -1,0 +1,29 @@
+.workspace {min-width:0;display:grid;gap:24px;align-content:start}
+.workspace h1 {font-size:2rem;line-height:1.25}
+.workspace p,.sidebar p {color:var(--text-muted);line-height:1.65}
+.workspace .card {margin:0;padding:28px;border:1px solid var(--border-color);border-radius:25px;background:var(--bg-card)}
+.workspace-head,.card-head,.actions,.stats {display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.workspace-head {padding:10px 0}
+.workspace h2 {font-size:1.2rem;margin:0 0 12px}
+.workspace .eyebrow {font-size:.875rem;color:var(--primary);font-weight:600;margin-bottom:8px}
+.workspace button,.workspace .action,.sidebar button {font:inherit;font-size:.875rem;border:1px solid var(--border-color);border-radius:12px;padding:12px 18px;background:var(--bg-card);color:var(--text-main);cursor:pointer;text-decoration:none;display:inline-block}
+.workspace .primary {background:var(--primary);color:white;border-color:var(--primary)}
+.workspace .danger {color:#e11d48}
+.workspace button:disabled {opacity:.5;cursor:wait}
+.workspace button:focus-visible,.action:focus-visible {outline:3px solid #ff6f9c;outline-offset:3px}
+.stats {align-items:stretch;flex-wrap:nowrap}
+.stats .card {flex:1;padding:20px}
+.stats strong {font-size:1.8rem;display:block}
+.stats span {font-size:.875rem;color:var(--text-muted)}
+.appointment {padding:22px 0;border-top:1px solid var(--border-color);overflow-wrap:anywhere}
+.appointment h3 {font-size:1.1rem;margin-bottom:6px}
+.appointment .actions {margin-top:16px;justify-content:flex-start}
+.status-pill {font-size:.875rem;border-radius:30px;padding:6px 12px;background:var(--primary-light);color:var(--text-main)}
+.initials {width:80px;height:80px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;background:var(--primary-light);color:var(--primary);font-size:1.8rem;font-weight:700}
+.empty {padding:24px 0}
+.availability {display:flex;align-items:center;gap:10px;font-size:1rem}
+.availability input {width:22px;height:22px;accent-color:var(--primary)}
+.workspace [hidden] {display:none!important}
+.profile-page {margin-top:115px}
+@media(max-width:900px){.profile-page {grid-template-columns:1fr;margin:105px auto 30px}.sidebar {position:static;padding:20px}.sidebar .profile-header {margin-bottom:15px}.sidebar nav {flex-direction:row;flex-wrap:wrap}.sidebar nav a {padding:10px}.initials {width:56px;height:56px}.stats{flex-wrap:wrap}.stats .card{min-width:130px}.workspace .card{padding:20px}.navbar-container{padding:12px 22px}.navbar nav{display:none}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}

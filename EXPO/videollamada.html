@@ -91,7 +91,8 @@ Reset Accessibility
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="opciones.html">Partner Network</a></li>
-                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="appointments.html">My appointments</a></li>
+<li><a href="profile.html">Profile</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="soporte.html">Contact</a></li>
                 </ul>
@@ -109,7 +110,7 @@ Reset Accessibility
         <div class="call-header">
             <div class="call-status">
                 <span class="status-dot"></span>
-                <span>Call in progress</span>
+                <span id="callState">Preparing session</span>
             </div>
             <div class="call-time">
                 <i class="fa-regular fa-clock"></i>
@@ -131,12 +132,12 @@ Reset Accessibility
         
         <div class="video-info">
             <div>
-                <strong>Interpreter</strong>
+                <strong id="interpreterLabel">Interpreter</strong>
                 <span>Sign Language Interpreter</span>
             </div>
             <div class="connection">
                 <i class="fa-solid fa-wifi"></i>
-                Excellent connection
+                <span id="connectionState">Not connected</span>
             </div>
         </div>
     </div>
@@ -145,7 +146,7 @@ Reset Accessibility
         <!-- Etiqueta de video real para ti (cámara propia) -->
         <video id="localVideo" autoplay muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>
         <div class="self-label">
-            <span>You</span>
+            <span id="userLabel">User</span>
         </div>
     </div>
     
@@ -178,7 +179,7 @@ Reset Accessibility
     expandButton?.addEventListener('click', () => {
         if (!document.fullscreenElement) {
             callArea.requestFullscreen().catch(err => {
-                alert(`Error al intentar poner en pantalla completa: ${err.message}`);
+                alert(`Unable to enter full screen: ${err.message}`);
             });
         } else {
             document.exitFullscreen();
@@ -189,9 +190,12 @@ Reset Accessibility
 <!-- Librería Socket.io provista automáticamente por el servidor -->
 <script src="/socket.io/socket.io.js"></script>
 <!-- Tu script de accesibilidad previo -->
+<script src="js/senya-api.js"></script>
 <script src="js/accessibility.js"></script>
 <!-- Tu nuevo script de videollamada real -->
-<script src="js/videollamada-funcional.js"></script>
+<script src="js/call-media.js"></script>
+<script src="js/call-layout.js"></script>
+<script src="js/session-call.js"></script>
 <!--SCRIPT PARA MOVIMIENTO CON LA CABEZA-->
 <script type="module" src="js/head-tracking.js"></script>
 <!-- Cursor virtual controlado por la cabeza -->

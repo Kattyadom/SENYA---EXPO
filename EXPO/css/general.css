@@ -1382,4 +1382,5 @@ body.sign-menu-open{
 
 .panel-content::-webkit-scrollbar-thumb:hover {
     background: #2563EB;
-}
+}.assistance-entry{grid-column:1/-1;padding:24px;border:1px solid #d7e2f2;border-radius:20px;background:#eff6ff;color:#1e293b;display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.assistance-entry h2{font-size:1.25rem;margin-bottom:8px}.assistance-entry p{font-size:1rem;line-height:1.6}.assistance-entry>div:last-child{display:flex;gap:12px;flex-wrap:wrap}.assistance-entry a{display:inline-block;padding:14px 18px;border-radius:12px;border:1px solid #2563eb;text-decoration:none;font-size:.875rem;color:#1d4ed8;background:white}.assistance-entry a.assistance-primary{background:#2563eb;color:white}.assistance-entry a:focus-visible{outline:3px solid #ff4f8b;outline-offset:3px}

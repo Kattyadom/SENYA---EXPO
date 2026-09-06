@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpreter applications | SENYA Admin</title><link rel="stylesheet" href="css/profile.css"><link rel="stylesheet" href="css/appointments.css"><link rel="stylesheet" href="css/admin.css"></head>
+<body><main class="admin-page"><header class="workspace-head"><div><p class="eyebrow">SENYA ADMINISTRATION</p><h1>Interpreter applications</h1><p>Review credentials before approving an interpreter.</p></div><div class="actions"><button id="refresh">Refresh</button><button id="theme">Change theme</button><button id="logout">Log out</button></div></header>
+<p id="adminStatus" role="status" aria-live="polite">Checking administrator access…</p>
+<label for="filter">Application status</label><select id="filter"><option value="pending">Pending review</option><option value="verified">Approved</option><option value="rejected">Rejected</option><option value="all">All applications</option></select>
+<div id="applications" class="workspace"></div></main><script src="js/senya-api.js"></script><script src="js/admin.js"></script></body></html>

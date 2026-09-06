@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener("click", (event) => {
 
                 const usuarioActivo =
-                    localStorage.getItem("usuarioActivo");
+                    sessionStorage.getItem("senyaAuth");
 
                 if (!usuarioActivo) {
 
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.addEventListener("click", function(event) {
 
                 const usuarioActivo =
-                    localStorage.getItem("usuarioActivo");
+                    sessionStorage.getItem("senyaAuth");
 
                 if (!usuarioActivo) {
 

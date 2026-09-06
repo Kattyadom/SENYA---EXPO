@@ -4,6 +4,8 @@ let faceLandmarker = null;
 let webcamRunning = false;
 let videoElement = null;
 let mediaStream = null;
+let ownsMediaStream = false;
+let starting = false;
 let animationFrameId = null;
 let lastVideoTime = -1;
 
@@ -12,6 +14,13 @@ let tiempoDetenido = 0;
 let ultimoBotonBajoCursor = null;
 
 async function iniciarHeadTracking(esAutoInicio = false) {
+    if (starting || webcamRunning) return;
+    const callVideo = document.getElementById('localVideo');
+    if (callVideo && !callVideo.srcObject) {
+        if (!esAutoInicio) alert('Start your call camera before enabling head control.');
+        return;
+    }
+    starting = true;
     console.log("Iniciando sistema de seguimiento de cabeza...");
     lastVideoTime = -1;
     
@@ -49,7 +58,10 @@ async function iniciarHeadTracking(esAutoInicio = false) {
             document.body.appendChild(videoElement);
         }
 
-        mediaStream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+        // Reuse the call stream instead of opening the same camera twice.
+        ownsMediaStream = !callVideo;
+        mediaStream = callVideo ? callVideo.srcObject : await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+        videoElement.muted = true;
         videoElement.srcObject = mediaStream;
         
         videoElement.onloadedmetadata = () => {
@@ -63,7 +75,7 @@ async function iniciarHeadTracking(esAutoInicio = false) {
             if (botonActivar) botonActivar.style.background = '#e0f2fe';
 
             if (!esAutoInicio) {
-                alert("¡Control de cursor y navegación por cabeza activado!");
+                alert("Head-controlled cursor and navigation enabled!");
             }
             predecirMovimiento();
         };
@@ -71,11 +83,13 @@ async function iniciarHeadTracking(esAutoInicio = false) {
     } catch (error) {
         console.error("Error al iniciar el seguimiento:", error);
         if (!esAutoInicio) {
-            alert("No se pudo iniciar la cámara. Revisa los permisos.");
+            alert("Unable to start the camera. Check your camera permissions.");
         }
         webcamRunning = false;
         localStorage.removeItem('senyaHeadTrackingActive');
         if (cursorElement) cursorElement.style.display = 'none';
+    } finally {
+        starting = false;
     }
 }
 
@@ -88,7 +102,7 @@ function detenerHeadTracking() {
         animationFrameId = null;
     }
     if (mediaStream) {
-        mediaStream.getTracks().forEach(track => track.stop());
+        if (ownsMediaStream) mediaStream.getTracks().forEach(track => track.stop());
         mediaStream = null;
     }
     if (videoElement) {
@@ -101,7 +115,7 @@ function detenerHeadTracking() {
     const botonActivar = document.getElementById('activarHeadTracking');
     if (botonActivar) botonActivar.style.background = '';
 
-    alert("Control por movimientos de cabeza desactivado.");
+    alert("Head control disabled.");
 }
 
 let posXSuavizada = window.innerWidth / 2;
@@ -190,4 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+});
+window.addEventListener('senya-call-media-ready', () => {
+    if (localStorage.getItem('senyaHeadTrackingActive') === 'true') iniciarHeadTracking(true);
 });

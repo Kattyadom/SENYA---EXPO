@@ -186,4 +186,4 @@
         width: 100%;
         justify-content: center;
     }
-}
+}.request-form input[type=text],.request-form input[type=datetime-local]{width:100%;padding:14px 16px;border:1px solid #d7e2f2;border-radius:12px;font:inherit;color:#1e293b;background:#f8fafc}.request-form [hidden]{display:none!important}
