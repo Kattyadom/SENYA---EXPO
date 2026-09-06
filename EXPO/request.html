@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request an Interpreter - SENYA</title>
+    <!-- Estilos generales y específicos -->
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/request.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <!-- MediaPipe para control por cabeza -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
+    <!-- FontAwesome Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Panel de Accesibilidad -->
+  <div class="accessibility-panel" id="accessibilityPanel">
+    <div class="panel-header">
+      <h3>Accessibility</h3>
+      <button id="closePanel">×</button>
+    </div>
+    <div class="panel-content">
+      <button class="acc-card low-vision" id="lowVisionBtn">
+        <div class="acc-icon">👁️</div>
+        <div class="acc-info">
+          <h4>Low Vision</h4>
+          <p>High contrast, larger text and stronger buttons</p>
+        </div>
+      </button>
+
+      <button class="acc-card dyslexia-mode" id="dyslexiaBtn">
+        <div class="acc-icon">📖</div>
+        <div class="acc-info">
+          <h4>Dyslexia</h4>
+          <p>Friendly font, soft colors and more spacing</p>
+        </div>
+      </button>
+
+      <button class="acc-card deaf-mode" id="deafBtn">
+        <div class="acc-icon">🤟</div>
+        <div class="acc-info">
+          <h4>Deaf Support</h4>
+          <p>Visual communication and larger icons</p>
+        </div>
+      </button>
+
+      <button class="acc-card" id="activarHeadTracking">
+        <div class="acc-icon">🔄</div>
+        <div class="acc-info">
+          <h4>Head Control</h4>
+          <p>Navigate and scroll using head movements</p>
+        </div>
+      </button>
+
+      <button class="acc-card speech-mode" id="speechBtn">
+        <div class="acc-icon">🔊</div>
+        <div class="acc-info">
+          <h4>Read Aloud</h4>
+          <p>Read the text on the screen with voice</p>
+        </div>
+      </button>
+
+      <div class="acc-card translate-card">
+        <div class="acc-icon"><i class="fas fa-language"></i></div>
+        <div class="acc-info">
+          <h4>Language / Idioma</h4>
+          <p>Translate website</p>
+          <div id="google_translate_element"></div>
+        </div>
+      </div>
+
+      <div class="text-size-box">
+        <label>Text Size</label>
+        <div class="size-buttons">
+          <button id="smallText">A-</button>
+          <button id="normalText" class="active">A</button>
+          <button id="largeText">A+</button>
+        </div>
+      </div>
+
+      <button class="reset-btn" id="resetAccessibility">Reset Accessibility</button>
+    </div>
+  </div>
+
+  <!-- Navbar idéntico al sitio -->
+  <header class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="logo">
+            <img src="img/Senyalogo.png" alt="SENYA Logo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="opciones.html" class="active">Partner Network</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="soporte.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="right-actions">
+            <a href="#" class="help-btn" id="accessibilityBtn">Accessibility</a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="request-container">
+    <div class="request-card">
+        
+        <div class="request-header">
+            <a href="opciones.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to options</a>
+            <h1>Request an Interpreter</h1>
+            <p>You are requesting an interpreter to assist you with:</p>
+            <div class="selected-service-box">
+                <i class="fa-solid fa-building"></i>
+                <span id="selectedService">Selected Service</span>
+            </div>
+        </div>
+
+        <form id="requestForm" class="request-form">
+            
+            <!-- Language Selection -->
+            <div class="form-group">
+                <label for="languageType"><i class="fa-solid fa-language"></i> Language</label>
+                <select id="languageType" name="languageType" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="LESSA">LESSA</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="English">English</option>
+                </select>
+            </div>
+
+            <!-- Details of Request -->
+            <div class="form-group">
+                <label for="details"><i class="fa-solid fa-pen-to-square"></i> Details of your request</label>
+                <textarea id="details" name="details" rows="5" required placeholder="Describe what you need help with (e.g. 'I want to inquire about opening a savings account' or 'I need help with my medical appointment')..."></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-cancel" onclick="window.location.href='opciones.html'">Cancel</button>
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-headset"></i> Find Interpreter
+                </button>
+            </div>
+        </form>
+
+    </div>
+  </main>
+
+  <!-- Google Translate Init -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'es,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Scripts JS -->
+  <script src="js/accessibility.js"></script>
+  <script type="module" src="js/head-tracking.js"></script>
+  <script src="js/request.js"></script>
+
+  <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+</body>
+</html>
