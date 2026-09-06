@@ -8,79 +8,90 @@
 
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/finished.css">
-<!--MEDIA PIPE VISION(OTRO SCRIPT PARA EL MOVIMIENTO DE CABEZA)-->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
+    
+    <!-- MEDIA PIPE VISION (SCRIPT PARA EL MOVIMIENTO DE CABEZA) -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
     <!-- Accessibility Panel -->
-<div class="accessibility-panel" id="accessibilityPanel">
+    <div class="accessibility-panel" id="accessibilityPanel">
 
-<div class="panel-header">
-<h3>Accessibility</h3>
-<button id="closePanel">×</button>
-</div>
+        <div class="panel-header">
+            <h3>Accessibility</h3>
+            <button id="closePanel">×</button>
+        </div>
 
-<div class="panel-content">
+        <div class="panel-content">
 
-<button class="acc-card low-vision" id="lowVisionBtn">
-<div class="acc-icon">👁️</div>
-<div class="acc-info">
-<h4>Low Vision</h4>
-<p>High contrast, larger text and stronger buttons</p>
-</div>
-</button>
+            <button class="acc-card low-vision" id="lowVisionBtn">
+                <div class="acc-icon">👁️</div>
+                <div class="acc-info">
+                    <h4>Low Vision</h4>
+                    <p>High contrast, larger text and stronger buttons</p>
+                </div>
+            </button>
 
-<button class="acc-card dyslexia-mode" id="dyslexiaBtn">
-<div class="acc-icon">📖</div>
-<div class="acc-info">
-<h4>Dyslexia</h4>
-<p>Friendly font, soft colors and more spacing</p>
-</div>
-</button>
+            <button class="acc-card dyslexia-mode" id="dyslexiaBtn">
+                <div class="acc-icon">📖</div>
+                <div class="acc-info">
+                    <h4>Dyslexia</h4>
+                    <p>Friendly font, soft colors and more spacing</p>
+                </div>
+            </button>
 
-<button class="acc-card deaf-mode" id="deafBtn">
-<div class="acc-icon">🤟</div>
-<div class="acc-info">
-<h4>Deaf Support</h4>
-<p>Visual communication and larger icons</p>
-</div>
-</button>
+            <button class="acc-card deaf-mode" id="deafBtn">
+                <div class="acc-icon">🤟</div>
+                <div class="acc-info">
+                    <h4>Deaf Support</h4>
+                    <p>Visual communication and larger icons</p>
+                </div>
+            </button>
 
-<button class="acc-card" id="activarHeadTracking">
-    <div class="acc-icon">🔄</div>
-    <div class="acc-info">
-        <h4>Head Control</h4>
-        <p>Navigate and scroll using head movements</p>
+            <button class="acc-card" id="activarHeadTracking">
+                <div class="acc-icon">🔄</div>
+                <div class="acc-info">
+                    <h4>Head Control</h4>
+                    <p>Navigate and scroll using head movements</p>
+                </div>
+            </button>
+
+            <button class="acc-card speech-mode" id="speechBtn">
+                <div class="acc-icon">🔊</div>
+                <div class="acc-info">
+                    <h4>Read Aloud</h4>
+                    <p>Read the text on the screen with voice</p>
+                </div>
+            </button>
+
+            <!-- Traducción con Google Translate -->
+            <div class="acc-card translate-card">
+                <div class="acc-icon"><i class="fas fa-language"></i></div>
+                <div class="acc-info">
+                    <h4>Idioma / Language</h4>
+                    <p>Traducir sitio web / Translate website</p>
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+
+            <div class="text-size-box">
+                <label>Text Size</label>
+                <div class="size-buttons">
+                    <button id="smallText">A-</button>
+                    <button id="normalText" class="active">A</button>
+                    <button id="largeText">A+</button>
+                </div>
+            </div>
+
+            <button class="reset-btn" id="resetAccessibility">
+                Reset Accessibility
+            </button>
+
+        </div>
     </div>
-</button>
-
-<button class="acc-card speech-mode" id="speechBtn">
-<div class="acc-icon">🔊</div> <div class="acc-info">
-<h4>Read Aloud</h4>
-<p>Read the text on the screen with voice</p>
-</div>
-</button>
-
-<div class="text-size-box">
-<label>Text Size</label>
-<div class="size-buttons">
-<button id="smallText">A-</button>
-<button id="normalText" class="active">A</button>
-<button id="largeText">A+</button>
-</div>
-</div>
-
-<button class="reset-btn" id="resetAccessibility">
-Reset Accessibility
-</button>
-
-</div>
-</div>
 
     <header class="navbar">
 
@@ -92,27 +103,11 @@ Reset Accessibility
 
             <nav>
                 <ul class="nav-links">
-
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="opciones.html">Partner Network</a>
-                    </li>
-
-                    <li>
-                        <a href="profile.html">Profile</a>
-                    </li>
-
-                    <li>
-                        <a href="about.html">About Us</a>
-                    </li>
-
-                    <li>
-                        <a href="soporte.html">Contact</a>
-                    </li>
-
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="opciones.html">Partner Network</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="soporte.html">Contact</a></li>
                 </ul>
             </nav>
 
@@ -128,12 +123,9 @@ Reset Accessibility
 
     </header>
 
-
     <main class="finished-page">
 
-
         <section class="thank-you">
-
             <div class="thank-you-decoration decoration-one"></div>
             <div class="thank-you-decoration decoration-two"></div>
 
@@ -156,12 +148,9 @@ Reset Accessibility
                 <span class="status-dot"></span>
                 Call successfully completed
             </div>
-
         </section>
 
-
         <section class="feedback-intro">
-
             <span class="section-label">
                 YOUR FEEDBACK MATTERS
             </span>
@@ -172,143 +161,50 @@ Reset Accessibility
                 Your opinion helps SENYA improve every call
                 and provide a better communication experience.
             </p>
-
         </section>
 
-
         <section class="form-section rating-section">
-
-            <div class="section-number">
-                01
-            </div>
+            <div class="section-number">01</div>
 
             <div class="form-section-header">
-
                 <div class="section-icon">
                     <i class="fa-solid fa-star"></i>
                 </div>
 
                 <div>
-                    <span class="small-label">
-                        YOUR EXPERIENCE
-                    </span>
-
+                    <span class="small-label">YOUR EXPERIENCE</span>
                     <h2>Rate the Interpreter</h2>
-
-                    <p>
-                        Tell us how your interpreter helped you
-                        during your call.
-                    </p>
+                    <p>Tell us how your interpreter helped you during your call.</p>
                 </div>
-
             </div>
 
-
             <form id="ratingForm">
-
                 <div class="rating-container">
-
-                    <div
-                        class="stars"
-                        id="stars"
-                        role="radiogroup"
-                        aria-label="Interpreter rating"
-                    >
-
-                        <button
-                            type="button"
-                            class="star"
-                            data-value="1"
-                            aria-label="1 star"
-                        >
-                            <i class="fa-solid fa-star"></i>
-                        </button>
-
-                        <button
-                            type="button"
-                            class="star"
-                            data-value="2"
-                            aria-label="2 stars"
-                        >
-                            <i class="fa-solid fa-star"></i>
-                        </button>
-
-                        <button
-                            type="button"
-                            class="star"
-                            data-value="3"
-                            aria-label="3 stars"
-                        >
-                            <i class="fa-solid fa-star"></i>
-                        </button>
-
-                        <button
-                            type="button"
-                            class="star"
-                            data-value="4"
-                            aria-label="4 stars"
-                        >
-                            <i class="fa-solid fa-star"></i>
-                        </button>
-
-                        <button
-                            type="button"
-                            class="star"
-                            data-value="5"
-                            aria-label="5 stars"
-                        >
-                            <i class="fa-solid fa-star"></i>
-                        </button>
-
+                    <div class="stars" id="stars" role="radiogroup" aria-label="Interpreter rating">
+                        <button type="button" class="star" data-value="1" aria-label="1 star"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" class="star" data-value="2" aria-label="2 stars"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" class="star" data-value="3" aria-label="3 stars"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" class="star" data-value="4" aria-label="4 stars"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" class="star" data-value="5" aria-label="5 stars"><i class="fa-solid fa-star"></i></button>
                     </div>
 
-                    <p class="rating-text" id="ratingText">
-                        Select a rating
-                    </p>
-
-                    <input
-                        type="hidden"
-                        id="ratingValue"
-                        name="rating"
-                    >
-
+                    <p class="rating-text" id="ratingText">Select a rating</p>
+                    <input type="hidden" id="ratingValue" name="rating">
                 </div>
-
 
                 <div class="form-group">
-
-                    <label for="ratingComment">
-                        Tell us more
-                    </label>
-
-                    <textarea
-                        id="ratingComment"
-                        name="comment"
-                        placeholder="How was your experience with the interpreter?"
-                        maxlength="500"
-                        required
-                    ></textarea>
-
+                    <label for="ratingComment">Tell us more</label>
+                    <textarea id="ratingComment" name="comment" placeholder="How was your experience with the interpreter?" maxlength="500" required></textarea>
                 </div>
 
-
-                <button
-                    type="submit"
-                    class="primary-btn"
-                >
+                <button type="submit" class="primary-btn">
                     <span>Submit Evaluation</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
 
-                <div
-                    class="form-message"
-                    id="ratingMessage"
-                ></div>
-
+                <div class="form-message" id="ratingMessage"></div>
             </form>
-
         </section>
-
 
         <div class="section-divider">
             <span></span>
@@ -316,162 +212,77 @@ Reset Accessibility
             <span></span>
         </div>
 
-
         <section class="form-section support-section">
-
-            <div class="section-number">
-                02
-            </div>
+            <div class="section-number">02</div>
 
             <div class="form-section-header">
-
                 <div class="section-icon">
                     <i class="fa-solid fa-headset"></i>
                 </div>
 
                 <div>
-                    <span class="small-label">
-                        WE ARE HERE FOR YOU
-                    </span>
-
+                    <span class="small-label">WE ARE HERE FOR YOU</span>
                     <h2>Technical Support</h2>
-
-                    <p>
-                        Did something go wrong during your call?
-                        Let us know and our team will help you.
-                    </p>
+                    <p>Did something go wrong during your call? Let us know and our team will help you.</p>
                 </div>
-
             </div>
 
-
             <form id="supportForm">
-
                 <div class="support-fields">
-
                     <div class="form-group">
-
-                        <label for="supportName">
-                            Full Name
-                        </label>
-
+                        <label for="supportName">Full Name</label>
                         <div class="input-box">
-
                             <i class="fa-solid fa-user"></i>
-
-                            <input
-                                type="text"
-                                id="supportName"
-                                name="name"
-                                placeholder="Your full name"
-                                required
-                            >
-
+                            <input type="text" id="supportName" name="name" placeholder="Your full name" required>
                         </div>
-
                     </div>
-
 
                     <div class="form-group">
-
-                        <label for="supportEmail">
-                            Email
-                        </label>
-
+                        <label for="supportEmail">Email</label>
                         <div class="input-box">
-
                             <i class="fa-solid fa-envelope"></i>
-
-                            <input
-                                type="email"
-                                id="supportEmail"
-                                name="email"
-                                placeholder="you@example.com"
-                                required
-                            >
-
+                            <input type="email" id="supportEmail" name="email" placeholder="you@example.com" required>
                         </div>
-
                     </div>
-
                 </div>
-
 
                 <div class="form-group">
-
-                    <label for="supportProblem">
-                        Describe your problem
-                    </label>
-
-                    <textarea
-                        id="supportProblem"
-                        name="problem"
-                        placeholder="Tell us what happened and how we can help..."
-                        maxlength="1000"
-                        required
-                    ></textarea>
-
+                    <label for="supportProblem">Describe your problem</label>
+                    <textarea id="supportProblem" name="problem" placeholder="Tell us what happened and how we can help..." maxlength="1000" required></textarea>
                 </div>
 
-
-                <button
-                    type="submit"
-                    class="primary-btn"
-                >
+                <button type="submit" class="primary-btn">
                     <span>Send Request</span>
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
 
-                <div
-                    class="form-message"
-                    id="supportMessage"
-                ></div>
-
+                <div class="form-message" id="supportMessage"></div>
             </form>
-
         </section>
 
-
         <section class="bottom-message">
-
             <div class="bottom-icon">
                 <i class="fa-solid fa-heart"></i>
             </div>
-
             <div>
                 <strong>Thank you for using SENYA</strong>
-
-                <p>
-                    Communication is not a privilege, it's a right.
-                </p>
+                <p>Communication is not a privilege, it's a right.</p>
             </div>
-
         </section>
 
     </main>
 
-
     <footer class="footer">
-
         <div class="footer-container">
-
             <div class="footer-column">
-
                 <div class="logo" role="img" aria-label="SENYA Logo">
                     SEN<span class="logo-y">Y</span>A
                 </div>
-
-                <p>
-                    "Communication is not a privilege, it's a right."
-                </p>
-
+                <p>"Communication is not a privilege, it's a right."</p>
             </div>
 
-
             <div class="footer-column">
-
                 <h3>Information</h3>
-
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="opciones.html">Services</a></li>
@@ -479,66 +290,65 @@ Reset Accessibility
                     <li><a href="about.html">About us</a></li>
                     <li><a href="about.html">How to use Senya?</a></li>
                 </ul>
-
             </div>
 
-
             <div class="footer-column">
-
                 <h3>Useful Links</h3>
-
                 <ul>
                     <li><a href="soporte.html">Technical Support</a></li>
                     <li><a href="opciones.html">Services</a></li>
                     <li><a href="opciones.html">Join to us</a></li>
                     <li><a href="about.html">How to use Senya?</a></li>
                 </ul>
-
             </div>
 
-
             <div class="footer-column">
-
                 <h3>Our Services</h3>
-
                 <ul>
                     <li><a href="opciones.html">Banks</a></li>
                     <li><a href="opciones.html">Call Centers</a></li>
                     <li><a href="opciones.html">Internet</a></li>
                     <li><a href="opciones.html">Shops</a></li>
                 </ul>
-
             </div>
 
-
             <div class="footer-column">
-
                 <h3>Contact Us</h3>
-
                 <p>📞 +503 9842-5783</p>
                 <p>✉ senya.sv@gmail.com</p>
-
                 <div class="socials">
                     <a href="#">Instagram</a>
                 </div>
-
             </div>
-
         </div>
-
 
         <hr>
         <div class="footer-bottom">
-            <p>
-                © 2026 Senya. All Rights Reserved.
-            </p>
+            <p>© 2026 Senya. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Cursor virtual controlado por la cabeza -->
+    <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+
+    <!-- Script Google Translate -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'es,en',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Scripts de la aplicación -->
     <script src="js/finished.js"></script>
     <script src="js/accessibility.js"></script>
-    <!--SCRIPT PARA MOVIMIENTO CON LA CABEZA-->
-<script type="module" src="js/head-tracking.js"></script>
-<!-- Cursor virtual controlado por la cabeza -->
-<div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+    
+    <!-- SCRIPT PARA MOVIMIENTO CON LA CABEZA -->
+    <script type="module" src="js/head-tracking.js"></script>
 </body>
 </html>
