@@ -984,7 +984,295 @@ body {
 
 }
 
+/* =========================================================
+   31. PASSWORD SECURITY
+========================================================= */
 
+.password-security {
+
+    margin-top: 12px;
+
+}
+
+
+
+/* =========================================================
+   32. PASSWORD STRENGTH HEADER
+========================================================= */
+
+.password-strength-header {
+
+    margin-bottom: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+.password-strength-header span {
+
+    color: #64748B;
+
+    font-size: 0.72rem;
+
+}
+
+
+.password-strength-header strong {
+
+    color: #94A3B8;
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+
+}
+
+
+
+/* =========================================================
+   33. PASSWORD STRENGTH BAR
+========================================================= */
+
+.password-strength-bar {
+
+    width: 100%;
+
+    height: 6px;
+
+    margin-bottom: 12px;
+
+    overflow: hidden;
+
+    background: #E2E8F0;
+
+    border-radius: 20px;
+
+}
+
+
+.password-strength-bar span {
+
+    width: 0;
+
+    height: 100%;
+
+    display: block;
+
+    background: #E2E8F0;
+
+    border-radius: 20px;
+
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+
+/* =========================================================
+   34. PASSWORD REQUIREMENTS
+========================================================= */
+
+.password-requirements {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px 12px;
+
+}
+
+
+
+/* =========================================================
+   35. PASSWORD REQUIREMENT
+========================================================= */
+
+.password-requirement {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #94A3B8;
+
+    font-size: 0.68rem;
+
+    transition: color 0.3s ease;
+
+}
+
+
+.password-requirement i {
+
+    font-size: 6px;
+
+    color: #CBD5E1;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+/* =========================================================
+   36. VALID PASSWORD REQUIREMENT
+========================================================= */
+
+.password-requirement.valid {
+
+    color: #2563EB;
+
+}
+
+
+.password-requirement.valid i {
+
+    color: #2563EB;
+
+}
+
+
+
+/* =========================================================
+   37. INVALID PASSWORD REQUIREMENT
+========================================================= */
+
+.password-requirement.invalid {
+
+    color: #94A3B8;
+
+}
+
+
+.password-requirement.invalid i {
+
+    color: #CBD5E1;
+
+}
+
+
+
+/* =========================================================
+   38. PASSWORD - WEAK
+========================================================= */
+
+.password-security.weak
+.password-strength-header strong {
+
+    color: #EF4444;
+
+}
+
+
+.password-security.weak
+.password-strength-bar span {
+
+    background: #EF4444;
+
+}
+
+
+
+/* =========================================================
+   39. PASSWORD - MEDIUM
+========================================================= */
+
+.password-security.medium
+.password-strength-header strong {
+
+    color: #F59E0B;
+
+}
+
+
+.password-security.medium
+.password-strength-bar span {
+
+    background: #F59E0B;
+
+}
+
+
+
+/* =========================================================
+   40. PASSWORD - STRONG
+========================================================= */
+
+.password-security.strong
+.password-strength-header strong {
+
+    color: #2563EB;
+
+}
+
+
+.password-security.strong
+.password-strength-bar span {
+
+    background: #2563EB;
+
+}
+
+
+
+/* =========================================================
+   41. DISABLED SIGN UP BUTTON
+========================================================= */
+
+.login-btn:disabled {
+
+    background: #CBD5E1;
+
+    color: #FFFFFF;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+    opacity: 0.8;
+
+}
+
+
+.login-btn:disabled:hover {
+
+    background: #CBD5E1;
+
+    transform: none;
+
+    box-shadow: none;
+
+}
+
+
+
+/* =========================================================
+   42. PASSWORD RESPONSIVE
+========================================================= */
+
+@media(max-width: 500px) {
+
+    .password-requirements {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
 
 /* =========================================================
    31. REMEMBER
