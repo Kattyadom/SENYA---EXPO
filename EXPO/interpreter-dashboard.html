@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpreter dashboard | SENYA</title><link rel="stylesheet" href="css/general.css"><link rel="stylesheet" href="css/profile.css"><link rel="stylesheet" href="css/appointments.css"><link rel="stylesheet" href="css/modal.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head>
-<body data-role="interpreter">  <!-- Panel de Accesibilidad -->
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpreter dashboard | SENYA</title><link rel="stylesheet" href="css/general.css"><link rel="stylesheet" href="css/profile.css"><link rel="stylesheet" href="css/appointments.css"><link rel="stylesheet" href="css/modal.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="css/account-ui.css"></head>
+<body class="account-appointments" data-role="interpreter">  <!-- Panel de Accesibilidad -->
   <div class="accessibility-panel" id="accessibilityPanel">
     <div class="panel-header">
       <h3>Accessibility</h3>
@@ -68,34 +68,12 @@
     </div>
   </div>
 
-  <header class="navbar">
-    <div class="navbar-container">
-        <a href="index.html" class="logo">
-            <img src="img/Senyalogo.png" alt="SENYA Logo">
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="opciones.html" class="active">Partner Network</a></li>
-                <li><a href="appointments.html">My appointments</a></li>
-<li><a href="interpreter-profile.html">Profile</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="soporte.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="right-actions">
-            <a href="#" class="help-btn" id="accessibilityBtn">Accessibility</a>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-    </div>
-  </header>
+  <header class="navbar" aria-label="Loading navigation"></header>
 
 
-<main class="profile-page"><aside class="sidebar"><div class="profile-header"><div class="initials" id="initials" aria-hidden="true">S</div><h2 id="accountName">Your account</h2><span class="badge">SENYA interpreter</span><p id="skills"></p></div><nav aria-label="Account"><a href="interpreter-dashboard.html">My appointments</a><a href="interpreter-profile.html">My profile</a><a href="soporte.html">Support</a></nav><div class="actions"><button id="themeButton">Change theme</button><button id="logoutButton">Log out</button></div></aside>
+<main class="profile-page">
 <div class="workspace"><header class="workspace-head"><div><p class="eyebrow">INTERPRETER WORKSPACE</p><h1>Your assistance dashboard</h1></div></header>
-<section class="card"><div class="card-head"><h2>Availability</h2><label class="availability"><input type="checkbox" id="availabilitySwitch" disabled> Available for requests</label></div><p id="availabilityMessage">Checking your profile…</p><a href="interpreter-profile.html#certificate-upload" style="display:inline-block;padding:12px 18px;border-radius:12px;background:#eff6ff;color:#1d4ed8">Upload certificate</a></section>
+<section class="card"><div class="card-head"><h2>Availability</h2><label class="availability"><input type="checkbox" id="availabilitySwitch" disabled> Available for requests</label></div><p id="availabilityMessage">Checking your profile…</p><a href="profile.html#certificate-upload" style="display:inline-block;padding:12px 18px;border-radius:12px;background:#eff6ff;color:#1d4ed8">Upload certificate</a></section>
 <div class="stats"><div class="card"><strong id="pendingCount">—</strong><span>Pending</span></div><div class="card"><strong id="activeCount">—</strong><span>Accepted / in session</span></div><div class="card"><strong id="completedCount">—</strong><span>Completed</span></div></div>
 <section class="card"><h2>Assigned assistance</h2><p>SENYA matches requests to your language, specialty and availability.</p><div id="appointmentList" aria-live="polite"><p class="empty">Loading appointments…</p></div></section></div></main>
-<script src="js/senya-api.js"></script><script src="js/appointments.js"></script><script src="js/accessibility.js"></script><script type="module" src="js/head-tracking.js"></script></body></html>
+<script src="js/senya-api.js"></script><script src="js/appointments.js"></script><script src="js/accessibility.js"></script><script type="module" src="js/head-tracking.js"></script><script src="js/account-nav.js"></script></body></html>

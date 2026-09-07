@@ -1,0 +1,17 @@
+
+document.addEventListener('DOMContentLoaded',async()=>{
+ const get=id=>document.getElementById(id);let profile;
+ try{profile=await Senya.me();const interpreter=profile.role==='interpreter';get('profileRole').textContent=interpreter?'Interpreter account':profile.role==='admin'?'Administrator account':'User account';
+ const fields={firstName:'first_name',lastName:'last_name',phone:'phone',birthday:'birthday',whatsapp:'whatsapp',address:'address'};
+ for(const [id,key] of Object.entries(fields))get(id).value=profile[key]||'';
+ get('email').value=JSON.parse(sessionStorage.getItem('senyaAuth')).user.email;get('accountFields').disabled=false;get('userCard').hidden=profile.role!=='user';
+ get('accountForm').onsubmit=async e=>{e.preventDefault();get('accountFields').disabled=true;try{await Senya.rpc('save_profile',{p_first_name:get('firstName').value,p_last_name:get('lastName').value,p_phone:get('phone').value,p_birthday:get('birthday').value,p_whatsapp:get('whatsapp').value,p_address:get('address').value,p_preferences:profile.preferences||{}});get('profileStatus').textContent='Your profile has been saved.';}catch(error){get('profileStatus').textContent=error.message;}finally{get('accountFields').disabled=false;}};
+ if(!interpreter)return;
+ const [ip]=await Senya.select('interpreter_profiles');if(!ip)throw Error('Your professional profile could not be loaded.');get('professionalCard').hidden=false;
+ get('professionalSkills').textContent='Languages: '+ip.languages.join(', ')+' · Specialties: '+ip.specialties.join(', ')+' · Experience: '+ip.experience+' years';get('professionalBio').textContent=ip.bio||'';
+ get('verificationStatus').textContent=ip.verification_status==='verified'?'Verified. Manage your availability from My appointments.':ip.verification_status==='rejected'?'Your application was rejected. Contact support before submitting further documents.':'Pending verification. Upload your certificate so an administrator can review your application.';
+ get('certificateForm').hidden=ip.verification_status!=='pending';
+ get('certificateForm').onsubmit=async e=>{e.preventDefault();const file=get('certificateFile').files[0];if(!file)return;const ext={'application/pdf':'pdf','image/jpeg':'jpg','image/png':'png'}[file.type];if(!ext||file.size>5242880){get('certificateStatus').textContent='Choose a PDF, JPG or PNG up to 5 MB.';return;}const button=e.currentTarget.querySelector('button');button.disabled=true;get('certificateStatus').textContent='Uploading certificate…';try{const c=await Senya.settings();const r=await fetch(c.url+'/storage/v1/object/certificates/'+profile.id+'/'+crypto.randomUUID()+'.'+ext,{method:'POST',headers:{apikey:c.key,Authorization:'Bearer '+await Senya.token(),'Content-Type':file.type},body:file});if(!r.ok)throw Error('Upload failed. Please try again.');get('certificateStatus').textContent='Certificate uploaded. Your application is awaiting administrator review.';get('certificateForm').reset();}catch(error){get('certificateStatus').textContent=error.message;}finally{button.disabled=false;}};
+ if(location.hash==='#certificate-upload')get('certificate-upload').scrollIntoView();
+ }catch(error){Senya.error(error);}
+});

@@ -2,18 +2,18 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const interpreter=document.body.dataset.role==='interpreter';
  const list=document.getElementById('appointmentList');
  const theme=()=>document.body.classList.toggle('light-theme',localStorage.getItem('theme')==='light');theme();
- document.getElementById('themeButton').onclick=()=>{localStorage.setItem('theme',document.body.classList.contains('light-theme')?'dark':'light');theme();};
- document.getElementById('logoutButton').onclick=()=>Senya.signout();
+ if(document.getElementById('themeButton'))document.getElementById('themeButton').onclick=()=>{localStorage.setItem('theme',document.body.classList.contains('light-theme')?'dark':'light');theme();};
+ if(document.getElementById('logoutButton'))document.getElementById('logoutButton').onclick=()=>Senya.signout();
  let profile,busy=false,signature='';
  try{
  profile=await Senya.me(interpreter?'interpreter':'user');
- document.getElementById('accountName').textContent=profile.first_name+' '+profile.last_name;
- document.getElementById('initials').textContent=(profile.first_name[0]||'')+(profile.last_name[0]||'');
+ if(document.getElementById('accountName'))document.getElementById('accountName').textContent=profile.first_name+' '+profile.last_name;
+ if(document.getElementById('initials'))document.getElementById('initials').textContent=(profile.first_name[0]||'')+(profile.last_name[0]||'');
  if(interpreter){
  const [ip]=await Senya.select('interpreter_profiles');
  const input=document.getElementById('availabilitySwitch');input.checked=ip.available;input.disabled=ip.verification_status!=='verified';
  document.getElementById('availabilityMessage').textContent=ip.verification_status==='verified'?'Keep this dashboard open to receive offers. Offers expire after 90 seconds.':'Your profile is '+ip.verification_status+'. SENYA must verify your credentials before you receive requests.';
- document.getElementById('skills').textContent=ip.languages.join(' · ')+' / '+ip.specialties.join(' · ');
+ if(document.getElementById('skills'))document.getElementById('skills').textContent=ip.languages.join(' · ')+' / '+ip.specialties.join(' · ');
  input.onchange=async()=>{input.disabled=true;try{await Senya.rpc('set_availability',{p_available:input.checked});}catch(e){input.checked=!input.checked;Senya.error(e);}finally{input.disabled=false;}};
  }
  }catch(e){Senya.error(e);return;}

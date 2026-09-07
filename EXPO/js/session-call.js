@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded',async()=>{
  isInterpreter=account.role==='interpreter';configureCallLayout(document,account.role);
  const sessions=await Senya.select('sessions','&request_id=eq.'+encodeURIComponent(id));
  if(!sessions[0]||sessions[0].status==='completed')throw Error('This session is unavailable.');
+ const requests=await Senya.rpc('sync_requests'),request=requests.find(r=>r.id===id);
+ if(!request||!['accepted','in_progress'].includes(request.status))throw Error('This session is unavailable.');
+ if(request.scheduled_at&&!(Date.parse(request.scheduled_at)<=Date.now()+600000))throw Error('The room opens 10 minutes before the appointment.');
  // The server starts the authorized session after media permission succeeds.
  stream=await captureCallMedia(navigator.mediaDevices);localVideo.srcObject=stream;
  if(isInterpreter&&placeholder)placeholder.style.display='none';

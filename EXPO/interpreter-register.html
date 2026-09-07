@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/interpreter-register.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-</head>
+<link rel="stylesheet" href="css/account-ui.css"></head>
 <body>
 <main class="page">
     <aside class="brand-panel">
@@ -278,7 +278,7 @@
                         <span><i class="fa-solid fa-shield-halved"></i></span>
                         <div>
                             <h3>Verification</h3>
-                            <p>Upload a document that supports your credentials.</p>
+                            <p>After confirming your email, open My profile to upload your certificate.</p>
                         </div>
                     </div>
 
@@ -286,7 +286,7 @@
                         Certification document
                     </div>
 
-                    <label class="upload" for="certificateFile">
+                    <label hidden class="upload" for="certificateFile">
                         <span><i class="fa-solid fa-cloud-arrow-up"></i></span>
                         <div>
                             <strong id="fileLabel">Upload after confirming your email</strong>
@@ -296,7 +296,7 @@
                     </label>
 
                     <input
-                        class="file-input"
+                        hidden class="file-input"
                         id="certificateFile"
                         type="file"
                         accept=".pdf,.jpg,.jpeg,.png"
@@ -314,7 +314,7 @@
                 <div class="notice">
                     <i class="fa-solid fa-circle-info"></i>
                     <p>
-                        Interpreter accounts are reviewed before activation. You will receive a notification when your profile has been verified.
+                        Interpreter accounts are reviewed before activation. Check your verification status in My profile.
                     </p>
                 </div>
 
@@ -351,5 +351,5 @@
 
 <script src="js/senya-api.js"></script>
 <script src="js/interpreter-register.js"></script>
-</body>
+<script src="js/account-nav.js"></script></body>
 </html>

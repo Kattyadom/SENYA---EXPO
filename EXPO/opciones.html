@@ -12,7 +12,7 @@
     <!-- Importación de fuentes e iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="js/service-links.js" defer></script>
-</head>
+<link rel="stylesheet" href="css/account-ui.css"></head>
 <body>
   <!-- Accessibility Panel -->
   <div class="accessibility-panel" id="accessibilityPanel">
@@ -91,28 +91,7 @@
     </div>
   </div>
 
-  <header class="navbar">
-    <div class="navbar-container">
-        <a href="#" class="logo">
-            <img src="img/Senyalogo.png" alt="SENYA Logo">
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="opciones.html" class="active">Partner Network</a></li>
-                <li><a href="appointments.html">My appointments</a></li><li><a href="request.html?type=immediate">Request assistance</a></li><li><a href="profile.html">Profile</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="soporte.html">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="#" class="help-btn" id="accessibilityBtn">
-    Accesibility
-</a>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-  </header>
+  <header class="navbar" aria-label="Loading navigation"></header>
 
   <section class="services">
     <div class="header">
@@ -597,5 +576,5 @@
 
   <!-- Cursor virtual controlado por la cabeza -->
   <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
-</body>
+<script src="js/senya-api.js"></script><script src="js/account-nav.js"></script></body>
 </html>

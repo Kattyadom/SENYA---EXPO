@@ -141,7 +141,7 @@ form.addEventListener('submit',async e=>{
             experience:Number(document.getElementById('experience').value),certification:document.getElementById('certification').value.trim(),
             languages,specialties,bio:bio.value.trim()
         });
-        form.hidden=true; success.hidden=false;
+        form.hidden=true; success.hidden=false;document.querySelector('.heading').hidden=true;success.querySelector('h2').textContent='Account created';const previous=document.getElementById('senyaMessage');if(previous)previous.hidden=true;
         success.querySelector('p').textContent=registration.access_token?'Account created. You can sign in and upload your certificate. SENYA must verify your interpreter profile before you receive appointments.':'Check your email to confirm your account. SENYA must verify your credentials before you can receive appointments.';
     } catch(e) { Senya.error(e); } finally { submitButton.disabled=false; }
 });
