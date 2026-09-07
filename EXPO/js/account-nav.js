@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const old=document.querySelector('header.navbar');
  const header=document.createElement('header');header.className='navbar';header.id='senyaHeader';header.innerHTML='<div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"></ul></nav><div class="right-actions"><button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="senyaNavigation"><span aria-hidden="true">☰</span></button></div></div>';
  if(old)old.replaceWith(header);else document.body.prepend(header);
+ // Add space only when the first visible content would overlap the fixed bar.
+ const protectContent=()=>{const content=document.querySelector('main,.hero,body > section');if(!content)return;const first=[...content.querySelectorAll('h1,h2,p,a,input')].find(el=>el.getClientRects().length);if(!first)return;const needed=header.getBoundingClientRect().bottom+16-first.getBoundingClientRect().top;if(needed>0&&scrollY===0){const padding=parseFloat(getComputedStyle(content).paddingTop)||0;content.style.paddingTop=(padding+needed)+'px';}};
+ requestAnimationFrame(protectContent);window.addEventListener('load',protectContent,{once:true});
  const nav=header.querySelector('.nav-links');const menuButton=header.querySelector('.menu-toggle');menuButton.setAttribute('aria-controls','senyaSignMenu');
  let role=null;try{if(sessionStorage.getItem('senyaAuth')){const [p]=await Senya.select('profiles');role=p?.role;}}catch(e){Senya.error(e);}
  const path=location.pathname.split('/').pop()||'index.html';

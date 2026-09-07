@@ -127,7 +127,7 @@ function speakText(text) {
   synth.cancel();
 
   const utterance = new SpeechSynthesisUtterance(text.trim());
-  utterance.lang = 'es-ES'; // Cambiado a Español para mejor coincidencia con la UI
+  utterance.lang = document.documentElement.lang || 'en'; // Cambiado a Español para mejor coincidencia con la UI
   utterance.rate = 1;
   utterance.pitch = 1;
 
@@ -140,7 +140,8 @@ function extractText(element) {
   
   // Se crea un clon desconectado del DOM para no afectar la pantalla
   const clone = element.cloneNode(true);
-  const icons = clone.querySelectorAll('i, svg, .icon, [class*="fa-"], img');
+  clone.querySelectorAll('img').forEach(img=>img.replaceWith(document.createTextNode(' '+(img.getAttribute('alt')||'')+' ')));
+  const icons = clone.querySelectorAll('i, svg, .icon, [class*="fa-"]');
   icons.forEach(icon => icon.remove());
 
   return (clone.textContent || clone.innerText || '').replace(/\s+/g, ' ').trim();
@@ -164,9 +165,9 @@ document.addEventListener('mouseover', (event) => {
     const label = interactiveEl.getAttribute('aria-label') || 
                   interactiveEl.getAttribute('title') || 
                   extractText(interactiveEl) || 
-                  'Enlace';
+                  'Link';
 
-    speakText(`Boton, ${label}`);
+    speakText(`Button, ${label}`);
     return;
   }
 
@@ -176,8 +177,8 @@ document.addEventListener('mouseover', (event) => {
     if (lastSpokenElement === imgEl) return;
     lastSpokenElement = imgEl;
 
-    const altText = imgEl.getAttribute('alt') || 'Imagen';
-    speakText(`Imagen de ${altText}`);
+    const altText = imgEl.getAttribute('alt') || 'Image';
+    speakText(`Image: ${altText}`);
     return;
   }
 
