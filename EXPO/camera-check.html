@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Camera check | SENYA</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f6f9ff;color:#1e293b;font:16px/1.6 system-ui,sans-serif}main{max-width:860px;margin:40px auto;padding:28px;background:white;border:1px solid #d7e2f2;border-radius:24px}h1{color:#2563eb;margin:12px 0}a{color:#1d4ed8}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}button,select{font:inherit;padding:12px 16px;border:1px solid #d7e2f2;border-radius:12px;background:#eff6ff;color:#1d4ed8}button{cursor:pointer}button:disabled{opacity:.55;cursor:wait}button:focus-visible,select:focus-visible{outline:3px solid #ff4f8b;outline-offset:3px}select{display:block;width:100%;margin-top:8px}video{width:100%;aspect-ratio:4/3;max-height:400px;background:#0f172a;border-radius:16px;object-fit:contain}#status{padding:16px;background:#eff6ff;border-radius:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f9;padding:16px;border-radius:12px;font-size:14px}meter{width:100%;height:24px}@media(max-width:600px){main{margin:12px;padding:20px}}
-</style></head><body><main>
+</style><link rel="stylesheet" href="css/account-ui.css"></head><body><main>
 <a href="appointments.html">Back to my appointments</a><h1>Camera and microphone check</h1>
 <p>Test this device before joining a call. This page does not connect to another person or record your camera or microphone.</p>
 <label for="camera">Camera<select id="camera"><option value="">Default camera</option></select></label>
@@ -13,4 +13,4 @@
 <label for="level">Microphone level</label><meter id="level" min="0" max="1" value="0"></meter>
 <details open><summary>Test details</summary><pre id="details"></pre></details>
 <p>If a test fails here, open this same page in Chrome or Edge on this computer and try once there.</p>
-</main><script src="js/camera-check.js"></script></body></html>
+</main><script src="js/camera-check.js"></script><script src="js/senya-api.js"></script><script src="js/account-nav.js"></script></body></html>
