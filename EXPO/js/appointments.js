@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
  if(home&&!window.SenyaLogin?.signedIn())return;
  const interpreter=document.body.dataset.role==='interpreter';
  const list=document.getElementById('appointmentList');
- const theme=()=>(home||document.body).classList.toggle('light-theme',localStorage.getItem('theme')==='light');theme();
+ const theme=()=>{if(!home)document.body.classList.toggle('light-theme',localStorage.getItem('theme')==='light');};theme();
  if(document.getElementById('themeButton'))document.getElementById('themeButton').onclick=()=>{localStorage.setItem('theme',document.body.classList.contains('light-theme')?'dark':'light');theme();};
  if(document.getElementById('logoutButton'))document.getElementById('logoutButton').onclick=()=>Senya.signout();
  let profile,busy=false,signature='';
@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded',async()=>{
  function node(tag,text,cls){const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;}
  function button(label,action,id,cls=''){const b=node('button',label,cls);b.onclick=async()=>{if(busy)return;busy=true;b.disabled=true;try{await Senya.rpc('respond_request',{p_id:id,p_action:action});signature='';await refresh();}catch(e){Senya.error(e);}finally{busy=false;b.disabled=false;}};return b;}
  async function refresh(){
- const rows=await Senya.rpc('sync_requests');
+ const allRows=await Senya.rpc('sync_requests');
+ const hidden=profile.preferences?.hidden_appointment_ids||[];
+ const rows=allRows.filter(r=>interpreter||!['completed','cancelled'].includes(r.status)||!hidden.includes(r.id));
  document.getElementById('pendingCount').textContent=rows.filter(r=>['waiting','assigned'].includes(r.status)).length;
  document.getElementById('activeCount').textContent=rows.filter(r=>['accepted','in_progress'].includes(r.status)).length;
  document.getElementById('completedCount').textContent=rows.filter(r=>r.status==='completed').length;
@@ -39,6 +41,17 @@ document.addEventListener('DOMContentLoaded',async()=>{
  if(r.status==='in_progress')actions.append(button('Finish session','finish',r.id));
  }
  if(!interpreter&&['waiting','assigned','accepted'].includes(r.status)){const track=node('a','View request','action');track.href='espera.html?id='+encodeURIComponent(r.id);actions.append(track,button('Cancel appointment','cancel',r.id,'danger'));}
+ if(home&&!interpreter&&['completed','cancelled'].includes(r.status)){
+ const remove=node('button',null,'delete-appointment');remove.type='button';remove.title='Remove from my history';remove.setAttribute('aria-label','Remove '+r.service+' from my history');
+ remove.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7"/></svg>';
+ remove.onclick=async()=>{if(busy)return;busy=true;remove.disabled=true;try{
+ const [latest]=await Senya.select('profiles');if(!latest||latest.id!==profile.id)throw new Error('Please sign in again.');
+ const preferences={...latest.preferences,hidden_appointment_ids:[...new Set([...(latest.preferences?.hidden_appointment_ids||[]),r.id])]};
+ await Senya.rpc('save_profile',{p_first_name:latest.first_name,p_last_name:latest.last_name,p_phone:latest.phone,p_birthday:latest.birthday,p_whatsapp:latest.whatsapp,p_address:latest.address,p_preferences:preferences});
+ profile={...latest,preferences};signature='';await refresh();
+ }catch(e){Senya.error(e);}finally{busy=false;remove.disabled=false;}};
+ actions.append(remove);
+ }
  card.append(actions);list.append(card);
  }
  }
