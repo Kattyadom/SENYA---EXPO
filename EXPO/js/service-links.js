@@ -5,5 +5,12 @@ document.addEventListener('click',event=>{
  const card=button.closest('.service-card,.bank-card,.card,article');
  const title=card?.querySelector('h2,h3')||document.querySelector('main h1,main h2,h1');
  const service=(title?.textContent||'General Service').trim();
- location.href='request.html?service='+encodeURIComponent(service);
+ const params=new URLSearchParams({service});
+ if(button.dataset.schedule==='true'){
+  params.set('type','scheduled');
+  const label=button.dataset.specialty||card?.querySelector('.category')?.textContent||'';
+  const specialty=/health/i.test(label)?'Healthcare':/bank/i.test(label)?'Banking':/telecom/i.test(label)?'Telecommunications':/utilit/i.test(label)?'Utilities':/government/i.test(label)?'Government':null;
+  if(specialty)params.set('specialty',specialty);
+ }
+ location.href='request.html?'+params.toString();
 },true);

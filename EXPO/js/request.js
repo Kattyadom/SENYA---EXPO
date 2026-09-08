@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded',async()=>{
  const params=new URLSearchParams(location.search);
  const service=params.get('service')||'';
+ const specialty=params.get('specialty');
+ if(['Banking','Healthcare','Government','Telecommunications','Utilities','General'].includes(specialty))document.getElementById('specialty').value=specialty;
  const serviceInput=document.getElementById('serviceName');serviceInput.value=service;
  const updateService=()=>document.getElementById('selectedService').textContent=serviceInput.value.trim()||'Choose your service below';updateService();serviceInput.addEventListener('input',updateService);
  const form=document.getElementById('requestForm'),button=form.querySelector('[type=submit]');button.disabled=true;
