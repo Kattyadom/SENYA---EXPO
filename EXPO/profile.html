@@ -1,4 +1,43 @@
-<!doctype html><html lang="en"><head><script src="js/auth-gate.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My profile | SENYA</title><link rel="stylesheet" href="css/general.css"><link rel="stylesheet" href="css/account-ui.css"><script defer src="js/text-size.js"></script></head><body><header class="navbar" id="senyaHeader"><div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="opciones.html">Partner network</a></li><li><a href="profile.html">Profile</a></li><li><a href="about.html">About us</a></li><li><a href="soporte.html">Contact</a></li></ul></nav><div class="right-actions"><button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button></div></div></header><script src="js/nav-initial.js"></script><div class="accessibility-panel" id="accessibilityPanel">
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="js/auth-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My profile | SENYA</title>
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/account-ui.css">
+  <!-- FontAwesome para iconografía acorde al resto de la plataforma -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script defer src="js/text-size.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="senyaHeader">
+    <div class="navbar-container">
+      <a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a>
+      <nav id="senyaNavigation" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="opciones.html">Partner network</a></li>
+          <li><a href="profile.html" class="active">Profile</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="soporte.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="right-actions">
+        <button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button>
+        <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <script src="js/nav-initial.js"></script>
+
+  <!-- ACCESSIBILITY PANEL -->
+  <div class="accessibility-panel" id="accessibilityPanel">
     <div class="panel-header">
       <h3>Accessibility</h3>
       <button id="closePanel">×</button>
@@ -66,4 +105,224 @@
     </div>
   </div>
 
-  <main class="account-main"><p id="profileRole">Your SENYA account</p><h1>My profile</h1><p>Keep your account information up to date.</p><p id="profileStatus" role="status"></p><section class="account-card account-session"><div><h2>Account session</h2><p>Sign out of SENYA on this browser.</p></div><button type="button" id="profileLogout" class="profile-logout">Log out</button></section><div class="account-grid"><section class="account-card"><h2>Personal information</h2><form id="accountForm"><fieldset id="accountFields" disabled style="border:0;padding:0;margin:0"><label>First name<input id="firstName" required maxlength="100" autocomplete="given-name"></label><label>Last name<input id="lastName" required maxlength="100" autocomplete="family-name"></label><label>Email<input id="email" type="email" disabled></label><label>Phone<input id="phone" type="tel" maxlength="50"></label><label>Date of birth<input id="birthday" type="date"></label><label>WhatsApp<input id="whatsapp" type="tel" maxlength="50"></label><label>Address<input id="address" maxlength="300"></label><button type="submit">Save changes</button></fieldset></form></section><section class="account-card" id="professionalCard" hidden><h2>Professional information</h2><p id="professionalSkills"></p><p id="professionalBio"></p><p class="account-note" id="verificationStatus"></p><div id="certificate-upload"><h2>Certificate verification</h2><p>Upload your certificate for administrator review. PDF, JPG or PNG, up to 5 MB.</p><form id="certificateForm"><label for="certificateFile">Choose a certificate</label><input id="certificateFile" type="file" accept=".pdf,.jpg,.jpeg,.png" required><button type="submit" style="margin-top:16px">Upload certificate</button><p id="certificateStatus" role="status"></p></form></div><a class="account-button" href="interpreter-dashboard.html" style="margin-top:20px">Manage availability</a></section><section class="account-card" id="userCard" hidden><h2>Your appointments</h2><p>Request an interpreter, follow your requests and join accepted sessions from My appointments.</p><a class="account-button" href="appointments.html">My appointments</a></section></div></main><script src="js/senya-api.js"></script><script src="js/account-profile.js"></script><script src="js/accessibility.js"></script><script src="js/account-nav.js"></script></body></html>
+  <!-- MAIN PROFILE LAYOUT -->
+  <main class="profile-page">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="profile-header">
+        <div class="image-container">
+          <img src="img/heroo.png" alt="Profile Picture" id="profileAvatar">
+          <label for="imageUpload" class="camera-btn" title="Change Avatar">
+            <i class="fa-solid fa-camera"></i>
+          </label>
+          <input type="file" id="imageUpload" accept="image/*">
+        </div>
+        <h2>My profile</h2>
+        <span class="badge" id="profileRole">Your SENYA account</span>
+        <p class="sign-language">Keep your information up to date.</p>
+      </div>
+
+      <nav aria-label="Profile navigation">
+        <a href="#personal-info" class="active"><i class="fa-solid fa-user"></i> Personal info</a>
+        <a href="#professional-info"><i class="fa-solid fa-user-graduate"></i> Professional info</a>
+        <a href="#appointments-info"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
+      </nav>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <section class="content">
+
+      <!-- Estatus global / feedback de la app -->
+      <p id="profileStatus" role="status"></p>
+
+      <!-- TARJETA: INFORMACIÓN PERSONAL -->
+      <div class="card" id="personal-info">
+        <div class="card-title">
+          <h2><i class="fa-solid fa-id-card"></i> Personal information</h2>
+        </div>
+
+        <form id="accountForm">
+          <fieldset id="accountFields" disabled style="border:0;padding:0;margin:0">
+            <div class="card-grid">
+              
+              <div class="field">
+                <label for="firstName">First name</label>
+                <input id="firstName" required maxlength="100" autocomplete="given-name">
+              </div>
+
+              <div class="field">
+                <label for="lastName">Last name</label>
+                <input id="lastName" required maxlength="100" autocomplete="family-name">
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" disabled>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" type="tel" maxlength="50">
+              </div>
+
+              <div class="field">
+                <label for="birthday">Date of birth</label>
+                <input id="birthday" type="date">
+              </div>
+
+              <div class="field">
+                <label for="whatsapp">WhatsApp</label>
+                <input id="whatsapp" type="tel" maxlength="50">
+              </div>
+
+              <div class="field full">
+                <label for="address">Address</label>
+                <input id="address" maxlength="300">
+              </div>
+
+            </div>
+
+            <button type="submit" class="edit-btn" style="margin-top: 25px;">Save changes</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <!-- TARJETA: INFORMACIÓN PROFESIONAL (INTERPRETES) -->
+      <div class="card" id="professionalCard" hidden>
+        <div class="card-title">
+          <h2><i class="fa-solid fa-user-tie"></i> Professional information</h2>
+        </div>
+
+        <p id="professionalSkills"></p>
+        <p id="professionalBio" style="margin-top: 10px;"></p>
+        <p class="account-note" id="verificationStatus" style="margin-top: 15px; font-weight: 600;"></p>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 25px 0;">
+
+        <!-- SECCIÓN DE CERTIFICADOS -->
+        <div id="certificate-upload">
+          <h3>Certificate verification</h3>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">
+            Upload your certificate for administrator review. PDF, JPG or PNG, up to 5 MB.
+          </p>
+
+          <form id="certificateForm">
+            <div class="field full">
+              <label for="certificateFile" class="account-button" style="display:inline-block; text-align:center; cursor:pointer; width:fit-content;">
+                <i class="fa-solid fa-file-arrow-up"></i> Choose a certificate
+              </label>
+              <input id="certificateFile" type="file" accept=".pdf,.jpg,.jpeg,.png" required style="display:none;">
+            </div>
+
+            <button type="submit" class="edit-btn" style="margin-top: 16px;">Upload certificate</button>
+            <p id="certificateStatus" role="status" style="margin-top: 10px;"></p>
+          </form>
+        </div>
+
+        <a class="account-button" href="interpreter-dashboard.html" style="margin-top:25px; display:inline-block; text-decoration:none;">
+          <i class="fa-solid fa-sliders"></i> Manage availability
+        </a>
+      </div>
+
+      <!-- TARJETA: CITAS Y SOLICITUDES -->
+      <div class="card" id="userCard" hidden>
+        <div class="card-title">
+          <h2><i class="fa-solid fa-calendar-check"></i> Your appointments</h2>
+        </div>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          Request an interpreter, follow your requests and join accepted sessions from My appointments.
+        </p>
+        <a class="account-button" href="appointments.html" style="display:inline-block; text-decoration:none;">
+          My appointments
+        </a>
+      </div>
+
+      <!-- TARJETA: CERRAR SESIÓN -->
+      <div class="card account-session" style="border: 1px solid rgba(239, 68, 68, 0.3);">
+        <div class="card-title" style="margin-bottom: 10px;">
+          <h2><i class="fa-solid fa-right-from-bracket" style="color: #EF4444;"></i> Account session</h2>
+        </div>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Sign out of SENYA on this browser.</p>
+        <button type="button" id="profileLogout" class="profile-logout edit-btn" style="background: #EF4444;">
+          Log out
+        </button>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <div class="logo" role="img" aria-label="SENYA Logo">
+          SEN<span class="logo-y">Y</span>A
+        </div>
+        <p>"Communication is not a privilege, it's a right."</p>
+      </div>
+      <div class="footer-column">
+        <h3>Information</h3>
+        <ul>
+          <li><span class="disabled-link">Home</span></li>
+          <li><span class="disabled-link">Services</span></li>
+          <li><span class="disabled-link">Join to us</span></li>
+          <li><span class="disabled-link">About us</span></li>
+          <li><span class="disabled-link">How to use Senya?</span></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Useful Links</h3>
+        <ul>
+          <li><span class="disabled-link">Technical Support</span></li>
+          <li><span class="disabled-link">Services</span></li>
+          <li><span class="disabled-link">Join to us</span></li>
+          <li><span class="disabled-link">How to use Senya?</span></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Our Services</h3>
+        <ul>
+          <li><span class="disabled-link">Banks</span></li>
+          <li><span class="disabled-link">Call Centers</span></li>
+          <li><span class="disabled-link">Internet</span></li>
+          <li><span class="disabled-link">Shops</span></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>📞 +503 9842-5783</p>
+        <p>✉ senya.sv@gmail.com</p>
+        <div class="socials">
+          <div class="social-logo" role="img" aria-label="SENYA Logo">
+            <img src="img/Senyalogo.png" alt="SENYA Logo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <p>© 2026 Senya. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DE TRADUCCIÓN -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'es,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- ARCHIVOS JS ORIGINALES -->
+  <script src="js/senya-api.js"></script>
+  <script src="js/account-profile.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/account-nav.js"></script>
+</body>
+</html>
