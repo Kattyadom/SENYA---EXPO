@@ -28,10 +28,11 @@ window.Senya = (() => {
  async function me(role) {
   if(!read()) { location.href='signin.html'; throw new Error('Please sign in.'); }
   const [p]=await select('profiles'); if(!p) throw new Error('Account profile unavailable.');
+  sessionStorage.setItem('senyaNavRole',JSON.stringify({id:p.id,role:p.role}));
   if(role&&p.role!==role) { location.href=p.role==='admin'?'admin.html':p.role==='interpreter'?'interpreter-dashboard.html':'appointments.html'; throw new Error('Opening your dashboard.'); }
   return p;
  }
- async function signout() { try { await call('/auth/v1/logout',{},await token()); } finally { sessionStorage.removeItem(key); for(const k of ['senyaSession','senyaActiveUser','senyaActiveInterpreter','usuarioActivo']) localStorage.removeItem(k); location.href='signin.html'; } }
+ async function signout() { try { await Promise.race([token().then(t=>call('/auth/v1/logout',{},t)),new Promise(resolve=>setTimeout(resolve,1500))]); } finally { sessionStorage.removeItem(key); sessionStorage.removeItem('senyaNavRole'); for(const k of ['senyaSession','senyaActiveUser','senyaActiveInterpreter','usuarioActivo']) localStorage.removeItem(k); location.href='signin.html'; } }
  function error(e) {
   let el=document.getElementById('senyaMessage');
   if(!el){el=document.createElement('p');el.id='senyaMessage';el.setAttribute('role','alert');Object.assign(el.style,{padding:'16px',background:'#fff1f2',color:'#9f1239',borderRadius:'12px',margin:'16px 0',height:'auto',alignSelf:'start',fontSize:'14px'});(document.querySelector('#loginForm,#registerForm,#interpreterForm,form')||document.querySelector('main')||document.body).prepend(el);}

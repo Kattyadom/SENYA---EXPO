@@ -255,7 +255,7 @@ if (resetBtn) {
 
 // ===== SIGN LANGUAGE VIDEO MENU =====
 
-const signMenuButton = document.querySelector('.menu-toggle');
+const signMenuButton = document.getElementById('senyaHeader') ? null : document.querySelector('.menu-toggle');
 
 if (signMenuButton) {
   const signPanel = document.createElement('div');

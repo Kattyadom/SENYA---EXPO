@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpreter dashboard | SENYA</title><link rel="stylesheet" href="css/general.css"><link rel="stylesheet" href="css/profile.css"><link rel="stylesheet" href="css/appointments.css"><link rel="stylesheet" href="css/modal.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="css/account-ui.css"></head>
-<body data-role="interpreter">  <!-- Panel de Accesibilidad -->
+<body data-role="interpreter"><header class="navbar" id="senyaHeader"><div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="opciones.html">Partner network</a></li><li><a href="profile.html">Profile</a></li><li><a href="about.html">About us</a></li><li><a href="soporte.html">Contact</a></li></ul></nav><div class="right-actions"><button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button></div></div></header><script src="js/nav-initial.js"></script>  <!-- Panel de Accesibilidad -->
   <div class="accessibility-panel" id="accessibilityPanel">
     <div class="panel-header">
       <h3>Accessibility</h3>
@@ -68,29 +68,7 @@
     </div>
   </div>
 
-  <header class="navbar">
-    <div class="navbar-container">
-        <a href="index.html" class="logo">
-            <img src="img/Senyalogo.png" alt="SENYA Logo">
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="opciones.html" class="active">Partner Network</a></li>
-                <li><a href="appointments.html">My appointments</a></li>
-<li><a href="profile.html">Profile</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="soporte.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="right-actions">
-            <a href="#" class="help-btn" id="accessibilityBtn">Accessibility</a>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-    </div>
-  </header>
+  
 
 
 <main class="profile-page"><aside class="sidebar"><div class="profile-header"><div class="initials" id="initials" aria-hidden="true">S</div><h2 id="accountName">Your account</h2><span class="badge">SENYA interpreter</span><p id="skills"></p></div><nav aria-label="Account"><a href="interpreter-dashboard.html">My appointments</a><a href="interpreter-profile.html">My profile</a><a href="soporte.html">Support</a></nav><div class="actions"><button id="themeButton">Change theme</button><button id="logoutButton">Log out</button></div></aside>

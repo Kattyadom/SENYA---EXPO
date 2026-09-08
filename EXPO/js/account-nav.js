@@ -1,19 +1,18 @@
 
 document.addEventListener('DOMContentLoaded',async()=>{
- const old=document.querySelector('header.navbar');
- const header=document.createElement('header');header.className='navbar';header.id='senyaHeader';header.innerHTML='<div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"></ul></nav><div class="right-actions"><button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="senyaNavigation"><span aria-hidden="true">☰</span></button></div></div>';
- if(old)old.replaceWith(header);else document.body.prepend(header);
+ const header=document.getElementById('senyaHeader');if(!header)return;
  // Add space only when the first visible content would overlap the fixed bar.
  const protectContent=()=>{const content=document.querySelector('main,.hero,body > section');if(!content)return;const first=[...content.querySelectorAll('h1,h2,p,a,input')].find(el=>el.getClientRects().length);if(!first)return;const needed=header.getBoundingClientRect().bottom+16-first.getBoundingClientRect().top;if(needed>0&&scrollY===0){const padding=parseFloat(getComputedStyle(content).paddingTop)||0;content.style.paddingTop=(padding+needed)+'px';}};
  requestAnimationFrame(protectContent);window.addEventListener('load',protectContent,{once:true});
  const nav=header.querySelector('.nav-links');const menuButton=header.querySelector('.menu-toggle');menuButton.setAttribute('aria-controls','senyaSignMenu');
- let role=null;try{if(sessionStorage.getItem('senyaAuth')){const [p]=await Senya.select('profiles');role=p?.role;}}catch(e){Senya.error(e);}
+ const role=header.dataset.role||'user';
  const path=location.pathname.split('/').pop()||'index.html';
  const entries=role==='interpreter'?[['Home','interpreter-home.html'],['My appointments','interpreter-dashboard.html'],['Profile','profile.html'],['About us','about.html'],['Contact','soporte.html']]:role==='admin'?[['Applications','admin.html'],['Profile','profile.html']]:[['Home','index.html'],['Partner network','opciones.html'],['Profile','profile.html'],['About us','about.html'],['Contact','soporte.html']];
  if(role==='interpreter'){header.querySelector('.logo').href='interpreter-home.html';document.body.classList.add('interpreter-view');setupInterpreterAccessibility();}
 
+ nav.replaceChildren();
  for(const [label,href] of entries){const a=document.createElement('a');a.textContent=label;a.href=href;if(path===href||(href==='profile.html'&&path==='interpreter-profile.html')){a.setAttribute('aria-current','page');a.classList.add('active');}const li=document.createElement('li');li.append(a);nav.append(li);}
- if(document.getElementById('accessibilityPanel')){const b=document.createElement('button');b.textContent='Accessibility';b.id='accessibilityBtn';b.className='help-btn';b.onclick=()=>{document.getElementById('accessibilityPanel').classList.toggle('open');};header.querySelector('.right-actions').prepend(b);}
+ const access=header.querySelector('#accessibilityBtn');access.onclick=()=>document.getElementById('accessibilityPanel')?.classList.add('open');
  if(role==='interpreter'){menuButton.classList.add('interpreter-mobile-menu');}
  const panel=document.createElement('div');panel.id='senyaSignMenu';panel.className='sign-language-panel';panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label','Navigation');panel.innerHTML='<div class="sign-panel-header"><h2>Explore SENYA</h2><button class="sign-close-btn" aria-label="Close menu">×</button></div><div class="sign-panel-content"></div>';
  const videos={'index.html':'home','opciones.html':'network','profile.html':'perfil','about.html':'about','soporte.html':'contact'};
