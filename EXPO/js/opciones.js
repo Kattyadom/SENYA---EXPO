@@ -28,21 +28,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ----------------------------------------------------
-    // 2. Control de Acceso al Solicitar Intérprete
-    // ----------------------------------------------------
-    const requestButtons = document.querySelectorAll(".call-now");
-    const callModal = document.getElementById("callModal");
 
-    requestButtons.forEach(button => {
-        button.addEventListener("click", (e) => {
-            // Comprobamos si hay un usuario en sesión
-            const usuarioActivo = sessionStorage.getItem("senyaAuth");
-
-            // Si NO está autenticado y existe el modal, detenemos la navegación y abrimos el modal
-            if (!usuarioActivo && callModal) {
-                e.preventDefault();
-                callModal.classList.add("active");
-            }
-        });
-    });
 });
