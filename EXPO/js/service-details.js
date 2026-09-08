@@ -1,0 +1,14 @@
+document.addEventListener('click',event=>{
+ const button=event.target.closest('[data-service-details]');if(!button)return;event.preventDefault();event.stopImmediatePropagation();const card=button.closest('.service-card');if(!card)return;
+ let dialog=document.getElementById('serviceDetailsDialog');if(!dialog){dialog=document.createElement('dialog');dialog.id='serviceDetailsDialog';dialog.setAttribute('aria-labelledby','serviceDetailsTitle');document.body.append(dialog);}
+ dialog.replaceChildren();const node=(tag,text)=>{const el=document.createElement(tag);if(text)el.textContent=text;return el;};
+ const header=node('div');header.className='service-details-head';const title=node('h2',card.querySelector('h2')?.textContent.trim()||'Service information');title.id='serviceDetailsTitle';const close=node('button','×');close.type='button';close.setAttribute('aria-label','Close service information');close.onclick=()=>dialog.close();header.append(title,close);dialog.append(header);
+ const description=card.querySelector('.service-info p');if(description)dialog.append(node('p',description.textContent.trim()));
+ const details=window.SenyaServiceDetails?.[button.dataset.serviceDetails]||{};const grid=node('div');grid.className='service-details-grid';
+ const section=(name)=>{const box=node('section');box.append(node('h3',name));grid.append(box);return box;};
+ const hours=section('Opening hours');hours.append(node('p',details.hours||'Hours are not listed for this provider.'),node('p',details.days||'Please confirm operating days with the provider.'));
+ const services=section('Available services');const list=node('ul');for(const item of card.querySelectorAll('.service-content .column ul li'))list.append(node('li',item.textContent.trim()));if(!list.children.length)services.append(node('p','Contact the provider for service details.'));else services.append(list);
+ const languageBox=section('Interpretation languages');const languages=[...card.querySelectorAll('.badges span')].map(s=>s.textContent.replace(/Español/g,'Spanish').replace(/[^\p{L}\p{N} ,()-]/gu,'').trim()).filter(Boolean);languageBox.append(node('p',languages.length?languages.join(' · '):'Choose your interpretation language when scheduling.'));
+ dialog.append(grid);const note=node('p','Hours shown are from the SENYA directory and may vary by branch. Confirm them with the provider before your visit.');note.className='service-details-note';dialog.append(note);
+ const actions=node('div');actions.className='service-details-actions';const back=node('button','Close');back.type='button';back.onclick=()=>dialog.close();const contact=node('button','Contact an interpreter');contact.type='button';contact.className='details-primary';contact.onclick=()=>{dialog.close();card.querySelector('.call-now')?.click();};actions.append(back,contact);dialog.append(actions);dialog.showModal();
+},true);
