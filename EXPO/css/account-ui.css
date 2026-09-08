@@ -132,3 +132,27 @@ body.low-vision #senyaLoginPrompt{background:#111827;color:#fff;border-color:#37
 /* Name video destinations when compact navigation replaces navbar links. */
 #senyaSignMenu .sign-video-label{display:none}
 @media(max-width:1100px){#senyaSignMenu .sign-video-label{display:block;text-align:center;line-height:1.5}}
+
+/* Keep cards readable instead of shrinking three columns on phones. */
+@media(max-width:1100px){
+ .why-senya{grid-template-columns:minmax(0,1fr)}
+ .why-left,.why-right{min-width:0}
+ .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));padding:16px;gap:24px}
+ .why-card{width:100%;min-width:0;min-height:0;padding:28px 20px;box-sizing:border-box}
+ .why-icon{max-width:100%}
+}
+@media(max-width:600px){.why-left h2{font-size:2.25rem}.why-grid{grid-template-columns:minmax(0,1fr)}}
+#senyaSignMenu .sign-panel-content{grid-template-columns:minmax(0,1fr)}
+#senyaSignMenu .sign-video-card video{display:block;flex:none;object-fit:contain;min-height:125px}
+#senyaSignMenu .sign-video-play{padding:10px;border:1px solid #dce5ff;border-radius:12px;background:#edf3ff;color:#1e3a8a;font:inherit;cursor:pointer}
+#senyaSignMenu .sign-video-play[hidden]{display:none}
+@media(max-width:760px){
+ .services-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+ .benefits-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+ .process-steps,.steps-cards{flex-direction:column;gap:20px}
+ .process-steps>*,.steps-cards>*{width:100%;min-width:0;box-sizing:border-box}
+ .about-hero-content,.values-content{grid-template-columns:minmax(0,1fr)}
+ .about-hero-text,.about-hero-image,.values-text,.values-grid{min-width:0;max-width:100%}
+}
+@media(max-width:380px){.stars:has(.star){gap:2px}.stars .star{font-size:28px;padding:4px}}
+@media(max-width:760px){.socials{display:flex;flex-wrap:wrap;gap:12px}.socials a{max-width:100%}}
