@@ -128,3 +128,7 @@ body.low-vision #senyaLoginPrompt{background:#111827;color:#fff;border-color:#37
  .cta h2{font-size:2rem}
  .cta-btn{padding:14px 20px;max-width:100%}
 }
+
+/* Name video destinations when compact navigation replaces navbar links. */
+#senyaSignMenu .sign-video-label{display:none}
+@media(max-width:1100px){#senyaSignMenu .sign-video-label{display:block;text-align:center;line-height:1.5}}
