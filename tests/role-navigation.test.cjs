@@ -10,3 +10,11 @@ test('all five original video destinations point to existing files',()=>{
  const videos=vm.runInNewContext('('+source.match(/const videos=([^;]+);/)[1]+')');
  assert.equal(Object.keys(videos).length,5);for(const name of Object.values(videos))assert.ok(fs.existsSync(path.join(root,'videos',name+'.mp4')),name);
 });
+
+test('mobile menu copies use H.264 and fast-start metadata',()=>{
+ for(const name of ['home','network','perfil','about','contact']){
+ const data=fs.readFileSync(path.join(root,'videos',name+'-h264.mp4'));
+ assert.ok(data.indexOf(Buffer.from('avc1'))>=0,name+' must use H.264');
+ assert.ok(data.indexOf(Buffer.from('moov'))<data.indexOf(Buffer.from('mdat')),name+' must load metadata first');
+ }
+});

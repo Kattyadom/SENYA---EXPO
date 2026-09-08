@@ -156,3 +156,10 @@ body.low-vision #senyaLoginPrompt{background:#111827;color:#fff;border-color:#37
 }
 @media(max-width:380px){.stars:has(.star){gap:2px}.stars .star{font-size:28px;padding:4px}}
 @media(max-width:760px){.socials{display:flex;flex-wrap:wrap;gap:12px}.socials a{max-width:100%}}
+@media(max-width:1100px){
+ .main-wrapper:has(.login-container){height:auto;max-height:none;min-height:100dvh;overflow:visible}
+ .login-container>.login-card{order:-1;flex:none}
+ .signin-page{display:flex;flex-direction:column;height:auto;overflow:visible}
+ .signin-page>.signin-panel{position:relative;flex:none;order:-1;min-height:100dvh;z-index:1}
+ .signin-page>.signin-image{position:relative;flex:none;min-height:320px}
+}
