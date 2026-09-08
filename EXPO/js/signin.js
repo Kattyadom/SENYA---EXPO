@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.getElementById('showPassword').onclick=()=>{const p=document.getElementById('password');p.type=p.type==='password'?'text':'password';};
  form.onsubmit=async e=>{e.preventDefault();button.disabled=true;document.getElementById('senyaMessage')?.setAttribute('hidden','');try{
  await Senya.signIn(document.getElementById('email').value.trim().toLowerCase(),document.getElementById('password').value);
- const p=await Senya.me();location.href=p.role==='admin'?'admin.html':p.role==='interpreter'?'interpreter-dashboard.html':'appointments.html';
+ const p=await Senya.me();location.href=p.role==='admin'?'admin.html':p.role==='interpreter'?'interpreter-home.html':'appointments.html';
  }catch(err){Senya.error(err);}finally{button.disabled=false;}};
 });
 
