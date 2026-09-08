@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
  if(document.getElementById('logoutButton'))document.getElementById('logoutButton').onclick=()=>Senya.signout();
  let profile,busy=false,signature='';
  try{
- if(home){[profile]=await Senya.select('profiles');if(profile?.role!=='user')return;home.hidden=false;}else profile=await Senya.me(interpreter?'interpreter':'user');
+ if(home){[profile]=await Senya.select('profiles');if(profile?.role!=='user')return;home.hidden=false;const welcome=document.getElementById('homeWelcome');if(welcome)welcome.textContent=profile.first_name?.trim()?'Welcome, '+profile.first_name.trim():'Welcome';}else profile=await Senya.me(interpreter?'interpreter':'user');
  if(document.getElementById('accountName'))document.getElementById('accountName').textContent=profile.first_name+' '+profile.last_name;
  if(document.getElementById('initials'))document.getElementById('initials').textContent=(profile.first_name[0]||'')+(profile.last_name[0]||'');
  if(interpreter){
