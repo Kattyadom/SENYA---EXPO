@@ -166,3 +166,24 @@ body.low-vision #senyaLoginPrompt{background:#111827;color:#fff;border-color:#37
 
 #senyaSignMenu .sign-accessibility-button{display:block;width:100%;box-sizing:border-box;min-height:48px;padding:13px 18px;border:0;border-radius:50px;background:linear-gradient(135deg,#ff5798,#ff85b3);color:white;font:inherit;font-weight:600;cursor:pointer;box-shadow:0 6px 18px #ff579830}
 #senyaSignMenu .sign-accessibility-button:focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+/* Text-size controls and reflow; scoped to the accessibility setting. */
+.size-buttons{flex-wrap:wrap;gap:8px}
+.size-buttons button{min-height:44px;min-width:44px;height:auto;padding:10px 12px;white-space:normal}
+html[data-text-size="large"] :is(p,h1,h2,h3,h4,h5,h6,a,label,button){overflow-wrap:anywhere}
+html[data-text-size="large"] :is(.login-btn,.create-account-btn,.action,.cta-btn,.primary,.secondary){height:auto;min-height:48px;white-space:normal}
+html[data-text-size="large"] :is(.card,.account-card,.why-card,.step-card,.input-box){min-width:0;height:auto}
+html[data-text-size="large"] .input-box{min-height:56px;padding-top:10px;padding-bottom:10px}
+html[data-text-size="large"] .size-buttons{display:flex;flex-wrap:wrap}
+html[data-text-size="large"] .size-buttons button{flex:1 1 75px}
+html[data-text-size="large"] #senyaHeader .navbar-container{flex-wrap:wrap}
+html[data-text-size="large"] #senyaHeader nav{min-width:0}
+html[data-text-size="large"] #senyaHeader .nav-links{flex-wrap:wrap;gap:12px 22px}
+html[data-text-size="large"] #senyaHeader .nav-links a{white-space:normal}
+@media(max-width:600px){
+ html[data-text-size="large"] .hero-left h1{line-height:1.2}
+ html[data-text-size="large"] :is(.stats,.actions,.badges,.service-info,.form-row){flex-wrap:wrap}
+ html[data-text-size="large"] :is(.accessibility-panel,.interpreter-accessibility){width:min(100%,380px);box-sizing:border-box}
+ html[data-text-size="large"] .acc-card{height:auto;min-width:0;flex-wrap:wrap}
+ html[data-text-size="large"] #senyaHeader .help-btn{padding:10px}
+}
+html[data-text-size="large"] :is(.category,.badge,.status-pill){white-space:normal;overflow-wrap:anywhere;max-width:100%;box-sizing:border-box}

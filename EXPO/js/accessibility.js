@@ -63,28 +63,7 @@ if (deafBtn) {
 
 // ===== TEXT SIZE =====
 
-function setTextSize(size) {
-  document.body.classList.remove('text-small', 'text-large');
-
-  document.querySelectorAll('.size-buttons button')
-    .forEach(b => b.classList.remove('active'));
-
-  if (size === 'small') {
-    document.body.classList.add('text-small');
-    document.getElementById('smallText')?.classList.add('active');
-  }
-
-  if (size === 'normal') {
-    document.getElementById('normalText')?.classList.add('active');
-  }
-
-  if (size === 'large') {
-    document.body.classList.add('text-large');
-    document.getElementById('largeText')?.classList.add('active');
-  }
-
-  localStorage.setItem('textSize', size);
-}
+function setTextSize(size) { window.SenyaTextSize?.set(size); }
 
 document.getElementById('smallText')?.addEventListener('click', () => setTextSize('small'));
 document.getElementById('normalText')?.addEventListener('click', () => setTextSize('normal'));
