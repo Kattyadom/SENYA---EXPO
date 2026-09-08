@@ -1,11 +1,12 @@
 
-document.addEventListener('DOMContentLoaded',async()=>{
+function renderAccountNav(){
  const header=document.getElementById('senyaHeader');if(!header)return;
  // Add space only when the first visible content would overlap the fixed bar.
  const protectContent=()=>{const content=document.querySelector('main,.hero,body > section');if(!content)return;const first=[...content.querySelectorAll('h1,h2,p,a,input')].find(el=>el.getClientRects().length);if(!first)return;const needed=header.getBoundingClientRect().bottom+16-first.getBoundingClientRect().top;if(needed>0&&scrollY===0){const padding=parseFloat(getComputedStyle(content).paddingTop)||0;content.style.paddingTop=(padding+needed)+'px';}};
  requestAnimationFrame(protectContent);window.addEventListener('load',protectContent,{once:true});
  const nav=header.querySelector('.nav-links');const menuButton=header.querySelector('.menu-toggle');menuButton.setAttribute('aria-controls','senyaSignMenu');
  const role=header.dataset.role||'user';
+ document.getElementById('senyaSignMenu')?.remove();menuButton.classList.toggle('interpreter-mobile-menu',role==='interpreter');
  const path=location.pathname.split('/').pop()||'index.html';
  const entries=role==='interpreter'?[['Home','interpreter-home.html'],['My appointments','interpreter-dashboard.html'],['Profile','profile.html'],['About us','about.html'],['Contact','soporte.html']]:role==='admin'?[['Applications','admin.html'],['Profile','profile.html']]:[['Home','index.html'],['Partner network','opciones.html'],['Profile','profile.html'],['About us','about.html'],['Contact','soporte.html']];
  if(role==='interpreter'){header.querySelector('.logo').href='interpreter-home.html';document.body.classList.add('interpreter-view');setupInterpreterAccessibility();}
@@ -18,6 +19,16 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const videos={'index.html':'home','opciones.html':'network','profile.html':'perfil','about.html':'about','soporte.html':'contact'};
  for(const [label,href] of entries){const a=document.createElement('a');a.className='sign-video-card';a.href=href;const videoName=role==='interpreter'||role==='admin'?null:videos[href];if(videoName){const video=document.createElement('video');video.muted=true;video.loop=true;video.playsInline=true;video.preload='metadata';video.src='videos/'+videoName+'.mp4';a.append(video);}a.setAttribute('aria-label',label);if(role==='interpreter'||role==='admin'){const text=document.createElement('span');text.textContent=label;a.append(text);}panel.querySelector('.sign-panel-content').append(a);}
  document.body.append(panel);const close=()=>{panel.hidden=true;panel.classList.remove('open');document.body.classList.remove('sign-menu-open');menuButton.setAttribute('aria-expanded','false');panel.querySelectorAll('video').forEach(v=>v.pause());menuButton.focus();};menuButton.onclick=()=>{panel.hidden=false;panel.classList.add('open');document.body.classList.add('sign-menu-open');menuButton.setAttribute('aria-expanded','true');panel.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));panel.querySelector('button').focus();};panel.querySelector('button').onclick=close;panel.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='Tab'){const items=[...panel.querySelectorAll('button,a')];const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+}
+document.addEventListener('DOMContentLoaded',()=>{
+ renderAccountNav();
+ // Keep the initial navbar visible while checking the actual account role.
+ if(sessionStorage.getItem('senyaAuth'))Senya.select('profiles').then(([profile])=>{
+  if(!profile)return;
+  sessionStorage.setItem('senyaNavRole',JSON.stringify({id:profile.id,role:profile.role}));
+  const header=document.getElementById('senyaHeader');
+  if(header&&header.dataset.role!==profile.role){header.dataset.role=profile.role;renderAccountNav();}
+ }).catch(()=>{});
 });
 
 function setupInterpreterAccessibility(){
