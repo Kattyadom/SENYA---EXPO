@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/modal.css">
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="css/account-ui.css"></head>
+<link rel="stylesheet" href="css/account-ui.css"><link rel="stylesheet" href="css/home-appointments.css"></head>
 <body><header class="navbar" id="senyaHeader"><div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="opciones.html">Partner network</a></li><li><a href="profile.html">Profile</a></li><li><a href="about.html">About us</a></li><li><a href="soporte.html">Contact</a></li></ul></nav><div class="right-actions"><button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button></div></div></header><script src="js/nav-initial.js"></script>
     
     <!--Panel de accesibilidad-->
@@ -108,6 +108,12 @@
         <img class="heroo" src="img/heroo.png" alt="Principal image of a woman smiling with headphones and looking at the camera">
     </div>
 </section>
+<section id="homeAppointments" aria-label="My appointments" hidden>
+<div class="workspace"><header class="workspace-head"><div><p class="eyebrow">YOUR SENYA ACCOUNT</p><h1>My appointments</h1></div><div class="actions"><a class="action primary" href="request.html?type=immediate">Request immediate assistance</a><a class="action" href="request.html?type=scheduled">Schedule an appointment</a></div></header>
+
+<div class="stats"><div class="card"><strong id="pendingCount">—</strong><span>Pending</span></div><div class="card"><strong id="activeCount">—</strong><span>Accepted / in session</span></div><div class="card"><strong id="completedCount">—</strong><span>Completed</span></div></div>
+<section class="card"><h2>Your requests</h2><p>Follow each request from interpreter search to your session.</p><div id="appointmentList" aria-live="polite"><p class="empty">Loading appointments…</p></div></section></div></section>
+
 
 <section class="categories-home">
     <div class="section-title">
@@ -422,5 +428,5 @@
 <script type="module" src="js/head-tracking.js"></script>
 <!--Cursor de la opción de headtracking-->
 <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
-<script src="js/senya-api.js"></script><script src="js/account-nav.js"></script></body>
+<script src="js/senya-api.js"></script><script src="js/appointments.js"></script><script src="js/account-nav.js"></script></body>
 </html>
