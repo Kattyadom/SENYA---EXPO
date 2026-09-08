@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded',async()=>{
  const get=id=>document.getElementById(id);let profile;const logout=get('profileLogout');if(logout)logout.onclick=async()=>{logout.disabled=true;logout.textContent='Signing out…';try{await Senya.signout();}catch(e){logout.disabled=false;logout.textContent='Log out';Senya.error(e);}};
+ if(typeof window!=='undefined'&&window.SenyaLogin&&!SenyaLogin.signedIn()){document.getElementById('profileLogout')?.remove();SenyaLogin.prompt('profile','profile.html');return;}
  try{profile=await Senya.me();const interpreter=profile.role==='interpreter';get('profileRole').textContent=interpreter?'Interpreter account':profile.role==='admin'?'Administrator account':'User account';
  const fields={firstName:'first_name',lastName:'last_name',phone:'phone',birthday:'birthday',whatsapp:'whatsapp',address:'address'};
  for(const [id,key] of Object.entries(fields))get(id).value=profile[key]||'';

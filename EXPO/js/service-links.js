@@ -12,5 +12,7 @@ document.addEventListener('click',event=>{
   const specialty=/health/i.test(label)?'Healthcare':/bank/i.test(label)?'Banking':/telecom/i.test(label)?'Telecommunications':/utilit/i.test(label)?'Utilities':/government/i.test(label)?'Government':null;
   if(specialty)params.set('specialty',specialty);
  }
- location.href='request.html?'+params.toString();
+ const destination='request.html?'+params.toString();
+ if(typeof window!=='undefined'&&window.SenyaLogin&&!SenyaLogin.signedIn()){SenyaLogin.prompt('call',destination);return;}
+ location.href=destination;
 },true);

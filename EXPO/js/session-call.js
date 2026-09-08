@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',async()=>{
+ if(typeof window!=='undefined'&&window.SenyaLogin&&!SenyaLogin.signedIn()){SenyaLogin.prompt('call','videollamada.html'+location.search);return;}
  const id=new URLSearchParams(location.search).get('id');
  const localVideo=document.getElementById('localVideo'),remoteVideo=document.getElementById('remoteVideo'),placeholder=document.getElementById('remotePlaceholder');
  let stream,peer,socket,started,timer,pending=[],finishing=false,returnPage='appointments.html',isInterpreter=false;

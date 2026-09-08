@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',async()=>{
+ if(typeof window!=='undefined'&&window.SenyaLogin&&!SenyaLogin.signedIn()){document.querySelector('#requestForm [type=submit]').disabled=true;SenyaLogin.prompt('call','request.html'+location.search);return;}
  const params=new URLSearchParams(location.search);
  const service=params.get('service')||'';
  const specialty=params.get('specialty');

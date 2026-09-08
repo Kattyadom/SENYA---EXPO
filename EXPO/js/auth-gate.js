@@ -1,0 +1,9 @@
+(()=>{
+ function signedIn(){try{const s=JSON.parse(sessionStorage.getItem('senyaAuth'));return Boolean(s?.access_token&&s?.user?.id);}catch{return false;}}
+ function prompt(kind,destination){let dialog=document.getElementById('senyaLoginPrompt');if(!dialog){dialog=document.createElement('dialog');dialog.id='senyaLoginPrompt';dialog.setAttribute('aria-labelledby','senyaLoginTitle');dialog.setAttribute('aria-describedby','senyaLoginDescription');dialog.innerHTML='<h2 id="senyaLoginTitle"></h2><p id="senyaLoginDescription"></p><div class="login-prompt-actions"><button type="button" data-cancel>Cancel</button><a href="signin.html" data-signin>Sign in</a></div>';document.body.append(dialog);dialog.querySelector('[data-cancel]').onclick=()=>dialog.close();dialog.addEventListener('click',e=>{if(e.target===dialog){const box=dialog.getBoundingClientRect();if(e.clientX<box.left||e.clientX>box.right||e.clientY<box.top||e.clientY>box.bottom)dialog.close();}});}
+ dialog.querySelector('h2').textContent='Sign in required';dialog.querySelector('p').textContent=kind==='profile'?'Please sign in to access your profile.':'Please sign in to contact an interpreter and make a call.';
+ dialog.querySelector('[data-signin]').onclick=()=>{if(destination)sessionStorage.setItem('senyaLoginDestination',destination);};if(!dialog.open)dialog.showModal();
+ }
+ window.SenyaLogin={signedIn,prompt};
+ document.addEventListener('click',event=>{if(signedIn())return;const link=event.target.closest('a[href]');if(!link)return;const url=new URL(link.href,location.href);if(url.origin!==location.origin)return;const page=url.pathname.split('/').pop();const kind=['profile.html','interpreter-profile.html'].includes(page)?'profile':['request.html','videollamada.html'].includes(page)?'call':null;if(!kind)return;event.preventDefault();event.stopImmediatePropagation();prompt(kind,page+url.search+url.hash);},true);
+})();
