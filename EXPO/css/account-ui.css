@@ -163,3 +163,6 @@ body.low-vision #senyaLoginPrompt{background:#111827;color:#fff;border-color:#37
  .signin-page>.signin-panel{position:relative;flex:none;order:-1;min-height:100dvh;z-index:1}
  .signin-page>.signin-image{position:relative;flex:none;min-height:320px}
 }
+
+#senyaSignMenu .sign-accessibility-button{display:block;width:100%;box-sizing:border-box;min-height:48px;padding:13px 18px;border:0;border-radius:50px;background:linear-gradient(135deg,#ff5798,#ff85b3);color:white;font:inherit;font-weight:600;cursor:pointer;box-shadow:0 6px 18px #ff579830}
+#senyaSignMenu .sign-accessibility-button:focus-visible{outline:3px solid #2563eb;outline-offset:3px}
