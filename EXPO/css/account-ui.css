@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   gap: 22px;
-  background: white;
+  background: #ffffff;
   border: 1px solid #e1e8ff;
   border-radius: 24px;
   box-shadow: 0 8px 30px #2859ef0a;
@@ -71,13 +71,18 @@
   color: #24366b;
 }
 
-.account-main h1 {
-  font-size: 32px;
-  margin: 8px 0;
-  color: #2563eb;
+.workspace-head .eyebrow {
+  color: #ff4f8b;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
 
+.account-main h1,
 .workspace-head h1 {
+  font-size: 32px;
+  margin: 8px 0;
   color: #2563eb;
 }
 
@@ -93,7 +98,7 @@
 }
 
 .account-card {
-  background: white;
+  background: #ffffff;
   border: 1px solid #dce5ff;
   padding: 26px;
   border-radius: 22px;
@@ -130,7 +135,7 @@
   border: 0;
   border-radius: 12px;
   background: #285cf4;
-  color: white;
+  color: #ffffff;
   font: inherit;
   cursor: pointer;
   text-decoration: none;
@@ -228,7 +233,7 @@ body.account-appointments .sidebar {
   }
 }
 
-/* Original SENYA floating navbar, shared by every account role. */
+/* Original SENYA floating navbar */
 #senyaHeader {
   position: sticky;
   top: 20px;
@@ -307,7 +312,7 @@ body.account-appointments .sidebar {
 
 #senyaHeader .help-btn {
   border: 0;
-  color: white;
+  color: #ffffff;
   padding: 13px 28px;
   border-radius: 50px;
   font: inherit;
@@ -443,7 +448,7 @@ body.account-appointments .sidebar {
   flex-direction: column;
   justify-content: center;
   min-height: 130px;
-  background: white;
+  background: #ffffff;
   border: 1px solid #dce5ff;
   border-radius: 22px;
   overflow: hidden;
@@ -500,7 +505,6 @@ body.sign-menu-open {
   font-size: 18px;
 }
 
-/* Match the original floating header: no reserved header row. */
 #senyaHeader {
   position: fixed;
   top: 20px;
@@ -650,7 +654,7 @@ body.sign-menu-open {
 .home-primary {
   display: inline-block;
   background: #285cf4;
-  color: white;
+  color: #ffffff;
   border-radius: 50px;
   padding: 14px 24px;
   text-decoration: none;
@@ -659,7 +663,7 @@ body.sign-menu-open {
 .profile-logout {
   border: 1px solid #dce5ff;
   border-radius: 12px;
-  background: white;
+  background: #ffffff;
   color: #1e3a8a;
   padding: 10px 18px;
   font: inherit;
@@ -673,7 +677,7 @@ body.sign-menu-open {
   width: min(360px, 100vw);
   height: 100dvh;
   z-index: 5001;
-  background: white;
+  background: #ffffff;
   padding: 22px;
   box-shadow: -8px 0 30px #14254b20;
   overflow: auto;
@@ -705,7 +709,7 @@ body.sign-menu-open {
 
 .interpreter-accessibility [aria-pressed="true"] {
   background: #285cf4;
-  color: white;
+  color: #ffffff;
 }
 
 .interpreter-accessibility .size-buttons {
@@ -768,7 +772,7 @@ body.interpreter-dark {
 
 .interpreter-dark .account-card input {
   background: #111827;
-  color: white;
+  color: #ffffff;
 }
 
 @media (min-width: 1101px) {
@@ -822,7 +826,7 @@ body.interpreter-dark {
   padding: 30px;
   border: 1px solid #dce5ff;
   border-radius: 24px;
-  background: white;
+  background: #ffffff;
   color: #1e3a8a;
   box-shadow: 0 18px 70px #14254b30;
   font-family: inherit;
@@ -862,12 +866,12 @@ body.interpreter-dark {
 
 .login-prompt-actions a {
   background: #285cf4;
-  color: white;
+  color: #ffffff;
 }
 
 body.low-vision #senyaLoginPrompt {
   background: #111827;
-  color: #fff;
+  color: #ffffff;
   border-color: #374151;
 }
 
@@ -885,7 +889,7 @@ body.low-vision #senyaLoginPrompt:not([open]) {
   border: 1px solid #dce5ff;
   border-radius: 26px;
   padding: 30px;
-  background: #fff;
+  background: #ffffff;
   color: #1e3a8a;
   box-shadow: 0 20px 70px #15275340;
 }
@@ -959,13 +963,13 @@ body.low-vision #senyaLoginPrompt:not([open]) {
 
 #serviceDetailsDialog .details-primary {
   background: #285cf4;
-  color: white;
+  color: #ffffff;
 }
 
 body.low-vision #serviceDetailsDialog,
 body.interpreter-dark #serviceDetailsDialog {
   background: #111827;
-  color: white;
+  color: #ffffff;
 }
 
 body.low-vision #serviceDetailsDialog:not([open]) {
@@ -981,10 +985,10 @@ body.low-vision #serviceDetailsDialog:not([open]) {
   }
 }
 
-/* Footer Section Styles */
+/* Updated Footer Section Styles */
 .footer {
-  background: #f8faff;
-  border-top: 1px solid #dce5ff;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
   padding: 48px 24px 24px;
   margin-top: 60px;
   color: #24366b;
@@ -1043,7 +1047,7 @@ body.low-vision #serviceDetailsDialog:not([open]) {
   max-width: 1200px;
   margin: 36px auto 24px;
   border: 0;
-  border-top: 1px solid #dce5ff;
+  border-top: 1px solid #e2e8f0;
 }
 
 .footer-bottom {
@@ -1052,7 +1056,6 @@ body.low-vision #serviceDetailsDialog:not([open]) {
   color: #64748b;
 }
 
-/* Responsive adjustments only. Existing desktop layout and content are retained. */
 @media (max-width: 1100px) {
   body {
     width: 100%;
@@ -1472,7 +1475,6 @@ body.low-vision #serviceDetailsDialog:not([open]) {
   }
 }
 
-/* Name video destinations when compact navigation replaces navbar links. */
 #senyaSignMenu .sign-video-label {
   display: none;
 }
@@ -1485,7 +1487,6 @@ body.low-vision #serviceDetailsDialog:not([open]) {
   }
 }
 
-/* Keep cards readable instead of shrinking three columns on phones. */
 @media (max-width: 1100px) {
   .why-senya {
     grid-template-columns: minmax(0, 1fr);
@@ -1638,7 +1639,7 @@ body.low-vision #serviceDetailsDialog:not([open]) {
   border: 0;
   border-radius: 50px;
   background: linear-gradient(135deg, #ff5798, #ff85b3);
-  color: white;
+  color: #ffffff;
   font: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -1650,7 +1651,6 @@ body.low-vision #serviceDetailsDialog:not([open]) {
   outline-offset: 3px;
 }
 
-/* Text-size controls and reflow; scoped to the accessibility setting. */
 .size-buttons {
   flex-wrap: wrap;
   gap: 8px;
