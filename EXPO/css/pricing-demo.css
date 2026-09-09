@@ -11,3 +11,11 @@
 .earnings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px}.earnings-grid>div{padding:18px;background:white;border:1px solid #cdddff;border-radius:16px;min-width:0}.earnings-grid strong{display:block;font-size:1.8em;color:#245df0;margin-top:8px}.earnings-row{border-bottom:1px solid #cdddff;padding-bottom:12px}
 
 .senya-payment-dialog{box-sizing:border-box;width:calc(100% - 32px);max-width:520px;max-height:85vh;overflow:auto;border:1px solid #cdddff;border-radius:22px;padding:24px;background:#fff;color:#20345b;font:inherit}.senya-payment-dialog::backdrop{background:#14274580}.senya-payment-dialog h2{color:#245df0}.senya-payment-dialog p{line-height:1.6;overflow-wrap:anywhere}.senya-payment-dialog select{box-sizing:border-box;width:100%;padding:12px;border-radius:10px;border:1px solid #cdddff;font:inherit}.payment-actions{display:flex;flex-wrap:wrap;gap:12px}.payment-actions button{flex:1;min-height:44px;padding:12px;border:0;border-radius:12px;font:inherit;background:#edf3ff;color:#20345b;cursor:pointer}.payment-actions #paymentConfirm{background:#f45d99;color:#fff}.senya-payment-dialog [role=status]:not(:empty){padding:12px;background:#fff0f4;border-radius:10px}
+
+/* Restore dialog centering overridden by the site's universal margin reset. */
+dialog.senya-payment-dialog{position:fixed;inset:0;margin:auto;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);padding:clamp(18px,4vw,28px)}
+.senya-payment-dialog h2{margin:0 0 12px;line-height:1.25}
+.senya-payment-dialog p{margin:12px 0}
+.senya-payment-dialog label{display:block;margin:16px 0 8px;font-weight:600}
+.senya-payment-dialog .payment-actions{margin-top:20px}
+.senya-payment-dialog .payment-actions button{min-width:100px}
