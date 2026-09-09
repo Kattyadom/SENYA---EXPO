@@ -1657,34 +1657,24 @@ body {
     color: #FFFFFF !important;
 }
 /* =========================================================
-   ESTILOS ESPECÍFICOS PARA SIGN UP
+   CORRECCIÓN DE TARJETAS PASO 1 EN SIGN UP
 ========================================================= */
 
-/* Corrección de la tarjeta/panel flotante para que no sea blanca sólida */
-.signup-page .image-info,
-.signup-page .image-pill,
-.signup-page .image-feature,
-.signup-page .step-card,
-.signup-page .acc-card {
-    background: rgba(255, 255, 255, 0.12) !important;
-    backdrop-filter: blur(12px) !important;
+/* 1. Evitar fondo blanco sólido cuando el step-card tiene la clase active */
+.step-card.active {
+    background: rgba(255, 255, 255, 0.20) !important;
+    border: 1px solid rgba(255, 255, 255, 0.40) !important;
 }
 
-/* Forzar letras blancas sobre la imagen en Sign Up */
-.signup-page .image-info *,
-.signup-page .image-bottom h2,
-.signup-page .image-bottom p,
-.signup-page .image-feature strong,
-.signup-page .step-card * {
+/* 2. Forzar que el texto y los párrafos dentro del step-card active queden en blanco */
+.step-card.active p,
+.step-card.active span,
+.step-card.active * {
     color: #FFFFFF !important;
 }
 
-.signup-page .image-feature small {
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-/* Botón principal de registro (Submit) */
-.signup-page button[type="submit"],
-.signup-page button[type="submit"] * {
-    color: #FFFFFF !important;
+/* 3. Estilo para el círculo del número en la tarjeta activa */
+.step-card.active .step-number {
+    background: #FFFFFF !important;
+    color: #2563EB !important;
 }
