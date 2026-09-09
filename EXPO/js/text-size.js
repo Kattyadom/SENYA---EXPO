@@ -7,6 +7,9 @@
  const valid=value=>value in levels||(/^(?:8[0-9]|9[0-9]|1[0-4][0-9]|150)$/.test(String(value)));
  if(!valid(size))size='normal';
  localStorage.setItem('textSize',size);
+ const sizingStyle=document.createElement('style');
+ sizingStyle.textContent='html[data-sizing-text] *,html[data-sizing-text] *::before,html[data-sizing-text] *::after{transition:none!important}';
+ document.head.append(sizingStyle);
  let frame=0,dragging=false;const originals=new Map();
  function controlSize(button){return ids[button.id]||button.dataset.size;}
  function syncControls(){
@@ -21,12 +24,13 @@
  function apply(){
   frame=0;
   if(dragging)return;
+  document.documentElement.setAttribute("data-sizing-text", "");
   for(const [el,original] of originals){if(original.value)el.style.setProperty('font-size',original.value,original.priority);else el.style.removeProperty('font-size');}
   originals.clear();
   if(document.body.classList.contains('text-small')||document.body.classList.contains('text-large'))document.body.classList.remove('text-small','text-large');
   document.documentElement.dataset.textSize=size in levels?size:Number(size)>100?'large':Number(size)<100?'small':'normal';
   syncControls();
-  if(size==='normal')return;
+  if(size==='normal'){void document.body.offsetWidth;document.documentElement.removeAttribute('data-sizing-text');return;}
   const measurements=[];
   for(const el of document.body.querySelectorAll('*')){
    if(el.closest('script,style,svg,video,canvas,pre,code,.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.acc-icon,#headCursor,.text-size-box,.size-buttons'))continue;
@@ -37,6 +41,8 @@
    measurements.push([el,pixels*(levels[size]||Number(size)/100),{value:el.style.getPropertyValue('font-size'),priority:el.style.getPropertyPriority('font-size')}]);
   }
   for(const [el,pixels,original] of measurements){originals.set(el,original);el.style.setProperty('font-size',pixels+'px','important');}
+  void document.body.offsetWidth;
+  document.documentElement.removeAttribute('data-sizing-text');
  }
  function refresh(){if(dragging)return;if(!frame)frame=requestAnimationFrame(apply);}
  function set(value){if(!valid(value))return;size=String(value)==='100'?'normal':String(value);localStorage.setItem('textSize',size);localStorage.removeItem('senyaInterpreterTextSize');refresh();}
