@@ -50,3 +50,9 @@
 .image-info p {
     color: rgba(255, 255, 255, 0.9) !important;
 }
+/* Arreglo para el texto blanco del botón Sign In */
+.login-btn,
+.login-btn span,
+.login-btn i {
+    color: #FFFFFF !important;
+}
