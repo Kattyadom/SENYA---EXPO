@@ -274,10 +274,9 @@ function extractText(element) {
 }
 
 // Evento de paso del mouse optimizado
-document.addEventListener('mouseover', (event) => {
+function readPointedElement(target) {
     if (!isSpeechActive) return;
-
-    const target = event.target;
+    if (!target?.closest) { lastSpokenElement = null; return; }
 
     // 1. Detección de tarjetas (Panel, Categorías, Servicios)
     const cardEl = target.closest('.acc-card, .category-card, .why-card, .card, .testimonial-card');
@@ -320,7 +319,10 @@ document.addEventListener('mouseover', (event) => {
         speakText(extractText(textEl));
         return;
     }
-}, true);
+    lastSpokenElement = null;
+}
+document.addEventListener('mouseover', event => readPointedElement(event.target), true);
+window.addEventListener('senya:head-pointer', event => readPointedElement(event.detail?.element));
 
 document.addEventListener('mouseout', (event) => {
     if (!event.relatedTarget) {

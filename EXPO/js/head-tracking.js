@@ -162,6 +162,7 @@ function predecirMovimiento() {
             }
 
             const elementoBajoCursor = document.elementFromPoint(posXSuavizada, posYSuavizada);
+            window.dispatchEvent(new CustomEvent('senya:head-pointer', { detail: { element: elementoBajoCursor } }));
             const esClickeable = elementoBajoCursor && (
                 elementoBajoCursor.tagName === 'BUTTON' || 
                 elementoBajoCursor.tagName === 'A' || 
