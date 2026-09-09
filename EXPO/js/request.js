@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded',async()=>{
  form.onsubmit=async e=>{e.preventDefault();button.disabled=true;try{
  const scheduled=type.value==='scheduled'?new Date(date.value).toISOString():null;
  const name=serviceInput.value.trim();if(!name)throw Error('Enter the service or organization you need help with.');
- const result=await Senya.rpc('create_request',{p_id:id,p_service:name,p_language:document.getElementById('languageType').value,p_specialty:document.getElementById('specialty').value,p_details:document.getElementById('details').value,p_scheduled_at:scheduled});
+ const details=document.getElementById('details').value;
+ const demo=typeof window!=='undefined'?window.SenyaPricingDemo:null;
+ if(demo&&!document.getElementById('demoConsent').checked)throw Error('Please confirm that this is a demo with no payment.');
+ const requestDetails=demo?demo.pack(document.getElementById('demoPackage').value,details):details;
+ const result=await Senya.rpc('create_request',{p_id:id,p_service:name,p_language:document.getElementById('languageType').value,p_specialty:document.getElementById('specialty').value,p_details:requestDetails,p_scheduled_at:scheduled});
  location.href='espera.html?id='+encodeURIComponent(result);
  }catch(err){Senya.error(err);}finally{button.disabled=false;}};
 });

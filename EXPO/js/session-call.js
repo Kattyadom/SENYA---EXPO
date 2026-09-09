@@ -3,6 +3,15 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const id=new URLSearchParams(location.search).get('id');
  const localVideo=document.getElementById('localVideo'),remoteVideo=document.getElementById('remoteVideo'),placeholder=document.getElementById('remotePlaceholder');
  let stream,peer,socket,started,timer,pending=[],finishing=false,returnPage='appointments.html',isInterpreter=false;
+ let demoPlan=null, demoBox=null, demoSummary=null, demoWarning=null;
+ function updateDemo(seconds){
+  if(!demoPlan)return;
+  const result=window.SenyaPricingDemo.estimate(demoPlan.minutes,seconds);
+  const remaining=Math.max(0,demoPlan.minutes*60-seconds);
+  demoSummary.textContent='Reserved: '+demoPlan.minutes+' min · Remaining: '+Math.floor(remaining/60)+':'+String(remaining%60).padStart(2,'0')+' · Estimated '+(isInterpreter?'earnings: ':'total: ')+window.SenyaPricingDemo.money(isInterpreter?result.earnings:result.total);
+  const warning=remaining===0?'Package time used. Continuing adds an estimated $0.70 per minute. No actual charge.':remaining<=120?'Less than 2 minutes remain. Additional time is estimated at $0.70 per minute. No actual charge.':'';
+  if(demoWarning.textContent!==warning)demoWarning.textContent=warning;
+ }
  const notice=document.createElement('p');notice.setAttribute('role','status');notice.style.cssText='padding:14px;background:#fff;color:#1e293b;text-align:center';notice.textContent='Preparing your session…';(document.querySelector('main')||document.body).prepend(notice);
  const back=document.createElement('a');back.href=returnPage;back.textContent='Back to my appointments';back.style.cssText='display:inline-block;padding:12px 18px;margin:12px;border-radius:12px;background:#eff6ff;color:#1d4ed8;text-decoration:none';notice.after(back);
  const retry=document.createElement('button');retry.textContent='Retry camera';retry.hidden=true;retry.style.cssText=back.style.cssText;retry.onclick=()=>location.reload();back.after(retry);
@@ -17,7 +26,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
  peer=new RTCPeerConnection(rtcConfig);
  stream.getTracks().forEach(t=>peer.addTrack(t,stream));
  peer.onicecandidate=e=>{if(e.candidate)socket.emit('ice-candidate',e.candidate);};
- peer.ontrack=e=>{remoteVideo.srcObject=e.streams[0];if(placeholder)placeholder.style.display='none';say('Connected');if(!started){started=Date.now();timer=setInterval(()=>{const secs=Math.floor((Date.now()-started)/1000);const el=document.getElementById('callTimer');if(el)el.textContent=String(Math.floor(secs/60)).padStart(2,'0')+':'+String(secs%60).padStart(2,'0');},1000);}};
+ peer.ontrack=e=>{remoteVideo.srcObject=e.streams[0];if(placeholder)placeholder.style.display='none';say('Connected');if(!started){started=Date.now();timer=setInterval(()=>{const secs=Math.floor((Date.now()-started)/1000);updateDemo(secs);const el=document.getElementById('callTimer');if(el)el.textContent=String(Math.floor(secs/60)).padStart(2,'0')+':'+String(secs%60).padStart(2,'0');},1000);}};
  peer.onconnectionstatechange=()=>{if(peer?.connectionState==='failed')say('Connection failed. Return to your appointment and join again.');};return peer;
  }
  async function flush(){while(pending.length)await peer.addIceCandidate(pending.shift());}
@@ -30,6 +39,14 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const requests=await Senya.rpc('sync_requests'),request=requests.find(r=>r.id===id);
  if(!request||!['accepted','in_progress'].includes(request.status))throw Error('This session is unavailable.');
  if(request.scheduled_at&&!(Date.parse(request.scheduled_at)<=Date.now()+600000))throw Error('The room opens 10 minutes before the appointment.');
+ demoPlan=window.SenyaPricingDemo?.unpack(request.details);
+ if(demoPlan){
+  demoBox=document.createElement('section');demoBox.className='senya-pricing-demo';
+  const title=document.createElement('h2');title.textContent='Demo session estimate';
+  const note=document.createElement('p');note.textContent='No payment or payout. This estimate uses the call timer on this device and restarts after reloading. It is not a billing record.';
+  demoSummary=document.createElement('p');demoWarning=document.createElement('p');demoWarning.id='demoTimeWarning';demoWarning.setAttribute('role','status');
+  demoBox.append(title,note,demoSummary,demoWarning);check.after(demoBox);updateDemo(0);
+ }
  // The server starts the authorized session after media permission succeeds.
  stream=await captureCallMedia(navigator.mediaDevices);localVideo.srcObject=stream;
  if(isInterpreter&&placeholder)placeholder.style.display='none';

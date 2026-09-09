@@ -1,0 +1,10 @@
+.senya-pricing-demo{box-sizing:border-box;min-width:0;width:100%;padding:clamp(16px,3vw,28px);margin:20px 0;border:1px solid #cdddff;border-radius:20px;background:#f6f9ff;color:#20345b;overflow-wrap:anywhere}
+.senya-pricing-demo h2{font-size:1.4rem;margin:0 0 12px;color:#245df0}
+.senya-pricing-demo p{line-height:1.6;margin:12px 0}
+.senya-pricing-demo label{display:block;margin:12px 0 8px;font-weight:600}
+.senya-pricing-demo select,.senya-pricing-demo input[type=number]{box-sizing:border-box;width:100%;min-width:0;max-width:100%;padding:12px;border:1px solid #b9cfff;border-radius:12px;background:white;color:#20345b;font:inherit}
+.senya-pricing-demo summary{cursor:pointer;font-weight:600;padding:12px 0}
+.senya-pricing-demo .demo-badge{display:inline-block;background:#ffe5f0;color:#94204b;border-radius:20px;padding:5px 12px;font-weight:700;margin-bottom:12px}
+.senya-pricing-demo .demo-consent{display:flex;align-items:flex-start;gap:10px}
+.senya-pricing-demo .demo-consent input{width:20px;height:20px;flex:0 0 20px;margin-top:3px}
+.senya-pricing-demo #demoTimeWarning:not(:empty){border-left:4px solid #f35593;padding:10px;background:#fff0f6}
