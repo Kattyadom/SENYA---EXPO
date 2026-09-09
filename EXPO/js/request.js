@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const serviceInput=document.getElementById('serviceName');serviceInput.value=service;
  const updateService=()=>document.getElementById('selectedService').textContent=serviceInput.value.trim()||'Choose your service below';updateService();serviceInput.addEventListener('input',updateService);
  const form=document.getElementById('requestForm'),button=form.querySelector('[type=submit]');button.disabled=true;
- try{await Senya.me('user');button.disabled=false;}catch(e){Senya.error(e);}
+ try{const account=await Senya.me('user');if(typeof window!=='undefined')window.SenyaPaymentPreview?.init(account.id);button.disabled=false;}catch(e){Senya.error(e);}
  const type=document.getElementById('requestType'),date=document.getElementById('scheduledAt');
  type.onchange=()=>{date.parentElement.hidden=type.value!=='scheduled';date.required=type.value==='scheduled';};
  type.value=params.get('type')==='scheduled'?'scheduled':'immediate';type.onchange();
@@ -18,8 +18,11 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const details=document.getElementById('details').value;
  const demo=typeof window!=='undefined'?window.SenyaPricingDemo:null;
  if(demo&&!document.getElementById('demoConsent').checked)throw Error('Please confirm the package terms.');
- const requestDetails=demo?demo.pack(document.getElementById('demoPackage').value,details):details;
+ const plan=demo?.plans.find(p=>p.minutes===Number(document.getElementById('demoPackage').value));
+ const requestDetails=demo?demo.pack(plan?.minutes,details+'\nPayment: simulated card payment, no bank charge.'):details;
+ if(demo){if(!window.SenyaPaymentPreview)throw Error('Checkout could not load. Please reload and try again.');if(!await window.SenyaPaymentPreview.confirm(plan))return;}
  const result=await Senya.rpc('create_request',{p_id:id,p_service:name,p_language:document.getElementById('languageType').value,p_specialty:document.getElementById('specialty').value,p_details:requestDetails,p_scheduled_at:scheduled});
+ if(demo)window.SenyaPaymentPreview.record(result,plan);
  location.href='espera.html?id='+encodeURIComponent(result);
  }catch(err){Senya.error(err);}finally{button.disabled=false;}};
 });
