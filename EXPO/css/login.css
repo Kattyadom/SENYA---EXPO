@@ -1650,14 +1650,9 @@ body {
     }
 
 }
-/* Arreglo para el texto dentro de las tarjetas e íconos sobre el panel azul */
-.image-info,
-.image-info *,
-.image-feature,
-.image-feature * {
+/* Arreglo para el texto blanco del botón Sign In */
+.login-btn,
+.login-btn span,
+.login-btn i {
     color: #FFFFFF !important;
-}
-
-.image-feature small {
-    color: rgba(255, 255, 255, 0.8) !important;
 }
