@@ -236,8 +236,7 @@ document.addEventListener('mouseover', (event) => {
         lastSpokenElement = interactiveEl;
 
         const textToRead = extractText(interactiveEl);
-        const prefix = readingLanguage() === 'en' ? 'Button: ' : 'Botón: ';
-        speakText(`${prefix}${textToRead}`);
+        speakText(textToRead);
         return;
     }
 
