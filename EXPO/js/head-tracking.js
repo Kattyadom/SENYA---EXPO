@@ -9,6 +9,9 @@ let starting = false;
 let startGeneration = 0;
 let animationFrameId = null;
 let lastVideoTime = -1;
+let neutralHeadPosition = null;
+const HEAD_SENSITIVITY = 3;
+const CURSOR_SMOOTHING = 0.35;
 
 let cursorElement = null;
 let tiempoDetenido = 0;
@@ -25,6 +28,9 @@ async function iniciarHeadTracking(esAutoInicio = false) {
     const generation = ++startGeneration;
     console.log("Iniciando sistema de seguimiento de cabeza...");
     lastVideoTime = -1;
+    neutralHeadPosition = null;
+    posXSuavizada = window.innerWidth / 2;
+    posYSuavizada = window.innerHeight / 2;
     
     cursorElement = document.getElementById('headCursor');
     if (!cursorElement) {
@@ -140,11 +146,15 @@ function predecirMovimiento() {
         if (results.faceLandmarks && results.faceLandmarks.length > 0) {
             const nariz = results.faceLandmarks[0][1]; 
 
-            const targetX = (1 - nariz.x) * window.innerWidth;
-            const targetY = nariz.y * window.innerHeight;
+            // Use the resting position as center and amplify small head movements.
+            if (!neutralHeadPosition) neutralHeadPosition = { x: nariz.x, y: nariz.y };
+            const targetX = Math.max(10, Math.min(window.innerWidth - 10,
+                (0.5 + (neutralHeadPosition.x - nariz.x) * HEAD_SENSITIVITY) * window.innerWidth));
+            const targetY = Math.max(10, Math.min(window.innerHeight - 10,
+                (0.5 + (nariz.y - neutralHeadPosition.y) * HEAD_SENSITIVITY) * window.innerHeight));
 
-            posXSuavizada += (targetX - posXSuavizada) * 0.25;
-            posYSuavizada += (targetY - posYSuavizada) * 0.25;
+            posXSuavizada += (targetX - posXSuavizada) * CURSOR_SMOOTHING;
+            posYSuavizada += (targetY - posYSuavizada) * CURSOR_SMOOTHING;
 
             if (cursorElement) {
                 cursorElement.style.left = `${posXSuavizada}px`;
