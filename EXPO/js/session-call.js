@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const result=window.SenyaPricingDemo.estimate(demoPlan.minutes,seconds);
   const remaining=Math.max(0,demoPlan.minutes*60-seconds);
   demoSummary.textContent='Reserved: '+demoPlan.minutes+' min · Remaining: '+Math.floor(remaining/60)+':'+String(remaining%60).padStart(2,'0')+' · Estimated '+(isInterpreter?'earnings: ':'total: ')+window.SenyaPricingDemo.money(isInterpreter?result.earnings:result.total);
-  const warning=remaining===0?'Package time used. Continuing adds an estimated $0.70 per minute. No actual charge.':remaining<=120?'Less than 2 minutes remain. Additional time is estimated at $0.70 per minute. No actual charge.':'';
+  const warning=remaining===0?'Package time used. Continuing adds an estimated $0.70 per minute. Estimated amount.':remaining<=120?'Less than 2 minutes remain. Additional time is estimated at $0.70 per minute. Estimated amount.':'';
   if(demoWarning.textContent!==warning)demoWarning.textContent=warning;
  }
  const notice=document.createElement('p');notice.setAttribute('role','status');notice.style.cssText='padding:14px;background:#fff;color:#1e293b;text-align:center';notice.textContent='Preparing your session…';(document.querySelector('main')||document.body).prepend(notice);
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
  demoPlan=window.SenyaPricingDemo?.unpack(request.details);
  if(demoPlan){
   demoBox=document.createElement('section');demoBox.className='senya-pricing-demo';
-  const title=document.createElement('h2');title.textContent='Demo session estimate';
-  const note=document.createElement('p');note.textContent='No payment or payout. This estimate uses the call timer on this device and restarts after reloading. It is not a billing record.';
+  const title=document.createElement('h2');title.textContent='Session summary';
+  const note=document.createElement('p');note.textContent='Live estimates use this device’s call timer and restart after reloading. Payment processing is not enabled.';
   demoSummary=document.createElement('p');demoWarning=document.createElement('p');demoWarning.id='demoTimeWarning';demoWarning.setAttribute('role','status');
   demoBox.append(title,note,demoSummary,demoWarning);check.after(demoBox);updateDemo(0);
  }

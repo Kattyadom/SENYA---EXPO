@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const name=serviceInput.value.trim();if(!name)throw Error('Enter the service or organization you need help with.');
  const details=document.getElementById('details').value;
  const demo=typeof window!=='undefined'?window.SenyaPricingDemo:null;
- if(demo&&!document.getElementById('demoConsent').checked)throw Error('Please confirm that this is a demo with no payment.');
+ if(demo&&!document.getElementById('demoConsent').checked)throw Error('Please confirm the package terms.');
  const requestDetails=demo?demo.pack(document.getElementById('demoPackage').value,details):details;
  const result=await Senya.rpc('create_request',{p_id:id,p_service:name,p_language:document.getElementById('languageType').value,p_specialty:document.getElementById('specialty').value,p_details:requestDetails,p_scheduled_at:scheduled});
  location.href='espera.html?id='+encodeURIComponent(result);

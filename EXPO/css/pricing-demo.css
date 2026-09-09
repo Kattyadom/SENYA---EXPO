@@ -8,3 +8,4 @@
 .senya-pricing-demo .demo-consent{display:flex;align-items:flex-start;gap:10px}
 .senya-pricing-demo .demo-consent input{width:20px;height:20px;flex:0 0 20px;margin-top:3px}
 .senya-pricing-demo #demoTimeWarning:not(:empty){border-left:4px solid #f35593;padding:10px;background:#fff0f6}
+.earnings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px}.earnings-grid>div{padding:18px;background:white;border:1px solid #cdddff;border-radius:16px;min-width:0}.earnings-grid strong{display:block;font-size:1.8em;color:#245df0;margin-top:8px}.earnings-row{border-bottom:1px solid #cdddff;padding-bottom:12px}
