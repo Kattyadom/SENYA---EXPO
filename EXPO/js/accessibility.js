@@ -114,10 +114,71 @@ if (dyslexiaBtn) {
 }
 
 const deafBtn = document.getElementById('deafBtn');
+let deafObserver;
+let deafNoticeTimer;
+let deafNotice;
+const deafStatusSelector = '[role="status"], [role="alert"], [aria-live="polite"], [aria-live="assertive"]';
+function showDeafNotice(text) {
+    if (!deafNotice) {
+        deafNotice = document.createElement('div');
+        deafNotice.className = 'senya-deaf-notice';
+        deafNotice.setAttribute('role', 'status');
+        const label = document.createElement('span');
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.textContent = '×';
+        close.setAttribute('aria-label', 'Dismiss notification');
+        close.onclick = () => { deafNotice.hidden = true; };
+        deafNotice.append(label, close);
+        document.body.appendChild(deafNotice);
+    }
+    deafNotice.firstElementChild.textContent = text;
+    deafNotice.hidden = false;
+    clearTimeout(deafNoticeTimer);
+    deafNoticeTimer = setTimeout(() => { deafNotice.hidden = true; }, 10000);
+}
+function setDeafSupport(active, announce = false) {
+    deafObserver?.disconnect();
+    clearTimeout(deafNoticeTimer);
+    if (deafNotice) deafNotice.hidden = true;
+    document.body.classList.toggle('deaf-visual', active);
+    if (deafBtn) {
+        deafBtn.classList.toggle('active', active);
+        deafBtn.setAttribute('aria-pressed', String(active));
+    }
+    if (!active) return;
+    const seen = new WeakMap();
+    document.querySelectorAll(deafStatusSelector).forEach(el => seen.set(el, el.textContent.trim()));
+    deafObserver = new MutationObserver(records => {
+        const candidates = new Set();
+        for (const record of records) {
+            const el = record.target.nodeType === 1 ? record.target : record.target.parentElement;
+            if (!el || el.closest('.senya-deaf-notice, #accessibilityPanel, #google_translate_element')) continue;
+            const status = el.closest(deafStatusSelector);
+            if (status) candidates.add(status);
+            for (const node of record.addedNodes) {
+                if (node.nodeType !== 1) continue;
+                if (node.matches(deafStatusSelector)) candidates.add(node);
+                node.querySelectorAll(deafStatusSelector).forEach(item => candidates.add(item));
+            }
+        }
+        for (const el of candidates) {
+            if (el.closest('.senya-deaf-notice') || el.hidden || !el.getClientRects().length) continue;
+            const text = el.textContent.replace(/\s+/g, ' ').trim();
+            if (text && seen.get(el) !== text) showDeafNotice(text);
+            seen.set(el, text);
+        }
+    });
+    deafObserver.observe(document.body, { childList: true, characterData: true, subtree: true });
+    if (announce) showDeafNotice('Deaf Support is on. Status updates will also appear as visual notifications.');
+}
 if (deafBtn) {
+    deafBtn.type = 'button';
+    deafBtn.setAttribute('aria-pressed', 'false');
     deafBtn.onclick = () => {
-        document.body.classList.toggle('deaf-visual');
-        saveMode('deafVisual', document.body.classList.contains('deaf-visual'));
+        const active = !document.body.classList.contains('deaf-visual');
+        saveMode('deafVisual', active);
+        setDeafSupport(active, active);
     };
 }
 
@@ -297,6 +358,7 @@ const resetBtn = document.getElementById('resetAccessibility');
 
 if (resetBtn) {
     resetBtn.onclick = () => {
+        setDeafSupport(false);
         document.body.classList.remove('dyslexia', 'deaf-visual');
 
         localStorage.removeItem('dyslexia');
@@ -332,7 +394,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     if (localStorage.getItem('deafVisual') === 'true') {
-        document.body.classList.add('deaf-visual');
+        setDeafSupport(true);
     }
 
     if (localStorage.getItem('speechActive') === 'true') {

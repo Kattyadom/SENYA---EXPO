@@ -603,31 +603,28 @@ body.dyslexia span {
 }
 
 /* Modo Soporte Auditivo / Visual (Deaf Support) */
-body.deaf-visual i, 
-body.deaf-visual .tip-icon, 
-body.deaf-visual .acc-icon, 
-body.deaf-visual [class*="fa-"] {
-    font-size: 1.5em !important;
-    transform: scale(1.2);
-    display: inline-block;
+body.deaf-visual .tip-icon,
+body.deaf-visual .acc-icon { font-size: 1.5em; }
+body.deaf-visual [role="status"]:not(:empty),
+body.deaf-visual [role="alert"]:not(:empty) {
+    outline: 2px solid #2861f3;
+    outline-offset: 3px;
+    border-radius: 8px;
 }
-
-body.deaf-visual img {
-    transform: scale(1.1);
-    transition: transform 0.2s ease;
+#deafBtn[aria-pressed="true"] { border: 2px solid #2861f3; background: #edf4ff; }
+.senya-deaf-notice {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    z-index: 10020; box-sizing: border-box; width: max-content;
+    max-width: calc(100vw - 32px); max-height: 35vh; overflow: auto;
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 20px; border: 2px solid #2861f3; border-radius: 16px;
+    background: #fff; color: #172749; box-shadow: 0 8px 30px #17274926;
+    font-size: 1rem; line-height: 1.5; overflow-wrap: anywhere;
 }
-
-body.deaf-visual .hero-buttons a,
-body.deaf-visual .account-btn,
-body.deaf-visual .help-btn {
-    padding: 18px 36px !important;
-    font-size: 1.08rem !important;
-}
-
-body.deaf-visual .card,
-body.deaf-visual .step {
-    border-width: 2px !important;
-}
+.senya-deaf-notice[hidden] { display: none !important; }
+.senya-deaf-notice button { flex: 0 0 44px; min-height: 44px; border: 0;
+    border-radius: 50%; background: #ffedf5; color: #92204e;
+    font: inherit; font-size: 1.4rem; cursor: pointer; }
 
 /* =====================================================
    MENÚ DE VIDEOS EN LENGUA DE SEÑAS
