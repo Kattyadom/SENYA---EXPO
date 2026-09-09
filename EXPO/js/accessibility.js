@@ -31,7 +31,9 @@ function googleTranslateElementInit() {
     document.head.appendChild(script);
 })();
 
-function translatePage(langCode) {
+let translationRetry;
+function translatePage(langCode, attempt=0) {
+    clearTimeout(translationRetry);
     const select = document.querySelector('#google_translate_element select') || document.querySelector('.goog-te-combo');
     if (select) {
         select.value = langCode;
@@ -39,14 +41,15 @@ function translatePage(langCode) {
         currentLang = langCode;
 
         if (synth && synth.speaking) {
-            synth.cancel();
+            synth?.cancel();
             lastSpokenElement = null;
         }
         
         updateSpeechButtonUI();
         updateLangButtonUI();
     } else {
-        setTimeout(() => translatePage(langCode), 200);
+        if(attempt<20)translationRetry=setTimeout(() => translatePage(langCode,attempt+1), 200);
+        else if(langToggleBtn)langToggleBtn.title='Translation is unavailable. Please try again later.';
     }
 }
 
@@ -143,14 +146,14 @@ if (speechBtn) {
         updateSpeechButtonUI();
 
         if (!isSpeechActive) {
-            synth.cancel();
+            synth?.cancel();
             lastSpokenElement = null;
         }
     };
 }
 
 function getNaturalVoice(lang) {
-    const voices = synth.getVoices();
+    const voices = synth?.getVoices?.() || [];
     const targetLang = lang === 'en' ? 'en' : 'es';
     
     return voices.find(v => 
@@ -160,10 +163,10 @@ function getNaturalVoice(lang) {
 }
 
 function speakText(text) {
-    if (!isSpeechActive || !text || !text.trim()) return;
+    if (!synth || !isSpeechActive || !text || !text.trim()) return;
 
     // Cancela inmediatamente cualquier lectura anterior para respuesta rápida
-    synth.cancel();
+    synth?.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text.trim());
     utterance.lang = currentLang === 'en' ? 'en-US' : 'es-ES';
@@ -285,13 +288,13 @@ if (resetBtn) {
         localStorage.removeItem('speechActive');
 
         isSpeechActive = false;
-        synth.cancel();
+        synth?.cancel();
 
         if (slider) slider.value = 100;
         updateTextSize(100);
 
         document.body.classList.remove('low-vision');localStorage.removeItem('lowVision');
-        translatePage('en');
+        // Reset display preferences without changing the selected language.
         updateSpeechButtonUI();
     };
 }

@@ -7,7 +7,7 @@
  const valid=value=>value in levels||(/^(?:8[0-9]|9[0-9]|1[0-4][0-9]|150)$/.test(String(value)));
  if(!valid(size))size='normal';
  localStorage.setItem('textSize',size);
- let frame=0;const originals=new Map();
+ let frame=0,dragging=false;const originals=new Map();
  function controlSize(button){return ids[button.id]||button.dataset.size;}
  function syncControls(){
   const slider=document.getElementById('textSizeSlider');const value=document.getElementById('textSizeValue');const percent=Math.round((levels[size]||Number(size)/100)*100);if(slider)slider.value=percent;if(value&&value.textContent!==percent+'%')value.textContent=percent+'%';
@@ -20,6 +20,7 @@
  }
  function apply(){
   frame=0;
+  if(dragging)return;
   for(const [el,original] of originals){if(original.value)el.style.setProperty('font-size',original.value,original.priority);else el.style.removeProperty('font-size');}
   originals.clear();
   if(document.body.classList.contains('text-small')||document.body.classList.contains('text-large'))document.body.classList.remove('text-small','text-large');
@@ -28,7 +29,7 @@
   if(size==='normal')return;
   const measurements=[];
   for(const el of document.body.querySelectorAll('*')){
-   if(el.closest('script,style,svg,video,canvas,pre,code,.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.acc-icon,#headCursor'))continue;
+   if(el.closest('script,style,svg,video,canvas,pre,code,.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.acc-icon,#headCursor,.text-size-box,.size-buttons'))continue;
    const hasText=[...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim());
    if(!hasText&&!el.matches('input,textarea,select'))continue;
    const style=getComputedStyle(el),pixels=parseFloat(style.fontSize);
@@ -37,9 +38,14 @@
   }
   for(const [el,pixels,original] of measurements){originals.set(el,original);el.style.setProperty('font-size',pixels+'px','important');}
  }
- function refresh(){if(!frame)frame=requestAnimationFrame(apply);}
- function set(value){if(!valid(value))return;size=String(value);localStorage.setItem('textSize',size);localStorage.removeItem('senyaInterpreterTextSize');refresh();}
+ function refresh(){if(dragging)return;if(!frame)frame=requestAnimationFrame(apply);}
+ function set(value){if(!valid(value))return;size=String(value)==='100'?'normal':String(value);localStorage.setItem('textSize',size);localStorage.removeItem('senyaInterpreterTextSize');refresh();}
  window.SenyaTextSize={set,refresh};
+ document.addEventListener('pointerdown',event=>{if(event.target.id==='textSizeSlider')dragging=true;});
+ const endDrag=()=>{if(dragging){dragging=false;refresh();}};
+ document.addEventListener('pointerup',endDrag);document.addEventListener('pointercancel',endDrag);window.addEventListener('blur',endDrag);
+ document.addEventListener('change',event=>{if(event.target.id==='textSizeSlider'){set(event.target.value);endDrag();}});
+
  document.addEventListener('click',event=>{
   const button=event.target.closest('.size-buttons button');if(!button)return;
   const value=controlSize(button);if(value in levels)set(value);
