@@ -591,13 +591,14 @@ body.dyslexia {
     color: #2B2B2B !important;
 }
 
-body.dyslexia * {
+/* Keep icon fonts and SVG symbols intact when changing the reading font. */
+body.dyslexia *:not(.fa, .fas, .far, .fab, .fal, .fad, .fat, [class*="fa-"], .acc-icon, .material-icons, .material-symbols-outlined, svg, svg *) {
     font-family: Arial, sans-serif !important;
 }
 
 body.dyslexia p,
 body.dyslexia li,
-body.dyslexia span {
+body.dyslexia span:not(.fa, .fas, .far, .fab, .fal, .fad, .fat, [class*="fa-"], .acc-icon, .material-icons, .material-symbols-outlined, svg, svg *) {
     line-height: 2 !important;
     letter-spacing: 0.4px;
 }
