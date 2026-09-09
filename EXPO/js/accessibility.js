@@ -1,7 +1,9 @@
 // =====================================================
 // ESTADO GLOBAL E IDIOMA
 // =====================================================
-let currentLang = 'en';
+let currentLang = localStorage.getItem('senyaLanguage') === 'es' ? 'es' : 'en';
+function readingLanguage(){const selected=document.querySelector('.goog-te-combo')?.value;return selected==='es'||selected==='en'?selected:currentLang;}
+document.addEventListener('change',event=>{if(event.target.matches?.('.goog-te-combo')){currentLang=event.target.value==='es'?'es':'en';localStorage.setItem('senyaLanguage',currentLang);synth?.cancel();lastSpokenElement=null;updateSpeechButtonUI();}});
 let isSpeechActive = false;
 let lastSpokenElement = null;
 const synth = window.speechSynthesis;
@@ -39,6 +41,7 @@ function translatePage(langCode, attempt=0) {
         select.value = langCode;
         select.dispatchEvent(new Event('change'));
         currentLang = langCode;
+        localStorage.setItem("senyaLanguage", currentLang);
 
         if (synth && synth.speaking) {
             synth?.cancel();
@@ -159,7 +162,7 @@ function getNaturalVoice(lang) {
     return voices.find(v => 
         v.lang.startsWith(targetLang) && 
         (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha'))
-    ) || voices.find(v => v.lang.startsWith(targetLang)) || voices[0];
+    ) || voices.find(v => v.lang.startsWith(targetLang));
 }
 
 function speakText(text) {
@@ -168,12 +171,14 @@ function speakText(text) {
     // Cancela inmediatamente cualquier lectura anterior para respuesta rápida
     synth?.cancel();
 
+    currentLang = readingLanguage();
     const utterance = new SpeechSynthesisUtterance(text.trim());
     utterance.lang = currentLang === 'en' ? 'en-US' : 'es-ES';
     
     const selectedVoice = getNaturalVoice(currentLang);
     if (selectedVoice) {
         utterance.voice = selectedVoice;
+        utterance.lang = selectedVoice.lang;
     }
 
     utterance.rate = 1.0; // Velocidad fluida
@@ -287,6 +292,10 @@ if (resetBtn) {
         localStorage.removeItem('textSize');
         localStorage.removeItem('speechActive');
 
+        lastSpokenElement = null;
+        localStorage.removeItem("senyaHeadTrackingActive");
+        window.dispatchEvent(new Event("senya:reset-accessibility"));
+        document.querySelectorAll("#lowVisionBtn,#dyslexiaBtn,#deafBtn,#speechBtn,#activarHeadTracking").forEach(button=>{button.classList.remove("active");button.setAttribute("aria-pressed","false");});
         isSpeechActive = false;
         synth?.cancel();
 
