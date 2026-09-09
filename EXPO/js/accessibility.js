@@ -2,8 +2,21 @@
 // ESTADO GLOBAL E IDIOMA
 // =====================================================
 let currentLang = localStorage.getItem('senyaLanguage') === 'es' ? 'es' : 'en';
-function readingLanguage(){const selected=document.querySelector('.goog-te-combo')?.value;return selected==='es'||selected==='en'?selected:currentLang;}
-document.addEventListener('change',event=>{if(event.target.matches?.('.goog-te-combo')){currentLang=event.target.value==='es'?'es':'en';localStorage.setItem('senyaLanguage',currentLang);synth?.cancel();lastSpokenElement=null;updateSpeechButtonUI();}});
+function readingLanguage() {
+    const selected = document.querySelector('.goog-te-combo')?.value;
+    if (selected === 'es' || selected === 'en') return selected;
+    // Google restores translation across pages even before its selector is ready.
+    const cookie = document.cookie.split(';').map(part => part.trim()).find(part => part.startsWith('googtrans='));
+    if (cookie) {
+        try {
+            const language = decodeURIComponent(cookie.slice('googtrans='.length)).split('/').pop();
+            if (language === 'es' || language === 'en') return language;
+        } catch (_) { /* Ignore malformed translation cookies. */ }
+    }
+    if (document.documentElement.lang.toLowerCase().startsWith('es')) return 'es';
+    return currentLang;
+}
+document.addEventListener('change',event=>{if(event.target.matches?.('.goog-te-combo')){currentLang=event.target.value==='es'?'es':'en';localStorage.setItem('senyaLanguage',currentLang);synth?.cancel();lastSpokenElement=null;updateSpeechButtonUI();}}, true);
 let isSpeechActive = false;
 let lastSpokenElement = null;
 const synth = window.speechSynthesis;
@@ -223,7 +236,7 @@ document.addEventListener('mouseover', (event) => {
         lastSpokenElement = interactiveEl;
 
         const textToRead = extractText(interactiveEl);
-        const prefix = currentLang === 'en' ? 'Button: ' : 'Botón: ';
+        const prefix = readingLanguage() === 'en' ? 'Button: ' : 'Botón: ';
         speakText(`${prefix}${textToRead}`);
         return;
     }
