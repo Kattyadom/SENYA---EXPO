@@ -233,6 +233,8 @@ body {
 
     line-height: 1.1;
 
+    color: #FFFFFF; /* Hace el título blanco puro */
+
 }
 
 
@@ -240,9 +242,11 @@ body {
 
     font-size: 0.95rem;
 
-    opacity: 0.9;
+    opacity: 0.95;
 
     margin-bottom: 30px;
+
+    color: #FFFFFF; /* Hace el subtítulo blanco puro */
 
 }
 

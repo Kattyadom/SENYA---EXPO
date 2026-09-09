@@ -40,3 +40,13 @@
 .recovery-form input{display:block;width:100%;min-height:56px;margin-top:8px;padding:12px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text)}
 .recovery-form input:focus-visible{outline:3px solid #dbeafe;border-color:var(--blue)}
 .recovery-form p{font-size:.875rem;line-height:1.6;margin:12px 0;color:var(--muted)}
+/* Corrección de color para el título y texto del panel de imagen */
+.image-bottom h2,
+.image-info h2 {
+    color: #FFFFFF !important;
+}
+
+.image-bottom p,
+.image-info p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
