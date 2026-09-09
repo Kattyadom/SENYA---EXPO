@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="js/auth-gate.js"></script>
+<head>
+    <script src="js/auth-gate.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request an Interpreter - SENYA</title>
@@ -12,11 +13,34 @@
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
     <!-- FontAwesome Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="css/account-ui.css"><script defer src="js/text-size.js"></script></head>
-<body><header class="navbar" id="senyaHeader"><div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="opciones.html">Partner network</a></li><li><a href="profile.html">Profile</a></li><li><a href="about.html">About us</a></li><li><a href="soporte.html">Contact</a></li></ul></nav><div class="right-actions"><button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button></div></div></header><script src="js/nav-initial.js"></script>
+    <link rel="stylesheet" href="css/account-ui.css">
+    <script defer src="js/text-size.js"></script>
+</head>
+<body>
+    <header class="navbar" id="senyaHeader">
+        <div class="navbar-container">
+            <a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a>
+            <nav id="senyaNavigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="opciones.html">Partner network</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="soporte.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="right-actions">
+                <button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button>
+                <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <script src="js/nav-initial.js"></script>
 
-  <!-- Panel de Accesibilidad -->
-  <div class="accessibility-panel" id="accessibilityPanel">
+    <!-- Panel de Accesibilidad -->
+    <div class="accessibility-panel" id="accessibilityPanel">
         <div class="panel-header">
             <h3>Accessibility</h3>
             <button id="closePanel">×</button>
@@ -67,18 +91,18 @@
                 </div>
             </button>
             
-<!-- BARRA SLIDER VISIBLE Y ESTILIZADA -->
-<div class="text-size-box" style="display: block !important; width: 100%; padding: 12px; background: rgba(0,0,0,0.03); border-radius: 10px; margin: 10px 0; box-sizing: border-box;">
-    <div class="text-size-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <label for="textSizeSlider" style="font-weight: 600; font-size: 0.95rem; color: #1e293b;">Text Size</label>
-        <span id="textSizeValue" style="font-weight: bold; color: #2563eb; font-size: 0.9rem;">100%</span>
-    </div>
-    <div class="slider-container" style="display: flex; align-items: center; gap: 10px; width: 100%;">
-        <span style="font-size: 0.8rem; font-weight: bold; color: #64748b;">A-</span>
-        <input type="range" id="textSizeSlider" min="80" max="150" value="100" step="5" style="-webkit-appearance: slider-horizontal !important; appearance: slider-horizontal !important; flex: 1; width: 100%; height: 6px; cursor: pointer; accent-color: #2563eb;">
-        <span style="font-size: 1.2rem; font-weight: bold; color: #64748b;">A+</span>
-    </div>
-</div>
+            <!-- BARRA SLIDER VISIBLE Y ESTILIZADA -->
+            <div class="text-size-box" style="display: block !important; width: 100%; padding: 12px; background: rgba(0,0,0,0.03); border-radius: 10px; margin: 10px 0; box-sizing: border-box;">
+                <div class="text-size-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <label for="textSizeSlider" style="font-weight: 600; font-size: 0.95rem; color: #1e293b;">Text Size</label>
+                    <span id="textSizeValue" style="font-weight: bold; color: #2563eb; font-size: 0.9rem;">100%</span>
+                </div>
+                <div class="slider-container" style="display: flex; align-items: center; gap: 10px; width: 100%;">
+                    <span style="font-size: 0.8rem; font-weight: bold; color: #64748b;">A-</span>
+                    <input type="range" id="textSizeSlider" min="80" max="150" value="100" step="5" style="-webkit-appearance: slider-horizontal !important; appearance: slider-horizontal !important; flex: 1; width: 100%; height: 6px; cursor: pointer; accent-color: #2563eb;">
+                    <span style="font-size: 1.2rem; font-weight: bold; color: #64748b;">A+</span>
+                </div>
+            </div>
 
             <button class="reset-btn" id="resetAccessibility">
                 Reset Accessibility
@@ -86,76 +110,155 @@
         </div>
     </div>
 
-  <!-- Navbar idéntico al sitio -->
-  
+    <!-- Contenido Principal -->
+    <main class="request-container">
+        <div class="request-card">
+            
+            <div class="request-header">
+                <a href="opciones.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to options</a>
+                <h1>Request an Interpreter</h1>
+                <p>You are requesting an interpreter to assist you with:</p>
+                <div class="selected-service-box">
+                    <i class="fa-solid fa-building"></i>
+                    <span id="selectedService">Selected Service</span>
+                </div>
+            </div>
 
-  <!-- Contenido Principal -->
-  <main class="request-container">
-    <div class="request-card">
-        
-        <div class="request-header">
-            <a href="opciones.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to options</a>
-            <h1>Request an Interpreter</h1>
-            <p>You are requesting an interpreter to assist you with:</p>
-            <div class="selected-service-box">
-                <i class="fa-solid fa-building"></i>
-                <span id="selectedService">Selected Service</span>
+            <form id="requestForm" class="request-form">
+                <div class="form-group">
+                    <label for="serviceName"><i class="fa-solid fa-building-columns"></i> Service or organization</label>
+                    <input id="serviceName" name="service" type="text" maxlength="120" required placeholder="For example, BAC Credomatic or ISSS">
+                </div>
+                
+                <!-- Language Selection -->
+                <div class="form-group">
+                    <label for="languageType"><i class="fa-solid fa-language"></i> Language</label>
+                    <select id="languageType" name="languageType" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="LESSA">LESSA</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="English">English</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialty"><i class="fa-solid fa-briefcase"></i> Service specialty</label>
+                    <select id="specialty" required>
+                        <option value="">Choose the service area</option>
+                        <option>Banking</option>
+                        <option>Healthcare</option>
+                        <option>Government</option>
+                        <option>Telecommunications</option>
+                        <option>Utilities</option>
+                        <option>General</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="requestType"><i class="fa-solid fa-clock"></i> When do you need assistance?</label>
+                    <select id="requestType">
+                        <option value="immediate">Immediate assistance — as soon as an interpreter accepts</option>
+                        <option value="scheduled">Schedule an appointment</option>
+                    </select>
+                </div>
+
+                <div class="form-group" hidden>
+                    <label for="scheduledAt"><i class="fa-solid fa-calendar-days"></i> Date and time (your local time)</label>
+                    <input type="datetime-local" id="scheduledAt">
+                    <p class="field-hint">Your interpreter reserves this appointment until the session ends.</p>
+                </div>
+
+                <!-- Details of Request -->
+                <div class="form-group">
+                    <label for="details"><i class="fa-solid fa-pen-to-square"></i> Details of your request</label>
+                    <textarea maxlength="3000" id="details" name="details" rows="5" required placeholder="Describe what you need help with (e.g. 'I want to inquire about opening a savings account' or 'I need help with my medical appointment')..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='opciones.html'">Cancel</button>
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-headset"></i> Find Interpreter
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+    <!-- Footer SENYA -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="logo" role="img" aria-label="SENYA Logo">
+                    SEN<span class="logo-y">Y</span>A
+                </div>
+                <p>"Communication is not a privilege, it's a right."</p>
+            </div>
+            <div class="footer-column">
+                <h3>Information</h3>
+                <ul>
+                    <li><span class="disabled-link">Home</span></li>
+                    <li><span class="disabled-link">Services</span></li>
+                    <li><span class="disabled-link">Join to us</span></li>
+                    <li><span class="disabled-link">About us</span></li>
+                    <li><span class="disabled-link">How to use Senya?</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><span class="disabled-link">Technical Support</span></li>
+                    <li><span class="disabled-link">Services</span></li>
+                    <li><span class="disabled-link">Join to us</span></li>
+                    <li><span class="disabled-link">How to use Senya?</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><span class="disabled-link">Banks</span></li>
+                    <li><span class="disabled-link">Call Centers</span></li>
+                    <li><span class="disabled-link">Internet</span></li>
+                    <li><span class="disabled-link">Shops</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>📞 +503 9842-5783</p>
+                <p>✉ senya.sv@gmail.com</p>
+                <div class="socials">
+                    <div class="social-logo" role="img" aria-label="SENYA Logo secundario">
+                        <img src="img/Senyalogo.png" alt="Senya's logo in contact area">
+                    </div>
+                </div>
             </div>
         </div>
+        <hr>
+        <div class="footer-bottom">
+            <p>© 2026 Senya. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-        <form id="requestForm" class="request-form">
-            <div class="form-group"><label for="serviceName">Service or organization</label><input id="serviceName" name="service" type="text" maxlength="120" required placeholder="For example, BAC Credomatic or ISSS"></div>
-            
-            <!-- Language Selection -->
-            <div class="form-group">
-                <label for="languageType"><i class="fa-solid fa-language"></i> Language</label>
-                <select id="languageType" name="languageType" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="LESSA">LESSA</option>
-                    <option value="Spanish">Spanish</option>
-                    <option value="English">English</option>
-                </select>
-            </div>
+    <!-- Google Translate Init -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'es,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-            <div class="form-group"><label for="specialty">Service specialty</label><select id="specialty" required><option value="">Choose the service area</option><option>Banking</option><option>Healthcare</option><option>Government</option><option>Telecommunications</option><option>Utilities</option><option>General</option></select></div>
-<div class="form-group"><label for="requestType">When do you need assistance?</label><select id="requestType"><option value="immediate">Immediate assistance — as soon as an interpreter accepts</option><option value="scheduled">Schedule an appointment</option></select></div>
-<div class="form-group" hidden><label for="scheduledAt">Date and time (your local time)</label><input type="datetime-local" id="scheduledAt"><p>Your interpreter reserves this appointment until the session ends.</p></div>
-<!-- Details of Request -->
-            <div class="form-group">
-                <label for="details"><i class="fa-solid fa-pen-to-square"></i> Details of your request</label>
-                <textarea maxlength="3000" id="details" name="details" rows="5" required placeholder="Describe what you need help with (e.g. 'I want to inquire about opening a savings account' or 'I need help with my medical appointment')..."></textarea>
-            </div>
+    <!-- Scripts JS -->
+    <script src="js/senya-api.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script type="module" src="js/head-tracking.js"></script>
+    <script src="js/request.js"></script>
 
-            <div class="form-actions">
-                <button type="button" class="btn-cancel" onclick="window.location.href='opciones.html'">Cancel</button>
-                <button type="submit" class="btn-submit">
-                    <i class="fa-solid fa-headset"></i> Find Interpreter
-                </button>
-            </div>
-        </form>
-
-    </div>
-  </main>
-
-  <!-- Google Translate Init -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'es,en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-  <!-- Scripts JS -->
-  <script src="js/senya-api.js"></script>
-<script src="js/accessibility.js"></script>
-  <script type="module" src="js/head-tracking.js"></script>
-  <script src="js/request.js"></script>
-
-  <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
-<script src="js/account-nav.js"></script></body>
+    <div id="headCursor" style="position: fixed; width: 20px; height: 20px; background-color: #2563eb; border: 3px solid #ffffff; border-radius: 50%; pointer-events: none; z-index: 99999; display: none; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+    <script src="js/account-nav.js"></script>
+</body>
 </html>
