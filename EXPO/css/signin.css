@@ -61,3 +61,43 @@
 .image-feature small {
     color: rgba(255, 255, 255, 0.8) !important;
 }
+/* =========================================================
+   ESTILOS ESPECÍFICOS PARA SIGN IN
+========================================================= */
+
+/* Texto blanco y rosa para el botón principal de Sign In */
+button#signInButton.login-btn,
+button#signInButton.login-btn span,
+button#signInButton.login-btn i {
+    color: #FFFFFF !important;
+}
+
+/* Botón "Create an account" (texto rosa, blanco al pasar el mouse) */
+a.create-account-btn,
+a.create-account-btn span,
+a.create-account-btn i {
+    color: #FF4F8B !important;
+}
+
+a.create-account-btn:hover,
+a.create-account-btn:hover span,
+a.create-account-btn:hover i {
+    color: #FFFFFF !important;
+}
+
+/* Panel lateral derecho de la imagen */
+.signin-page .image-bottom h2,
+.signin-page .image-bottom p,
+.signin-page .image-pill,
+.signin-page .image-feature strong {
+    color: #FFFFFF !important;
+}
+
+.signin-page .image-feature small {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.signin-page .image-pill,
+.signin-page .image-feature {
+    background: rgba(255, 255, 255, 0.12) !important;
+}

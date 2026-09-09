@@ -1656,3 +1656,35 @@ body {
 .login-btn i {
     color: #FFFFFF !important;
 }
+/* =========================================================
+   ESTILOS ESPECÍFICOS PARA SIGN UP
+========================================================= */
+
+/* Corrección de la tarjeta/panel flotante para que no sea blanca sólida */
+.signup-page .image-info,
+.signup-page .image-pill,
+.signup-page .image-feature,
+.signup-page .step-card,
+.signup-page .acc-card {
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+/* Forzar letras blancas sobre la imagen en Sign Up */
+.signup-page .image-info *,
+.signup-page .image-bottom h2,
+.signup-page .image-bottom p,
+.signup-page .image-feature strong,
+.signup-page .step-card * {
+    color: #FFFFFF !important;
+}
+
+.signup-page .image-feature small {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Botón principal de registro (Submit) */
+.signup-page button[type="submit"],
+.signup-page button[type="submit"] * {
+    color: #FFFFFF !important;
+}
