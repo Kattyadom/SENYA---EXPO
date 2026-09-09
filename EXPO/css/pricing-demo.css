@@ -19,3 +19,7 @@ dialog.senya-payment-dialog{position:fixed;inset:0;margin:auto;max-height:calc(1
 .senya-payment-dialog label{display:block;margin:16px 0 8px;font-weight:600}
 .senya-payment-dialog .payment-actions{margin-top:20px}
 .senya-payment-dialog .payment-actions button{min-width:100px}
+
+/* Keep the appointment card centered independently of the payment dialog. */
+.request-container{flex-direction:column;align-items:center}
+.request-container>.request-card{flex-shrink:0;min-width:0;margin-inline:auto}

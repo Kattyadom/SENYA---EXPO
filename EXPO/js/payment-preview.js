@@ -5,7 +5,7 @@
  function receipts(){try{return JSON.parse(localStorage.getItem(key())||'[]').filter(r=>r&&typeof r.id==='string'&&Number.isInteger(r.cents));}catch(_){return [];}}
  const money=c=>'$'+(c/100).toFixed(2);
  function history(){
-  if(!accountId)return;
+  if(!accountId||!location.pathname.endsWith('/profile.html'))return;
   let box=document.getElementById('paymentHistory');
   if(!box){box=document.createElement('section');box.id='paymentHistory';box.className='senya-pricing-demo';(document.querySelector('main')||document.body).append(box);}
   box.replaceChildren();
