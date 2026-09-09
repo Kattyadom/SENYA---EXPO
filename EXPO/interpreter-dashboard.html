@@ -1,79 +1,210 @@
-<!DOCTYPE html><html lang="en"><head><script src="js/auth-gate.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpreter dashboard | SENYA</title><link rel="stylesheet" href="css/general.css"><link rel="stylesheet" href="css/profile.css"><link rel="stylesheet" href="css/appointments.css"><link rel="stylesheet" href="css/modal.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="css/account-ui.css"><script defer src="js/text-size.js"></script></head>
-<body class="account-appointments" data-role="interpreter"><header class="navbar" id="senyaHeader"><div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="opciones.html">Partner network</a></li><li><a href="profile.html">Profile</a></li><li><a href="about.html">About us</a></li><li><a href="soporte.html">Contact</a></li></ul></nav><div class="right-actions"><button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button></div></div></header><script src="js/nav-initial.js"></script>  <!-- Panel de Accesibilidad -->
-  <div class="accessibility-panel" id="accessibilityPanel">
-    <div class="panel-header">
-      <h3>Accessibility</h3>
-      <button id="closePanel">×</button>
-    </div>
-    <div class="panel-content">
-      <button class="acc-card low-vision" id="lowVisionBtn">
-        <div class="acc-icon">👁️</div>
-        <div class="acc-info">
-          <h4>Low Vision</h4>
-          <p>High contrast, larger text and stronger buttons</p>
-        </div>
-      </button>
-
-      <button class="acc-card dyslexia-mode" id="dyslexiaBtn">
-        <div class="acc-icon">📖</div>
-        <div class="acc-info">
-          <h4>Dyslexia</h4>
-          <p>Friendly font, soft colors and more spacing</p>
-        </div>
-      </button>
-
-      <button class="acc-card deaf-mode" id="deafBtn">
-        <div class="acc-icon">🤟</div>
-        <div class="acc-info">
-          <h4>Deaf Support</h4>
-          <p>Visual communication and larger icons</p>
-        </div>
-      </button>
-
-      <button class="acc-card" id="activarHeadTracking">
-        <div class="acc-icon">🔄</div>
-        <div class="acc-info">
-          <h4>Head Control</h4>
-          <p>Navigate and scroll using head movements</p>
-        </div>
-      </button>
-
-      <button class="acc-card speech-mode" id="speechBtn">
-        <div class="acc-icon">🔊</div>
-        <div class="acc-info">
-          <h4>Read Aloud</h4>
-          <p>Read the text on the screen with voice</p>
-        </div>
-      </button>
-
-      <div class="acc-card translate-card">
-        <div class="acc-icon"><i class="fas fa-language"></i></div>
-        <div class="acc-info">
-          <h4>Language / Idioma</h4>
-          <p>Translate website</p>
-          <div id="google_translate_element"></div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="js/auth-gate.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Interpreter dashboard | SENYA</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/appointments.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/account-ui.css">
+    <script defer src="js/text-size.js"></script>
+  </head>
+  <body class="account-appointments" data-role="interpreter">
+    <header class="navbar" id="senyaHeader">
+      <div class="navbar-container">
+        <a class="logo" href="index.html">
+          <img src="img/Senyalogo.png" alt="SENYA">
+        </a>
+        <nav id="senyaNavigation" aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="opciones.html">Partner network</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="soporte.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="right-actions">
+          <button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button>
+          <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu">
+            <span aria-hidden="true">☰</span>
+          </button>
         </div>
       </div>
+    </header>
+    <script src="js/nav-initial.js"></script>
+    <!-- Panel de Accesibilidad -->
+    <div class="accessibility-panel" id="accessibilityPanel">
+      <div class="panel-header">
+        <h3>Accessibility</h3>
+        <button id="closePanel">×</button>
+      </div>
+      <div class="panel-content">
+        <button class="acc-card low-vision" id="lowVisionBtn">
+          <div class="acc-icon">👁️</div>
+          <div class="acc-info">
+            <h4>Low Vision</h4>
+            <p>High contrast, larger text and stronger buttons</p>
+          </div>
+        </button>
 
-      <div class="text-size-box">
-        <label>Text Size</label>
-        <div class="size-buttons">
-          <button id="smallText">A-</button>
-          <button id="normalText" class="active">A</button>
-          <button id="largeText">A+</button>
+        <button class="acc-card dyslexia-mode" id="dyslexiaBtn">
+          <div class="acc-icon">📖</div>
+          <div class="acc-info">
+            <h4>Dyslexia</h4>
+            <p>Friendly font, soft colors and more spacing</p>
+          </div>
+        </button>
+
+        <button class="acc-card deaf-mode" id="deafBtn">
+          <div class="acc-icon">🤟</div>
+          <div class="acc-info">
+            <h4>Deaf Support</h4>
+            <p>Visual communication and larger icons</p>
+          </div>
+        </button>
+
+        <button class="acc-card" id="activarHeadTracking">
+          <div class="acc-icon">🔄</div>
+          <div class="acc-info">
+            <h4>Head Control</h4>
+            <p>Navigate and scroll using head movements</p>
+          </div>
+        </button>
+
+        <button class="acc-card speech-mode" id="speechBtn">
+          <div class="acc-icon">🔊</div>
+          <div class="acc-info">
+            <h4>Read Aloud</h4>
+            <p>Read the text on the screen with voice</p>
+          </div>
+        </button>
+
+        <div class="acc-card translate-card">
+          <div class="acc-icon"><i class="fas fa-language"></i></div>
+          <div class="acc-info">
+            <h4>Language / Idioma</h4>
+            <p>Translate website</p>
+            <div id="google_translate_element"></div>
+          </div>
+        </div>
+
+        <div class="text-size-box">
+          <label>Text Size</label>
+          <div class="size-buttons">
+            <button id="smallText">A-</button>
+            <button id="normalText" class="active">A</button>
+            <button id="largeText">A+</button>
+          </div>
+        </div>
+
+        <button class="reset-btn" id="resetAccessibility">Reset Accessibility</button>
+      </div>
+    </div>
+
+    <main class="profile-page">
+      <div class="workspace">
+        <header class="workspace-head">
+          <div>
+            <p class="eyebrow">INTERPRETER WORKSPACE</p>
+            <h1 style="color:#2563EB">Your appointments control</h1>
+          </div>
+        </header>
+        <section class="card">
+          <div class="card-head">
+            <h2>Availability</h2>
+            <label class="availability">
+              <input type="checkbox" id="availabilitySwitch" disabled> Available for requests
+            </label>
+          </div>
+          <p id="availabilityMessage">Checking your profile…</p>
+          <a href="profile.html#certificate-upload" style="display:inline-block;padding:12px 18px;border-radius:12px;background:#FF4F8B;color:#ffffff;font-weight:600;text-decoration:none">Upload certificate</a>
+        </section>
+        <div class="stats">
+          <div class="card">
+            <strong id="pendingCount">—</strong>
+            <span>Pending</span>
+          </div>
+          <div class="card">
+            <strong id="activeCount">—</strong>
+            <span>Accepted / in session</span>
+          </div>
+          <div class="card">
+            <strong id="completedCount">—</strong>
+            <span>Completed</span>
+          </div>
+        </div>
+        <section class="card">
+          <h2>Assigned assistance</h2>
+          <p>SENYA matches requests to your language, specialty and availability.</p>
+          <div id="appointmentList" aria-live="polite">
+            <p class="empty">Loading appointments…</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <div class="logo" role="img" aria-label="SENYA Logo">
+            SEN<span class="logo-y">Y</span>A
+          </div>
+          <p>"Communication is not a privilege, it's a right."</p>
+        </div>
+        <div class="footer-column">
+          <h3>Information</h3>
+          <ul>
+            <li><span class="disabled-link">Home</span></li>
+            <li><span class="disabled-link">Services</span></li>
+            <li><span class="disabled-link">Join to us</span></li>
+            <li><span class="disabled-link">About us</span></li>
+            <li><span class="disabled-link">How to use Senya?</span></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><span class="disabled-link">Technical Support</span></li>
+            <li><span class="disabled-link">Services</span></li>
+            <li><span class="disabled-link">Join to us</span></li>
+            <li><span class="disabled-link">How to use Senya?</span></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Our Services</h3>
+          <ul>
+            <li><span class="disabled-link">Banks</span></li>
+            <li><span class="disabled-link">Call Centers</span></li>
+            <li><span class="disabled-link">Internet</span></li>
+            <li><span class="disabled-link">Shops</span></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <p>📞 +503 9842-5783</p>
+          <p>✉ senya.sv@gmail.com</p>
+          <div class="socials">
+            <div class="social-logo" role="img" aria-label="SENYA Logo secundario">
+              <img src="img/Senyalogo.png" alt="Senya's logo in contact area">
+            </div>
+          </div>
         </div>
       </div>
+      <hr>
+      <div class="footer-bottom">
+        <p>© 2026 Senya. All Rights Reserved.</p>
+      </div>
+    </footer>
 
-      <button class="reset-btn" id="resetAccessibility">Reset Accessibility</button>
-    </div>
-  </div>
-
-  
-
-
-<main class="profile-page">
-<div class="workspace"><header class="workspace-head"><div><p class="eyebrow">INTERPRETER WORKSPACE</p><h1>Your assistance dashboard</h1></div></header>
-<section class="card"><div class="card-head"><h2>Availability</h2><label class="availability"><input type="checkbox" id="availabilitySwitch" disabled> Available for requests</label></div><p id="availabilityMessage">Checking your profile…</p><a href="profile.html#certificate-upload" style="display:inline-block;padding:12px 18px;border-radius:12px;background:#eff6ff;color:#1d4ed8">Upload certificate</a></section>
-<div class="stats"><div class="card"><strong id="pendingCount">—</strong><span>Pending</span></div><div class="card"><strong id="activeCount">—</strong><span>Accepted / in session</span></div><div class="card"><strong id="completedCount">—</strong><span>Completed</span></div></div>
-<section class="card"><h2>Assigned assistance</h2><p>SENYA matches requests to your language, specialty and availability.</p><div id="appointmentList" aria-live="polite"><p class="empty">Loading appointments…</p></div></section></div></main>
-<script src="js/senya-api.js"></script><script src="js/appointments.js"></script><script src="js/accessibility.js"></script><script type="module" src="js/head-tracking.js"></script><script src="js/account-nav.js"></script></body></html>
+    <script src="js/senya-api.js"></script>
+    <script src="js/appointments.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script type="module" src="js/head-tracking.js"></script>
+    <script src="js/account-nav.js"></script>
+  </body>
+</html>
