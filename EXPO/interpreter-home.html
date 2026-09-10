@@ -1,23 +1,59 @@
-<!doctype html><html lang="en"><head><script src="js/auth-gate.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpreter home | SENYA</title><link rel="stylesheet" href="css/general.css"><link rel="stylesheet" href="css/account-ui.css"><script defer src="js/text-size.js"></script><link rel="stylesheet" href="css/pricing-demo.css"><script src="js/pricing-demo.js" defer></script><link rel="stylesheet" href="css/interpreter-home-design.css"></head><body class="interpreter-view"><header class="navbar" id="senyaHeader"><div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="opciones.html">Partner network</a></li><li><a href="profile.html">Profile</a></li><li><a href="about.html">About us</a></li><li><a href="soporte.html">Contact</a></li></ul></nav><div class="right-actions"><button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button></div></div></header><script src="js/nav-initial.js"></script><main class="account-main interpreter-home">
-        <!-- HERO SECTION CON IMAGEN PROTAGÓNICA -->
-        <div class="welcome-content">
-            <span class="eyebrow">SENYA FOR INTERPRETERS</span>
-            <h1 id="interpreterWelcome">Your interpreter workspace</h1>
-            <p>Support accessible conversations. Review your appointments, manage your availability and keep your professional profile ready.</p>
-            <div class="hero-buttons">
-                <a class="home-primary" href="interpreter-dashboard.html">My appointments</a>
+<!doctype html>
+<html lang="en">
+<head>
+    <script src="js/auth-gate.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Interpreter home | SENYA</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/account-ui.css">
+    <script defer src="js/text-size.js"></script>
+    <link rel="stylesheet" href="css/pricing-demo.css">
+    <script src="js/pricing-demo.js" defer></script>
+    <link rel="stylesheet" href="css/interpreter-home-design.css">
+</head>
+<body class="interpreter-view">
+    <header class="navbar" id="senyaHeader">
+        <div class="navbar-container">
+            <a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a>
+            <nav id="senyaNavigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="opciones.html">Partner network</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="soporte.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="right-actions">
+                <button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button>
+                <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button>
             </div>
         </div>
-        <div class="welcome-illustration">
-            <div class="hero-image-wrapper">
-                <img src="img/interpreter-hero.png" alt="Woman wearing a headset and communicating in sign language" class="hero-img">
+    </header>
+    <script src="js/nav-initial.js"></script>
+    
+    <main class="account-main interpreter-home" style="max-width: 1200px; margin: 40px auto; padding: 0 32px;">
+        <!-- HERO SECTION CORREGIDA (2 Columnas: Texto Izq, Imagen Der) -->
+        <div class="hero-section-wrapper" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 60px; padding-top: 40px;">
+            <div class="welcome-content" style="flex: 1; min-width: 300px; text-align: left;">
+                <span class="eyebrow" style="color: #ff4f8b !important; font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 12px;">SENYA FOR INTERPRETERS</span>
+                <h1 id="interpreterWelcome" style="color: #2563eb; font-size: 48px; font-weight: 800; line-height: 1.1; margin: 0 0 16px 0; letter-spacing: -0.02em;">Your interpreter workspace</h1>
+                <p style="color: #1e388a; font-size: 18px; line-height: 1.6; margin-bottom: 28px;">Support accessible conversations. Review your appointments, manage your availability and keep your professional profile ready.</p>
+                <div class="hero-buttons">
+                    <a class="home-primary" href="interpreter-dashboard.html" style="display: inline-block; background: #2563eb; color: #ffffff !important; font-weight: 600; font-size: 16px; padding: 14px 32px; border-radius: 50px; text-decoration: none; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);">My appointments</a>
+                </div>
+            </div>
+            <div class="welcome-illustration" style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center;">
+                <div class="hero-image-wrapper" style="position: relative; width: 100%; max-width: 480px; border-radius: 50% 50% 40% 40% / 40% 40% 50% 50%; background: radial-gradient(circle, rgba(255, 240, 247, 1) 0%, rgba(232, 240, 255, 0.5) 100%); padding: 20px;">
+                    <img src="img/interpreter-hero.png" alt="Woman wearing a headset and communicating in sign language" class="hero-img" style="width: 100%; height: auto; object-fit: contain; display: block;">
+                </div>
             </div>
         </div>
 
-        <!-- SECCIÓN DE TARJETAS (CON ESPACIO PARA IMAGEN EN CADA UNA) -->
+        <!-- SECCIÓN DE TARJETAS -->
         <section class="cards-section">
             <div class="account-grid">
-                
                 <!-- CARD 1: Professional Profile -->
                 <article class="account-card card-profile">
                     <div class="card-image-box">
@@ -58,7 +94,6 @@
                         <a class="account-button-link pink-text" href="soporte.html">Contact us &rarr;</a>
                     </div>
                 </article>
-
             </div>
         </section>
 
@@ -99,57 +134,77 @@
                 </div>
             </div>
         </section>
-    <section class="senya-pricing-demo" aria-labelledby="earningsTitle"><span class="demo-badge">YOUR EARNINGS</span><h2 id="earningsTitle">Earnings overview</h2><p id="earningsStatus" role="status">Loading earnings…</p><div class="earnings-grid"><div><span>This week · estimated</span><strong id="earningsWeek">—</strong></div><div><span>Total · estimated</span><strong id="earningsTotal">—</strong></div><div><span>Completed sessions</span><strong id="earningsCount">—</strong></div></div><p>$0.40 per recorded session minute, with a $2.00 minimum per completed session with recorded time.</p><div id="earningsHistory"></div><p>Estimates use recorded room duration, which may include waiting or disconnections. They are not a withdrawable balance. Payouts are not enabled. Weeks start on Monday in your local time.</p></section>
-</main>
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-column">
-            <div class="logo" role="img" aria-label="SENYA Logo">
-                SEN<span class="logo-y">Y</span>A
-        </div>
-            <p>"Communication is not a privilege, it's a right."</p>
-        </div>
-        <div class="footer-column">
-            <h3>Information</h3>
-            <ul>
-                <li><span class="disabled-link">Home</span></li>
-                <li><span class="disabled-link">My appointments</span></li>
-                <li><span class="disabled-link">My profile</span></li>
-                <li><span class="disabled-link">About us</span></li>
-                <li><span class="disabled-link">How to use Senya?</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Useful Links</h3>
-            <ul>
-                <li><span class="disabled-link">Technical Support</span></li>
-                <li><span class="disabled-link">My appointments</span></li>
-                <li><span class="disabled-link">My profile</span></li>
-                <li><span class="disabled-link">How to use Senya?</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Our Services</h3>
-            <ul>
-                <li><span class="disabled-link">Banks</span></li>
-                <li><span class="disabled-link">Call Centers</span></li>
-                <li><span class="disabled-link">Internet</span></li>
-                <li><span class="disabled-link">Shops</span></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <p>📞 +503 9842-5783</p>
-            <p>✉ senya.sv@gmail.com</p>
-            <div class="socials">
-                <div class="social-logo" role="img" aria-label="SENYA logo">
-                    <img src="img/Senyalogo.png" alt="Senya's logo in contact area">
+
+        <section class="senya-pricing-demo" aria-labelledby="earningsTitle">
+            <span class="demo-badge">YOUR EARNINGS</span>
+            <h2 id="earningsTitle">Earnings overview</h2>
+            <p id="earningsStatus" role="status">Loading earnings…</p>
+            <div class="earnings-grid">
+                <div><span>This week · estimated</span><strong id="earningsWeek">—</strong></div>
+                <div><span>Total · estimated</span><strong id="earningsTotal">—</strong></div>
+                <div><span>Completed sessions</span><strong id="earningsCount">—</strong></div>
+            </div>
+            <p>$0.40 per recorded session minute, with a $2.00 minimum per completed session with recorded time.</p>
+            <div id="earningsHistory"></div>
+            <p>Estimates use recorded room duration, which may include waiting or disconnections. They are not a withdrawable balance. Payouts are not enabled. Weeks start on Monday in your local time.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="logo" role="img" aria-label="SENYA Logo">
+                    SEN<span class="logo-y">Y</span>A
+                </div>
+                <p>"Communication is not a privilege, it's a right."</p>
+            </div>
+            <div class="footer-column">
+                <h3>Information</h3>
+                <ul>
+                    <li><span class="disabled-link">Home</span></li>
+                    <li><span class="disabled-link">My appointments</span></li>
+                    <li><span class="disabled-link">My profile</span></li>
+                    <li><span class="disabled-link">About us</span></li>
+                    <li><span class="disabled-link">How to use Senya?</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><span class="disabled-link">Technical Support</span></li>
+                    <li><span class="disabled-link">My appointments</span></li>
+                    <li><span class="disabled-link">My profile</span></li>
+                    <li><span class="disabled-link">How to use Senya?</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><span class="disabled-link">Banks</span></li>
+                    <li><span class="disabled-link">Call Centers</span></li>
+                    <li><span class="disabled-link">Internet</span></li>
+                    <li><span class="disabled-link">Shops</span></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>📞 +503 9842-5783</p>
+                <p>✉ senya.sv@gmail.com</p>
+                <div class="socials">
+                    <div class="social-logo" role="img" aria-label="SENYA logo">
+                        <img src="img/Senyalogo.png" alt="Senya's logo in contact area">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr>
-    <div class="footer-bottom">
-        <p>© 2026 Senya. All Rights Reserved.</p>
-    </div>
-</footer><script src="js/senya-api.js"></script><script src="js/interpreter-earnings.js"></script><script src="js/interpreter-home.js"></script><script src="js/account-nav.js"></script></body></html>
+        <hr>
+        <div class="footer-bottom">
+            <p>© 2026 Senya. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="js/senya-api.js"></script>
+    <script src="js/interpreter-earnings.js"></script>
+    <script src="js/interpreter-home.js"></script>
+    <script src="js/account-nav.js"></script>
+</body>
+</html>

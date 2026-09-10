@@ -1787,3 +1787,128 @@ html[data-text-size="large"] :is(.category, .badge, .status-pill) {
   padding: 0;
   margin-bottom: 40px;
 }
+/* Layout Hero de 2 columnas como en la 1ª imagen */
+.interpreter-home {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal del Hero */
+.account-main.interpreter-home {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 32px;
+}
+
+/* Envoltura Hero Flex (Texto a la izquierda, Imagen a la derecha) */
+.hero-section-wrapper, 
+body.interpreter-view .account-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Ajuste del bloque de bienvenida */
+.welcome-content {
+    flex: 1;
+    max-width: 580px;
+    text-align: left;
+}
+
+/* Eyebrow rosa según la 2ª imagen */
+.welcome-content .eyebrow,
+.workspace-head .eyebrow {
+    color: #ff4f8b !important;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* Título azul grande como en la 1ª imagen */
+.welcome-content h1,
+#interpreterWelcome {
+    color: #2563eb;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.02em;
+}
+
+/* Texto de descripción */
+.welcome-content p {
+    color: #1e388a;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+/* Botón Azul tipo "Join SENYA" con sombra */
+.home-primary {
+    display: inline-block;
+    background: #2563eb;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
+}
+
+/* Ilustración lateral a la derecha */
+.welcome-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 50% 50% 40% 40% / 40% 40% 50% 50%;
+    background: radial-gradient(circle, rgba(255, 240, 247, 1) 0%, rgba(232, 240, 255, 0.5) 100%);
+    padding: 20px;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Ajuste responsive para móviles */
+@media (max-width: 900px) {
+    .hero-section-wrapper, 
+    body.interpreter-view .account-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .welcome-content h1 {
+        font-size: 36px;
+    }
+
+    .welcome-illustration {
+        width: 100%;
+        margin-top: 24px;
+    }
+}
