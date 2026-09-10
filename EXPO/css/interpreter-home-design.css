@@ -247,3 +247,9 @@ main.account-main.interpreter-home{width:min(1140px,calc(100% - 40px));margin-in
 .interpreter-dark .interpreter-home .status-badge-wrapper{background:#203553}
 @media(max-width:900px){.interpreter-home .interpreter-welcome{grid-template-columns:1fr}.interpreter-home .account-grid{grid-template-columns:1fr}.interpreter-home .hero-image-wrapper{max-width:380px}.interpreter-home .timeline-container{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.interpreter-home *{transition:none!important}.interpreter-home .account-card:hover,.interpreter-home .hero-img:hover{transform:none}}
+
+.interpreter-home .card-profile .card-img{object-fit:cover}
+.interpreter-view>.footer{width:100%;box-sizing:border-box}
+.interpreter-view .footer-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:24px}
+.interpreter-view .footer-column{min-width:0;overflow-wrap:anywhere}
+.interpreter-view .footer img{max-width:100%;height:auto}

@@ -662,12 +662,10 @@ body.sign-menu-open {
 }
 
 .interpreter-welcome {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  padding: 0;
-  margin-bottom: 40px;
+  padding: 40px;
+  border-radius: 28px;
+  background: linear-gradient(120deg, #e8f0ff, #fff0f7);
+  border: 1px solid #dce5ff;
 }
 
 .interpreter-welcome h1 {
@@ -788,7 +786,7 @@ body.interpreter-dark {
 }
 
 .interpreter-dark .interpreter-welcome {
-  background: transparent;
+  background: linear-gradient(120deg, #20345a, #392840);
   color: #e8eeff;
 }
 
@@ -814,8 +812,7 @@ body.interpreter-dark {
 
 @media (max-width: 600px) {
   .interpreter-welcome {
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 24px;
   }
   .interpreter-welcome h1 {
     font-size: 29px;
@@ -1466,7 +1463,327 @@ body.low-vision #serviceDetailsDialog:not([open]) {
   }
   .step-info,
   .cta-content,
-  .hero-left {
+  .hero-left,
+  .testimonial-card,
+  .user > div {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .service-info {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+  .service-info > div {
+    flex: 1 1 150px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    gap: 24px;
+  }
+  .hero-left h1 {
+    font-size: 2.25rem;
+    color: #2563eb;
+  }
+  .step {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .step-info {
+    padding: 16px;
+  }
+  .testimonial-card {
+    padding: 20px;
+  }
+  .testimonial-card .user {
+    flex-wrap: wrap;
+  }
+  .cta-content {
+    width: 100%;
+    padding: 12px;
+  }
+  .cta h2 {
+    font-size: 2rem;
+    color: #2563eb;
+  }
+  .cta-btn {
+    padding: 14px 20px;
+    max-width: 100%;
+  }
+}
+
+#senyaSignMenu .sign-video-label {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  #senyaSignMenu .sign-video-label {
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+    color: #1e388a;
+  }
+}
+
+@media (max-width: 1100px) {
+  .why-senya {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .why-left,
+  .why-right {
     min-width: 0;
   }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    padding: 16px;
+    gap: 24px;
+  }
+  .why-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 28px 20px;
+    box-sizing: border-box;
+  }
+  .why-icon {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-left h2 {
+    font-size: 2.25rem;
+    color: #2563eb;
+  }
+  .why-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+#senyaSignMenu .sign-panel-content {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+#senyaSignMenu .sign-video-card video {
+  display: block;
+  flex: none;
+  object-fit: contain;
+  min-height: 125px;
+}
+
+#senyaSignMenu .sign-video-play {
+  padding: 10px;
+  border: 1px solid #dce5ff;
+  border-radius: 12px;
+  background: #edf3ff;
+  color: #1e388a;
+  font: inherit;
+  cursor: pointer;
+}
+
+#senyaSignMenu .sign-video-play[hidden] {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  }
+  .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  }
+  .process-steps,
+  .steps-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .process-steps > *,
+  .steps-cards > * {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .about-hero-content,
+  .values-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .about-hero-text,
+  .about-hero-image,
+  .values-text,
+  .values-grid {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .stars:has(.star) {
+    gap: 2px;
+  }
+  .stars .star {
+    font-size: 28px;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 760px) {
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .socials a {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .main-wrapper:has(.login-container) {
+    height: auto;
+    max-height: none;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+  .login-container > .login-card {
+    order: -1;
+    flex: none;
+  }
+  .signin-page {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .signin-page > .signin-panel {
+    position: relative;
+    flex: none;
+    order: -1;
+    min-height: 100dvh;
+    z-index: 1;
+  }
+  .signin-page > .signin-image {
+    position: relative;
+    flex: none;
+    min-height: 320px;
+  }
+}
+
+#senyaSignMenu .sign-accessibility-button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 13px 18px;
+  border: 0;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff5798, #ff85b3);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px #ff579830;
+}
+
+#senyaSignMenu .sign-accessibility-button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.size-buttons {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size-buttons button {
+  min-height: 44px;
+  min-width: 44px;
+  height: auto;
+  padding: 10px 12px;
+  white-space: normal;
+}
+
+html[data-text-size="large"] :is(p, h1, h2, h3, h4, h5, h6, a, label, button) {
+  overflow-wrap: anywhere;
+}
+
+html[data-text-size="large"] :is(.login-btn, .create-account-btn, .action, .cta-btn, .primary, .secondary) {
+  height: auto;
+  min-height: 48px;
+  white-space: normal;
+}
+
+html[data-text-size="large"] :is(.card, .account-card, .why-card, .step-card, .input-box) {
+  min-width: 0;
+  height: auto;
+}
+
+html[data-text-size="large"] .input-box {
+  min-height: 56px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+html[data-text-size="large"] .size-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+html[data-text-size="large"] .size-buttons button {
+  flex: 1 1 75px;
+}
+
+html[data-text-size="large"] #senyaHeader .navbar-container {
+  flex-wrap: wrap;
+}
+
+html[data-text-size="large"] #senyaHeader nav {
+  min-width: 0;
+}
+
+html[data-text-size="large"] #senyaHeader .nav-links {
+  flex-wrap: wrap;
+  gap: 12px 22px;
+}
+
+html[data-text-size="large"] #senyaHeader .nav-links a {
+  white-space: normal;
+}
+
+@media (max-width: 600px) {
+  html[data-text-size="large"] .hero-left h1 {
+    line-height: 1.2;
+  }
+  html[data-text-size="large"] :is(.stats, .actions, .badges, .service-info, .form-row) {
+    flex-wrap: wrap;
+  }
+  html[data-text-size="large"] :is(.accessibility-panel, .interpreter-accessibility) {
+    width: min(100%, 380px);
+    box-sizing: border-box;
+  }
+  html[data-text-size="large"] .acc-card {
+    height: auto;
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+  html[data-text-size="large"] #senyaHeader .help-btn {
+    padding: 10px;
+  }
+}
+
+html[data-text-size="large"] :is(.category, .badge, .status-pill) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.interpreter-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 0;
+  margin-bottom: 40px;
 }
