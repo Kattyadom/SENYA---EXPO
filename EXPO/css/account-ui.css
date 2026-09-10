@@ -122,6 +122,7 @@ p, span, label, li {
   border: 1px solid #dce5ff;
   padding: 26px;
   border-radius: 22px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .account-card h2,
@@ -657,35 +658,30 @@ body.sign-menu-open {
   }
 }
 
+/* ============================================================
+   INTERPRETER HOME
+   ============================================================ */
+
 .interpreter-home {
   padding-top: 120px;
-}
-
-.interpreter-welcome {
-  padding: 40px;
-  border-radius: 28px;
-  background: linear-gradient(120deg, #e8f0ff, #fff0f7);
-  border: 1px solid #dce5ff;
-}
-
-.interpreter-welcome h1 {
-  font-size: 38px;
-  color: #2563eb;
-}
-
-.interpreter-welcome p {
-  max-width: 680px;
-  margin: 14px 0 22px;
-  color: #1e388a;
 }
 
 .home-primary {
   display: inline-block;
   background: #2563eb;
-  color: #ffffff;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 32px;
   border-radius: 50px;
-  padding: 14px 24px;
   text-decoration: none;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.38);
 }
 
 .profile-logout {
@@ -785,7 +781,8 @@ body.interpreter-dark {
   color: #e8eeff;
 }
 
-.interpreter-dark .interpreter-welcome {
+.interpreter-dark .interpreter-welcome,
+.interpreter-dark .hero-image-wrapper {
   background: linear-gradient(120deg, #20345a, #392840);
   color: #e8eeff;
 }
@@ -807,15 +804,6 @@ body.interpreter-dark {
 @media (min-width: 1101px) {
   #senyaHeader .interpreter-mobile-menu {
     display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .interpreter-welcome {
-    padding: 24px;
-  }
-  .interpreter-welcome h1 {
-    font-size: 29px;
   }
 }
 
@@ -1779,136 +1767,363 @@ html[data-text-size="large"] :is(.category, .badge, .status-pill) {
   max-width: 100%;
   box-sizing: border-box;
 }
-.interpreter-welcome {
+
+/* ---- Interpreter home hero (2-column layout) ---- */
+
+.account-main.interpreter-home {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 0 32px;
+}
+
+.hero-section-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
-  padding: 0;
-  margin-bottom: 40px;
-}
-/* Layout Hero de 2 columnas como en la 1ª imagen */
-.interpreter-home {
-    display: flex;
-    flex-direction: column;
+  gap: 48px;
+  padding-bottom: 32px;
 }
 
-/* Contenedor principal del Hero */
-.account-main.interpreter-home {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 32px;
-}
-
-/* Envoltura Hero Flex (Texto a la izquierda, Imagen a la derecha) */
-.hero-section-wrapper, 
-body.interpreter-view .account-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-/* Ajuste del bloque de bienvenida */
 .welcome-content {
-    flex: 1;
-    max-width: 580px;
-    text-align: left;
+  flex: 1 1 460px;
+  max-width: 520px;
 }
 
-/* Eyebrow rosa según la 2ª imagen */
 .welcome-content .eyebrow,
 .workspace-head .eyebrow {
-    color: #ff4f8b !important;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 12px;
+  color: #ff4f8b !important;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 14px;
 }
 
-/* Título azul grande como en la 1ª imagen */
 .welcome-content h1,
 #interpreterWelcome {
-    color: #2563eb;
-    font-size: 52px;
-    font-weight: 800;
-    line-height: 1.1;
-    margin: 0 0 16px 0;
-    letter-spacing: -0.02em;
+  color: #2563eb;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.12;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.02em;
 }
 
-/* Texto de descripción */
 .welcome-content p {
-    color: #1e388a;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 28px;
+  color: #1e388a;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 30px;
+  max-width: 46ch;
 }
 
-/* Botón Azul tipo "Join SENYA" con sombra */
-.home-primary {
-    display: inline-block;
-    background: #2563eb;
-    color: #ffffff !important;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.home-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
-}
-
-/* Ilustración lateral a la derecha */
 .welcome-illustration {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1 1 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    border-radius: 50% 50% 40% 40% / 40% 40% 50% 50%;
-    background: radial-gradient(circle, rgba(255, 240, 247, 1) 0%, rgba(232, 240, 255, 0.5) 100%);
-    padding: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 50% 50% 42% 42% / 42% 42% 50% 50%;
+  background: radial-gradient(circle, rgba(255, 240, 247, 1) 0%, rgba(232, 240, 255, 0.55) 100%);
+  padding: 22px;
 }
 
 .hero-img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
-/* Ajuste responsive para móviles */
 @media (max-width: 900px) {
-    .hero-section-wrapper, 
-    body.interpreter-view .account-main {
-        flex-direction: column;
-        text-align: center;
-    }
+  .hero-section-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+    padding-top: 16px;
+  }
+  .welcome-content {
+    max-width: 100%;
+  }
+  .welcome-content p {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .welcome-content h1,
+  #interpreterWelcome {
+    font-size: 34px;
+  }
+  .welcome-illustration {
+    width: 100%;
+    max-width: 320px;
+  }
+}
 
-    .welcome-content {
-        max-width: 100%;
-        text-align: center;
-    }
+/* ---- Cards: profile / availability / support ---- */
 
-    .welcome-content h1 {
-        font-size: 36px;
-    }
+.cards-section {
+  padding-top: 8px;
+}
 
-    .welcome-illustration {
-        width: 100%;
-        margin-top: 24px;
-    }
+.card-image-box {
+  margin: -26px -26px 20px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 22px 22px 0 0;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-profile .card-img {
+  object-position: center 38%;
+}
+
+.card-availability .card-img {
+  object-position: center 25%;
+}
+
+.card-support .card-img {
+  object-position: center 35%;
+}
+
+.account-card:hover {
+  border-color: #b9caf5;
+}
+
+.status-badge-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 10px;
+}
+
+.status-dot-pulse {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2ecc8f;
+  flex-shrink: 0;
+}
+
+.status-box {
+  background: #edf3ff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: #4a5f9c;
+  margin: 10px 0 18px;
+}
+
+.account-button-link {
+  display: inline-block;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.account-button-link.pink-text {
+  color: #ff4f8b;
+}
+
+.account-button-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .account-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 761px) {
+  .account-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- Workflow timeline ---- */
+
+.how-it-works-section {
+  padding: 56px 0 8px;
+}
+
+.section-header {
+  margin-bottom: 32px;
+}
+
+.eyebrow-small {
+  color: #ff4f8b;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.timeline-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 6px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: #dce5ff;
+}
+
+.timeline-item {
+  position: relative;
+  padding-top: 28px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2563eb;
+  box-shadow: 0 0 0 4px #dbe6ff;
+}
+
+.step-tag {
+  color: #ff4f8b;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.timeline-content h3 {
+  margin: 8px 0 6px;
+  font-size: 18px;
+}
+
+.timeline-content p {
+  font-size: 15px;
+  margin: 0;
+  max-width: 32ch;
+}
+
+@media (max-width: 760px) {
+  .timeline-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .timeline-line {
+    display: none;
+  }
+}
+
+/* ---- Earnings overview ---- */
+
+.senya-pricing-demo {
+  margin-top: 48px;
+  padding: 32px;
+  border: 1px solid #dce5ff;
+  border-radius: 24px;
+  background: #f8faff;
+}
+
+.demo-badge {
+  display: inline-block;
+  color: #ff4f8b;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  background: #ffe6ef;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.senya-pricing-demo h2 {
+  margin: 0 0 6px;
+}
+
+#earningsStatus {
+  font-size: 14px;
+  color: #5c6f9e;
+  margin: 0 0 20px;
+}
+
+.earnings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.earnings-grid > div {
+  background: #ffffff;
+  border: 1px solid #dce5ff;
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.earnings-grid span {
+  display: block;
+  font-size: 13px;
+  color: #5c6f9e;
+  margin-bottom: 6px;
+}
+
+.earnings-grid strong {
+  font-size: 24px;
+  color: #2563eb;
+}
+
+.earnings-rate-note {
+  font-size: 14px;
+  color: #1e388a;
+  margin: 0 0 16px;
+}
+
+#earningsHistory {
+  border-top: 1px solid #dce5ff;
+  margin-bottom: 16px;
+}
+
+#earningsHistory > * {
+  padding: 12px 2px;
+  border-bottom: 1px solid #e6ecfb;
+  font-size: 14px;
+  color: #1e388a;
+}
+
+#earningsHistory > *:last-child {
+  border-bottom: none;
+}
+
+.earnings-disclaimer {
+  font-size: 13px;
+  color: #7488b8;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .earnings-grid {
+    grid-template-columns: 1fr;
+  }
 }
