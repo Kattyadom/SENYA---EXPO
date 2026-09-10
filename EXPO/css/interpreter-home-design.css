@@ -269,3 +269,11 @@ main.account-main.interpreter-home{width:min(1140px,calc(100% - 40px));margin-in
 .interpreter-home .how-it-works-section{padding:28px 0;margin-bottom:28px}
 .interpreter-dark .interpreter-home .cards-section .account-button-link{background:#253e60;color:#dbe9ff}
 @media(max-width:1100px) and (min-width:901px){.interpreter-home .cards-section .account-card{padding:20px}}
+
+.interpreter-home .interpreter-welcome{min-height:540px;padding:40px 0;background:transparent;border:0;border-radius:0}
+.interpreter-home .hero-image-wrapper{background:none;max-width:620px;padding:0}
+.interpreter-home .hero-img{max-height:560px}
+.interpreter-home .interpreter-welcome h1{font-size:clamp(2.5rem,4.5vw,3.8rem)}
+.interpreter-home .interpreter-welcome p{font-size:1.05rem}
+.interpreter-dark .interpreter-home .interpreter-welcome{background:transparent}
+@media(max-width:900px){.interpreter-home .interpreter-welcome{min-height:0;padding:24px 0;gap:24px}.interpreter-home .hero-image-wrapper{max-width:460px}.interpreter-home .hero-img{max-height:400px}}
