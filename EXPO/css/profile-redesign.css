@@ -1,0 +1,23 @@
+.profile-redesign{max-width:1180px;margin-inline:auto}
+.profile-redesign .profile-heading{padding:28px 0}
+.profile-redesign .eyebrow{color:#e54686;font-weight:700;letter-spacing:.08em}
+.profile-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:28px;align-items:start}
+.profile-sidebar{padding:28px 22px;border:1px solid #dce5ff;border-radius:24px;background:linear-gradient(145deg,#eff5ff,#fff1f7);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;min-width:0}
+.profile-sidebar #profilePhoto{width:144px;height:144px;object-fit:cover;border:5px solid white;border-radius:50%;box-shadow:0 8px 25px #2859bd20}
+.profile-sidebar h2{font-size:1.4rem;overflow-wrap:anywhere}
+.profile-sidebar input{width:100%;min-width:0;font:inherit;font-size:.85rem}
+.profile-sidebar input::file-selector-button{padding:10px;border:0;border-radius:10px;background:#2860ee;color:white;cursor:pointer}
+.profile-sidebar button{width:100%;padding:12px;border:1px solid #cdddff;border-radius:12px;background:white;color:#245be4;font:inherit;cursor:pointer}
+.profile-sidebar .profile-logout{color:#ba215c;background:#ffe5ef;border-color:#ffcce0;margin-top:12px}
+.profile-sidebar #photoStatus{font-size:.85rem;line-height:1.5}
+.profile-content{min-width:0}.profile-content .account-grid{display:flex;flex-direction:column;gap:22px}
+.profile-content .account-card{width:100%;min-width:0;border-radius:22px;padding:clamp(18px,3vw,28px)}
+.profile-content #accountFields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.profile-content #accountFields label{min-width:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.profile-content #accountFields input{box-sizing:border-box;width:100%;min-width:0;border-radius:12px;padding:12px;font:inherit}
+.profile-content #accountFields button{grid-column:1/-1;justify-self:start;padding:13px 24px;border:0;border-radius:12px;background:#2860ee;color:white;font:inherit;cursor:pointer}
+.profile-content [hidden]{display:none!important}
+.profile-redesign #paymentHistory{margin-top:28px}
+.profile-redesign :is(button,a,input):focus-visible{outline:3px solid #f45b99;outline-offset:3px}
+.interpreter-dark .profile-sidebar{background:#1c2b44;color:#edf4ff}
+@media(max-width:760px){.profile-layout{grid-template-columns:1fr}.profile-sidebar{width:100%;box-sizing:border-box}.profile-content #accountFields{grid-template-columns:1fr}}
