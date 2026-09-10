@@ -277,3 +277,12 @@ main.account-main.interpreter-home{width:min(1140px,calc(100% - 40px));margin-in
 .interpreter-home .interpreter-welcome p{font-size:1.05rem}
 .interpreter-dark .interpreter-home .interpreter-welcome{background:transparent}
 @media(max-width:900px){.interpreter-home .interpreter-welcome{min-height:0;padding:24px 0;gap:24px}.interpreter-home .hero-image-wrapper{max-width:460px}.interpreter-home .hero-img{max-height:400px}}
+
+/* Give the larger hero breathing room below the floating navigation. */
+main.account-main.interpreter-home{padding-top:150px}
+.interpreter-home .interpreter-welcome{min-height:580px;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);padding:24px 0 48px}
+.interpreter-home .welcome-illustration{overflow:hidden;padding-block:48px}
+.interpreter-home .hero-image-wrapper{max-width:none}
+.interpreter-home .hero-img{width:100%;max-height:600px;transform:scale(1.2);transform-origin:center center}
+.interpreter-home .hero-img:hover{transform:scale(1.2)}
+@media(max-width:900px){main.account-main.interpreter-home{padding-top:135px}.interpreter-home .interpreter-welcome{grid-template-columns:1fr;min-height:0;padding:24px 0 40px}.interpreter-home .hero-image-wrapper{max-width:500px}.interpreter-home .hero-img{max-height:420px}}
