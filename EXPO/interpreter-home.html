@@ -1,1 +1,105 @@
-<!doctype html><html lang="en"><head><script src="js/auth-gate.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpreter home | SENYA</title><link rel="stylesheet" href="css/general.css"><link rel="stylesheet" href="css/account-ui.css"><script defer src="js/text-size.js"></script><link rel="stylesheet" href="css/pricing-demo.css"><script src="js/pricing-demo.js" defer></script></head><body class="interpreter-view"><header class="navbar" id="senyaHeader"><div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="opciones.html">Partner network</a></li><li><a href="profile.html">Profile</a></li><li><a href="about.html">About us</a></li><li><a href="soporte.html">Contact</a></li></ul></nav><div class="right-actions"><button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button></div></div></header><script src="js/nav-initial.js"></script><main class="account-main interpreter-home"><section class="interpreter-welcome"><p class="eyebrow">SENYA FOR INTERPRETERS</p><h1 id="interpreterWelcome">Your interpreter workspace</h1><p>Support accessible conversations. Review your appointments, manage your availability and keep your professional profile ready.</p><a class="home-primary" href="interpreter-dashboard.html">My appointments</a></section><div class="account-grid"><section class="account-card"><h2>Professional profile</h2><p id="homeVerification" role="status">Loading your verification status…</p><p id="homeSpecialties"></p><a class="account-button" href="profile.html">View my profile</a></section><section class="account-card"><h2>Ready to help?</h2><p id="homeAvailability">Loading your availability…</p><p>Keep My appointments open while you are available so you can respond to new requests.</p><a class="account-button" href="interpreter-dashboard.html">Manage availability</a></section><section class="account-card"><h2>How requests work</h2><p>1. Set yourself as available after verification.</p><p>2. Review a matching request and accept or decline.</p><p>3. Join the session when the appointment room opens.</p></section><section class="account-card"><h2>Need support?</h2><p>Contact SENYA for help with your account, verification or appointments.</p><a class="account-button" href="soporte.html">Contact us</a></section></div><section class="senya-pricing-demo" aria-labelledby="earningsTitle"><span class="demo-badge">YOUR EARNINGS</span><h2 id="earningsTitle">Earnings overview</h2><p id="earningsStatus" role="status">Loading earnings…</p><div class="earnings-grid"><div><span>This week · estimated</span><strong id="earningsWeek">—</strong></div><div><span>Total · estimated</span><strong id="earningsTotal">—</strong></div><div><span>Completed sessions</span><strong id="earningsCount">—</strong></div></div><p>$0.40 per recorded session minute, with a $2.00 minimum per completed session with recorded time.</p><div id="earningsHistory"></div><p>Estimates use recorded room duration, which may include waiting or disconnections. They are not a withdrawable balance. Payouts are not enabled. Weeks start on Monday in your local time.</p></section></main><script src="js/senya-api.js"></script><script src="js/interpreter-earnings.js"></script><script src="js/interpreter-home.js"></script><script src="js/account-nav.js"></script></body></html>
+<!doctype html><html lang="en"><head><script src="js/auth-gate.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpreter home | SENYA</title><link rel="stylesheet" href="css/general.css"><link rel="stylesheet" href="css/account-ui.css"><script defer src="js/text-size.js"></script><link rel="stylesheet" href="css/pricing-demo.css"><script src="js/pricing-demo.js" defer></script><link rel="stylesheet" href="css/interpreter-home-design.css"></head><body class="interpreter-view"><header class="navbar" id="senyaHeader"><div class="navbar-container"><a class="logo" href="index.html"><img src="img/Senyalogo.png" alt="SENYA"></a><nav id="senyaNavigation" aria-label="Main navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="opciones.html">Partner network</a></li><li><a href="profile.html">Profile</a></li><li><a href="about.html">About us</a></li><li><a href="soporte.html">Contact</a></li></ul></nav><div class="right-actions"><button class="help-btn" id="accessibilityBtn" type="button">Accessibility</button><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="senyaSignMenu"><span aria-hidden="true">☰</span></button></div></div></header><script src="js/nav-initial.js"></script><main class="account-main interpreter-home">
+        <!-- HERO SECTION CON IMAGEN PROTAGÓNICA -->
+        <section class="interpreter-welcome">
+            <div class="welcome-content">
+                <span class="eyebrow">SENYA FOR INTERPRETERS</span>
+                <h1 id="interpreterWelcome">Your interpreter workspace</h1>
+                <p>Support accessible conversations. Review your appointments, manage your availability and keep your professional profile ready.</p>
+                <div class="hero-buttons">
+                    <a class="home-primary" href="interpreter-dashboard.html">My appointments</a>
+                </div>
+            </div>
+            <div class="welcome-illustration">
+                <div class="hero-image-wrapper">
+                    <img src="img/woman.png" alt="Woman wearing a headset" class="hero-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE TARJETAS (CON ESPACIO PARA IMAGEN EN CADA UNA) -->
+        <section class="cards-section">
+            <div class="account-grid">
+                
+                <!-- CARD 1: Professional Profile -->
+                <article class="account-card card-profile">
+                    <div class="card-image-box">
+                        <img src="img/woman.png" alt="Professional wearing a headset" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h2>Professional profile</h2>
+                        <div class="status-badge-wrapper">
+                            <span class="status-dot-pulse"></span>
+                            <p id="homeVerification" role="status">Loading your verification status…</p>
+                        </div>
+                        <p id="homeSpecialties"></p>
+                        <a class="account-button-link" href="profile.html">View my profile &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- CARD 2: Ready to help -->
+                <article class="account-card card-availability">
+                    <div class="card-image-box">
+                        <img src="img/call.jpg" alt="Woman using a headset at a laptop" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h2>Ready to help?</h2>
+                        <p id="homeAvailability" class="status-box">Loading your availability…</p>
+                        <p class="card-desc">Keep My appointments open while you are available so you can respond to new requests.</p>
+                        <a class="account-button-link" href="interpreter-dashboard.html">Manage availability &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- CARD 3: Need Support -->
+                <article class="account-card card-support">
+                    <div class="card-image-box">
+                        <img src="img/call.jpg" alt="Support professional working at a laptop" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h2>Need support?</h2>
+                        <p class="card-desc">Contact SENYA for help with your account, verification or appointments.</p>
+                        <a class="account-button-link pink-text" href="soporte.html">Contact us &rarr;</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- WORKFLOW SECTION -->
+        <section class="how-it-works-section">
+            <div class="section-header">
+                <span class="eyebrow-small">WORKFLOW</span>
+                <h2>How requests work</h2>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="step-tag">STEP 01</span>
+                        <h3>Set availability</h3>
+                        <p>Set yourself as available after verification in your dashboard.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="step-tag">STEP 02</span>
+                        <h3>Review & Accept</h3>
+                        <p>Review incoming matching requests and choose to accept or decline.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="step-tag">STEP 03</span>
+                        <h3>Join Session</h3>
+                        <p>Join the secure video session when the appointment room opens.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section class="senya-pricing-demo" aria-labelledby="earningsTitle"><span class="demo-badge">YOUR EARNINGS</span><h2 id="earningsTitle">Earnings overview</h2><p id="earningsStatus" role="status">Loading earnings…</p><div class="earnings-grid"><div><span>This week · estimated</span><strong id="earningsWeek">—</strong></div><div><span>Total · estimated</span><strong id="earningsTotal">—</strong></div><div><span>Completed sessions</span><strong id="earningsCount">—</strong></div></div><p>$0.40 per recorded session minute, with a $2.00 minimum per completed session with recorded time.</p><div id="earningsHistory"></div><p>Estimates use recorded room duration, which may include waiting or disconnections. They are not a withdrawable balance. Payouts are not enabled. Weeks start on Monday in your local time.</p></section>
+</main><script src="js/senya-api.js"></script><script src="js/interpreter-earnings.js"></script><script src="js/interpreter-home.js"></script><script src="js/account-nav.js"></script></body></html>
