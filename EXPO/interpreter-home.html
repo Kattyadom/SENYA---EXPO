@@ -34,8 +34,8 @@
     <script src="js/nav-initial.js"></script>
     
     <main class="account-main interpreter-home" style="max-width: 1350px; margin: 0 auto; padding: 0 32px;">
-        <!-- HERO SECTION (Imagen más grande y sin ningún fondo degradado) -->
-        <div class="hero-section-wrapper" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 70px; padding-top: 150px;">
+        <!-- HERO SECTION (Ocupa la pantalla completa con degradado radial sutil detrás) -->
+        <div class="hero-section-wrapper" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; min-height: 85vh; padding-top: 100px; padding-bottom: 40px; box-sizing: border-box;">
             
             <!-- Columna de Texto -->
             <div class="welcome-content" style="flex: 1; min-width: 320px; text-align: left; padding-right: 20px;">
@@ -47,17 +47,22 @@
                 </div>
             </div>
 
-            <!-- Columna Ilustración (Sin fondo degradado y con la imagen en gran tamaño) -->
-            <div class="welcome-illustration" style="flex: 1.4; min-width: 360px; display: flex; justify-content: center; align-items: center;">
-                <div class="hero-image-wrapper" style="position: relative; width: 100%; max-width: 650px; background: transparent; display: flex; justify-content: center; align-items: center;">
-                    <img src="img/interpreter-hero.png" alt="Woman wearing a headset and communicating in sign language" class="hero-img" style="width: 100%; height: auto; object-fit: contain; display: block; transform: scale(1.4); transform-origin: center;">
+            <!-- Columna Ilustración con degradado sutil esférico de fondo -->
+            <div class="welcome-illustration" style="flex: 1.4; min-width: 360px; display: flex; justify-content: center; align-items: center; position: relative;">
+                
+                <!-- Glow/Degradado suave tipo aura igual al de la imagen -->
+                <div style="position: absolute; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 182, 217, 0.45) 0%, rgba(186, 215, 255, 0.5) 45%, rgba(255, 255, 255, 0) 70%); filter: blur(35px); z-index: 1; pointer-events: none;"></div>
+
+                <!-- Imagen principal por encima del degradado -->
+                <div class="hero-image-wrapper" style="position: relative; z-index: 2; width: 100%; max-width: 650px; background: transparent; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/interpreter-hero.png" alt="Woman wearing a headset and communicating in sign language" class="hero-img" style="width: 100%; height: auto; object-fit: contain; display: block; transform: scale(1.35); transform-origin: center;">
                 </div>
             </div>
 
         </div>
 
-        <!-- SECCIÓN DE TARJETAS -->
-        <section class="cards-section">
+        <!-- SECCIÓN DE TARJETAS (Aparecerá al hacer scroll) -->
+        <section class="cards-section" style="padding-top: 40px;">
             <div class="account-grid">
                 <!-- CARD 1: Professional Profile -->
                 <article class="account-card card-profile">
