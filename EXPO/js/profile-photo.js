@@ -8,6 +8,7 @@
   init(p){
    draft=p.preferences?.avatar;dirty=false;render();display(p);
    const input=get('profilePhotoFile'),remove=get('removeProfilePhoto');input.disabled=false;remove.disabled=false;
+   const choose=get("chooseProfilePhoto");choose.disabled=false;choose.onclick=()=>input.click();
    input.onchange=async()=>{
     const file=input.files[0];if(!file)return;
     if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>2097152){get('photoStatus').textContent='Choose a JPG, PNG or WebP up to 2 MB.';input.value='';return;}

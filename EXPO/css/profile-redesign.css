@@ -21,3 +21,21 @@
 .profile-redesign :is(button,a,input):focus-visible{outline:3px solid #f45b99;outline-offset:3px}
 .interpreter-dark .profile-sidebar{background:#1c2b44;color:#edf4ff}
 @media(max-width:760px){.profile-layout{grid-template-columns:1fr}.profile-sidebar{width:100%;box-sizing:border-box}.profile-content #accountFields{grid-template-columns:1fr}}
+
+/* Consistent navigation buttons inside the unified profile. */
+.profile-redesign .profile-sidebar>a,
+.profile-redesign .profile-content a.account-button,
+.profile-redesign #paymentHistory a{
+ display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
+ min-height:44px;max-width:100%;padding:12px 18px;border:1px solid #cadbff;
+ border-radius:14px;background:#edf3ff;color:#245be4;text-decoration:none;
+ font-weight:600;line-height:1.4;text-align:center;overflow-wrap:anywhere;
+ transition:background-color .2s,border-color .2s;
+}
+.profile-redesign .profile-sidebar>a{width:100%}
+.profile-redesign #paymentHistory a{margin-top:10px}
+.profile-redesign .profile-sidebar>a:hover,
+.profile-redesign .profile-content a.account-button:hover,
+.profile-redesign #paymentHistory a:hover{background:#dfeaff;border-color:#90b3ff}
+.interpreter-dark .profile-redesign .profile-sidebar>a,
+.interpreter-dark .profile-redesign .profile-content a.account-button{background:#233957;color:#dce9ff;border-color:#49668d}
