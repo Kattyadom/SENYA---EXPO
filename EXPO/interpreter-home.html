@@ -34,34 +34,34 @@
     <script src="js/nav-initial.js"></script>
     
     <main class="account-main interpreter-home" style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-        <!-- HERO SECTION AMPLIO (Full Viewport Height & Imagen Gigante con Glow Suave) -->
-        <div class="hero-section-wrapper" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 100vh; padding-top: 100px; padding-bottom: 60px; box-sizing: border-box; position: relative;">
+        <!-- HERO SECTION AMPLIO (Con la imagen desplazada hacia el extremo derecho) -->
+        <div class="hero-section-wrapper" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 100vh; padding-top: 100px; padding-bottom: 60px; box-sizing: border-box; position: relative; overflow: hidden;">
             
             <!-- Columna de Texto -->
-            <div class="welcome-content" style="flex: 1.1; min-width: 340px; text-align: left; padding-right: 20px; z-index: 2;">
+            <div class="welcome-content" style="flex: 1; min-width: 320px; text-align: left; padding-right: 20px; z-index: 2;">
                 <span class="eyebrow" style="color: #ff4f8b !important; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 16px;">SENYA FOR INTERPRETERS</span>
                 <h1 id="interpreterWelcome" style="color: #2563eb; font-size: 64px; font-weight: 800; line-height: 1.05; margin: 0 0 22px 0; letter-spacing: -0.03em;">Welcome, Milo</h1>
-                <p style="color: #1e388a; font-size: 21px; line-height: 1.6; margin-bottom: 38px; max-width: 540px;">Support accessible conversations. Review your appointments, manage your availability and keep your professional profile ready.</p>
+                <p style="color: #1e388a; font-size: 21px; line-height: 1.6; margin-bottom: 38px; max-width: 500px;">Support accessible conversations. Review your appointments, manage your availability and keep your professional profile ready.</p>
                 <div class="hero-buttons">
                     <a class="home-primary" href="interpreter-dashboard.html" style="display: inline-block; background: #2563eb; color: #ffffff !important; font-weight: 600; font-size: 18px; padding: 18px 42px; border-radius: 50px; text-decoration: none; box-shadow: 0 14px 32px rgba(37, 99, 235, 0.35); transition: transform 0.2s ease;">My appointments</a>
                 </div>
             </div>
 
-            <!-- Columna Ilustración (Imagen muy grande con degradado circular envolvente) -->
-            <div class="welcome-illustration" style="flex: 1.5; min-width: 380px; display: flex; justify-content: flex-end; align-items: center; position: relative;">
+            <!-- Columna Ilustración (Alineada completamente a la derecha) -->
+            <div class="welcome-illustration" style="flex: 1.4; min-width: 360px; display: flex; justify-content: flex-end; align-items: center; position: relative;">
                 
-                <!-- Degradado aura muy suave y amplio exactamente como en la referencia -->
-                <div style="position: absolute; right: 5%; width: 680px; height: 680px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 175, 215, 0.5) 0%, rgba(175, 210, 255, 0.55) 50%, rgba(255, 255, 255, 0) 75%); filter: blur(50px); z-index: 1; pointer-events: none;"></div>
+                <!-- Degradado aura muy suave ubicado a la derecha -->
+                <div style="position: absolute; right: -50px; width: 650px; height: 650px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 175, 215, 0.5) 0%, rgba(175, 210, 255, 0.55) 45%, rgba(255, 255, 255, 0) 70%); filter: blur(50px); z-index: 1; pointer-events: none;"></div>
 
-                <!-- Imagen que sobresale ampliamente -->
-                <div class="hero-image-wrapper" style="position: relative; z-index: 2; width: 100%; max-width: 780px; background: transparent; display: flex; justify-content: center; align-items: center;">
-                    <img src="img/interpreter-hero.png" alt="Woman wearing a headset and communicating in sign language" class="hero-img" style="width: 100%; height: auto; max-height: 85vh; object-fit: contain; display: block; transform: scale(1.55); transform-origin: center right;">
+                <!-- Imagen posicionada al borde derecho -->
+                <div class="hero-image-wrapper" style="position: relative; z-index: 2; width: 100%; max-width: 700px; background: transparent; display: flex; justify-content: flex-end; align-items: center;">
+                    <img src="img/interpreter-hero.png" alt="Woman wearing a headset and communicating in sign language" class="hero-img" style="width: 100%; height: auto; max-height: 85vh; object-fit: contain; display: block; transform: scale(1.4); transform-origin: center right; margin-right: -40px;">
                 </div>
             </div>
 
         </div>
 
-        <!-- SECCIÓN DE TARJETAS (Oculta en la primera vista hasta hacer scroll) -->
+        <!-- SECCIÓN DE TARJETAS (Aparece al bajar con la barra de scroll) -->
         <section class="cards-section" style="padding-top: 60px;">
             <div class="account-grid">
                 <!-- CARD 1: Professional Profile -->
