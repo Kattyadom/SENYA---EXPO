@@ -253,3 +253,19 @@ main.account-main.interpreter-home{width:min(1140px,calc(100% - 40px));margin-in
 .interpreter-view .footer-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:24px}
 .interpreter-view .footer-column{min-width:0;overflow-wrap:anywhere}
 .interpreter-view .footer img{max-width:100%;height:auto}
+
+/* Text-first workspace cards, using SENYA's shared blue and pink palette. */
+.interpreter-home .cards-section{margin-bottom:48px}
+.interpreter-home .cards-section .account-card{padding:28px;border-radius:24px;gap:18px;box-shadow:0 8px 28px #245be410;border:1px solid #dce5ff;height:auto}
+.interpreter-home .workspace-card-label{font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e34686}
+.interpreter-home .cards-section .card-body{padding:0;gap:14px}
+.interpreter-home .cards-section .card-body h2{margin:0;font-size:1.35rem;min-height:0}
+.interpreter-home .cards-section .card-body p{margin:0;min-height:0;line-height:1.65}
+.interpreter-home .cards-section .account-button-link{display:flex;align-items:center;justify-content:center;min-height:46px;padding:12px 16px;margin-top:auto;border-radius:14px;background:#edf3ff;color:#245be4;text-align:center;line-height:1.4;text-decoration:none}
+.interpreter-home .cards-section .account-button-link:hover{background:#dfeaff}
+.interpreter-home .cards-section .pink-text{background:#fff0f6;color:#b92e65}
+.interpreter-home .cards-section .status-badge-wrapper{border-radius:12px;padding:10px;align-items:flex-start}
+.interpreter-home .cards-section .status-dot-pulse{margin-top:6px}
+.interpreter-home .how-it-works-section{padding:28px 0;margin-bottom:28px}
+.interpreter-dark .interpreter-home .cards-section .account-button-link{background:#253e60;color:#dbe9ff}
+@media(max-width:1100px) and (min-width:901px){.interpreter-home .cards-section .account-card{padding:20px}}
