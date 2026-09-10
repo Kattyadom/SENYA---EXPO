@@ -40,6 +40,6 @@
 .interpreter-dark .profile-redesign .profile-sidebar>a,
 .interpreter-dark .profile-redesign .profile-content a.account-button{background:#233957;color:#dce9ff;border-color:#49668d}
 
-main.account-main.profile-redesign{padding-top:160px;padding-bottom:64px}
+main.account-main.profile-redesign{padding-top:100px;padding-bottom:64px}
 .profile-redesign+.footer{margin-top:32px;width:100%;box-sizing:border-box}
-@media(max-width:600px){main.account-main.profile-redesign{padding-top:140px;padding-bottom:40px}}
+@media(max-width:600px){main.account-main.profile-redesign{padding-top:100px;padding-bottom:40px}}
