@@ -1,0 +1,27 @@
+/* Scoped appointment waiting room: shared SENYA colors and rounded cards. */
+main.waiting-container{width:min(1140px,calc(100% - 40px));margin:0 auto;padding:150px 0 64px;background:transparent;min-height:0;overflow:visible;border-radius:0}
+.waiting-container::before,.waiting-container::after{display:none}
+.waiting-container .waiting-content{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr);gap:28px;align-items:start;padding:0;margin:0}
+.waiting-container .connecting-card{grid-column:1;grid-row:1;width:100%;min-width:0;box-sizing:border-box;padding:clamp(24px,4vw,44px);background:#fff;border:1px solid #dce5ff;border-radius:28px;box-shadow:0 12px 36px #245be410;text-align:center}
+.waiting-container .connecting-card h2{font-size:clamp(1.65rem,3vw,2.25rem);line-height:1.25;color:#2860ee;margin:0 0 24px;overflow-wrap:anywhere}
+.waiting-container .waiting-symbol{display:grid;place-items:center;width:88px;height:88px;background:#edf3ff;border-radius:28px;color:#2860ee;margin:0 auto 24px;box-shadow:8px 8px 0 #fff0f6}
+.waiting-symbol svg{width:48px;height:48px}
+.waiting-container .status-text{font-size:1rem;line-height:1.7;color:#526481;margin:20px 0;overflow-wrap:anywhere}
+.waiting-container .request-summary-box{background:#f5f8ff;border:1px solid #e1eaff;border-radius:16px;padding:18px;text-align:left;margin:24px 0}
+.waiting-container .request-summary-box p{color:#20345b;line-height:1.7;overflow-wrap:anywhere;margin:6px 0}
+.waiting-container .progress-bar{height:6px;border-radius:20px;background:#e9effc;margin:24px 0;overflow:hidden}
+.waiting-container .progress-fill{height:100%;background:#2860ee;border-radius:20px;transition:width .3s}
+.waiting-container .connecting-card a{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:12px 22px;border-radius:14px;background:#edf3ff;color:#245be4;font-weight:600;text-decoration:none;box-sizing:border-box;max-width:100%;white-space:normal}
+.waiting-container .connecting-card a.help-btn{background:#2860ee;color:white}
+.waiting-container .cancel-btn{padding:12px 24px;min-height:44px;border:1px solid #ffcce0;border-radius:14px;background:#fff0f6;color:#b92e65;font:inherit;font-weight:600;cursor:pointer;max-width:100%}
+.waiting-container .cancel-btn:disabled{opacity:.5;cursor:default}
+.waiting-container .tips-card{grid-column:2;grid-row:1;width:100%;min-width:0;box-sizing:border-box;background:#f7f9ff;border:1px solid #e1eaff;border-radius:24px;padding:28px;box-shadow:none}
+.waiting-container .tips-card h2{color:#20345b;font-size:1.3rem;line-height:1.4;margin-bottom:24px}
+.waiting-container .tip-box{display:flex;align-items:flex-start;gap:14px;padding:0;margin:0 0 22px;background:transparent;border:0;box-shadow:none}
+.waiting-container .tip-box:last-child{margin-bottom:0}
+.waiting-container .tip-icon{flex:0 0 40px;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:white;font-size:1.2rem}
+.waiting-container .tip-box h3{color:#245be4;font-size:1rem;margin-bottom:6px}
+.waiting-container .tip-box p{color:#526481;font-size:.95rem;line-height:1.6;overflow-wrap:anywhere}
+.waiting-container :is(a,button):focus-visible{outline:3px solid #f45b99;outline-offset:4px}
+@media(max-width:760px){main.waiting-container{width:calc(100% - 28px);padding-top:130px}.waiting-container .waiting-content{grid-template-columns:minmax(0,1fr)}.waiting-container .tips-card{grid-column:1;grid-row:2}.waiting-container .connecting-card{grid-column:1;grid-row:1}}
+@media(prefers-reduced-motion:reduce){.waiting-container .progress-fill{transition:none}}
