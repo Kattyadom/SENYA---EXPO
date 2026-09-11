@@ -146,12 +146,12 @@
                     <label for="specialty"><i class="fa-solid fa-briefcase"></i> Service specialty</label>
                     <select id="specialty" required>
                         <option value="">Choose the service area</option>
-                        <option>Banking</option>
-                        <option>Healthcare</option>
-                        <option>Government</option>
-                        <option>Telecommunications</option>
-                        <option>Utilities</option>
-                        <option>General</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Government">Government</option>
+                        <option value="Telecommunications">Telecommunications</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="General">General</option>
                     </select>
                 </div>
 
@@ -182,7 +182,7 @@
 <p id="demoPackageSummary" role="status"></p><p>Pricing: the full time block applies even if you finish early. Unused minutes do not reduce the package price. Additional time is estimated at $0.70 per minute, prorated by seconds and rounded to cents.</p>
 <details><summary>Estimate your session total</summary><label for="demoMinutes">Example call length in minutes</label><input type="number" id="demoMinutes" min="0" max="240" step="1" value="20"><p id="demoEstimate" role="status"></p><p>Interpreter estimate: $0.40 per minute, with a $2.00 minimum for a session with time used. Amounts shown are estimates. Payment processing is not enabled.</p></details>
 <label class="demo-consent"><input id="demoConsent" type="checkbox" required><span>I have reviewed the package price and additional-time rate.</span></label></section>
-<div class="form-actions">
+<p id="requestSubmitStatus" role="status" style="line-height:1.6;overflow-wrap:anywhere"></p><div class="form-actions">
                     <button type="button" class="btn-cancel" onclick="window.location.href='opciones.html'">Cancel</button>
                     <button type="submit" class="btn-submit">
                         <i class="fa-solid fa-headset"></i> Continue to payment

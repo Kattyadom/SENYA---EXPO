@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
  type.onchange=()=>{date.parentElement.hidden=type.value!=='scheduled';date.required=type.value==='scheduled';};
  type.value=params.get('type')==='scheduled'?'scheduled':'immediate';type.onchange();
  const id=crypto.randomUUID();
- form.onsubmit=async e=>{e.preventDefault();button.disabled=true;try{
+ form.onsubmit=async e=>{e.preventDefault();button.disabled=true;const feedback=document.getElementById("requestSubmitStatus");if(feedback)feedback.textContent="";try{
  const scheduled=type.value==='scheduled'?new Date(date.value).toISOString():null;
  const name=serviceInput.value.trim();if(!name)throw Error('Enter the service or organization you need help with.');
  const details=document.getElementById('details').value;
@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded',async()=>{
  const plan=demo?.plans.find(p=>p.minutes===Number(document.getElementById('demoPackage').value));
  const requestDetails=demo?demo.pack(plan?.minutes,details+'\nPayment: simulated card payment, no bank charge.'):details;
  if(demo){if(!window.SenyaPaymentPreview)throw Error('Checkout could not load. Please reload and try again.');if(!await window.SenyaPaymentPreview.confirm(plan))return;}
+ if(feedback){feedback.textContent='Submitting your appointment…';feedback.scrollIntoView?.({block:'center'});}
  const result=await Senya.rpc('create_request',{p_id:id,p_service:name,p_language:document.getElementById('languageType').value,p_specialty:document.getElementById('specialty').value,p_details:requestDetails,p_scheduled_at:scheduled});
  if(demo)window.SenyaPaymentPreview.record(result,plan);
  location.href='espera.html?id='+encodeURIComponent(result);
- }catch(err){Senya.error(err);}finally{button.disabled=false;}};
+ }catch(err){Senya.error(err);if(feedback){feedback.textContent='Could not submit your appointment: '+err.message;feedback.scrollIntoView?.({block:'center'});}}finally{button.disabled=false;}};
 });
