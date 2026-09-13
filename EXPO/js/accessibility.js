@@ -33,6 +33,8 @@ function googleTranslateElementInit() {
 }
 
 (function loadGoogleTranslate() {
+    // Authentication pages own their opt-in translation initialization.
+    if (window.senyaAuthLanguage) return;
     if (!document.getElementById('google_translate_element')) {
         const div = document.createElement('div');
         div.id = 'google_translate_element';
