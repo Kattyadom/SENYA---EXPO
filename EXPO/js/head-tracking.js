@@ -16,6 +16,25 @@ const CURSOR_SMOOTHING = 0.35;
 let cursorElement = null;
 let tiempoDetenido = 0;
 let ultimoBotonBajoCursor = null;
+let dwellClicked = false;
+function resetDwell() {
+    tiempoDetenido = 0;
+    ultimoBotonBajoCursor = null;
+    dwellClicked = false;
+}
+function updateDwell(target, now) {
+    if (!target || target.disabled || target.closest('[inert], [aria-disabled="true"]')) { resetDwell(); return; }
+    if (target !== ultimoBotonBajoCursor) {
+        ultimoBotonBajoCursor = target;
+        tiempoDetenido = now;
+        dwellClicked = false;
+    } else if (!dwellClicked && now - tiempoDetenido >= 1500) {
+        // Require leaving the target before another activation.
+        dwellClicked = true;
+        target.focus?.({ preventScroll: true });
+        target.click();
+    }
+}
 
 async function iniciarHeadTracking(esAutoInicio = false) {
     if (starting || webcamRunning) return;
@@ -69,28 +88,25 @@ async function iniciarHeadTracking(esAutoInicio = false) {
 
         // Reuse the call stream instead of opening the same camera twice.
         ownsMediaStream = !callVideo;
-        const acquired = callVideo ? callVideo.srcObject : await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+        const acquired = callVideo ? callVideo.srcObject : await navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 640 }, height: { ideal: 480 } }, audio: false });
         if(generation!==startGeneration){if(!callVideo)acquired.getTracks().forEach(track=>track.stop());return;}
         mediaStream = acquired;
         videoElement.muted = true;
         videoElement.srcObject = mediaStream;
         
-        videoElement.onloadedmetadata = () => {
-            if(generation!==startGeneration)return;
-            videoElement.play();
-            webcamRunning = true;
-            
-            // Guardar en el navegador que el sistema está activo
-            localStorage.setItem('senyaHeadTrackingActive', 'true');
-
-            const botonActivar = document.getElementById('activarHeadTracking');
-            if (botonActivar) botonActivar.style.background = '#e0f2fe';
-
-            if (!esAutoInicio) {
-                alert("Head-controlled cursor and navigation enabled!");
-            }
-            predecirMovimiento();
-        };
+        await videoElement.play();
+        if (generation !== startGeneration) return;
+        const track = mediaStream.getVideoTracks()[0];
+        if (!track || track.readyState === 'ended') throw new Error('Camera is unavailable');
+        track.addEventListener('ended', () => {
+            if (generation === startGeneration) detenerHeadTracking(true);
+        }, { once: true });
+        webcamRunning = true;
+        resetDwell();
+        localStorage.setItem('senyaHeadTrackingActive', 'true');
+        const button = document.getElementById('activarHeadTracking');
+        if (button) { button.style.background = '#e0f2fe'; button.setAttribute('aria-pressed', 'true'); }
+        predecirMovimiento();
 
     } catch (error) {
         if(generation!==startGeneration)return;
@@ -98,16 +114,16 @@ async function iniciarHeadTracking(esAutoInicio = false) {
         if (!esAutoInicio) {
             alert("Unable to start the camera. Check your camera permissions.");
         }
-        webcamRunning = false;
-        localStorage.removeItem('senyaHeadTrackingActive');
-        if (cursorElement) cursorElement.style.display = 'none';
+        detenerHeadTracking(true);
     } finally {
-        starting = false;
+        if (generation === startGeneration) starting = false;
     }
 }
 
 function detenerHeadTracking(silent=false) {
     ++startGeneration;
+    starting = false;
+    resetDwell();
     webcamRunning = false;
     localStorage.removeItem('senyaHeadTrackingActive'); // Borrar estado guardado
 
@@ -128,7 +144,7 @@ function detenerHeadTracking(silent=false) {
     }
 
     const botonActivar = document.getElementById('activarHeadTracking');
-    if (botonActivar) botonActivar.style.background = '';
+    if (botonActivar) { botonActivar.style.background = ''; botonActivar.setAttribute('aria-pressed', 'false'); }
 
     if(!silent)alert("Head control disabled.");
 }
@@ -141,7 +157,9 @@ function predecirMovimiento() {
 
     if (videoElement.readyState >= 2 && videoElement.currentTime !== lastVideoTime) {
         lastVideoTime = videoElement.currentTime;
-        const results = faceLandmarker.detectForVideo(videoElement, performance.now());
+        let results;
+        try { results = faceLandmarker.detectForVideo(videoElement, performance.now()); }
+        catch (error) { console.error('Head control tracking failed:', error); detenerHeadTracking(true); return; }
 
         if (results.faceLandmarks && results.faceLandmarks.length > 0) {
             const nariz = results.faceLandmarks[0][1]; 
@@ -163,34 +181,9 @@ function predecirMovimiento() {
 
             const elementoBajoCursor = document.elementFromPoint(posXSuavizada, posYSuavizada);
             window.dispatchEvent(new CustomEvent('senya:head-pointer', { detail: { element: elementoBajoCursor } }));
-            const esClickeable = elementoBajoCursor && (
-                elementoBajoCursor.tagName === 'BUTTON' || 
-                elementoBajoCursor.tagName === 'A' || 
-                elementoBajoCursor.closest('button') || 
-                elementoBajoCursor.closest('a')
-            );
-
-            if (esClickeable) {
-                const objetivo = elementoBajoCursor.tagName === 'BUTTON' || elementoBajoCursor.tagName === 'A' 
-                    ? elementoBajoCursor 
-                    : elementoBajoCursor.closest('button') || elementoBajoCursor.closest('a');
-
-                if (objetivo === ultimoBotonBajoCursor) {
-                    tiempoDetenido += 50; 
-                    if (tiempoDetenido >= 1500) {
-                        objetivo.click();
-                        tiempoDetenido = 0; 
-                        cursorElement.style.backgroundColor = '#10b981';
-                        setTimeout(() => cursorElement.style.backgroundColor = '#2563eb', 300);
-                    }
-                } else {
-                    ultimoBotonBajoCursor = objetivo;
-                    tiempoDetenido = 0;
-                }
-            } else {
-                ultimoBotonBajoCursor = null;
-                tiempoDetenido = 0;
-
+            const objetivo = elementoBajoCursor?.closest('button, a, input, textarea, select, summary, [role="button"]');
+            updateDwell(objetivo, performance.now());
+            if (!objetivo) {
                 const centroPantallaY = window.innerHeight / 2;
                 const distanciaCentro = posYSuavizada - centroPantallaY;
 
@@ -199,6 +192,9 @@ function predecirMovimiento() {
                     window.scrollBy({ top: velocidadScroll, behavior: 'auto' });
                 }
             }
+        } else {
+            resetDwell();
+            window.dispatchEvent(new CustomEvent('senya:head-pointer', { detail: { element: null } }));
         }
     }
 
@@ -217,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (botonActivar) {
         botonActivar.addEventListener('click', () => {
-            if (!webcamRunning) {
+            if (!webcamRunning && !starting) {
                 iniciarHeadTracking(false);
             } else {
                 detenerHeadTracking();
@@ -230,3 +226,13 @@ window.addEventListener('senya-call-media-ready', () => {
 });
 
 window.addEventListener("senya:reset-accessibility",()=>detenerHeadTracking(true));
+
+// Release the camera when navigating away, preserving the user's preference.
+window.addEventListener('pagehide', () => {
+    const resume = webcamRunning || starting;
+    detenerHeadTracking(true);
+    if (resume) localStorage.setItem('senyaHeadTrackingActive', 'true');
+});
+window.addEventListener('pageshow', event => {
+    if (event.persisted && localStorage.getItem('senyaHeadTrackingActive') === 'true') iniciarHeadTracking(true);
+});
