@@ -263,67 +263,72 @@ function speakText(text) {
     synth.speak(utterance);
 }
 
-function extractText(element) {
-    if (!element) return '';
-    const clone = element.cloneNode(true);
-    clone.querySelectorAll('img[alt]').forEach(img=>img.replaceWith(document.createTextNode(img.alt)));
-
-    // Elimina iconos para no leer código extra
-    const icons = clone.querySelectorAll('i, svg, .icon, .acc-icon, [class*="fa-"]');
-    icons.forEach(icon => icon.remove());
-
-    return (clone.textContent || clone.innerText || '').replace(/\s+/g, ' ').trim();
+function speechHidden(element) {
+    if (element.closest('[hidden], [aria-hidden="true"], [inert], script, style, template')) return true;
+    for (let node = element; node; node = node.parentElement) {
+        const style = window.getComputedStyle(node);
+        if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse') return true;
+    }
+    return false;
 }
 
-// Evento de paso del mouse optimizado
+function extractText(element, visited = new Set()) {
+    if (!element || visited.has(element) || speechHidden(element)) return '';
+    visited.add(element);
+    const clean = value => (value || '').replace(/\s+/g, ' ').trim();
+    const labelled = element.getAttribute('aria-labelledby');
+    if (labelled) {
+        const text = labelled.split(/\s+/).map(id => extractText(document.getElementById(id), visited)).filter(Boolean).join(' ');
+        if (text) return text;
+    }
+    const label = clean(element.getAttribute('aria-label'));
+    if (label) return label;
+    if (element.matches('img, input[type="image"]')) return clean(element.getAttribute('alt') || element.getAttribute('title'));
+    if (element.matches('input, textarea, select')) {
+        // Read the field name, never passwords or other entered personal data.
+        const labels = Array.from(element.labels || []).map(label => clean(label.textContent)).filter(Boolean).join(' ');
+        return labels || clean(element.getAttribute('placeholder') || element.getAttribute('title'));
+    }
+    if (element.matches('svg')) return clean(element.querySelector('title')?.textContent);
+    if (element.matches('i, .icon, .acc-icon, [class*="fa-"]')) return clean(element.getAttribute('title'));
+    const text = Array.from(element.childNodes).map(node => {
+        if (node.nodeType === 3) return node.textContent;
+        return node.nodeType === 1 ? extractText(node, visited) : '';
+    }).join(' ');
+    return clean(text) || clean(element.getAttribute('title'));
+}
+
 function readPointedElement(target) {
     if (!isSpeechActive) return;
     if (!target?.closest) { lastSpokenElement = null; return; }
-
-    // 1. Detección de tarjetas (Panel, Categorías, Servicios)
-    const cardEl = target.closest('.acc-card, .category-card, .why-card, .card, .testimonial-card');
-    if (cardEl) {
-        if (lastSpokenElement === cardEl) return;
-        lastSpokenElement = cardEl;
-
-        const textToRead = extractText(cardEl);
-        speakText(textToRead);
-        return;
-    }
-
-    // 2. Detección de botones y enlaces interactivos
-    const interactiveEl = target.closest('button, a, .help-btn, .primary, .secondary, .cta-btn');
-    if (interactiveEl) {
-        if (lastSpokenElement === interactiveEl) return;
-        lastSpokenElement = interactiveEl;
-
-        const textToRead = extractText(interactiveEl);
-        speakText(textToRead);
-        return;
-    }
-
-    // 3. Encabezados (h1, h2, h3, h4)
-    const headingEl = target.closest('h1, h2, h3, h4, h5, h6');
-    if (headingEl) {
-        if (lastSpokenElement === headingEl) return;
-        lastSpokenElement = headingEl;
-
-        speakText(extractText(headingEl));
-        return;
-    }
-
-    // 4. Parrafitos o textos sueltos
-    const textEl = target.closest('p, span, li, label');
-    if (textEl) {
-        if (lastSpokenElement === textEl) return;
-        lastSpokenElement = textEl;
-
-        speakText(extractText(textEl));
+    // A decorative icon can still belong to a named, readable control.
+    const control = target.closest('button, a, input, textarea, select, summary, [role="button"], [role="link"]');
+    if (speechHidden(control || target)) return;
+    const candidates = [
+        control,
+        target.closest('img, [role="img"]'),
+        target.closest('[aria-label], [aria-labelledby]'),
+        target.closest('h1, h2, h3, h4, h5, h6, p, li, label, td, th, dt, dd, figcaption, blockquote, legend, output'),
+        target.closest('span, strong, em, small, time'),
+        target.closest('.acc-card, .category-card, .why-card, .card, .testimonial-card'),
+        target
+    ];
+    for (const element of candidates) {
+        if (!element || element === document.body || element === document.documentElement) continue;
+        const text = extractText(element);
+        if (!text) continue;
+        if (lastSpokenElement === element) return;
+        lastSpokenElement = element;
+        speakText(text);
         return;
     }
     lastSpokenElement = null;
 }
 document.addEventListener('mouseover', event => readPointedElement(event.target), true);
+document.addEventListener('focusin', event => readPointedElement(event.target), true);
+document.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'touch') readPointedElement(event.target);
+}, true);
 window.addEventListener('senya:head-pointer', event => readPointedElement(event.detail?.element));
 
 document.addEventListener('mouseout', (event) => {
