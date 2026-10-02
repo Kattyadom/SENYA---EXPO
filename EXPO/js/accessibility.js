@@ -3,20 +3,25 @@
 // =====================================================
 let currentLang = localStorage.getItem('senyaLanguage') === 'es' ? 'es' : 'en';
 function readingLanguage() {
-    const selected = document.querySelector('.goog-te-combo')?.value;
-    if (selected === 'es' || selected === 'en') return selected;
-    // Google restores translation across pages even before its selector is ready.
-    const cookie = document.cookie.split(';').map(part => part.trim()).find(part => part.startsWith('googtrans='));
-    if (cookie) {
-        try {
-            const language = decodeURIComponent(cookie.slice('googtrans='.length)).split('/').pop();
-            if (language === 'es' || language === 'en') return language;
-        } catch (_) { /* Ignore malformed translation cookies. */ }
-    }
-    if (document.documentElement.lang.toLowerCase().startsWith('es')) return 'es';
-    return currentLang;
+    // The explicit selection is authoritative. Google may leave a Spanish
+    // cookie, HTML lang or selector value behind when restoring English.
+    return currentLang === 'es' ? 'es' : 'en';
 }
-document.addEventListener('change',event=>{if(event.target.matches?.('.goog-te-combo')){currentLang=event.target.value==='es'?'es':'en';localStorage.setItem('senyaLanguage',currentLang);synth?.cancel();lastSpokenElement=null;updateSpeechButtonUI();}}, true);
+
+function setReadingLanguage(language) {
+    currentLang = language === 'es' ? 'es' : 'en';
+    localStorage.setItem('senyaLanguage', currentLang);
+    synth?.cancel();
+    lastSpokenElement = null;
+    updateSpeechButtonUI();
+    updateLangButtonUI();
+}
+
+document.addEventListener('change', event => {
+    if (event.target.matches?.('.goog-te-combo')) {
+        setReadingLanguage(event.target.value);
+    }
+}, true);
 let isSpeechActive = false;
 let lastSpokenElement = null;
 const synth = window.speechSynthesis;
@@ -55,16 +60,7 @@ function translatePage(langCode, attempt=0) {
     if (select) {
         select.value = langCode;
         select.dispatchEvent(new Event('change'));
-        currentLang = langCode;
-        localStorage.setItem("senyaLanguage", currentLang);
-
-        if (synth && synth.speaking) {
-            synth?.cancel();
-            lastSpokenElement = null;
-        }
-        
-        updateSpeechButtonUI();
-        updateLangButtonUI();
+        setReadingLanguage(langCode);
     } else {
         if(attempt<20)translationRetry=setTimeout(() => translatePage(langCode,attempt+1), 200);
         else if(langToggleBtn)langToggleBtn.title='Translation is unavailable. Please try again later.';
